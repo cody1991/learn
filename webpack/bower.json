@@ -1,0 +1,16 @@
+{
+  "name": "learn-webpack",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cody1991/goodgoodstudydaydayup",
+  "authors": [
+    "cody1991 <476490767@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

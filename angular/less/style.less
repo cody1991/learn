@@ -1,0 +1,47 @@
+.container {
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    max-width: 640px;
+    position: relative;
+    margin: 0 auto;
+}
+
+* {
+    outline: none;
+    border-width: 0px;
+    transition: all 0.3s;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+input.ng-invalid {
+    border: 1px solid red;
+}
+
+input.ng-valid {
+    border: 1px solid green;
+}
+
+.button {
+    width: 150px;
+    margin: 20px auto;
+    display: block;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 100px;
+    &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+    }
+    &[disabled]{
+    	cursor: not-allowed;
+    }
+}

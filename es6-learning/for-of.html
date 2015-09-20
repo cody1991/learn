@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    (function() {
+        'use strict';
+
+        var myArray = ['first', 'second', 'third', 'second'];
+        myArray.name = 'expando';
+        for (var index = 0; index < myArray.length; index++) {
+            console.log(myArray[index]);
+        }
+
+        console.log('------------------------------------');
+
+        myArray.forEach(function(value, index) {
+            // es5
+            // 缺点 
+            // 不能使用break跳出，不能使用return从里面返回
+            console.log(index, value);
+        });
+
+        console.log('------------------------------------');
+
+        for (var index in myArray) {
+            // 缺点
+            // index是变量 "0","1","2"，不能进行比如 index + 1这样的运算
+            // 本身元素遍历，用户添加元素也会被遍历，比如有个myArray.name，那index会有等于name的时候，有时候数组原型链的也会被遍历
+            // 某些情况代码以任意顺序去遍历
+            console.log(myArray[index]);
+        }
+
+        console.log('------------------------------------');
+
+        for (var value of myArray) {
+            // 支持break continue return
+            console.log(value);
+        }
+
+        console.log('------------------------------------');
+
+        // for-of
+        // for-of 不仅仅是为数组设计，还可以用于类数组的对象，比如 DOM 对象的集合 NodeList。
+        for (var chr of 'cody') {
+            console.log(chr);
+        }
+
+        console.log('------------------------------------');
+
+        var mySet = new Set(myArray);
+        for (var word of mySet) {
+            console.log(word);
+        }
+
+        console.log('------------------------------------');
+
+        // Map 对象由键值对构成，遍历方式略有不同，你需要用两个独立的变量来分别接收键和值：
+        // 
+        // for (var [key, value] of phoneBookMap) {
+        //   console.log(key + "'s phone number is: " + value);
+        // }
+
+        // for-of 不能直接用来遍历对象的属性，如果你想遍历对象的属性，你可以使用 for-in 语句（for-in 就是用来干这个的），或者使用下面的方式：
+        // dump an object's own enumerable properties to the console;
+
+        var someObject = {
+            firstName: 'cody',
+            lastName: '1991'
+        }
+        console.log(Object.keys(someObject));
+        for (var key of Object.keys(someObject)) {
+            console.log(key + ": " + someObject[key]);
+        }
+
+    })();
+    </script>
+</body>
+
+</html>

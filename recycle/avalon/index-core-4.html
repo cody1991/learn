@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <style type="text/css">
+    p {
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>vm.$watch(prop, function(value, oldValue){ })
+        </p>
+        <p>prop为VM中的第一层属性，类型是string,boolean,number这些简单类型或是数组长度，当它们发生改变时，就会执行预先绑定的回调。 一般地，回调里有两个参数，第一个是新值value，第2个是旧值oldValue。 但prop为$all这个特殊的属性，它会在你修改VM中的任何第一层属性时，触发回调， 这时回调拥有三个参数，第一个是发生变动的属性的名字，第二个是新值，第三个是旧值。</p>
+        <p>如果目标对象是数组，那么只能监听它的长度变化，并只能跑到avalon.define的外面绑定$watch回调。 </p>
+        <p>如果你想监听二级或三级对象的属性时，需要跑到avalon.define的外面，定位到目标属性的父对象上添加$watch回调。
+        </p>
+        <code>
+            var model = avalon.define({
+     $id: "test",
+     data: {
+           xxx: 222,
+           yyy: 333
+     }
+})
+model.data.$watch("xxx", function(a,b){
+   //................
+})
+
+        </code>
+        <div ms-controller="test">
+            <p>prop: {{prop}}</p>
+            <p>propWatch: {{propWatch}}</p>
+            <p>array.length: {{array.size()}}</p>
+            <p>arrayWatch: {{arrayWatch}}</p>
+            <p>data.aaa: {{data.aaa}}</p>
+            <p>dataWatch: {{dataWatch}}</p>
+            <p>
+                <button ms-click="click" type="button">点我</button>
+            </p>
+        </div>
+        <hr/>
+        <div ms-controller="test-2">
+            <ul>
+                <li>aaa: {{aaa}}</li>
+                <li>bbb: {{bbb}}</li>
+                <li>ccc: {{ccc}}</li>
+                <li>ddd: {{ddd}}</li>
+            </ul>
+            <p>{{propWatch}}</p>
+            <p>
+                <button ms-click="click" type="button">点我</button>
+            </p>
+        </div>
+        <div ms-controller="test-3">
+            <input ms-duplex="phone" />
+        </div>
+    </div>
+    <script type="text/javascript" src="js/avalon.min.js"></script>
+    <script type="text/javascript" src="js/common-4.js"></script>
+</body>
+
+</html>

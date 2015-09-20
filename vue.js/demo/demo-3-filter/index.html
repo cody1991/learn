@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <p>一个 Vue.js 的过滤器本质上是一个函数，这个函数会接收一个值，将其处理并返回。过滤器在指令中由一个管道符 (|) 标记，并可以跟随一个或多个参数：
+            <br/>
+            < element directive="expression | filterId [args...]">
+                < /element>
+        </p>
+        <p>一些过滤器是可以接受参数的。参数用空格分隔开：
+            <br/>
+            < span>{{order | pluralize 'st' 'nd' 'rd' 'th'}}
+                < /span>
+                    <br/>
+                    < input v-on="keyup: submitForm | key 'enter'">
+                        < /p>
+                            <div id="demo">
+                                <p v-text="message | capitalize"></p>
+                                <p>{{message | capitalize }}</p>
+                            </div>
+    </div>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <script type="text/javascript" src="./common.js"></script>
+</body>
+
+</html>

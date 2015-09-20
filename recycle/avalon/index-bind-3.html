@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <style type="text/css">
+    p {
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container" ms-controller="test">
+        <p>
+            <input ms-attr-disabled='aaa' name="a1" value="12345">
+            <input ms-attr-readonly='aaa' name="a2" value="23456">
+            <input ms-attr-checked='aaa' name="a3" value="checkbox" type="checkbox">
+            <select name="a4">
+                <option>222</option>
+                <option ms-attr-selected="aaa">555</option>
+            </select>
+            <button type="button" ms-click="click">
+                点我
+            </button>
+            <input ms-attr-value="bbb + ccc" name="a5" value="改" />
+            <div style="width:200px;height:50px" ms-css-background="background">
+            </div>
+            <select ms-duplex="background">
+                <option value="red">红</option>
+                <option value="yellow">黄</option>
+                <option value="green">绿</option>
+            </select>
+
+            <div ms-data-aaa='bb' ms-data-bbb-ccc='1' ms-data-eee='vv' ms-click='dataClick'>click</div>
+        </p>
+    </div>
+    <script type="text/javascript" src="js/avalon.min.js"></script>
+    <script type="text/javascript" src="js/common-9.js"></script>
+</body>
+
+</html>

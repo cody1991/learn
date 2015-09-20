@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <fieldset ms-controller="array">
+            <legend>事例一</legend>
+            <ul ms-each-el="array">
+                <li>数组的第 {{$index + 1}} 元素为 {{el}} </li>
+            </ul>
+            <div>
+                <p>push操作</p>
+                <p>
+                    <input ms-keypress="push" />
+                </p>
+            </div>
+            <div>
+                <p>unshift</p>
+                <p>
+                    <input ms-keypress="unshift" />
+                </p>
+            </div>
+            <div>
+                <p>ensure</p>
+                <p>
+                    <input ms-keypress="ensure" />
+                </p>
+            </div>
+            <div>
+                <p>remove</p>
+                <p>
+                    <input ms-keypress="remove" />
+                </p>
+            </div>
+            <div>
+                <p>removeAt</p>
+                <p>
+                    <input ms-keypress="removeAt" />
+                </p>
+            </div>
+            <div>
+                <p>
+                    <button type="botton" ms-click="sort">Sort</button>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <button type="botton" ms-click="reverse">Reverse</button>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <button type="botton" ms-click="shift">shift</button>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <button type="botton" ms-click="pop">pop</button>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <button type="botton" ms-click="del">del</button>
+                </p>
+            </div>
+            <div>
+                <p>长度：{{array.size()}}</p>
+            </div>
+        </fieldset>
+        <fieldset ms-controller="collection">
+            <legend>事例二</legend>
+            <p>
+                <select ms-each-el="options" ms-duplex="selected">
+                    <option>{{el}}</option>
+                </select>
+            </p>
+            <p>
+                <select ms-duplex="trend">
+                    <option value="1">up</option>
+                    <option value="-1">down</option>
+                </select>
+            </p>
+            <table width="500px" border="1">
+                <tbody ms-each-el="data">
+                    <tr>
+                        <td>{{el.name}}</td>
+                        <td>{{el.size}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+    <script type="text/javascript" src="js/avalon.min.js"></script>
+    <script type="text/javascript" src="js/common-2.js"></script>
+</body>
+
+</html>

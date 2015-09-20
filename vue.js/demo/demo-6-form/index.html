@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <form id="demo">
+            <p>
+                <p>默认情况下，v-model 会在每个 input 事件之后同步输入的数据。你可以添加一个 lazy 特性，将其改变为在 change 事件之后才进行同步。</p>
+                <input type="text" v-model="msg" lazy> {{msg}}
+            </p>
+            <p>
+                <input v-model="age" number debounce="500"/>
+            </p>
+            <p>
+                <input type="checkbox" v-model="checked"> {{checked ? "yes" : "no"}}
+            </p>
+            <p>
+                <input type="radio" name="picked" value="one" v-model="picked" />
+                <input type="radio" name="picked" value="two" v-model="picked" /> {{picked}}
+            </p>
+            <p>
+                <select v-model="selected" options="myOptions">
+                </select>
+                {{selected}}
+            </p>
+            <p>
+                <select v-model="multiSelected" multiple options="myMutiOptions">
+                </select>
+                {{multiSelected}}
+            </p>
+            <p>
+                <select v-model="multiSelectedTwo" multiple options="myMutiOptionsTwo | extract 'name'">
+                </select>
+                {{multiSelectedTwo}}
+            </p>
+            <p>
+                <pre>
+data:{{$data | json}}                
+            </pre>
+            </p>
+        </form>
+    </div>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <script type="text/javascript" src="./common.js"></script>
+</body>
+
+</html>
