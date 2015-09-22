@@ -53,6 +53,49 @@
 
         console.log('------------------------------------');
 
+        // 实现一个 range(start,stop) 迭代器
+        // class RangeIterator {
+        //     constructor(start, stop) {
+        //         this.value = start;
+        //         this.stop = stop;
+        //     }
+
+        //     [Symbol.iterator]() {
+        //         return this;
+        //     }
+
+        //     next() {
+        //         var value = this.value;
+        //         if (value < this.stop) {
+        //             this.value++;
+        //             return {
+        //                 done: false,
+        //                 value: value
+        //             }
+        //         } else {
+        //             return {
+        //                 done: true,
+        //                 value: undefined
+        //             }
+        //         }
+        //     }
+        // }
+
+        // function range(start, stop) {
+        //     return new RangeIterator(start, stop);
+        // }
+
+
+        function* range(start, stop) {
+                for (var i = start; i < stop; i++) {
+                    yield i;
+                }
+            }
+            // 上面这 4 行代码就可以完全替代之前的那个 23 行的实现，替换掉整个 RangeIterator 类，这是因为 Generator 天生就是迭代器，所有的 Generator 都原生实现了 .next() 和 [Symbol.iterator]() 方法。你只需要实现其中的循环逻辑就够了。
+
+        for (var value of range(0, 3)) {
+            console.log(value);
+        }
     })();
     </script>
 </body>
