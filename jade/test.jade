@@ -1,0 +1,98 @@
+p.
+ hello
+ jade
+
+- console.log('hello jade');
+- var s = 'hello world'
+p #{s}
+p= s
+
+- var s = 'world'
+p hello #{s}
+p= 'hello ' + s
+
+p #{word}
+
+- var user = {description:'我喜欢猫'}
+
+#user
+- if (user.description)
+    h2 描述
+    p.description= user.description
+- else
+    h1 描述
+    p.description 用户无描述
+
+- var userTwo = {name:'Alan',isVip:false}
+unless user.isVip
+    p #{userTwo.name} 不是VIP.
+
+- var array = [1,2,3]
+ul
+    - for (var i = 0 ; i < array.length; ++i) {
+        li hello #{array[i]}
+    - }
+
+ul
+     each val,index in ['西瓜','苹果','梨子']
+        li= index + ': ' + val   
+
+ul
+    each val,index in {1:'苹果',2:'梨子',3:'乔布斯'}
+        li= index + ':' + val
+
+- var friends = 10
+case friends
+    when 0
+        p you have no friends
+    when 1
+        p you have a friend
+    default
+        p you have #{friends} friends
+
+:markdown
+    # Markdown 标题
+    这里使用的是 MarkDown 格式        
+
+
+
+// 可重用
+mixin list
+    ul
+        li foo
+        li bar
+        li baz
+
+// 调用
++list()
++list()      
+
+
+mixin pets(pets)
+    ul.pets
+        - each pet in pets
+            li= pet
+
++pets(['cat','dog','pig'])           
+
+mixin article(title)
+    .article
+        .article-wrapper
+            h1= title
+            // block 为 jade 关键字代表外部传入的块
+        if block
+            block
+        else
+            p 该文章没有内容
+
++article('Hello world')          
+
++article('Hello jade')
+    p 这是外部传入的block
+    p 再写多句
+
+
+mixin link(href,name)
+    a(class!=attributes.class, href=href)= name
+
++link('/foo','foo')(class="btn") 
