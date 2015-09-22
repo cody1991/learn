@@ -15,11 +15,12 @@
 <body>
     <div class="container" ng-app="demo">
         <div ng-controller="demo-controller">
-            <div my-directive my-url="http://www.baidu.com" my-text="Click me"></div>
+            <!-- <input ng-model="myUrl" type="text"> -->
+            <div my-directive some-attr="{{myUrl}}" my-text="Click me"></div>
         </div>
     </div>
     <script src="https://cdn.bootcss.com/angular.js/1.3.18/angular.js"></script>
-    <script src="./4-directive.js"></script>
+    <script src="./4-directive-introduction.js"></script>
 </body>
 
 </html>

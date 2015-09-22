@@ -15,7 +15,11 @@
         return {
             restrict: 'A',
             replace: true,
-            template: '<a href="{{myUrl}}">{{myText}}</a>'
+            template: '<div><input ng-model="myUrl" type="text"><a href="{{myUrl}}">{{myText}}</a></div>',
+            scope: {
+                myUrl: '@someAttr',
+                myText: '@'
+            }
         }
     });
 })();
