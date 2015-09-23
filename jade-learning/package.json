@@ -1,5 +1,5 @@
 {
-  "name": "node-learn",
+  "name": "jade-learning",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,6 @@
   "devDependencies": {
     "express": "^4.13.3",
     "jade": "^1.11.0",
-    "jstransformer-coffee-script": "^1.0.0",
     "jstransformer-markdown": "^1.1.0"
   }
 }

@@ -7,8 +7,14 @@ app.set('view engine', 'jade');
 app.set('views', __dirname);
 app.use(express.static(path.join(__dirname)))
 
-app.get('/', function(req, res) {
+app.get('/article', function(req, res) {
     res.render('article', {
+        word: 'word'
+    });
+});
+
+app.get('/', function(req, res) {
+    res.render('index', {
         word: 'word'
     });
 });

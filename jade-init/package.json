@@ -1,0 +1,17 @@
+{
+  "name": "jade-learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "jstransformer-coffee-script": "^1.0.0",
+    "jstransformer-markdown": "^1.1.0"
+  }
+}
