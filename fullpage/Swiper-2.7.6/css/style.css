@@ -1,0 +1,60 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.swiper-container {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  max-width: 640px;
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+.swiper-container .swiper-slide {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.swiper-container .swiper-slide.slide-1 {
+  background-color: #37c1e3;
+}
+.swiper-container .swiper-slide.slide-2 {
+  background-color: #092;
+}
+.swiper-container .swiper-slide.slide-3 {
+  background-color: #921;
+}
+.pagination {
+  position: absolute;
+  z-index: 20;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #555;
+  margin: 0 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-active-switch {
+  background: #fff;
+}
