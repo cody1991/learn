@@ -1,0 +1,9 @@
+extend ./layout
+block content
+  h2 Code
+  h3 Jade makes it possible to write inline JavaScript code in your templates. There are three types of code.    
+  hr
+  h2 Unbuffered Code
+  h3 Unbuffered code starts with - does not add any output directly, e.g.
+  - for(var x = 0 ; x < 3 ; x++)
+    li= 'item ' + x
