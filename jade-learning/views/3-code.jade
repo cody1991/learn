@@ -7,3 +7,19 @@ block content
   h3 Unbuffered code starts with - does not add any output directly, e.g.
   - for(var x = 0 ; x < 3 ; x++)
     li= 'item ' + x
+  h3 Jade also supports block unbuffered code:
+  - list = ["Uno","Dos","Tres","Cuatro","Cinco","Seis"]
+  each item in list
+    li= item
+  h2 Buffered Code
+  h3 Buffered code starts with = and outputs the result of evaluating the JavaScript expression in the template. For security, it is first HTML escaped:
+  p
+    = 'This code is <escaped>!'
+  h3 It can also be written inline with attributes, and supports the full range of JavaScript expressions:
+  p= 'This code is' +  ' <escaped>!'
+  h2 Unescaped Buffered Code
+  h3 Unescaped buffered code starts with != and outputs the result of evaluating the JavaScript expression in the template. This does not do any escaping, so is not safe for user input:
+  p
+    != 'This code is <strong>not</strong> escaped!'
+  h3 It can also be written inline with attributes, and supports the full range of JavaScript expressions:
+  p!= 'This code is ' + '<strong>not</strong> escaped!'

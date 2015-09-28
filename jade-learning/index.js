@@ -7,7 +7,7 @@ app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname)))
 
-var demoList = ['1-attributes', '2-case', '3-code'],
+var demoList = require('./demoListData.json').list,
     demoListLen = demoList.length;
 
 app.get('/', function(req, res) {
