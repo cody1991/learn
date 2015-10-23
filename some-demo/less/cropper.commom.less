@@ -1,0 +1,172 @@
+html,
+body {
+    height: 100%;
+}
+
+#image-editor {
+    display: none;
+    position: relative;
+    margin: 0 auto;
+    max-width: 640px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    .cropit-image-preview-container {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 15px;
+        #poster-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .cropit-image-background-container {
+            margin: 0 auto;
+            width: 100%;
+            .cropit-image-background {
+                opacity: .2;
+            }
+        }
+        .cropit-image-preview {
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+            background-size: cover;
+            border: 2px solid #ccc;
+            cursor: move;
+        }
+    }
+    .range-wrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 80%;
+        margin: 0 auto;
+        .cropit-image-zoom-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            height: 5px;
+            background-color: #eee;
+            border-radius: 5px;
+            outline: none;
+            width: 100%;
+            position: relative;
+            @thumb-size: 20px;
+            &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: @thumb-size;
+                height: @thumb-size;
+                background: #fff;
+                -webkit-border-radius: 100px;
+                border-radius: 100px;
+                -webkit-transition: background 0.25s;
+                -moz-transition: background 0.25s;
+                -o-transition: background 0.25s;
+                -ms-transition: background 0.25s;
+                transition: background 0.25s;
+            }
+            &::-moz-range-track {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                height: 5px;
+                background: #eee;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                outline: none
+            }
+            &::-moz-range-thumb {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: @thumb-size;
+                height: @thumb-size;
+                background: #fff;
+                -webkit-border-radius: 100px;
+                border-radius: 100px;
+                -webkit-transition: background 0.25s;
+                -moz-transition: background 0.25s;
+                -o-transition: background 0.25s;
+                -ms-transition: background 0.25s;
+                transition: background 0.25s;
+            }
+        }
+    }
+    .btn-group {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffff00;
+        color: #333333;
+        height: 40px;
+        line-height: 40px;
+        .btn {
+            position: relative;
+            width: 50%;
+            float: left;
+            p {
+                text-align: center;
+            }
+            .cropit-image-input {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+        }
+    }
+    .poster-list-wrapper {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 80%;
+        .poster-list {
+            margin: 0 auto;
+            li {
+                position: relative;
+                float: left;
+                span {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    display: block;
+                    border-radius: 100px;
+                    box-sizing: border-box;
+                    transition: all 0.2s;
+                }
+            }
+        }
+    }
+}
+
+#result {
+    background-color: #ddd;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: none;
+    .result-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        .item {
+            background-color: #fff;
+            padding: 20px 20px 70px 20px;
+            margin: 0 auto;
+            width: 90%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

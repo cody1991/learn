@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" href="./css/photostack.css?09">
+    <link rel="stylesheet" href="./css/cropper.commom.css">
+</head>
+
+<body>
+    <section id="photostack" class="photostack">
+        <div class="item-wrapper">
+            <figure data-color="color1">
+                <div class="photostack-img">
+                    <img src="images/1.jpg" />
+                </div>
+            </figure>
+            <figure data-color="color2">
+                <div class="photostack-img">
+                    <img src="images/2.jpg" />
+                </div>
+            </figure>
+            <figure data-color="color3">
+                <div class="photostack-img">
+                    <img src="images/3.jpg" />
+                </div>
+            </figure>
+            <figure data-color="color4">
+                <div class="photostack-img">
+                    <img src="images/4.jpg" alt="img07" />
+                </div>
+            </figure>
+            <figure data-color="color5">
+                <div class="photostack-img">
+                    <img src="images/5.jpg" alt="img07" />
+                </div>
+            </figure>
+            <figure data-color="color6">
+                <div class="photostack-img">
+                    <img src="images/6.jpg" alt="img07" />
+                </div>
+            </figure>
+        </div>
+    </section>
+    <div id="create">
+        <img src="./images/create.png">
+        <script>
+        function updatePic(source) {
+            var file = source.files[0];
+            var fileReader = new FileReader();
+
+            if (file && file.type.match('image')) {
+                fileReader.readAsDataURL(file);
+                fileReader.onload = function(e) {
+                    result = e.target.result;
+
+                    photostackEle.style.display = 'none';
+                    create.style.display = 'none';
+                    cropStart();
+                }
+            }
+        }
+        </script>
+        <input id='imagefile' type="file" accept="image/*" capture="filesystem" onchange="updatePic(this)">
+    </div>
+    <div id="image-editor">
+        <div class="cropit-image-preview-container">
+            <div class="cropit-image-preview">
+                <img id="poster-img">
+            </div>
+        </div>
+        <div class="range-wrapper">
+            <input type="range" class="cropit-image-zoom-input">
+        </div>
+        <div class="poster-list-wrapper">
+            <ul class="poster-list clearfix">
+        </div>
+        </ul>
+        <div class="btn-group clearfix">
+            <div class="btn">
+                <input type="file" class="cropit-image-input">
+                <p>重选照片</p>
+            </div>
+            <div class="btn" id="export">
+                <p>完成</p>
+            </div>
+        </div>
+    </div>
+    <div id="result">
+        <div class="result-wrapper">
+            <div class="item">
+                <img src="./images/1.jpg" id="result-img">
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/modernizr.min.js"></script>
+    <script src="./js/photostack.js?02"></script>
+    <script src="./js/exif.js"></script>
+    <script src="./js/jquery.cropit.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
