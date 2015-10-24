@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        {{#if showTests}}
+            <link rel="stylesheet" type="text/css" href="/vendor/mocha.css">
+        {{/if}}
+
+        <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+
+        <title>Meadowlark Travel</title>
+    </head>
+    <body>
+        <header>
+            <img src="/img/demo.png" alt="">
+        </header>
+        {{{body}}}
+        {{#if showTests}}
+            <div id="mocha"></div>
+            <script type="text/javascript" src="/vendor/mocha.js"></script>
+            <script type="text/javascript" src="/vendor/chai.js"></script>
+            <script type="text/javascript">
+            mocha.ui('tdd');
+            var assert = chai.assert;
+            </script>
+            <script type="text/javascript" src="/qa/tests-global.js"></script>
+            {{#if pageTestScript}}
+                <script type="text/javascript" src="{{pageTestScript}}"></script>
+            {{/if}}
+            <script type="text/javascript">
+            mocha.run();
+            </script>
+        {{/if}}
+    </body>
+</html>
