@@ -1,0 +1,39 @@
+{{#section 'head'}}
+    <meta name="robots" content="noindex">
+{{/section}}
+
+<h1>home</h1>
+
+<ul>
+    {{#each tours}}
+        <li>
+            {{name}} - {{price}}
+            {{#if ../currencies}}
+                ({{../../currency.abbrev}})
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
+
+{{#unless currencies}}
+    <p>All prices in {{currency.name}}</p>
+{{/unless}}
+
+{{#if specialsUrl}}
+    {{! I'm in a new block...but the context hasn't change (sortof)}}
+    <p>Check out our <a href="specialsUrl">specialsUrl</a></p>
+{{else}}
+    <p>Please check back often for specials.</p>
+{{/if}}
+
+<p>
+    {{#each currencies}}
+        {{!  . 指着 this }}
+
+        <a href="#" class="currency">{{.}}</a>
+    {{else}}
+        Unfortunately,we currently only accept {{currency.name}};
+    {{/each}}
+</p>
+
+{{> weather}}
