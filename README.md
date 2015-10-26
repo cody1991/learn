@@ -1,7 +1,5 @@
 #技术栈
 
-拥抱 jade
+拥抱 handlebars
 
-学习 augular node
-
-学习 webpack
+学习 node angular
