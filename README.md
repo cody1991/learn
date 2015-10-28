@@ -5,3 +5,5 @@
 学习 node angular
 
 感觉需要回去学学原生的JS
+
+测试下git2go
