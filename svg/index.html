@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <svg width="140" height="170">
+            <!-- 圆脸 -->
+            <circle cx="70" cy="95" r="50" style="stroke:blue;fill:none" />
+            <!-- 两个眼睛 -->
+            <circle cx="55" cy="80" r="5" stroke="black" fill="#339933" />
+            <circle cx="85" cy="80" r="5" stroke="black" fill="#339933" />
+            <!-- 放在一起的胡须 使用g把它们弄在一个小组-->
+            <g id="whiskers">
+                <line x1="75" y1="95" x2="135" y2="85" style="stroke:black" />
+                <line x1="75" y1="95" x2="135" y2="105" style="stroke:black" />
+            </g>
+            <!-- 可以使用use来服用 scale对x进行变形 -1 翻转坐标系 -->
+            <!-- 翻转了以后 本来起点是75 95，现在是-75 95 -->
+            <!-- 所以还要用translate向右移动 140个像素 -->
+            <!-- 而现在坐标系是翻转的 所以移动的像素是-140 -->
+            <use xlink:href="#whiskers" transform="scale(-1 1) translate(-140 0)" />
+            <!-- 画猫耳朵和猫嘴吧 使用polyline折线-->
+            <polyline points="108 62,90 10,70 45,50 10,32 62" style="stroke:black;fill:none" />
+            <polyline points="35 110,45 120,95 120,105 110" style="stroke:black;fill:none" />
+            <!-- 下面使用path来画嘴巴 -->
+            <!-- 先移动坐标到75 90,绘制一条道65 90的直线，然后以x半径为5 y半径为10 来绘制一个椭圆 最后回到75 90 -->
+            <path d="M 75 90 L 65 90 A 5 10 0 0 0 75 90" />
+            <text x="60" y="165" style="font-family:sans-serif;font-size:14px;stroke:none;fill:black">Cat</text>
+        </svg>
+    </div>
+</body>
+
+</html>
