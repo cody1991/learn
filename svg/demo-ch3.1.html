@@ -13,6 +13,13 @@
 </head>
 
 <body>
+    <style>
+    svg {
+        border: 2px solid skyblue;
+        display: block;
+        margin: 20px auto;
+    }
+    </style>
     <div class="container">
         <!-- 
             width height 是视口
@@ -40,6 +47,50 @@
             xMid是视口水平中心，viewBox中点x值对齐
             xMax是视口右侧边缘，viewBox最大x值对齐
         -->
+        <svg width="45" height="135" viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="45" height="135" viewBox="0 0 90 90" preserveAspectRatio="xMinYMin meet">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="45" height="135" viewBox="0 0 90 90" preserveAspectRatio="xMaxYMax meet">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="135" height="45" viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="135" height="45" viewBox="0 0 90 90" preserveAspectRatio="xMinYMin meet">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="135" height="45" viewBox="0 0 90 90" preserveAspectRatio="xMaxYMax meet">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <!-- slice -->
+        <svg width="45" height="135" viewBox="0 0 90 90" preserveAspectRatio="xMidYMid slice">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="45" height="135" viewBox="0 0 90 90" preserveAspectRatio="xMinYMin slice">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="45" height="135" viewBox="0 0 90 90" preserveAspectRatio="xMaxYMax slice">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="135" height="45" viewBox="0 0 90 90" preserveAspectRatio="xMidYMid slice">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="135" height="45" viewBox="0 0 90 90" preserveAspectRatio="xMinYMin slice">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="135" height="45" viewBox="0 0 90 90" preserveAspectRatio="xMaxYMax slice">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <!-- none -->
+        <svg width="45" height="135" viewBox="0 0 90 90" preserveAspectRatio="none">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
+        <svg width="135" height="45" viewBox="0 0 90 90" preserveAspectRatio="none">
+            <circle cx="45" cy="45" r="20" style="stroke:skyblue;fill:none" />
+        </svg>
     </div>
 </body>
 
