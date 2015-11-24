@@ -3,3 +3,5 @@
 然后用到实际的项目中，再慢慢地熟悉。
 
 [教程地址](http://www.yiibai.com/angularjs/angularjs_quick_guide.html#)
+
+学习完毕。 关闭此学习。
