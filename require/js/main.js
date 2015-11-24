@@ -1,20 +1,17 @@
 // config是一个js对象，常配置的有baseUrl和paths
 require.config({
     paths: {
-        jqueryTransit: './jquery.transit.min',
-        jquery: [
-            'http://cdn.bootcss.com/jquery/2.1.4/jquery.min',
-            './jquery-2.1.4.min'
-        ],
-        two: './two',
-        three: './three'
+        'jquery': './jquery-2.1.4.min',
+        'jquery.transit': './jquery.transit',
+        'two': './two',
+        'three': './three'
     },
     shim: {
-        'jqueryTransit': ['jquery']
+        'jquery.transit': ['jquery']
     }
 });
 
-require(['jqueryTransit'], function(transit) {
+require(['jquery.transit'], function(transit) {
     console.log(transit);
 });
 
