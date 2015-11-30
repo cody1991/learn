@@ -1,7 +1,15 @@
 记录
 ======
 
-尝试了 r.js 来进行压缩合并整个项目的js
+学习完 [Snandy 关于 require 的教程](http://www.cnblogs.com/snandy/category/360589.html) ,后面到官网完整的学习一遍，此仓库不再维护~ 新建一个 require-official
+
+- - -
+
+添加 example.build.js ，查看 built.js 的配置
+
+- - -
+
+尝试了 r.js 来进行压缩合并整个项目的js: node r.js -o bulit.js
 
 - - -
 
