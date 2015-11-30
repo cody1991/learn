@@ -1,7 +1,7 @@
 记录
 ======
 
-学习完 [Snandy 关于 require 的教程](http://www.cnblogs.com/snandy/category/360589.html) ,后面到官网完整的学习一遍，此仓库不再维护~ 新建一个 require-official
+学习完 [Snandy 关于 require 的教程](http://www.cnblogs.com/snandy/category/360589.html) ,后面到官网完整的学习一遍，此仓库不再维护~ 新建一个 require-official/ 文件夹
 
 - - -
 
