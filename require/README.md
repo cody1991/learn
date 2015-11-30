@@ -5,7 +5,7 @@
 
 - - -
 
-添加 example.build.js ，查看 built.js 的配置
+添加 [example.build.js](https://github.com/cody1991/learn/blob/gh-pages/require/example.build.js) ，查看 built.js 的配置
 
 - - -
 
