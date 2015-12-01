@@ -22,5 +22,8 @@
 
 上面两本往后的目的是要学习 webpack 以及 angular 
 
+- - -
+
+因为也学习了require 暂时把webpack放在一边，然后看 [AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning) 里面的英文教程来学习
 
 
