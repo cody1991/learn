@@ -1,15 +1,21 @@
 require.config({
-    baseUrl: 'js/lib',
+    baseUrl: 'js/app',
     paths: {
-        app: '../app'
+        lib: '../lib'
+    },
+    shim: {
+        'depBase': ['lib/jquery']
     }
 });
 
-require(['app/b'], function(b) {
+require(['b'], function(b) {
     console.log(b.add(2, 2));
 });
 
-require(['app/a'], function(a) {
+require(['a'], function(a) {
     console.log(a);
 });
 
+require(['depBase'], function(base) {
+    console.log(base);
+})
