@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="controllers">
+
+<head>
+    <title>controllers</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container" ng-controller="MessageController">
+        <select ng-model="newValue" ng-options="n for n in [1,2,3]"></select>
+        <input type="button" value="Add" ng-click="add()"> The sum of {{values}} is {{sum}}.
+        <div>
+            <input type="text" ng-model="message"> is bound to " <strong ng-bind="message"></strong> " , Press <code>esc</code> to clear it;
+        </div>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script>
+    var controllers = angular.module('controllers', []);
+    controllers.controller('MessageController', function($scope, $element) {
+        $scope.values = [1, 2];
+        $scope.newValue = 1;
+        $scope.add = function() {
+            $scope.values.push(parseInt($scope.newValue));
+        };
+        // $scope.sum = $scope.values.reduce(function(a, b) {
+        //     return a + b;
+        // });
+        $scope.$watch('values', function() {
+            $scope.sum = $scope.values.reduce(function(a, b) {
+                return a + b;
+            });
+        }, true);
+
+        $element.bind('keyup', function(event) {
+            if (event.keyCode === 27) {
+
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>
