@@ -38,9 +38,14 @@
             });
         }, true);
 
+
+        $scope.message = '';
         $element.bind('keyup', function(event) {
             if (event.keyCode === 27) {
-
+                $scope.$apply(function() {
+                    // Since we're working (almost) directly with the DOM here, we need to let Angular know when it's time to repaint the view. We do this by wrapping our changes to the scope in a callback passed to $scope.$apply.
+                    $scope.message = '';
+                });
             }
         });
     });
