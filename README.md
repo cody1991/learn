@@ -2,7 +2,13 @@
 
 最近都在学习 requirejs 可以开始运用在实际项目中了
 
-接下来学习webpack教程
+- - -
+
+因为学习了require 暂时把webpack放在一边，然后看 [AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning) 里面的英文教程来学习
+
+- - -
+
+看英文教程 很爽！~
 
 - - -
 
@@ -24,6 +30,5 @@
 
 - - -
 
-因为也学习了require 暂时把webpack放在一边，然后看 [AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning) 里面的英文教程来学习
 
 
