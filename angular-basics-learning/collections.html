@@ -8,19 +8,117 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 
 <body>
+    <style>
+    .container > ol {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-top: 3px solid skyblue;
+        border-bottom: 3px solid skyblue;
+    }
+    </style>
     <div class="container" ng-controller="MessageController">
-
+        <ol>
+            <!-- <li ng-repeat="item in items">
+                <span ng-bind="$index +1"></span>
+                <span ng-bind="item.name"></span>
+                <span ng-bind="item.price"></span>
+            </li> -->
+            <!-- 使用ng-init -->
+            <!-- $first, $middle, $last, $even, and $odd -->
+            <li ng-repeat="item in items" ng-init="outerCount = $index">
+                {{outerCount + 1}}. {{item.name}}
+                <ol>
+                    <li ng-repeat="item in item.items">
+                        {{outerCount + 1}}.{{$index + 1}}. {{item.name}}
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <table class="table table-condensed">
+            <tr ng-repeat="(propertyName,propertyValue) in {b:'two' , a: 1.0 , c: 3}">
+                <td ng-bind="propertyName"></td>
+                <td ng-bind="propertyValue"></td>
+            </tr>
+        </table>
+        <ol>
+            <li ng-repeat="val in [1,2,3,4,5]">
+                <span class="label label-default" ng-class="{'label-success':$odd}">{{val}}</span>
+            </li>
+        </ol>
+        <ol>
+            <li ng-repeat="val in [1,2,3,4,1] track by $index">
+                <span class="label label-default" ng-class="{'label-success':$odd}">{{val}}</span>
+            </li>
+        </ol>
+        <ol>
+            <li ng-repeat="val in [{name:1},{name:1},{name:2}]">
+                <span class="label label-default" ng-class="{'label-success':$odd}">{{val.name}}</span>
+            </li>
+        </ol>
+        <div>
+            <h2 ng-pluralize count="items2.length" when="{'0':'no items', 'one':'1 item','other':'{} items'}"></h2>
+            <table class="table table-condensed">
+                <tr ng-repeat="item in items2">
+                    <td ng-bind="item.name"></td>
+                    <td>
+                        <button class="btn btn-xs btn-default" ng-click="destroy(item)">Destroy</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- Although it's not common, you may need to render sibling elements for each member of your collection. An example of this is the description list, or dl element, which is populated with pairs of dt and dd elements. This poses a problem for directives like ng-repeat, which are designed to be applied to a single element. The solution is to extend the directive invocation across multiple elements with special -start and -end suffixes. -->
+        <dl>
+            <dt ng-repeat-start="item in items2">name</dt>
+            <dd ng-bind="item.name"></dd>
+            <dt>id</dt>
+            <dd ng-repeat-end ng-bind="item.id"></dd>
+        </dl>
     </div>
     <script src="./js/angular-1.4.2.js"></script>
     <script>
     var collections = angular.module('collections', []);
     collections.controller('MessageController', function($scope) {
+        // $scope.items = [{
+        //     name: 'Item 1',
+        //     price: 1.99
+        // }, {
+        //     name: 'Item 2',
+        //     price: 2.99
+        // }];
+        $scope.items = [{
+            name: 'Item 1',
+            items: [{
+                name: 'Nested Item 1.1'
+            }, {
+                name: 'Nested Item 1.2'
+            }]
+        }, {
+            name: 'Item 2',
+            items: [{
+                name: 'Nested Item 2.1'
+            }, {
+                name: 'Nested Item 2.2'
+            }]
+        }];
 
+
+        $scope.items2 = [{
+            id: 1,
+            name: 'Item1'
+        }, {
+            id: 2,
+            name: 'Item2'
+        }];
+        $scope.destroy = function(item) {
+            var index = $scope.items2.indexOf(item);
+            $scope.items2.splice(index, 1);
+        }
     });
     </script>
 </body>
