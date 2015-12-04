@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>收货地址</title>
+    <link rel="stylesheet" href="./style.css?v=1.11.20">
+</head>
+
+<body>
+    <menu class="ui-menu-header fn-c" id="ui-menu-header">
+        <a class="back" data-event="back" href="javacfript:;" onclick="window.history.back()"><i class="icons-back" data-event="back"></i></a>
+        <a class="index" data-event="index" href="index.html"><i class="icons-index" data-event="index"></i>主页</a>
+    </menu>
+    <div class="ui-view" id="ui-view">
+        <div class="address-edit">
+            <div class="con">
+                <ul>
+                    <li class="fn-c">
+                        <div class="pt">用户姓名：</div>
+                        <div class="pd">
+                            <input type="text" id="name" maxlength='50'>
+                        </div>
+                    </li>
+                    <li class="fn-c">
+                        <div class="pt"><span class="ls-2">电</span>话：</div>
+                        <div class="pd">
+                            <input type="tel" id="mobile" maxlength='11'>
+                        </div>
+                    </li>
+                    <li class="fn-c">
+                        <div class="pt">所在省市：</div>
+                        <div class="pd">
+                            <select id="province">
+                                <option id="-1">请选择省市</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="fn-c">
+                        <div class="pt">所在城市：</div>
+                        <div class="pd">
+                            <select id="city">
+                                <option>请选择城市</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="fn-c">
+                        <div class="pt">所在县区：</div>
+                        <div class="pd">
+                            <select id="district">
+                                <option>请选择县区</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="fn-c">
+                        <div class="pt">详细地址：</div>
+                        <div class="pd">
+                            <textarea id="address" maxlength='512'></textarea>
+                        </div>
+                        <!-- <input type="text" id="address" maxlength='512'> -->
+                    </li>
+                </ul>
+                <label class="radio"><span data-input="radio" id="isdefault"><span></span></span>设置为默认地址</label>
+            </div>
+        </div>
+    </div>
+    <a class="ui-btn-e85750" href="javaScript:;" id="submit">保存</a>
+    <!-- <div class="nav-sus" id="nav-sus" data-type="nav"><div data-type="nav"><span class="s-1" data-type="nav"></span><span class="s-2" data-type="nav"></span></div></div> -->
+</body>
+
+</html>
