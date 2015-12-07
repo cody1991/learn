@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="directives">
+
+<head>
+    <title>directives</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container" ng-controller="demoController">
+        <div>
+            <strong> The message is <span message></span></strong>
+        </div>
+        <div>
+            <p>
+                <strong> The message is <em welcome-message=" {{'bon' + 'jour'}} "></em></strong>
+            </p>
+            <p>
+                <strong ng-init="greeting2='bonjour'"> The message is <em welcome-message=" I say {{greeting2}} , you say hello "></em></strong>
+            </p>
+        </div>
+        <div>
+            <p welcome-message2="'bon' + 'jour'"></p>
+        </div>
+        <div>
+            <p welcome-message3="{message:'bonjour',emoticon:'\u263a'}"></p>
+        </div>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script>
+    var app = angular.module('directives', []);
+
+    app.directive('message', function() {
+        return function(scope, element) {
+            element.text(scope.message);
+        }
+    });
+
+    app.directive('welcomeMessage', function() {
+        return function(scope, element, attrs) {
+            element.text(attrs.welcomeMessage);
+        }
+    });
+
+    app.directive('welcomeMessage2', function() {
+        return function(scope, element, attrs) {
+            var result = scope.$eval(attrs.welcomeMessage2)
+            element.text(result);
+        }
+    });
+
+    app.directive('welcomeMessage3', function() {
+        return function(scope, element, attrs) {
+            var options = scope.$eval(attrs.welcomeMessage3);
+            var result = options.emoticon + ' ' + options.message + ' ' + options.emoticon;
+            element.text(result);
+        }
+    });
+
+
+    // In order to evaluate expressions that are passed as ordinary strings to your directive, you will need to use $eval.
+
+    app.controller('demoController', function($scope) {
+        $scope.message = 'hello';
+    });
+    </script>
+</body>
+
+</html>
