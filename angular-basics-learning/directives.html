@@ -32,10 +32,37 @@
         <div>
             <p welcome-message3="{message:'bonjour',emoticon:'\u263a'}"></p>
         </div>
+        <table ng-init="price = 100">
+            <tr>
+                <td>Full price:</td>
+                <td ng-bind="price | currency"></td>
+            </tr>
+            <tr>
+                <td>Sale price:</td>
+                <td discount="price"></td>
+            </tr>
+        </table>
+        <div>
+            The message is <span strong-message="a strong hello!"></span>
+        </div>
     </div>
     <script src="./js/angular-1.4.2.js"></script>
     <script>
     var app = angular.module('directives', []);
+
+    app.directive('strongMessage', function() {
+        return function(scope, element, attrs) {
+            element.html('<strong>' + attrs.strongMessage + '</strong>');
+        }
+    });
+
+    app.directive('wordList', function() {
+        return {
+            link: function(scope, element, attrs) {
+                scope.words = attrs.wordList.split(" ");
+            }
+        }
+    });
 
     app.directive('message', function() {
         return function(scope, element) {
@@ -64,6 +91,21 @@
         }
     });
 
+    app.value('discountRate', 0.8);
+
+    app.factory('calculateDiscount', function(discountRate) {
+        return function(amount) {
+            return amount * discountRate;
+        }
+    });
+
+    app.directive('discount', function(calculateDiscount, currencyFilter) {
+        return function(scope, element, attrs) {
+            var price = scope.$eval(attrs.discount);
+            var discountPrice = calculateDiscount(price);
+            element.html(currencyFilter(discountPrice));
+        }
+    });
 
     // In order to evaluate expressions that are passed as ordinary strings to your directive, you will need to use $eval.
 
