@@ -94,6 +94,10 @@
         <p>
             {{redItemsCount}} red items
         </p>
+        <div>
+            <strong ng-bind=" smileyText | smiley "></strong>
+        </div>
+        <p> The app says <strong ng-bind="'greeting' | localize"></strong></p>
     </div>
     <script src="./js/angular-1.4.2.js"></script>
     <script>
@@ -121,7 +125,32 @@
         price: 1.95
     }]);
 
+    app.value('locales', {
+        'de': {
+            greeting: 'guten Tag'
+        },
+        'en-us': {
+            greeting: 'howdy'
+        },
+        'fr': {
+            greeting: 'bonjour'
+        }
+    })
+
     // The provider for a filter will be named <filtername>Filter. For example, the date filter is injected with dateFilter, the currency filter with currencyFilter, and the filter filter with filterFilter. (I know, I know!)
+
+    app.filter('smiley', function() {
+        return function(text) {
+            return '\u263A ' + text + ' \u263A';
+        }
+    });
+
+    app.filter('localize', function(locales, $locale) {
+        return function(key) {
+            var locale = locales[$locale.id] || locales['en-us'];
+            return locale[key];
+        }
+    });
 
     app.controller('demoController', function($scope, items, filterFilter) {
         $scope.now = Date.now();
@@ -129,6 +158,7 @@
         $scope.redItemsCount = filterFilter(items, {
             color: 'red'
         }).length;
+        $scope.smileyText = 'smiley';
     });
     </script>
 </body>
