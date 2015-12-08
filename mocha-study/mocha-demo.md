@@ -57,3 +57,12 @@ mocha --watch -w
     mocha --grep -g
 
     --grep参数用于搜索测试用例的名称（即it块的第一个参数），然后只执行匹配的测试用例。
+
+
+
+$ mocha --recursive -R markdown > spec.md
+
+生成一个规格文件spec.md。-R markdown参数指定规格报告是markdown格式。
+如果想生成HTML格式的报告spec.html，使用下面的命令。
+
+$ mocha --recursive -R doc > spec.html
