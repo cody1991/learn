@@ -45,12 +45,6 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
     ],
-    devServer: {
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true
-    },
     module: {
         // 看loaders的书写方式，test里面包含一个正则，包含需要匹配的文件，loaders是一个数组，包含要处理这些程序的loaders，这里我们用了css和style，注意loaders的处理顺序是从右到左的，这里就是先运行css-loader然后是style-loader.
         loaders: [{
