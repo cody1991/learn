@@ -1,14 +1,20 @@
 #学习计划
 
+- - -
+
+[AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning)，接下来回归ng的学习，以及自己收藏的一个ng的git book学习
+
+- - -
+
+另外也学习了 rem 和 mocha 的简单使用
+
+- - -
+
+一个webpack的教程今天又更新了，所以去看了下进行了学习
+
+- - -
+
 最近都在学习 requirejs 可以开始运用在实际项目中了
-
-- - -
-
-因为学习了require 暂时把webpack放在一边，然后看 [AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning) 里面的英文教程来学习
-
-- - -
-
-看英文教程 很爽！~
 
 - - -
 
@@ -20,13 +26,9 @@
 
 - - -
 
-这本也是往后
-
     《svg精髓》
 
-- - -
-
-上面两本往后的目的是要学习 webpack 以及 angular 
+也往后看
 
 - - -
 
