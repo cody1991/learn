@@ -45,6 +45,11 @@
         <div>
             The message is <span strong-message="a strong hello!"></span>
         </div>
+        <ul word-list="we love templates">
+        </ul>
+        <ul word-list-ul="we love templates ul">
+        </ul>
+        <models-table models="items" columns="name,color,price"> </models-table>
     </div>
     <script src="./js/angular-1.4.2.js"></script>
     <script>
@@ -56,19 +61,53 @@
         }
     });
 
+
+    // To add a template to our directive, we need to switch from returning only the link function to returning a configuration object that contains both the link function and a template. This is a big change, so let me repeat it: Our recipe wrapper will now return an object rather than a function. The function that we used to return will be nested as the link property on this object.
+
+    // Angular will handle invoking the template with the proper scope object and appending the output to the directive's element. This particular directive's output should be appended to a list element, so let's invoke the directive on a ul element.
+
+    // app.directive('wordList', function() {
+    //     return {
+    //         link: function(scope, element, attrs) {
+    //             scope.words = attrs.wordList.split(" ");
+    //             console.log(scope.words)
+    //         },
+    //         template: "<li ng-repeat='word in words'>{{word}}</li>"
+    //     }
+    // });
     app.directive('wordList', function() {
         return {
             link: function(scope, element, attrs) {
                 scope.words = attrs.wordList.split(" ");
-            }
+                console.log(scope.words)
+            },
+            templateUrl: "./views/word-list.html"
         }
     });
 
-    app.directive('message', function() {
-        return function(scope, element) {
-            element.text(scope.message);
+    app.directive('wordListUl', function() {
+        return {
+            link: function(scope, element, attrs) {
+                scope.words = attrs.wordListUl.split(" ");
+            },
+            templateUrl: './views/word-list-ul.html',
+            replace: true
         }
     });
+
+    // app.directive('message', function() {
+    //     return function(scope, element) {
+    //         element.text(scope.message);
+    //     }
+    // });
+    app.directive('message', function() {
+        return {
+            template: "<strong>{{message}}</strong>",
+            controller: function($scope) {
+                $scope.message = 'Hello ,from the internal controller';
+            }
+        }
+    })
 
     app.directive('welcomeMessage', function() {
         return function(scope, element, attrs) {
@@ -107,10 +146,34 @@
         }
     });
 
+    app.directive('modelsTable', function() {
+        return {
+            restrict: 'E',
+            templateUrl: './views/models-table.html',
+            link: function(scope, element, attrs) {
+                scope.models = scope.$eval(attrs.models);
+                // 这里获取到了我们需要的数据
+                // Although Angular does not treat the argument to a directive attribute as an expression to be evaluated, we can easily do it ourselves with the scope's $eval method. This approach will not update the view if the model changes, but it works for basic use cases.
+                console.log(scope.$eval(attrs.models));
+                scope.columns = attrs.columns.split(',');
+            },
+            replace: true
+        }
+    })
+
     // In order to evaluate expressions that are passed as ordinary strings to your directive, you will need to use $eval.
 
     app.controller('demoController', function($scope) {
-        $scope.message = 'hello';
+        $scope.message = 'helloTemplate';
+        $scope.items = [{
+            name: 'Item 1',
+            color: 'green',
+            price: 5.0
+        }, {
+            name: 'Item 2',
+            color: 'blue',
+            price: 4.93
+        }];
     });
     </script>
 </body>
