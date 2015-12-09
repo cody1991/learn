@@ -48,6 +48,7 @@
                 return filterFilter(items, params);
             },
             get: function(params) {
+                console.log(this.query(params))
                 return this.query(params)[0];
             }
         }
