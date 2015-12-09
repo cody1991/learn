@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="routing">
+
+<head>
+    <title>routing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- The template option shown above is similar to the one used to configure directives. In this example there is no dynamic content, just static HTML. Each template provides a link to the relative path for the other, so that in the example we will be able to toggle between the two. You may be wondering where the rendered content will be placed. Good question. The ngRoute module provides a special directive, ng-view, that must be present in our main template in order for the module to work -->
+        <div ng-view>
+        </div>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script src="./js/angular-route.js"></script>
+    <script>
+    var app = angular.module('routing', ['ngRoute']);
+
+    app.controller('demoController', function($scope, $location) {
+        $scope.location = $location.absUrl();
+        console.log($scope.location);
+    });
+
+    // In order to use ngRoute, we need to map one or more relative URL paths to handlers. The module.config function allows us to configure modules such as ngRoute as they are loaded by Angular. The trick is to know the name of the configuration service, or provider, for the module. In the case of ngRoute, the provider is named $routeProvider. With this name in our config callback, we can chain route mappings using the when function. The first argument to when is the relative path for the route. The second is a configuration object that specifies how to render content for the route.
+    // app.config(function($locationProvider) {
+    //     $locationProvider.html5Mode(true);
+    // });
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when('/', {
+                controller: 'demoController',
+                templateUrl: "./views/index.html"
+            })
+            .when('/about', {
+                controller: 'demoController',
+                templateUrl: "./views/about.html"
+            }).when('/404', {
+                controller: 'demoController',
+                templateUrl: './views/404.html'
+            }).otherwise({
+                redirectTo: '/404'
+            });
+    });
+    </script>
+</body>
+
+</html>
