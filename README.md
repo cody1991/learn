@@ -1,35 +1,18 @@
 #学习计划
 
-[AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning)，接下来回归ng的学习，以及自己收藏的一个ng的git book学习
+- - -
+
+最近完成了两个 angularjs 的学习教程，后面对于NG的学习应该是看看 大漠穷秋 在慕课网的视频教程吧，然后争取在下次的项目中使用
 
 - - -
 
-另外也学习了 rem 和 mocha 的简单使用
+另外慕课网还有一个圣诞节的教程，想去学学
 
 - - -
 
-一个webpack的教程今天又更新了，所以去看了下进行了学习
+接下来的主要目标是 reactjs 的学习 和 nodejs 的学习了
 
 - - -
-
-最近都在学习 requirejs 可以开始运用在实际项目中了
-
-- - -
-
-之前在看的
-
-    node&express,handlebars 
-
-相关的书籍往后推一推
-
-- - -
-
-    《svg精髓》
-
-也往后看
-
-- - -
-
 
 #文件目录
 
