@@ -1,0 +1,18 @@
+.container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Microsoft YaHei', sans-serif;
+  position: relative;
+  min-width: 320px;
+  margin: 0 auto;
+  font-size: 0.16rem;
+}
+input {
+  max-width: 100%;
+}
+.phoneImg {
+  width: 1.0rem;
+  display: inline-block;
+}
