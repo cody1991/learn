@@ -15,8 +15,17 @@
 
 <body>
     <div class="container" ng-controller="demoController">
-        <p class="text-danger">{{notice}}</p>
-        <label>{{question.content}}</label>
+        <div class="alert alert-info" role="alert">
+            {{notice}}
+        </div>
+        <div class="form-group">
+            <label>{{question.content}}</label>
+            <textarea class="form-control" ng-model="answer" required>
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-default btn-sm" ng-click="submit()">
+            Submit
+        </button>
     </div>
     <script src="./js/angular-1.4.2.js"></script>
     <script>
@@ -30,12 +39,22 @@
     //         })
     // });
 
-    app.controller('demoController', function($scope, question) {
+    app.controller('demoController', function($scope, question, answer) {
         question(1).then(function(question) {
             $scope.question = question
         }, function(notice) {
             $scope.notice = notice;
-        })
+        });
+
+        $scope.submit = function() {
+            answer($scope.question, $scope.answer)
+                .then(function(data) {
+                    $scope.notice = 'Success.You answer was saved with id: ' + data.id;
+                    $scope.answer = '';
+                }, function(notice) {
+                    $scope.notice = notice;
+                });
+        }
     });
 
     app.factory('question', function($q, $http, url) {
@@ -45,6 +64,23 @@
                     return response.data;
                 }, function(response) {
                     return $q.reject(response.status + " " + response.data.error)
+                })
+        }
+    });
+
+    app.factory('answer', function($q, $http, url) {
+        return function(question, answer) {
+            var data = {
+                answer: {
+                    question_id: question.id,
+                    content: answer
+                }
+            };
+            return $http.post(url + '/answers', data)
+                .then(function(response) {
+                    return response.data;
+                }, function(response) {
+                    return $q.reject(response.status + " " + response.data.error);
                 })
         }
     });
