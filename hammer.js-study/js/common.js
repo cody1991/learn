@@ -77,6 +77,7 @@
     mc.add(new Hammer.Tap());
 
     mc.on('panstart panmove', onPan);
+    mc.on('panend', onPanEnd);
     mc.on('rotatestart rotatemove', onRotate);
     mc.on('pinchstart pinchmove', onPinch);
     mc.on('swipe', onSwipe);
@@ -84,11 +85,11 @@
     mc.on('doubletap', onDoubleTap);
 
 
-    mc.on('hammer.input', function(ev) {
-        if (ev.isFinal) {
-            resetElement();
-        }
-    });
+    // mc.on('hammer.input', function(ev) {
+    //     if (ev.isFinal) {
+    //         resetElement();
+    //     }
+    // });
 
     var initScale = 1,
         initAngle = 0;
@@ -163,6 +164,12 @@
 
         requestElementUpdate();
     }
+
+    function onPanEnd(ev) {
+        START_X = START_X + ev.deltaX;
+        START_Y = START_Y + ev.deltaY;
+    }
+
 
     resetElement();
 
