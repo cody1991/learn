@@ -1,3 +1,5 @@
+[oneuijs/You-Dont-Need-jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery/blob/master/README.zh-CN.md)
+
 常用的class id选择器都可以用 `document.querySelector` 或者 `document.querySelectorAll` 替代
 
 * document.querySelector 返回第一个匹配的Element
@@ -232,3 +234,138 @@
         $(window).scrollTop();
 
         (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop); 
+
+---
+
+DOM Manipulation
+
+* Remove
+
+        $el.remove();
+
+        el.parentNode.removeChild(el);
+
+* text
+
+        * get text
+
+            $el.text();
+
+            el.textContent;
+
+        * set text
+
+            $el.text(string);
+
+            el.textContent = string;
+
+* HTML
+
+        * get HTML
+
+            $el.html();
+
+            el.innerHTML;
+
+        * set HTML
+
+            $el.html(string);
+
+            el.innerHTML = htmlString;
+
+* append 插入到子节点末尾
+
+        $el.append("<div id='container'>hello</div>");
+
+        let newEl = document.createElement('div');
+
+        newEl.setAttribute('id','container');
+
+        newEl.innerHTML = 'hello';
+
+        el.appendChild(newEl);
+
+* prepend
+
+        $el.prepend("<div id='container'>hello</div>");
+
+        let newEl = document.createElement('div');
+
+        newEl.setAttribute('id','container');
+
+        newEl.innerHTML = 'hello';
+
+        el.insertBefore(newEl,el.firstChild);
+
+* insertBefore 在选种元素前插入新节点
+
+        $newEl.insertBefore(queryString);
+
+        const target = document.querySelector(queryString);
+
+        target.parentNode.insertBefore(newEl,target);
+
+* insertAfter 在选中元素后插入新节点
+
+        $newEl.insertAfter(queryString);
+
+        const target = document.querySelector(queryString);
+
+        target.parentNode.insertBefore(newEl,target.nextSibling);
+
+--- 
+
+Events
+
+* Bind an event with on
+
+        $el.on(eventName,eventHandler);
+
+        el.addEventListener(eventName,eventHandler);
+
+* Unbind an event with off
+
+        $el.off(eventName,eventHandler);
+
+        el.removeEventListener(eventName,eventHandler);
+
+* trigger
+
+        $(el).trigger('custom-event',{key1:'data'});
+
+        if(window.CustomEvent){
+            const event = new CustomEvent('custom-event',{detail:{key1:'data'}});
+        }else{
+            const event = document.createEvent('CustomEvent');
+            event.initCustomEvent('custom-event',true,true,{key1:'data'});
+        }
+
+        el.dispatchEvent(event);
+
+---
+
+Utilities
+
+* isArray
+
+        $.isArray(range);
+
+        Array.isArray(range);
+
+* trim
+
+        $.trim(string);
+
+        string.trim();
+
+* object assign
+
+        $.extend({},defaultOpts,opts);
+
+        Object.assign({},defaultOpts,opts);
+
+* contains
+
+        $.contains(el,child);
+
+        el !== child && el.contains(child)
