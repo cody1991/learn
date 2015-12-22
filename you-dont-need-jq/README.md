@@ -110,4 +110,125 @@
             
         * Get index of e.currentTarget between .radio
         
-            $(e.currentTarget
+            $(e.currentTarget).index('.radio');
+
+            [].indexOf.call(document.querySelectAll('.radio'),e.currentTarget);
+
+---
+
+* CSS
+
+        * get style
+
+            $el.css('color');
+
+            // 注意：此处为了解决当 style 值为 auto 时，返回 auto 的问题
+
+            var win = el.ownerDocument.defaultView;
+
+            win.getComputedStyle(el,null).color;
+
+        * set style
+
+            $el.css({color:#'ff0011'});
+
+            el.style.color = '#ff0011';
+
+        * add class
+
+            $el.addClass(className);
+
+            el.classList.add(className);
+
+        * remove class
+
+            $el.removeClass(claaName);
+
+            el.classList.remove(className);
+
+        * has class
+
+            $el.hasClass(className);
+
+            el.classList.contains(className);
+
+        * toggle class
+
+            $el.toggleClass(className);
+
+            el.classList.toggle(className);
+
+* width & height
+
+        * window height
+
+            $(window).height();
+
+            // 不含 scrollbar，与 jQuery 行为一致
+
+            window.document.documentElement.clientHeight;
+
+            // 含 scrollbar
+
+            window.innerHeight;
+
+        * document height
+
+            $(document).height();
+
+            document.documentElement.scrollHeight;
+
+        * element height
+
+            $el.height();
+
+            // 与jq一致（一直为content区域的高度）
+            function getHeight(el){
+                const styles = this.getComputedStyles(el);
+                const height = el.offsetHieght;
+                const borderTopWidth = parseFloat(styles.borderTopWidth);
+                const borderBottomWidth = parseFloat(styles.borderBottomWidth);
+                const paddingTop = parseFloat(styles.paddingTop);
+                const paddingBottom = parseFloat(styles.paddingBottom);
+                return height - borderBottomWidth - borderTopWidth - paddingTop - paddingBottom;
+            }
+
+            // 精确到整数（border-box 时为 height 值，content-box 时为 height + padding + border 值）
+
+            el.clientHeight;
+
+            // 精确到小数（border-box 时为 height 值，content-box 时为 height + padding + border 值）
+
+            el.getBoundingClientRect().height;
+
+        * iframes height
+
+            $('iframes').contents().height();
+
+            iframe.contentDocument.documentElement.scrollHeight;
+
+* position & offset
+
+        * position
+
+            $el.position();
+
+            {left:el.offsetLeft,top:el.offsetTop}
+
+        * offset
+
+            $el.offset();
+
+            function getOffset(el){
+                const box = el.getBoundingClientRect();
+                return {
+                    top:box.top + window.pageYOffset - document.documentElement.clientTop,
+                    left:box.left + window.pageXOffset - document.documentElement.clientLeft
+                }
+            }
+
+* scroll Top
+
+        $(window).scrollTop();
+
+        (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop); 
