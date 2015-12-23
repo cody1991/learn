@@ -1,6 +1,6 @@
 {
-  "name": "webpack-study-12.20",
-  "version": "1.0.0",
+  "name": "webpack-template",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
