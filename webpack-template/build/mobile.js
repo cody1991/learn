@@ -3,15 +3,14 @@ webpackJsonp([1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(5);
+	var attachFastClick = __webpack_require__(1);
+	var rem = __webpack_require__(2);
+	__webpack_require__(4);
 
 	$(document).ready(function() {
-	    var mobile = $('<div></div');
-	    mobile.text('Mobile!');
-	    $('body').append(mobile);
+	    $('.container').append('<h1>Hello Webpack Mobile!</h1>')
 	})
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }
 ]);

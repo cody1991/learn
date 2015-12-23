@@ -1,7 +1,7 @@
+var attachFastClick = require('fastclick');
+var rem = require('./rem');
 require('./style/style.less');
 
 $(document).ready(function() {
-    var mobile = $('<div></div');
-    mobile.text('Mobile!');
-    $('body').append(mobile);
+    $('.container').append('<h1>Hello Webpack Mobile!</h1>')
 })
