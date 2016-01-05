@@ -1,3 +1,10 @@
+
+./js-the-definitive-guide
+
+看看权威指南，随便记录笔记~
+
+---
+
 看看 JAVASCRIPT高级编程 OR JAVASCRIPT权威指南
 
 重新学习JS。
