@@ -37,6 +37,7 @@
             <ul>
                 <li v-for="todo in todos">
                     {{todo.text}}
+                    <p v-model='todo.text'></p>
                 </li>
             </ul>
             <button v-on:click="reverseMessage">Reverse Message</button>
