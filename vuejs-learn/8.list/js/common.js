@@ -51,14 +51,15 @@ var filter = new Vue({
         money: '123',
         date: [1, 2, 3, 4, 5],
         name: '',
+        order: 1,
         users: [{
             name: 'Bruce'
         }, {
             name: 'Chuck'
         }, {
             name: 'Jackie'
-        },{
-            name:'cody'
+        }, {
+            name: 'cody'
         }]
     }
 })

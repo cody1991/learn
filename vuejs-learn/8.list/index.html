@@ -33,43 +33,43 @@
     <div class="container">
         <div id="example">
             <template v-for="item in items">
-                <li>{{parentMessage}} - {{$index}} - {{item.message}}</li>
+                <li v-cloak>{{parentMessage}} - {{$index}} - {{item.message}}</li>
                 <li class="divider"></li>
             </template>
         </div>
         <div id="repeat-object">
-            <li v-for="value in object">
+            <li v-for="value in object" v-cloak>
                 {{$key}} : {{value}}
             </li>
             <div>
-                <span v-for="n in 10">{{n}}</span>
+                <span v-for="n in 10" v-cloak>{{n}}</span>
             </div>
         </div>
         <div id="filter">
-            <p>{{msg | capitalize}}</p>
-            <p>{{msg | uppercase}}</p>
-            <p>{{msg | lowercase}}</p>
-            <p>{{money | currency}}</p>
-            <p>{{date}} {{date | pluralize 'item'}}</p>
+            <p v-cloak>{{msg | capitalize}}</p>
+            <p v-cloak>{{msg | uppercase}}</p>
+            <p v-cloak>{{msg | lowercase}}</p>
+            <p v-cloak>{{money | currency}}</p>
+            <p v-cloak>{{date}} {{date | pluralize 'item'}}</p>
             <input type="text" v-model="name">
             <ul>
-                <li v-for="user in users | filterBy name in 'name'">
+                <li v-for="user in users | filterBy name in 'name'" v-cloak>
                     {{user.name}}
                 </li>
             </ul>
             <ul>
-                <li v-for="user in users | orderBy 'name'">
+                <li v-for="user in users | orderBy 'name'" v-cloak>
                     {{user.name}}
                 </li>
             </ul>
             <ul>
-                <li v-for="user in users | orderBy 'name' -1">
+                <li v-for="user in users | orderBy 'name' -1" v-cloak>
                     {{user.name}}
                 </li>
             </ul>
             <button @click="order = order * -1">Reverse Sort Order</button>
             <ul>
-                <li v-for="user in users | orderBy 'name' order">
+                <li v-for="user in users | orderBy 'name' order" v-cloak>
                     {{user.name}}
                 </li>
             </ul>
