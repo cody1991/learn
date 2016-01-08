@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script>
+    (function() {
+        var _self = this;
+        _self.width = 640;
+        _self.fontSize = 100;
+        _self.widthProportion = function() {
+            var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+            return p > 1 ? 1 : p < 0.5 ? 0.5 : p
+        };
+        _self.changePage = function() {
+            document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + _self.widthProportion() * _self.fontSize + "px !important")
+        };
+        _self.changePage();
+        window.addEventListener("resize", function() {
+            _self.changePage()
+        }, false)
+    })();
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="example">
+            <template v-for="item in items">
+                <li>{{parentMessage}} - {{$index}} - {{item.message}}</li>
+                <li class="divider"></li>
+            </template>
+        </div>
+        <div id="repeat-object">
+            <li v-for="value in object">
+                {{$key}} : {{value}}
+            </li>
+            <div>
+                <span v-for="n in 10">{{n}}</span>
+            </div>
+        </div>
+        <div id="filter">
+            <p>{{msg | capitalize}}</p>
+            <p>{{msg | uppercase}}</p>
+            <p>{{msg | lowercase}}</p>
+            <p>{{money | currency}}</p>
+            <p>{{date}} {{date | pluralize 'item'}}</p>
+            <input type="text" v-model="name">
+            <ul>
+                <li v-for="user in users | filterBy name in 'name'">
+                    {{user.name}}
+                </li>
+            </ul>
+            <ul>
+                <li v-for="user in users | orderBy 'name'">
+                    {{user.name}}
+                </li>
+            </ul>
+            <ul>
+                <li v-for="user in users | orderBy 'name' -1">
+                    {{user.name}}
+                </li>
+            </ul>
+            <button @click="order = order * -1">Reverse Sort Order</button>
+            <ul>
+                <li v-for="user in users | orderBy 'name' order">
+                    {{user.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+</body>
+
+</html>
