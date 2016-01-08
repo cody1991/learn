@@ -7,6 +7,9 @@ var vm = new Vue({
         greet: function(event) {
             console.log('Hello ' + this.name + '!');
             console.log(event.target.tagName);
+        },
+        say: function(msg) {
+            console.log(msg);
         }
     }
 });
