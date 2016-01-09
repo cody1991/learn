@@ -1,5 +1,6 @@
 #学习计划
 
+最新学习 vue.js
 - - -
 
 自己的 webpack-template 也大概完成，对 webpack 也有不错的认识了应该
