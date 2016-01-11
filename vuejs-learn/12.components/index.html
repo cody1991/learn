@@ -31,9 +31,19 @@
 
 <body>
     <div class="container">
-    <div id="example">
-        <my-component></my-component>
-    </div>
+        <template id="child-template">
+            <input v-model="msg">
+            <button v-on:click="notify">Dispatch Event</button>
+        </template>
+        <div id="events-example" class="demo">
+            <p>Messages: {{ messages | json }}</p>
+            <child></child>
+        </div>
+        <hr/>
+        <div id="example">
+            <input type="text" v-model="parentMsg">
+            <my-component v-bind:msg="parentMsg"></my-component>
+        </div>
     </div>
     <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/vue/vue.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
