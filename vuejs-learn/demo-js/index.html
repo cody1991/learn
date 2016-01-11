@@ -31,6 +31,10 @@
 
 <body>
     <div class="container">
+        <header class="header">
+            <h1>todos</h1>
+            <input autofocus autocomplete="off" placeholder="new to do" v-model="newTodo" v-on:keyup.enter="addTodo">
+        </header>
     </div>
     <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/vue/vue.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
