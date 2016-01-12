@@ -8,8 +8,5 @@
   min-width: 320px;
   max-width: 640px;
   margin: 0 auto;
-  font-size: 0.24rem;
-}
-[v-cloak] {
-  display: none;
+  font-size: 0.32rem;
 }
