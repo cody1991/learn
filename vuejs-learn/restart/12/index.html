@@ -31,18 +31,10 @@
 
 <body>
     <div class="container">
-        <ul id="demo1">
-            <li v-for="item in items">
-                {{$index}} - {{item.message}}
-            </li>
-            <template v-for="item in items">
-                <li>{{item.message}}</li>
-                <li class="divider"></li>
-            </template>
-            <li v-for="value in object">
-                {{$key}} : {{value}}
-            </li>
-        </ul>
+        <div id="demo1">
+            <input type="text" v-model="msgVal">
+            <my-component v-bind:my-message="msgVal"></my-component>
+        </div>
     </div>
     <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/vue/vue.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>

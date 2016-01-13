@@ -31,18 +31,26 @@
 
 <body>
     <div class="container">
-        <ul id="demo1">
-            <li v-for="item in items">
-                {{$index}} - {{item.message}}
-            </li>
-            <template v-for="item in items">
-                <li>{{item.message}}</li>
-                <li class="divider"></li>
-            </template>
-            <li v-for="value in object">
-                {{$key}} : {{value}}
-            </li>
-        </ul>
+        <div id="demo1">
+            <button v-on:click="greet">Greet</button>
+            <button v-on:click.prevent="greet">Greet</button>
+            <button v-on:click.stop="greet">Greet</button>
+            <input type="text" v-on:keyup.13="keyupEvent">
+            <!-- <input type="text" v-on:keyup.enter="keyupEvent"> -->
+            <!-- <input type="text" @keyup.13="keyupEvent"> -->
+
+            <!-- 
+                enter
+                tab
+                delete
+                esc
+                space
+                up
+                down
+                left
+                right 
+            -->
+        </div>
     </div>
     <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/vue/vue.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
