@@ -45,9 +45,11 @@
                         </slot>
                     </div>
                     <div class="modal-footer">
-                        <slot name="modal-footer">
+                        <slot name="footer">
                             default footer
-                            <button class="modal-default-button" @click="show = false">OK</button>
+                            <button class="modal-default-button" @click="show = false">
+                                OK
+                            </button>
                         </slot>
                     </div>
                 </div>
@@ -56,7 +58,7 @@
     </template>
     <div id="app">
         <button id="show-modal" @click="showModal = true">show Modal</button>
-        <modal :show.sync="showModal">
+        <modal :show.sync="showModal" v-cloak>
             <h3 slot="header">custom header</h3>
         </modal>
     </div>
