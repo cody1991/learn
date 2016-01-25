@@ -46,3 +46,6 @@ print(calc(1,2,3))
 num = [1,2,3]
 
 print(calc(*num))
+
+def person(name,age,**kw):
+    print('name:',name,'age:',age,'otherL',kw)
