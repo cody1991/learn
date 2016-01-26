@@ -1,0 +1,16 @@
+{
+  "name": "TheaterJS",
+  "main": "build/theater.js",
+  "license": "MIT",
+  "ignore": [
+    ".gitignore"
+  ],
+  "devDependencies": {},
+  "keywords": [
+    "typing",
+    "animation",
+    "mimic",
+    "human"
+  ],
+  "homepage": "https://github.com/Zhouzi/TheaterJS"
+}
