@@ -47,5 +47,25 @@ num = [1,2,3]
 
 print(calc(*num))
 
-def person(name,age,**kw):
-    print('name:',name,'age:',age,'otherL',kw)
+# def person(name,age,**kw):
+#     if 'city' in kw:
+#         pass
+#     if 'job' in kw:
+#         pass
+#     print('name:',name,'age:',age,'otherL:',kw)
+
+def person(name,age,*,city='Beijing',job):
+    print(name,age,city,job)
+
+person('Micheal',30,job="enginer")
+
+person('Bob',35,city='Beijing',job="enginer")
+
+# person('Adam',45,gender="M",job="Engineer")
+
+extra = {'city':'Beijing','job':'Enginner'}
+
+person('Jack',24,city=extra['city'],job=extra['job'])
+
+person('Jack',24,**extra)
+
