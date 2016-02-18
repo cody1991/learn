@@ -1,19 +1,10 @@
 #学习计划
 
-P0:学习 python
+帮心态放好，空闲时间都用来学习python
 
-vue.js 力求能好好应用
+[教程地址](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
 
-
-<del>学习JS,看书</del>
-
-- - -
-
-自己的 webpack-template 也大概完成，对 webpack 也有不错的认识了应该
-
-后面写个文档
-
-- - -
+---
 
 #文件目录
 
