@@ -66,3 +66,26 @@ def str2int(s):
     return reduce(fn,map(char2num,s))
 
 print(str2int('13579'))
+
+
+def normalize(name):
+    return name.title()
+
+L1 = ['adam','LISA','barT']
+L2 = list(map(normalize,L1))
+print(L2)
+
+def prod(L):
+    def mul(x,y):
+        return x * y
+    return reduce(mul,L)
+
+print('3 * 5 * 7 * 9 =' , prod([3,5,7,9]))
+
+def str2float(s):
+    l = s.split('.')
+    def fn(x,y):
+        return x * 10 + y
+    return reduce(fn,map(char2num,l[0])) + reduce(fn,map(char2num,l[1])) / pow(10,len(l[1]))
+
+print(str2float('123.345'))
