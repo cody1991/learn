@@ -1,5 +1,7 @@
 #学习计划
 
+学习 [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
+
 已完成 [廖雪峰python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
 
 接下来开始看python书籍系统学习
