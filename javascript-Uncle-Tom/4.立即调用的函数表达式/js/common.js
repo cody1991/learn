@@ -67,7 +67,29 @@
         })(i), false);
     }
 
+    var Counter = (function() {
+        var i = 0;
 
+        return {
+            get: function() {
+                return i;
+            },
+            set: function(val) {
+                i = val;
+            },
+            increment: function() {
+                return ++i;
+            }
+        }
+    }());
 
+    console.log(Counter.get());
+    Counter.set(3);
+    console.log(Counter.get());
+    Counter.increment();
+    Counter.increment();
+    console.log(Counter.get());
+
+    console.log(Counter.i);
 
 })();
