@@ -1,10 +1,10 @@
 (function() {
-    var f = function foo() {
-        return typeof foo;
-    }
+    // var f = function foo() {
+    //     return typeof foo;
+    // }
 
-    console.log(typeof foo);
-    console.log(f());
+    // console.log(typeof foo);
+    // console.log(f());
 
     // function foo() {
     //     return bar();
@@ -58,5 +58,19 @@
     //     debugger;
     // }
     // foo();
+
+    // var f = function g(){};
+
+    // console.log(f === g);
+
+    // var f = function g() {
+    //     return [
+    //         arguments.callee == f,
+    //         arguments.callee == g
+    //     ]
+    // }
+
+    // console.log(f())
+    // console.log(g())
 
 })();
