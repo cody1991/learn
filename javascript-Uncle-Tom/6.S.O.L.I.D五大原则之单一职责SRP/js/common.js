@@ -15,7 +15,7 @@ function Event(name) {
             }
         }
     };
-    // eventArgs是啥
+
     this.fire = function(eventArgs) {
         handlers.forEach(function(h) {
             h(eventArgs);
@@ -125,6 +125,8 @@ function ProductController(eventAggregator, productRepository) {
         cartController = new CartController(cart, eventAggregator),
         productRepository = new ProductRepository(),
         productController = new ProductController(eventAggregator, productRepository);
+
+    console.log(eventAggregator,cart,cartController,productRepository,productController)
 })();
 
 // 可以看到匿名函数的代码减少了很多，主要是一个对象的实例化代码，代码里我们介绍了Controller的概念，他接受信息然后传递到action，我们也介绍了Repository的概念，主要是用来处理product的展示，重构的结果就是写了一大堆的对象声明，但是好处是每个对象有了自己明确的职责，该展示数据的展示数据，改处理集合的处理集合，这样耦合度就非常低了。
