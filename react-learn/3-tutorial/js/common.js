@@ -86,7 +86,6 @@ var CommentBox = React.createClass({
         );
     }
 });
-
 var CommentList = React.createClass({
     render: function() {
         // Now that we have defined the Comment component, we will want to pass it the author name and comment text. This allows us to reuse the same code for each unique comment. Now let's add some comments within our CommentList:
