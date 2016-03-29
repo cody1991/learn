@@ -1,0 +1,17 @@
+{
+    "name": "1-webpack-learn",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "html-webpack-plugin": "^2.14.0",
+        "webpack": "^1.12.14",
+        "webpack-dev-server": "^1.14.1"
+    }
+}
