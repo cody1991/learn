@@ -89,3 +89,109 @@ if (true) {
 typeof undeclared_variable // "undefined"
 
 // 上面代码中，undeclared_variable是一个不存在的变量名，结果返回“undefined”。所以，在没有let之前，typeof运算符是百分之百安全的，永远不会报错。现在这一点不成立了。这样的设计是为了让大家养成良好的编程习惯，变量一定要在声明之后使用，否则就报错。
+
+
+// -----------------------
+
+// let不允许在相同作用域内，重复声明同一个变量。
+
+// 报错
+// function() {
+//     let a = 10;
+//     var a = 1;
+// }
+
+// 报错
+// function() {
+//     let a = 10;
+//     let a = 1;
+// }
+
+function func(arg) {
+    {
+        let arg; // 不报错
+    }
+}
+
+
+// 上面代码中，函数f执行后，输出结果为undefined，原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量。
+var tmp = new Date();
+
+function f() {
+    console.log(tmp);
+    if (false) {
+        var tmp = "hello world";
+    }
+}
+
+f() // undefined
+
+
+// ---------------------------------------------------
+
+// let实际上为JavaScript新增了块级作用域。
+
+function f1() {
+    let n = 5;
+    if (true) {
+        let n = 10;
+    }
+    console.log(n); // 5
+}
+
+// 上面的函数有两个代码块，都声明了变量n，运行后输出5。这表示外层代码块不受内层代码块的影响。如果使用var定义变量n，最后输出的值就是10。
+
+{
+    {
+        {
+            {
+                {
+                    let insane = 'Hello World'
+                }
+            }
+        }
+    }
+};
+// 上面代码使用了一个五层的块级作用域。外层作用域无法读取内层作用域的变量。
+
+// 内层作用域可以定义外层作用域的同名变量。
+
+{
+    {
+        {
+            {
+                let insane = 'Hello World'; {
+                    let insane = 'Hello World';
+                }
+            }
+        }
+    }
+};
+
+// 块级作用域的出现，实际上使得获得广泛应用的立即执行匿名函数（IIFE）不再必要了。
+
+// IIFE写法
+(function() {
+    var tmp = 'z';
+}());
+
+// 块级作用域写法
+{
+    let tmp = 'z';
+}
+
+function f() {
+    console.log('I am outside!');
+}
+(function() {
+    if (false) {
+        // 重复声明一次函数f
+        function f() {
+            console.log('I am inside!');
+        }
+    }
+
+    f();
+}());
+
+// 上面代码在ES5中运行，会得到“I am inside!”，但是在ES6中运行，会得到“I am outside!”。这是因为ES5存在函数提升，不管会不会进入 if代码块，函数声明都会提升到当前作用域的顶部，得到执行；而ES6支持块级作用域，不管会不会进入if代码块，其内部声明的函数皆不会影响到作用域的外部。
