@@ -11,3 +11,8 @@ var b = _hello2[1];
 var c = _hello2[2];
 var d = _hello2[3];
 var e = _hello2[4];
+var _hello3 = 'hello';
+var len = _hello3.length;
+
+
+console.log(len);
