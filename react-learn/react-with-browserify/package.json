@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "watch": "watchify --debug index.js -o bundle.js -v",
-        "build-dist": "browserify index.js | uglifyjs -m -o bundle.min.js"
+        "watch": "watchify --debug ./src/index.js -o ./dist/bundle.js -v",
+        "build": "browserify ./src/index.js | uglifyjs -m -o ./dist/bundle.min.js"
     },
     "author": "",
     "license": "ISC",
