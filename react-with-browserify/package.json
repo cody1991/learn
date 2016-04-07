@@ -4,15 +4,22 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "browserify --debug index.js > bundle.js",
-        "build-dist": "NODE_ENV=production"
+        "watch": "watchify --debug index.js -o bundle.js -v",
+        "build-dist": "browserify index.js | uglifyjs -m -o bundle.min.js"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "browserify": "^13.0.0",
         "react": "^0.14.8",
+        "react-dom": "^0.14.8",
         "reactify": "^1.1.1",
-        "uglify-js": "^2.6.2"
+        "uglify-js": "^2.6.2",
+        "watchify": "^3.7.0"
+    },
+    "browserify": {
+        "transform": [
+            "reactify"
+        ]
     }
 }
