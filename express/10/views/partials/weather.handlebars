@@ -1,0 +1,19 @@
+{{!-- 我们使用 partials.weather为开头命名上下文，想在任何页面都是用局部文件 --}}
+{{!-- 但是这里并不会将上下文传递给每一个视图 --}}
+{{!-- 我们可以用res.locals 对于任何视图都可用 --}}
+{{!-- 不想让个别视图干扰指定的上下文 --}}
+{{!-- 所以放在了 partials 对象中 --}}
+
+
+<div class="weatherWidget">
+    {{#each partials.weatherContext.locations}}
+        <div class="location">
+            <h3>{{name}}</h3>
+            <a href="{{forecastUrl}}">
+                <img src="{{iconUrl}}" alt="{{weather}}">
+                {{weather}},{{temp}}
+            </a>
+        </div>
+    {{/each}}
+    <small>Source: <a href="http://www.wunderground.com">Weather Underground</a></small>
+</div>
