@@ -2,7 +2,7 @@
 
 学习 react.js
 
-学习 node.js
+学习 node.js (express)
 
 学习 es6
 
