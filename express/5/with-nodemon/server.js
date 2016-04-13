@@ -29,7 +29,7 @@ app.get('/about', function(req, res) {
     res.render('about', {
         fortune: fortune.getFortune()
     });
-})
+});
 
 // 定制404页面
 app.use(function(req, res) {
