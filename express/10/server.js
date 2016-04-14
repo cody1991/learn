@@ -15,16 +15,17 @@ var mailTransport = nodemailer.createTransport('SMTP', {
     }
 });
 
-mailTransport.sendMail({
-    from: '476490767@qq.com',
-    to: '2377439003@qq.com',
-    subject: 'Hello',
-    text: 'Hello'
-}, function(err) {
-    if (err) {
-        console.error('Unable to send email: ' + 　err);
-    }
-})
+// mailTransport.sendMail({
+//     from: '476490767@qq.com',
+//     to: '2377439003@qq.com',
+//     subject: 'Hello',
+//     html: '<h1>Shenzhen</h1>\n<p>Thanks for book your trip.',
+//     generateTextFromHtml: true
+// }, function(err) {
+//     if (err) {
+//         console.error('Unable to send email: ' + 　err);
+//     }
+// });
 
 var handlebars = require('express-handlebars').create({
     defaultLayout: 'main',
