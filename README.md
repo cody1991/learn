@@ -1,5 +1,7 @@
 #学习计划
 
+最近有点乱 不知道怎么学好~又想把 vue.js 加入学习列表。。
+
 学习 react.js
 
 <del>学习 node.js (express)</del>
