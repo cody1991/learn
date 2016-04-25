@@ -40,6 +40,15 @@
     }
 }
 
+@keyframes ballRotate {
+    0% {
+        transform: rotateX(-15deg) rotateY(70deg);
+    }
+    100% {
+        transform: rotateX(-15deg) rotateY(430deg);
+    }
+}
+
 .wrapper {
     height: 250px;
     position: relative;
@@ -127,5 +136,52 @@
             transform: rotate3d(1, 1.732, 0, -70.5deg);
             transform-origin: 75% 50%;
         }
+    }
+}
+
+.sphere-inner {
+    @width: 100px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -(@width / 2) 0 0 -(@width / 2);
+    transform-style: preserve-3d;
+    transform-origin: (@width / 2) (@width / 2);
+    transform: rotateX(-15deg) rotateY(70deg);
+    animation: ballRotate 6s linear infinite 2s;
+    li {
+        width: @width;
+        height: @width;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 100%;
+        background: radial-gradient(transparent 30%, rgba(0, 0, 0, 0.3) 100%);
+        &.a {
+            transform: rotateY(-90deg);
+        }
+        &.b {
+            transform: rotateY(45deg);
+        }
+        &.c {
+            transform: rotateY(315deg);
+        }
+    }
+}
+
+.stage {
+    height: 250px;
+    perspective: 800px;
+    position: relative;
+    .content {
+        position: absolute;
+        width: 64px;
+        height: 36px;
+        left: 50%;
+        top: 50%;
+        margin: -18px 0 0 -32px;
+        transform-style: preserve-3d;
+        // transition:transform 1s;
     }
 }

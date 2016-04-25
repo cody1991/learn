@@ -103,6 +103,26 @@ audio,canvas,img,video{vertical-align:middle}
     transform: rotateY(395deg);
   }
 }
+@-webkit-keyframes ballRotate {
+  0% {
+    -webkit-transform: rotateX(-15deg) rotateY(70deg);
+            transform: rotateX(-15deg) rotateY(70deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-15deg) rotateY(430deg);
+            transform: rotateX(-15deg) rotateY(430deg);
+  }
+}
+@keyframes ballRotate {
+  0% {
+    -webkit-transform: rotateX(-15deg) rotateY(70deg);
+            transform: rotateX(-15deg) rotateY(70deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-15deg) rotateY(430deg);
+            transform: rotateX(-15deg) rotateY(430deg);
+  }
+}
 .wrapper {
   height: 250px;
   position: relative;
@@ -216,4 +236,58 @@ audio,canvas,img,video{vertical-align:middle}
   -webkit-transform-origin: 75% 50%;
       -ms-transform-origin: 75% 50%;
           transform-origin: 75% 50%;
+}
+.sphere-inner {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 50px 50px;
+      -ms-transform-origin: 50px 50px;
+          transform-origin: 50px 50px;
+  -webkit-transform: rotateX(-15deg) rotateY(70deg);
+          transform: rotateX(-15deg) rotateY(70deg);
+  -webkit-animation: ballRotate 6s linear infinite 2s;
+          animation: ballRotate 6s linear infinite 2s;
+}
+.sphere-inner li {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+  background: -webkit-radial-gradient(transparent 30%, rgba(0, 0, 0, 0.3) 100%);
+  background: radial-gradient(transparent 30%, rgba(0, 0, 0, 0.3) 100%);
+}
+.sphere-inner li.a {
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+}
+.sphere-inner li.b {
+  -webkit-transform: rotateY(45deg);
+          transform: rotateY(45deg);
+}
+.sphere-inner li.c {
+  -webkit-transform: rotateY(315deg);
+          transform: rotateY(315deg);
+}
+.stage {
+  height: 250px;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  position: relative;
+}
+.stage .content {
+  position: absolute;
+  width: 64px;
+  height: 36px;
+  left: 50%;
+  top: 50%;
+  margin: -18px 0 0 -32px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
