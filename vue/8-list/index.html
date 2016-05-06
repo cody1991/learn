@@ -29,9 +29,25 @@
             <!-- 然后在替换数组 items 时，如果 Vue.js 遇到一个包含 _uid: '1' 的新对象，它知道它可以复用这个已有对象的作用域与 DOM 元素。 -->
             <div v-for="item of items2" track-by="_uid">
                 {{item._uid}}
+                <button @click="doDelete(item)">X</button>
             </div>
             <!-- 如果没有唯一的键供追踪，可以使用 track-by="$index"，它强制让 v-for 进入原位更新模式：片断不会被移动，而是简单地以对应索引的新值刷新。这种模式也能处理数据数组中重复的值。 -->
             <!-- 这让数据替换非常高效，但是也会付出一定的代价。因为这时 DOM 节点不再映射数组元素顺序的改变，不能同步临时状态（比如 <input> 元素的值）以及组件的私有状态。因此，如果 v-for 块包含 <input> 元素或子组件，要小心使用 track-by="$index" -->
+            <hr/>
+            <!-- 可以使用 v-for 遍历对象。除了 $index 之外，作用域内还可以访问另外一个特殊变量 $key -->
+            <ul>
+                <li v-for="value in object">
+                    {{$key}} : {{value}}
+                </li>
+            </ul>
+            <ul>
+                <li v-for="(key,value) in object">
+                    {{key}} : {{value}}
+                </li>
+            </ul>
+            <div>
+                <span v-for="n in 10">{{n}}</span>
+            </div>
         </div>
     </div>
     <script src="../lib/vue.js"></script>

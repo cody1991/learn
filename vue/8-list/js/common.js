@@ -11,7 +11,22 @@ var app = new Vue({
             _uid: '1'
         }, {
             _uid: '2'
-        }]
+        }],
+        object: {
+            FirstName: 'John',
+            LastName: 'Doe',
+            Age: 30
+        }
+    },
+    methods: {
+        doDelete: function(item) {
+            // var index = this.items2.indexOf(item);
+            // if (index !== -1) {
+            //     this.items2.splice(index, 1);
+            // }
+
+            this.items2.$remove(item);
+        }
     }
 });
 
