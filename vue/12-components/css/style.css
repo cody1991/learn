@@ -61,3 +61,11 @@ audio,canvas,img,video{vertical-align:middle}
 .demo .btn {
   width: 7.46666667rem;
 }
+.fade-transition {
+  -webkit-transition: opacity 0.3s ease;
+          transition: opacity 0.3s ease;
+}
+.fade-enter,
+.fade-leave {
+  opacity: 0;
+}
