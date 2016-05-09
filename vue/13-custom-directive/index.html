@@ -13,7 +13,11 @@
 
 <body>
     <div class="container">
-        
+        <div id="demo-wrapper">
+            <input type="text" v-model="hi">
+            <div id="demo" :a="hi" v-demo:hello.a.b="{color:'white',text:'hello!'}">
+            </div>
+        </div>
     </div>
     <script src="../lib/vue.js"></script>
     <script src="./js/common.js"></script>
