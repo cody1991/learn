@@ -17,6 +17,12 @@
             <input type="text" v-model="message">
             <p v-text="message | reverse"></p>
             <p v-text="message | wrap 'before' 'after'"></p>
+            <hr/>
+            <input type="text" v-model="money | currencyDisplay">
+            <p>{{money}}</p>
+            <hr/>
+            <input type="text" v-model="userInput">
+            <p>{{msg | concat userInput}}</p>
         </div>
     </div>
     <script src="../lib/vue.js"></script>
