@@ -1,0 +1,1 @@
+[教程地址](http://router.vuejs.org/zh-cn/route.html)

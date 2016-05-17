@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <h1>Hello App!</h1>
+            <p>
+                <a v-link="{path:'/foo'}">Go to /foo</a>
+                <a v-link="{path:'/foo/bar'}">Go to /foo/bar</a>
+                <a v-link="{path:'/foo/baz'}">Go to /foo/baz</a>
+            </p>
+            <router-view></router-view>
+        </div>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script src="./bower_components/vue-router/dist/vue-router.js"></script>
+    <script src="./js/common-2.js"></script>
+</body>
+
+</html>
