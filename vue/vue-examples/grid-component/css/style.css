@@ -61,32 +61,51 @@ audio,canvas,img,video{vertical-align:middle}
 .demo .btn {
   width: 7.46666667rem;
 }
-.user {
-  height: 30px;
-  line-height: 30px;
-  padding: 10px;
-  overflow: hidden;
-  -webkit-transition: all 0.25s ease;
-          transition: all 0.25s ease;
-  font-size: 16px;
-  box-sizing: content-box;
-  border-top: 1px solid #eee;
+body {
+  font-size: 14px !important;
+  color: #444;
+}
+#search {
   margin-bottom: 10px;
 }
-.user:last-child {
-  border-bottom: 2px solid #eee;
+table {
+  border: 2px solid #42b983;
+  border-radius: 3px;
+  background-color: #fff;
 }
-.user button {
-  line-height: 1;
+table th {
+  background-color: #42b983;
+  color: rgba(255, 255, 255, 0.66);
+  cursor: pointer;
+  min-width: 120px;
+  padding: 10px 20px;
 }
-.v-enter,
-.v-leave {
+table th.active {
+  color: #fff;
+}
+table th.active .arrow {
+  opacity: 1;
+}
+table td {
+  background-color: #f9f9f9;
+  min-width: 120px;
+  padding: 10px 20px;
+}
+table .arrow {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
   height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-top-width: 0;
-  border-bottom-width: 0;
+  margin-left: 5px;
+  opacity: 0.66;
 }
-.errors {
-  color: #f00;
+table .arrow.asc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #fff;
+}
+table .arrow.dsc {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
 }
