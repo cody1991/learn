@@ -1,0 +1,48 @@
+@import (inline) './normalize.css';
+.container {
+    user-select: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    position: relative;
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 0.32rem;
+}
+
+// 设计稿是 750px
+// 1rem = 75px
+@base: 75rem;
+.demo {
+    text-align: center;
+    .btn {
+        width: 560 / @base;
+    }
+}
+
+.user {
+    height: 30px;
+    line-height: 30px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    font-size: 16px;
+    box-sizing: content-box;
+    border-top: 1px solid #eee;
+    &:last-child {
+        border-bottom: 2px solid #eee;
+    }
+    margin-bottom: 10px;
+    button {
+        line-height: 1;
+    }
+}
+
+.v-enter,
+.v-leave {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
