@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <script type="text/x-template" id="polygraph-template">
+            <g>
+                <polygon :points="points"></polygon>
+                <circle cx="100" cy="100" r="80"></circle>
+                <axis-label v-for="stat in stats" :stat="stat" :index="$index" :total="stats.length"></axis-label>
+            </g>
+        </script>
+        <script type="text/x-template" id="axis-label-template">
+            <text :x="point.x" :y="point.y">{{stat.label}}</text>
+        </script>
+        <div id="app">
+            <svg width="200" height="200">
+                <polygraph :stats="stats"></polygraph>
+            </svg>
+            <div v-for="stat in stats">
+                <label>{{stat.label}}</label>
+                <input type="range" v-model="stat.value" min="0" max="100">
+                <span>{{stat.value}}</span>
+                <button @click="remove(stat)">X</button>
+            </div>
+            <form id="add">
+                <input type="text" name="newlabel" v-model="newLabel">
+                <button @click="add">Add a stat</button>
+            </form>
+            <pre id="raw">
+                {{stats | json}}
+            </pre>
+        </div>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
