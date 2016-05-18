@@ -61,3 +61,10 @@ audio,canvas,img,video{vertical-align:middle}
 .demo .btn {
   width: 7.46666667rem;
 }
+a {
+  color: #000;
+  display: block;
+}
+.v-link-active {
+  color: skyblue;
+}

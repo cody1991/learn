@@ -35,9 +35,10 @@ router.map({
             }
         }
     },
-    '/user/:username/id/:id': {
+    '/user/:user/id/:id': {
+        name: 'user',
         component: {
-            template: '<p>用户名是{{$route.params.username}} id是{{$route.params.id}}'
+            template: '<p>用户名是{{$route.params.user}} id是{{$route.params.id}}'
         }
     }
 });
