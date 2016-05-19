@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script>
+    (function() {
+        var _self = this;
+        _self.width = 640;
+        _self.fontSize = 100;
+        _self.widthProportion = function() {
+            var p = (document.body && document.body.clientWidth || document.getElementsByTagName("html")[0].offsetWidth) / _self.width;
+            return p > 1 ? 1 : p < 0.5 ? 0.5 : p
+        };
+        _self.changePage = function() {
+            document.getElementsByTagName("html")[0].setAttribute("style", "font-size:" + _self.widthProportion() * _self.fontSize + "px !important")
+        };
+        _self.changePage();
+        window.addEventListener("resize", function() {
+            _self.changePage()
+        }, false)
+    })();
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="layout layout-1 clearfix">
+            <aside class="layout__aside">侧边栏宽度固定</aside>
+            <div class="layout__main">主内容宽度自适应</div>
+        </div>
+        <div class="layout layout-2 clearfix">
+            <div class="layout__main">主内容宽度自适应</div>
+            <aside class="layout__aside">侧边栏宽度固定</aside>
+        </div>
+        <div class="layout layout-3 clearfix">
+            <aside class="layout__aside layout__aside--left">左侧边宽度固定</aside>
+            <div class="layout__main">主内容宽度自适应</div>
+            <aside class="layout__aside layout__aside--right">右侧边宽度固定</aside>
+        </div>
+        <div class="layout layout-4 clearfix">
+            <aside class="layout__aside layout__aside--first">左1侧边宽度固定</aside>
+            <aside class="layout__aside layout__aside--second">左2侧边宽度固定</aside>
+            <div class="layout__main">主内容宽度自适应</div>
+        </div>
+        <div class="layout layout-5 clearfix">
+            <div class="layout__main">主内容宽度自适应</div>
+            <aside class="layout__aside layout__aside--first">左1侧边宽度固定</aside>
+            <aside class="layout__aside layout__aside--second">左2侧边宽度固定</aside>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/common.js"></script>
+</body>
+
+</html>

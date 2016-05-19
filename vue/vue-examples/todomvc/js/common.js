@@ -1,3 +1,15 @@
+var STORAGE_KEY = 'todos-vuejs';
+
+var todoStorage = {
+    fetch: function() {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    },
+    save: function(todos) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+    }
+}
+
+
 var filters = {
     all: function(todos) {
         return todos;
@@ -17,7 +29,7 @@ var filters = {
 var app = new Vue({
     el: '.app',
     data: {
-        todos: [],
+        todos: todoStorage.fetch(),
         newTodo: '',
         editedTodo: null,
         visibility: 'all'
@@ -25,7 +37,7 @@ var app = new Vue({
     watch: {
         todos: {
             handler: function(todos) {
-
+                todoStorage.save(todos);
             },
             deep: true
         }
@@ -83,6 +95,9 @@ var app = new Vue({
         cancelEdit: function(todo) {
             this.editedTodo = null;
             todo.title = this.beforeEditCache;
+        },
+        removeCompleted: function() {
+            this.todos = filters.active(this.todos);
         }
     },
     directives: {
@@ -96,4 +111,21 @@ var app = new Vue({
             })
         }
     }
-})
+});
+
+var router = new Router();
+
+['all', 'active', 'completed'].forEach(function(visibility) {
+    router.on(visibility, function() {
+        app.visibility = visibility;
+    })
+});
+
+router.configure({
+    notfound: function() {
+        window.location.hash = '';
+        app.visibility = 'all';
+    }
+});
+
+router.init();
