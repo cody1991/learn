@@ -63,4 +63,11 @@ audio,canvas,img,video{vertical-align:middle}
 }
 .app {
   margin: 130px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.app input::-webkit-input-placeholder {
+  font-style: italic;
+  font-weight: 300;
+  color: #e6e6e6;
 }
