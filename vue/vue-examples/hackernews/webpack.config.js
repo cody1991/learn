@@ -19,6 +19,12 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
             loader: 'babel'
+        }, {
+            test: /\.less$/,
+            loader: 'style-loader!css-loader!autoprefixer-loader!less-loader?compress'
+        }, {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader'
         }]
     },
     babel: {

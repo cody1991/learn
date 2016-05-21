@@ -1,34 +1,36 @@
 {
-    "name": "hackernews",
-    "version": "1.0.0",
-    "description": "",
-    "main": "webpack.config.js",
-    "scripts": {
-        "dev": "webpack-dev-server --inline --hot"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "babel-core": "^6.9.0",
-        "babel-loader": "^6.2.4",
-        "babel-plugin-transform-runtime": "^6.9.0",
-        "babel-preset-es2015": "^6.9.0",
-        "babel-runtime": "^6.9.0",
-        "cross-env": "^1.0.7",
-        "css-loader": "^0.23.1",
-        "stylus": "^0.54.5",
-        "stylus-loader": "^2.1.0",
-        "vue-hot-reload-api": "^1.3.2",
-        "vue-html-loader": "^1.2.2",
-        "vue-loader": "^8.3.1",
-        "vue-style-loader": "^1.0.0",
-        "webpack": "^1.13.0",
-        "webpack-dev-server": "^1.14.1"
-    },
-    "dependencies": {
-        "es6-promise": "^3.0.2",
-        "firebase": "^2.3.1",
-        "vue": "^1.0.8",
-        "vue-router": "^0.7.5"
-    }
+  "name": "hackernews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-runtime": "^6.9.0",
+    "cross-env": "^1.0.7",
+    "css-loader": "^0.23.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "vue-hot-reload-api": "^1.3.2",
+    "vue-html-loader": "^1.2.2",
+    "vue-loader": "^8.3.1",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "es6-promise": "^3.0.2",
+    "firebase": "^2.3.1",
+    "vue": "^1.0.8",
+    "vue-router": "^0.7.5"
+  }
 }
