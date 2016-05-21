@@ -50,6 +50,8 @@ a {
             vertical-align: middle;
             img {
                 vertical-align: middle;
+                width: 18px;
+                height: 18px;
             }
         }
     }
@@ -119,4 +121,82 @@ a {
             text-decoration: underline;
         }
     }
+}
+
+#user-view {
+    color: @gray;
+    li {
+        margin: 5px 0;
+    }
+    .label {
+        display: inline-block;
+        min-width: 60px;
+    }
+    .about {
+        margin-top: 1em;
+    }
+    .links {
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+
+.item-view {
+    .item {
+        padding-left: 0;
+        margin-bottom: 30px;
+        .index {
+            display: none;
+        }
+    }
+    .poll-options {
+        margin-left: 30px;
+        margin-bottom: 40px;
+        li {
+            margin: 12px 0;
+        }
+        p {
+            margin: 8px 0;
+        }
+        .subtext {
+            color: @gray;
+            font-size: 11px;
+        }
+    }
+    .itemtext {
+        color: @gray;
+        margin-top: 0;
+        margin-bottom: 30px;
+        p {
+            margin: 10px 0;
+        }
+    }
+}
+
+.comhead {
+    color: @gray;
+    font-size: 11px;
+    margin-bottom: 8px;
+    a {
+        color: @gray;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .toggle {
+        margin-right: 4px;
+    }
+}
+
+.comment-content {
+    margin: 0 0 16px 24px;
+    word-wrap: break-word;
+    code {
+        white-space: pre-wrap;
+    }
+}
+
+.child-comments {
+    margin: 8px 0 8px 22px;
 }

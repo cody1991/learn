@@ -1,7 +1,7 @@
 <template>
     <div id="wrapper">
         <div id="header">
-            <a id="yc" href="http://www.ycombinator.com">
+            <a id="yc" href="#/">
                 <img src="https://news.ycombinator.com/y18.gif">
             </a>
             <h1><a href="#/">Hacker News</a></h1>
