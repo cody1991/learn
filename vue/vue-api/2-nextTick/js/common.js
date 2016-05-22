@@ -18,6 +18,8 @@ var example = Vue.component('example', {
     }
 });
 
+// Vue.nextTick();
+// vm.$nextTick();
 
 
 var app = new Vue({
