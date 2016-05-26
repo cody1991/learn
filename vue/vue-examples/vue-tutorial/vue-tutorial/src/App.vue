@@ -17,21 +17,34 @@
           </div>
       </nav>
       <div class="container">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-9">
+          <div class="col-sm-4">
+            <sidebar :time="totalTime"></sidebar>
+          </div>
+          <div class="col-sm-8">
               <router-view></router-view>
           </div>
       </div>
   </div>
 </template>
 <script>
-import Hello from './components/Hello'
+  import Sidebar from './components/Sidebar.vue'
 
-export default {
-  components: {
-    Hello
+  export default{
+    components: {'sidebar': Sidebar},
+    data () {
+      return {
+        totalTime: 1.5
+      }
+    },
+    events: {
+      timeUpdate (timeEntry) {
+        this.totalTime += parseFloat(timeEntry.totalTime)
+      },
+      deleteTime (timeEntry) {
+        this.totalTime -= parseFloat(timeEntry.totalTime)
+      }
+    }
   }
-}
 </script>
 
 <style>
