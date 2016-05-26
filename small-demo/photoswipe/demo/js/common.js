@@ -97,7 +97,7 @@
             return false;
         };
 
-        var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+        var openPhotoSwipe = function(index, galleryElement, disableAnimation) {
             var pswpElement = document.querySelectorAll('.pswp')[0],
                 gallery,
                 options,
@@ -126,23 +126,7 @@
                 history: false
             };
 
-
-            if (fromURL) {
-                if (options.galleryPIDs) {
-                    // parse real index when custom PIDs are used 
-                    // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-                    for (var j = 0; j < items.length; j++) {
-                        if (items[j].pid == index) {
-                            options.index = j;
-                            break;
-                        }
-                    }
-                } else {
-                    options.index = parseInt(index, 10) - 1;
-                }
-            } else {
-                options.index = parseInt(index, 10);
-            }
+            options.index = parseInt(index, 10);
 
             // exit if index not found
             if (isNaN(options.index)) {
