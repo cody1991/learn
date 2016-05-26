@@ -36,11 +36,11 @@
     data () {
       return {
         timeEntry: {
-          user: {
-            name: 'cody1991',
-            email: 'c0dy@qq.com',
-            image: 'https://sfault-avatar.b0.upaiyun.com/888/223/888223038-5646dbc28d530_huge256'
-          }
+          // user: {
+          //   name: 'cody1991',
+          //   email: 'c0dy@qq.com',
+          //   image: 'https://sfault-avatar.b0.upaiyun.com/888/223/888223038-5646dbc28d530_huge256'
+          // }
         }
       }
     },

@@ -2,7 +2,7 @@
   <div id="wrapper">
       <nav class="navbar navbar-default">
           <div class="container">
-              <a href="#" class="navbar-brand">
+              <a v-link="'/home'" class="navbar-brand">
                   <i class="glyphicon glyphicon-time"></i>
                   计划表
               </a>
@@ -33,7 +33,7 @@
     components: {'sidebar': Sidebar},
     data () {
       return {
-        totalTime: 1.5
+        totalTime: 0
       }
     },
     events: {

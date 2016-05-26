@@ -13,9 +13,15 @@
         <a class="list-group-item" v-for="timeEntry in timeEntries">
           <div class="row">
             <div class="col-sm-2 user-details">
-              <img :src="timeEntry.user.image" class="avatar img-circle img-responsive">
+              <!-- <img :src="timeEntry.user.image" class="avatar img-circle img-responsive">
               <p class="text-center">
                 {{timeEntry.user.name}}
+              </p> -->
+              <img src="https://avatars1.githubusercontent.com/u/10184444?v=3&s=460" class="avatar img-circle img-responsive" />
+              <p class="text-center">
+                <strong>
+                  二哲
+                </strong>
               </p>
             </div>
             <div class="col-sm-3 text-center time-block">
@@ -45,18 +51,18 @@
 <script>
   export default{
     data () {
-      let existingEntry = {
-        user: {
-          name: 'cody',
-          email: '476490767@qq.com',
-          image: 'https://sfault-avatar.b0.upaiyun.com/888/223/888223038-5646dbc28d530_huge256'
-        },
-        comment: '我的一个备注',
-        totalTime: 1.5,
-        date: '2016-05-01'
-      }
+      // let existingEntry = {
+      //   user: {
+      //     name: 'cody',
+      //     email: '476490767@qq.com',
+      //     image: 'https://sfault-avatar.b0.upaiyun.com/888/223/888223038-5646dbc28d530_huge256'
+      //   },
+      //   comment: '我的一个备注',
+      //   totalTime: 1.5,
+      //   date: '2016-05-01'
+      // }
       return {
-        timeEntries: [existingEntry]
+        timeEntries: []
       }
     },
     methods: {
