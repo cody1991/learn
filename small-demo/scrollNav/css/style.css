@@ -70,6 +70,7 @@ audio,canvas,img,video{vertical-align:middle}
   right: 0;
   max-width: 750px;
   margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .nav li {
   -webkit-transition: all 0.5s;
@@ -93,6 +94,15 @@ audio,canvas,img,video{vertical-align:middle}
   height: 1080px;
   background-color: skyblue;
 }
-.bg.nth-of-type(2) {
+.bg:nth-of-type(2) {
   background-color: blue;
+}
+.bg:nth-of-type(3) {
+  background-color: yellow;
+}
+.bg:nth-of-type(4) {
+  background-color: green;
+}
+.bg:nth-of-type(5) {
+  background-color: purple;
 }
