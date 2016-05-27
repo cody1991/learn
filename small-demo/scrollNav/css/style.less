@@ -1,0 +1,56 @@
+@import (inline) './normalize.css';
+.container {
+    user-select: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    position: relative;
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 0.32rem;
+}
+
+// 设计稿是 750px
+// 1rem = 75px
+@base: 75rem;
+.demo {
+    text-align: center;
+    .btn {
+        width: 560 / @base;
+    }
+}
+
+.nav {
+    font-size: 40 / @base;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 750px;
+    margin: 0 auto;
+    li {
+        transition: all 0.5s;
+        cursor: pointer;
+        float: left;
+        height: 100 / @base;
+        width: 100 / @base;
+        text-align: center;
+        line-height: 100 / @base;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 400px;
+        margin: 10px;
+        &.active {
+            color: skyblue;
+            background-color: #fff;
+        }
+    }
+}
+
+.bg {
+    height: 1080px;
+    background-color: skyblue;
+    &.nth-of-type(2) {
+        background-color: blue;
+    }
+}
