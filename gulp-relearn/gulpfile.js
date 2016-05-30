@@ -64,7 +64,7 @@ gulp.task('images', function() {
 gulp.task('clean', function(callback) {
     del('dist');
     return cache.clearAll(callback);
-})
+});
 
 gulp.task('clean:dist', function(callback) {
     del(['dist/**/*', '!dist/images', '!dist/images/**/*'], callback);
