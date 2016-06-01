@@ -8,20 +8,20 @@ if (!window.localStorage.getItem(key)) {
         user: {
             id: 1,
             name: 'cody',
-            img: 'dist/images/1.jpg'
+            img: './dist/images/1.jpg'
         },
         userList: [{
             id: 2,
             name: '大蟹',
-            img: 'dist/images/2.jpg'
+            img: './dist/images/2.jpg'
         }, {
             id: 3,
             name: 'Jsonz',
-            img: 'dist/images/3.jpg'
+            img: './dist/images/3.jpg'
         }, {
             id: 4,
             name: 'bear',
-            img: 'dist/images/4.jpg'
+            img: './dist/images/4.jpg'
         }],
         sessionList: [{
             userId: 2,
