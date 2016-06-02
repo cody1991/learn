@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <span>Message is : {{message}}</span>
+            <br/>
+            <input type="text" v-model="message" placeholder="edit me">
+            <hr/>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{checked}}</label>
+            <hr/>
+            <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="john" v-model="checkedNames">
+            <label for="john">John</label>
+            <br/>
+            <!-- 多个勾选框，绑定到同一个数组： -->
+            <span>Checked names:{{checkedNames | json}}</span>
+            <hr/>
+            <input type="radio" id="one" value="one" v-model="picked">
+            <label for="one">One</label>
+            <br/>
+            <input type="radio" id="two" value="two" v-model="picked">
+            <label for="two">Two</label>
+            <br/>
+            <span>Picked:{{picked}}</span>
+            <hr/>
+            <select v-model="selected">
+                <option selected>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected:{{selected}}</span>
+            <hr/>
+            <select v-model="selected2" multiple>
+                <option selected>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected2:{{selected2 | json}}</span>
+            <hr/>
+            <select v-model="selected3">
+                <option v-for="option of options" :value="option.value">
+                    {{option.text}}
+                </option>
+            </select>
+            <span>Selected3:{{selected3}}</span>
+            <hr/>
+            <input type="checkbox" v-model="toggle" :true-value="a" :false-value="b">
+            <br/>
+            <span>{{toggle}}</span>
+            <hr/>
+            <input type="text" v-model="msg" lazy>
+            <br>
+            <span>{{msg}}</span>
+            <hr/>
+            <!-- 好像没用 -->
+            <input v-model="age" number>
+            <span>{{age}}</span>
+            <hr/>
+            <!-- 注意 debounce 参数不会延迟 input 事件：它延迟“写入”底层数据。因此在使用 debounce 时应当用 vm.$watch() 响应数据的变化。 -->
+            <input v-model="age" debounce="500">
+            <span>{{age}}</span>
+        </div>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

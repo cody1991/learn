@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <input type="text" v-model="parentMsg">
+            <my-component :msg="parentMsg" my-class="hello"></my-component>
+        </div>
+        <hr/>
+        <template id="child-template">
+            <input type="text" v-model="msg">
+            <button @click="notify">Dispatch Event</button>
+        </template>
+        <div id="events-example">
+            <p>Messages:{{messages | json}}</p>
+            <!-- <child></child> -->
+            <child @child-msg="handleIt"></child>
+        </div>
+        <template id="child-singleslot">
+            <h1>This is my component</h1>
+            <slot>
+            </slot>
+            <slot name="one"></slot>
+            <slot name="two"></slot>
+        </template>
+        <div id="singleSlot">
+            <child-singleslot>
+                <p>This is some original content</p>
+                <p>This is some more original content</p>
+                <p slot="one">One</p>
+                <p slot="two">Two</p>
+            </child-singleslot>
+        </div>
+        <hr/>
+        <div id="transition-mode-demo">
+            <input type="radio" v-model="view" value="v-a" id="a" name="view">
+            <label for="a"></label>
+            <input type="radio" v-model="view" value="v-b" id="b" name="view">
+            <label for="b"></label>
+            <component :is="view" transition="fade" transition-mode="out-in"></component>
+        </div>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

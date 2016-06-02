@@ -1,6 +1,6 @@
 #学习计划
 
-学习[vue](https://github.com/cody1991/vue-learn)
+学习vue
 
 看 奇舞周刊
 

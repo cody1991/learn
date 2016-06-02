@@ -1,0 +1,9 @@
+angular-phonecat/
+
+node_modules/
+
+bower_components/
+
+resource-swiper/
+
+credentials.js

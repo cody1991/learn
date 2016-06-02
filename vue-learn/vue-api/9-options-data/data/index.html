@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            Vue 实例的数据对象。Vue.js 会递归地将它全部属性转为 getter/setter，从而让它能响应数据变化。这个对象必须是普通对象：原生对象，getter/setter 及原型属性会被忽略。不推荐观察复杂对象。</p>
+        <p>在实例创建之后，可以用 vm.$data 访问原始数据对象。Vue 实例也代理了数据对象所有的属性。</p>
+        <p>在定义组件时，同一定义将创建多个实例，此时 data 必须是一个函数，返回原始数据对象。如果 data 仍然是一个普通对象，则所有的实例将指向同一个对象！换成函数后，每当创建一个实例时，会调用这个函数，返回一个新的原始数据对象的副本。</p>
+        <p>名字以 _ 或 $开始的属性不会被 Vue 实例代理，因为它们可能与 Vue 的内置属性与 API 方法冲突。用 vm.$data._property 访问它们。</p>
+        <p>可以通过将 vm.$data 传入 JSON.parse(JSON.stringify(...)) 得到原始数据对象。
+        </p>
+    </div>
+    <script src="../../../lib/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}
+audio,canvas,progress,video{display:inline-block;vertical-align:baseline}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+a{background-color:transparent}
+a:active,a:hover{outline:0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+h1{font-size:0.32rem}
+mark{background:#ff0;color:#000}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-0.08rem}
+sub{bottom:-0.04rem}
+img{border:0}
+svg:not(:root){overflow:hidden}
+hr{box-sizing:content-box;height:0}
+pre{overflow:auto}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:0.16rem}
+button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}
+button{overflow:visible}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+input{line-height:normal}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}
+input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+fieldset{border:1px solid #c0c0c0;}
+legend{border:0;padding:0}
+textarea{overflow:auto}
+optgroup{font-weight:bold}
+table{border-collapse:collapse;border-spacing:0}
+td,th{padding:0}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{padding:0;margin:0;-webkit-tap-highlight-color:rgba(0,0,0,0);box-sizing:border-box}
+ol,ul{list-style:none}
+a{text-decoration:none}
+a,button,input{outline:0;}
+audio,canvas,img,video{vertical-align:middle}
+.clearfix:before,.clearfix:after{content:" ";display:table}
+.clearfix:after{clear:both}
+.container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Microsoft YaHei', sans-serif;
+  position: relative;
+  min-width: 320px;
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 0.32rem;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+.demo {
+  text-align: center;
+}
+.demo .btn {
+  width: 7.46666667rem;
+}
+body {
+  font-size: 14px;
+  line-height: 1.4em;
+  background-color: #f5f5f5;
+  color: #4d4d4d;
+  min-width: 230px;
+  max-width: 550px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+.app {
+  background-color: #fff;
+  margin: 130px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.app input::-webkit-input-placeholder {
+  font-style: italic;
+  font-weight: 300;
+  color: #e6e6e6;
+}
+.app h1 {
+  position: absolute;
+  top: -155px;
+  width: 100%;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+  margin: 83px 0;
+}
+.app .new-todo,
+.app .edit {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.4em;
+  border: 0;
+  outline: none;
+  padding: 6px;
+  border: 1px solid #999;
+  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+.app .new-todo {
+  padding: 16px 16px 16px 60px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.003);
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+.app .main {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #e6e6e6;
+}
+.app .main label[for="toggle-all"] {
+  display: none;
+}
+.app .main .toggle-all {
+  position: absolute;
+  top: -65px;
+  left: 10px;
+  width: 34px;
+  height: 60px;
+  text-align: center;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: none;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.app .main .toggle-all:before {
+  content: '❯';
+  font-size: 22px;
+  color: #e6e6e6;
+  line-height: 60px;
+}
+.app .main .toggle-all:checked:before {
+  color: #737373;
+}
+.app .main .todo-list li {
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+}
+.app .main .todo-list li:last-child {
+  border-bottom: 0;
+}
+.app .main .todo-list li .toggle {
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  border: none;
+  -webkit-appearance: none;
+  background: none;
+}
+.app .main .todo-list li .toggle:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+}
+.app .main .todo-list li .toggle:checked:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+.app .main .todo-list li.completed label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+.app .main .todo-list li label {
+  white-space: pre;
+  word-break: break-word;
+  padding: 15px 60px 15px 15px;
+  margin-left: 45px;
+  display: block;
+  line-height: 1.2;
+  -webkit-transition: color 0.4s;
+          transition: color 0.4s;
+}
+.app .main .todo-list li:hover .destroy {
+  display: block;
+}
+.app .main .todo-list li .destroy {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  margin-bottom: 11px;
+  -webkit-transition: color 0.2s ease-out;
+          transition: color 0.2s ease-out;
+}
+.app .main .todo-list li .destroy:after {
+  content: '×';
+}
+.app .main .todo-list li .destroy:hover {
+  color: #af5b5e;
+}
+.app .main .todo-list li .edit {
+  display: none;
+}
+.app .main .todo-list li.editing {
+  border-bottom: none;
+  padding: 0;
+}
+.app .main .todo-list li.editing .edit {
+  display: block;
+  width: 506px;
+  padding: 13px 17px 12px 17px;
+  margin: 0 0 0 43px;
+}
+.app .main .todo-list li.editing .view {
+  display: none;
+}
+.app .main .todo-list li.editing:last-child {
+  margin-bottom: -1px;
+}
+.app .footer {
+  font-size: 14px;
+  color: #777;
+  padding: 10px 15px;
+  height: 20px;
+  text-align: center;
+  border-top: 1px solid #e6e6e6;
+  box-sizing: content-box;
+}
+.app .footer:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+.app .footer .todo-count {
+  float: left;
+  text-align: left;
+}
+.app .footer .todo-count strong {
+  font-weight: 300;
+}
+.app .footer .filters {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+.app .footer .filters li {
+  display: inline;
+}
+.app .footer .filters li a {
+  color: inherit;
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.app .footer .filters li a.selected,
+.app .footer .filters li a:hover {
+  background-color: rgba(175, 47, 47, 0.1);
+}
+.app .footer .filters li a.selected {
+  background-color: rgba(175, 47, 47, 0.2);
+}
+.app .footer .clear-completed {
+  float: right;
+  position: relative;
+  line-height: 20px;
+  cursor: pointer;
+}
+.app .footer .clear-completed:hover {
+  text-decoration: underline;
+}
