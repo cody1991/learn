@@ -36,7 +36,7 @@ export default (router) => router.map({
         auth: true,
     },
 
-    // '*': {
-    //     component: require('./views/404'),
-    // },
+    '*': {
+        component: require('./views/404'),
+    },
 });
