@@ -39,7 +39,7 @@
             <form id="changeRepoForm" @submit.prevent="changeRepo()" class="form-inline">
                 <div class="form-group">
                     <label for="fullRepoName">Full Repo Name:</label>
-                    <input type="text" id="fullRepoName" class="form-control" placeholder="xiaoluoboding/ghost-theme-kaldorei" v-model="fullRepoName" style="width:300px;">
+                    <input type="text" id="fullRepoName" class="form-control" placeholder="cody1991/learn" v-model="fullRepoName" style="width:300px;">
                 </div>
                 <button type="submit" class="btn btn-primary">获取</button>
             </form>
