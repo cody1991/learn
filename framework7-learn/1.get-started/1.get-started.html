@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <link rel="stylesheet" href="../bower_components/Framework7/dist/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="../bower_components/Framework7/dist/css/framework7.ios.colors.min.css">
+</head>
+
+<body>
+    <!-- 给全屏模式的状态条遮盖 -->
+    <div class="statusbar-overlay"></div>
+    <!-- panels 遮盖 -->
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left panel content gose here</p>
+        </div>
+    </div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- sliding 动画 -->
+                    <div class="center sliding">Awesome App</div>
+                    <div class="right">
+                        <a href="#" class="link icon-only open-panel">
+                            <i class="icon icon-bars"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pages navbar-through toolbar-through">
+                <div data-page="index" class="page">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <p>Page content goes here</p>
+                            <a href="about.html">About app</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <a href="#" class="link">Link1</a>
+                    <a href="#" class="link">Link2</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../bower_components/Framework7/dist/js/framework7.min.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
