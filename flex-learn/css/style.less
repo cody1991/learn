@@ -1,0 +1,129 @@
+@import (inline) './normalize.css';
+.container {
+    user-select: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    position: relative;
+    min-width: 320px;
+    // max-width: 750px;
+    margin: 0 auto;
+    font-size: 0.32rem;
+}
+
+// 设计稿是 750px
+// 1rem = 75px
+@base: 75rem;
+// .demo {
+//     text-align: center;
+//     .btn {
+//         width: 560 / @base;
+//     }
+// }
+.demo {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: flex;
+    background-color: skyblue;
+    margin-bottom: 20px;
+    .child {
+        background-color: yellow;
+    }
+}
+
+.demo-1 {
+    height: 300px;
+    .child {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+}
+
+.demo-2 {
+    // 下面能自动补全
+    flex-flow: row wrap;
+    justify-content: space-around;
+    .child {
+        width: 200px;
+        padding: 5px;
+        height: 150px;
+        margin: 10px;
+        line-height: 150px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+.demo-3 {
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    @media all and (max-width: 800px) {
+        justify-content: space-around;
+    }
+    @media all and (max-width:600px) {
+        flex-flow: column wrap;
+        padding: 0;
+        .child {
+            text-align: center;
+            paddding: 10px;
+            botder-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            &:last-of-type {
+                border-bottom: none;
+            }
+        }
+    }
+    .child {
+        padding: 1em;
+        color: #fff;
+        background-color: transparent;
+    }
+}
+
+.demo-4 {
+    font-weight: bold;
+    text-align: center;
+    flex-flow: row wrap;
+    & > * {
+        padding: 10px;
+        flex: 1 100%;
+    }
+    .header {
+        background-color: tomato;
+    }
+    .footer {
+        background-color: lightgreen;
+    }
+    .main {
+        text-align: left;
+        background-color: deepskyblue;
+    }
+    .aside-1 {
+        background-color: gold;
+    }
+    .aside-2 {
+        background-color: hotpink;
+    }
+    @media all and (min-width:600px) {
+        .aside {
+            flex: 1 auto;
+        }
+    }
+    @media all and (min-width:800px) {
+        .main {
+            flex: 3 0px;
+            order: 2;
+        }
+        .aside-1 {
+            order: 1;
+        }
+        .aside-2 {
+            order: 3;
+        }
+        .footer {
+            order: 4;
+        }
+    }
+}
