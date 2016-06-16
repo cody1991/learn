@@ -52,6 +52,8 @@ if (!isset($name) || !isset($password)) {
 
     if ($count > 0) {
         echo '<h1>Here it is!</h1><p>I bet you are glad you can see this secret page.';
+
+        print_r($row);
     } else {
         echo '<h1>Go away</h1>';
     }
