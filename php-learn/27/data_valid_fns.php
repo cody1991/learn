@@ -1,6 +1,11 @@
 <?php
 function filled_out($form_vars)
 {
+
+    if (count($form_vars) == 0) {
+        return false;
+    }
+
     foreach ($form_vars as $key => $value) {
         if (!isset($key) || ($value == '')) {
             return false;

@@ -36,7 +36,7 @@ function do_html_footer()
 function do_html_heading($heading)
 {
     ?>
-<h2><?php echo $heading; ?><h2>
+<h2><?php echo $heading; ?></h2>
 <?php
 }
 
@@ -214,5 +214,35 @@ function display_add_bm_form()
 </tr>
 </table>
 </form>
+<?php
+}
+
+function display_recommended_urls($url_array)
+{
+    ?>
+<br/>
+<table width="300" cellspacing="2" cellpadding="0">
+<?php
+$color = '#ccc';
+    echo "<br bgcolor=\"" . $color . "\">
+            <td><strong>Recommendations</strong></td></tr>";
+
+    if ((is_array($url_array)) && (count($url_array) > 0)) {
+        foreach ($url_array as $url) {
+            if ($color == '#fff') {
+                $color = '#fff';
+            } else {
+                $clor = '#ccc';
+            }
+
+            echo "<tr bgcolor=\"" . $color . "\">
+                <td><a href=\"" . $url . "\">" . htmlspecialchars($url) . "</a></td></tr>";
+        }
+
+    } else {
+        echo "<tr><td>No recommendations for you today.</td></tr>";
+    }
+    ?>
+</table>
 <?php
 }
