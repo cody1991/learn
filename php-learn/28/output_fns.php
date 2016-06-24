@@ -2,10 +2,10 @@
 
 function do_html_header($title = '')
 {
-    if (!$_SESSION["items"]) {
+    if (@!$_SESSION["items"]) {
         $_SESSION["items"] = '0';
     }
-    if (!$_SESSION["total_price"]) {
+    if (@!$_SESSION["total_price"]) {
         $_SESSION["total_price"] = '0.00';
     }
     ?>
@@ -205,5 +205,100 @@ function display_cart($cart, $change = true, $images = 1)
 
         echo "<td align=\"left\"><a href=\"show_book.php?isbn=" . $isbn . "\">" . $book['title'] . "</a> by " . $book['author'] . "</td><td align=\"center\">\$" . number_format($book['price'], 2) . "</td><td align=\"center\">";
 
+        if ($change == true) {
+            echo "<input type=\"text\" name=\"" . $isbn . "\" value=\"" . $qty . "\" size=\"3\">";
+        } else {
+            echo $qty;
+        }
+
+        echo "</td><td align=\"center\">\$" . number_format($book['price'] * $qty, 2) . "</td></tr>\n";
+
     }
+
+    echo "<tr><th colspan=\"" . (2 + $images) . "\" bgcolor=\"#ccc\">&nbsp;</td>
+        <th align=\"center\" bgcolor=\"#ccc\">" . $_SESSION['items'] . "</th>
+        <th align=\"center\" bgcolor=\"#ccc\">\$" . number_format($_SESSION['total_price'], 2) . "
+    </th></tr>";
+
+    if ($change == true) {
+        echo "<tr><td colspan=\"" . (2 + $images) . "\">&nbsp;</td><td align=\"center\"><input type=\"hidden\" name=\"save\" value=\"true\"/>
+        <input type=\"image\" src=\"images/save-changes.gif\" border=\"0\" alt=\"Save Changes\"/></td><td>&nbsp;</td></tr>";
+    }
+
+    echo "</form></table>";
+}
+
+function display_checkout_form()
+{
+    ?>
+<br />
+  <table border="0" width="100%" cellspacing="0">
+  <form action="purchase.php" method="post">
+  <tr><th colspan="2" bgcolor="#cccccc">Your Details</th></tr>
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="name" value="" maxlength="40" size="40"/></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><input type="text" name="address" value="" maxlength="40" size="40"/></td>
+  </tr>
+  <tr>
+    <td>City/Suburb</td>
+    <td><input type="text" name="city" value="" maxlength="20" size="40"/></td>
+  </tr>
+  <tr>
+    <td>State/Province</td>
+    <td><input type="text" name="state" value="" maxlength="20" size="40"/></td>
+  </tr>
+  <tr>
+    <td>Postal Code or Zip Code</td>
+    <td><input type="text" name="zip" value="" maxlength="10" size="40"/></td>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td><input type="text" name="country" value="" maxlength="20" size="40"/></td>
+  </tr>
+  <tr><th colspan="2" bgcolor="#cccccc">Shipping Address (leave blank if as above)</th></tr>
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="ship_name" value="" maxlength="40" size="40"/></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><input type="text" name="ship_address" value="" maxlength="40" size="40"/></td>
+  </tr>
+  <tr>
+    <td>City/Suburb</td>
+    <td><input type="text" name="ship_city" value="" maxlength="20" size="40"/></td>
+  </tr>
+  <tr>
+    <td>State/Province</td>
+    <td><input type="text" name="ship_state" value="" maxlength="20" size="40"/></td>
+  </tr>
+  <tr>
+    <td>Postal Code or Zip Code</td>
+    <td><input type="text" name="ship_zip" value="" maxlength="10" size="40"/></td>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td><input type="text" name="ship_country" value="" maxlength="20" size="40"/></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><p><strong>Please press Purchase to confirm
+         your purchase, or Continue Shopping to add or remove items.</strong></p>
+     <?php display_form_button("purchase", "Purchase These Items");?>
+    </td>
+  </tr>
+  </form>
+  </table><hr />
+<?php
+}
+
+function display_form_button($image, $alt)
+{
+    echo "<div align=\"center\"><input type=\"image\"
+           src=\"images/" . $image . ".gif\"
+           alt=\"" . $alt . "\" border=\"0\" height=\"50\"
+           width=\"135\"/></div>";
 }
