@@ -149,3 +149,61 @@ function display_books($book_array)
     echo "<hr/>";
 
 }
+
+function display_book_details($book)
+{
+    if (is_array($book)) {
+        echo "<table><tr>";
+
+        if (@file_exists("images/" . $book['isbn'] . ".jpg")) {
+            $size = getimagesize("images/" . $book['isbn'] . ".jpg");
+
+            if (($size[0] > 0) && ($size[1] > 0)) {
+                echo "<td><img src=\"images/" . $book['isbn'] . ".jpg\" style=\"border:1px solid black\"/></td>";
+            }
+        }
+
+        echo "<td><ul>";
+        echo "<li><strong>Author:</strong>";
+        echo $book['author'];
+        echo "</li><li><strong>ISBN:</strong>";
+        echo $book['isbn'];
+        echo "</li><li><strong>Our Price:</strong>";
+        echo number_format($book['price'], 2);
+        echo "</li><li><strong>Description:</strong>";
+        echo $book['description'];
+        echo "</li></ul></td></tr></table>";
+    } else {
+        echo "<p>The details of this book cannot be displayed at this time.</p>";
+    }
+    echo "<hr/>";
+}
+
+function display_cart($cart, $change = true, $images = 1)
+{
+    echo "<table border=\"0\" width=\"100%\" cellspacing=\"0\"><form action=\"show_cart.php\" method=\"post\">
+        <tr><th colspan=\"" . (1 + $images) . "\" bgcolor=\"#ccc\">Item</th><th bgcolor=\"#ccc\">Item</th><th bgcolor=\"#ccc\">Quantity</th><th bgcolor=\"#ccc\">Total</th>";
+
+    foreach ($cart as $isbn => $qty) {
+        $book = get_book_details($isbn);
+
+        echo "<tr>";
+
+        if ($images == true) {
+            echo "<td align=\"left\">";
+
+            if (file_exists("images/" . $isbn . ".jpg")) {
+                $size = getimagesize("images/" . $isbn . ".jpg");
+                if (($size[0] > 0) && ($size[1] > 0)) {
+                    echo "<img src=\"images/" . $isbn . ".jpg\" style=\"border:1px solid black\" width=\"" . ($size[0] / 3) . "\" height=\"" . ($size[1] / 3) . "\"/>";
+                }
+            } else {
+                echo "&nbsp";
+            }
+            echo "</td>";
+        }
+
+        echo "<td align=\"left\"><a href=\"show_book.php?isbn=" . $isbn . "\">" . $book['title'] . "</a> by " . $book['author'] . "</td><td align=\"center\">\$" . number_format($book['price'], 2) . "</td><td align=\"center\">";
+
+    }
+}
