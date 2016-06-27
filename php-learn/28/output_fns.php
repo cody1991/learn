@@ -302,3 +302,123 @@ function display_form_button($image, $alt)
            alt=\"" . $alt . "\" border=\"0\" height=\"50\"
            width=\"135\"/></div>";
 }
+
+function display_card_form($name)
+{
+    ?>
+
+<table border="0" width="100%" cellspacing="0">
+<form action="process.php" method="post">
+<tr><th colspan="2" bgcolor="#cccccc">Credit Card Details</th></tr>
+  <tr>
+    <td>Type</td>
+    <td><select name="card_type">
+        <option value="VISA">VISA</option>
+        <option value="MasterCard">MasterCard</option>
+        <option value="American Express">American Express</option>
+        </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Number</td>
+    <td><input type="text" name="card_number" value="" maxlength="16" size="40"></td>
+  </tr>
+    <tr>
+    <td>AMEX code (if required)</td>
+    <td><input type="text" name="amex_code" value="" maxlength="4" size="4"></td>
+  </tr>
+    <tr>
+    <td>Expiry Date</td>
+    <td>Month
+       <select name="card_month">
+       <option value="01">01</option>
+       <option value="02">02</option>
+       <option value="03">03</option>
+       <option value="04">04</option>
+       <option value="05">05</option>
+       <option value="06">06</option>
+       <option value="07">07</option>
+       <option value="08">08</option>
+       <option value="09">09</option>
+       <option value="10">10</option>
+       <option value="11">11</option>
+       <option value="12">12</option>
+       </select>
+       Year
+       <select name="card_year">
+       <?php
+for ($y = date("Y"); $y < date("Y") + 10; $y++) {
+        echo "<option value=\"" . $y . "\">" . $y . "</option>";
+    }
+    ?>
+       </select>
+  </tr>
+    <tr>
+    <td>Name on Card</td>
+    <td><input type="text" name="card_name" value = "<?php echo $name; ?>" maxlength="40" size="40"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <p><strong>Please press Purchase to confirm your purchase, or Continue Shopping to
+      add or remove items</strong></p>
+     <?php display_form_button('purchase', 'Purchase These Items');?>
+    </td>
+  </tr>
+</form>
+</table>
+
+<?php
+}
+
+function display_shipping($shipping)
+{
+    ?>
+
+ <table border="0" width="100%" cellspacing="0">
+  <tr><td align="left">Shipping</td>
+      <td align="right"> <?php echo number_format($shipping, 2); ?></td></tr>
+  <tr><th bgcolor="#cccccc" align="left">TOTAL INCLUDING SHIPPING</th>
+      <th bgcolor="#cccccc" align="right">$ <?php echo number_format($shipping + $_SESSION['total_price'], 2); ?></th>
+  </tr>
+  </table><br />
+
+<?php
+}
+
+function display_login_form()
+{
+    ?>
+
+ <form method="post" action="admin.php">
+ <table bgcolor="#cccccc">
+   <tr>
+     <td>Username:</td>
+     <td><input type="text" name="username"/></td></tr>
+   <tr>
+     <td>Password:</td>
+     <td><input type="password" name="passwd"/></td></tr>
+   <tr>
+     <td colspan="2" align="center">
+     <input type="submit" value="Log in"/></td></tr>
+   <tr>
+ </table></form>
+
+<?php
+}
+
+function display_admin_menu()
+{
+
+    ?>
+
+<br/>
+
+<a href="index.php">Go to main site</a><br />
+<a href="insert_category_form.php">Add a new category</a><br />
+<a href="insert_book_form.php">Add a new book</a><br />
+<a href="change_password_form.php">Change admin password</a>
+
+<br />
+
+<?php
+}
