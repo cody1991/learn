@@ -14,7 +14,25 @@
 <body>
     <div class="container">
         <div id="app">
-            {{message}}
+            <p>
+                {{message}}
+            </p>
+            <input v-model="message">
+            <button @click="reverseMessage">Reverse Message</button>
+            <hr/>
+            <ol v-for="todo in todos">
+                {{todo.text}}
+            </ol>
+        </div>
+        <hr/>
+        <div id="app2">
+            <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+            <ul>
+                <li v-for="(todo,index) in todos">
+                    <span>{{todo.text}}</span>
+                    <button @click="removeTodo(index)">X</button>
+                </li>
+            </ul>
         </div>
     </div>
     <!-- <script src="https://npmcdn.com/vue@next/dist/vue.js"></script> -->
