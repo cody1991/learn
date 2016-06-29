@@ -15,6 +15,21 @@
     <div class="container">
         <div id="app">
             <p>{{message}}</p>
+            <ol>
+                <li v-for="(item,index) in items">
+                    {{message}} - {{index}} - {{item.message}}
+                </li>
+            </ol>
+            <hr/>
+            <template v-for="(item,index) in items" :key="item._uid">
+                <div>{{message}} - {{index}} - {{item.message}}</div>
+                <hr/>
+            </template>
+            <ul>
+                <li v-for="(value,key) in object">
+                    {{key}} : {{value}}
+                </li>
+            </ul>
         </div>
     </div>
     <!-- <script src="https://npmcdn.com/vue@next/dist/vue.js"></script> -->
