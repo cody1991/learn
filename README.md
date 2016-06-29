@@ -4,7 +4,8 @@
 
 学习php
 
-看 奇舞周刊
+学习 lodash
+
 
 [collections](https://github.com/cody1991/collections) 可以看到自己收集的一些框架
 
