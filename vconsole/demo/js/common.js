@@ -66,4 +66,17 @@
     })
 
     vConsole.addPlugin(myPlugin);
+
+    $('.btn').on('click', function() {
+
+        $.ajax({
+            type: 'get',
+            url: 'http://api.impingo.me/web/getNiceUser?period=20160527',
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success: function(info) {
+                console.log(info);
+            }
+        });
+    });
 })();
