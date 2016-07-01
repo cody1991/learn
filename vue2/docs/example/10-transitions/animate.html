@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://npmcdn.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+    <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/flexible/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <p>
+                {{message}}
+            </p>
+            <button @click="shouldRender =!shouldRender">Toggle Render</button>
+            <p v-if="shouldRender" transition="example-transition" class="animation">Hello</p>
+        </div>
+        <hr>
+        <div id="app2">
+            <button @click="shouldRender =!shouldRender">Toggle Render</button>
+            <p v-if="shouldRender" transition="example-transition-2" class="animation">Hello</p>
+            <hr/>
+            <input type="text" v-model="query">
+            <ul>
+                <li v-for="(item,index) in computedList" transition="staggered-fade" v-bind:key="item.msg" v-bind:data-index="index">
+                    {{item.msg}}
+                </li>
+            </ul>
+        </div>
+        <!-- <script src="https://npmcdn.com/vue@next/dist/vue.js"></script> -->
+        <!--
+        Velocity works very much like jQuery.animate and is
+        a great option for JavaScript animations
+        -->
+        <script src="../lib/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+        <script src="./js/common2.js"></script>
+</body>
+
+</html>

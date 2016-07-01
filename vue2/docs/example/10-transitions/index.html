@@ -21,6 +21,11 @@
             <button @click="showHello = !showHello">Toggle render</button>
             <div v-if="showHello" transition="example-transition-1">Hello</div>
         </div>
+        <hr/>
+        <div id="app2">
+            <button @click="shouldshow = !shouldshow">Toggle show</button>
+            <div v-show="shouldshow" transition="bounce" class="animation">Look at me!</div>
+        </div>
         <!-- <script src="https://npmcdn.com/vue@next/dist/vue.js"></script> -->
         <script src="../lib/vue.js"></script>
         <script src="./js/common.js"></script>

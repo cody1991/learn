@@ -5,3 +5,10 @@ var app = new Vue({
         showHello: true
     },
 });
+
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        shouldshow: true
+    }
+});
