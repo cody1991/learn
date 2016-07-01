@@ -19,4 +19,51 @@
 
     console.log('[system]', 'system');
     console.log('[default]', 'default');
+
+    console.log(vConsole.tool.isString('123'));
+    // vConsole.tool.isString(value)
+
+    // vConsole.tool.isArray(value)
+
+    // vConsole.tool.isBoolean(value)
+
+    // vConsole.tool.isElement(value)
+
+    // vConsole.tool.isFunction(value)
+
+    // vConsole.tool.isNull(value)
+
+    // vConsole.tool.isNumber(value)
+
+    // vConsole.tool.isObject(value)
+
+    // vConsole.tool.isSymbol(value)
+
+    // vConsole.tool.isUndefined(value)
+
+    vConsole.tool.setStorage('count', 1);
+
+    var myPlugin = new vConsole.VConsolePlugin('my_plugin', 'My Plugin');
+
+    myPlugin.on('init', function() {
+        console.log('My plugin init');
+    });
+
+    myPlugin.on('renderTab', function(callback) {
+        var html = '<div>Click the tool button below!</div>';
+        callback(html);
+    });
+
+    myPlugin.on('addTool', function(callback) {
+        var button = {
+            name: 'Reload',
+            onClick: function(event) {
+                location.reload();
+            }
+        }
+
+        callback([button]);
+    })
+
+    vConsole.addPlugin(myPlugin);
 })();
