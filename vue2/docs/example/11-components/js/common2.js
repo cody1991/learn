@@ -29,6 +29,26 @@ var app = new Vue({
                     this.$emit('increment');
                 }
             }
+        },
+        'my-input': {
+            template: '\
+                <div class="form-group">\
+                  <label v-bind:for="randomId">{{ label }}:</label>\
+                  <input v-bind:id="randomId" v-on:input="onInput">\
+                </div>\
+              ',
+            props: ['value', 'label'],
+            data: function() {
+                return {
+                    randomId: 'input-' + Math.random()
+                }
+            },
+            methods: {
+                onInput: function(event) {
+                    console.log(event.target);
+                    this.$emit('input', event.target.value);
+                }
+            }
         }
     }
 });
