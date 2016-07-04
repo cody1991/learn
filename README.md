@@ -2,17 +2,17 @@
 
 #学习历程(2016/7/1 开始不删减更新)
 
-<del>学习了一个方便在手机上调试的工具 [vConsole](https://github.com/WechatFE/vConsole)</del>
+<del>【完成学习】学习了一个方便在手机上调试的工具 [vConsole](https://github.com/WechatFE/vConsole)</del>
 
 <hr/>
 
-<del>学习了一个javascript动画引擎 [anime](https://github.com/juliangarnier/anime)</del>
+<del>【完成学习】学习了一个javascript动画引擎 [anime](https://github.com/juliangarnier/anime)</del>
 
 <hr/>
 
 学习 vue2 了，基本随着文档的更新学习了。 后面要注意扩展学习，
 
-* [A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.](https://github.com/weui/weui)
+* <del>【完成学习】[A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.](https://github.com/weui/weui)</del>
 * [Mobile web UI Components based on Vue and WeUI. Be Cool with Vue & WeUI. ](https://github.com/airyland/vux)
 * [Flux-inspired Application Architecture for Vue.js.](https://github.com/vuejs/vuex)
 * [A framework for building Mobile cross-platform UI](https://github.com/alibaba/weex)
