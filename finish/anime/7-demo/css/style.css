@@ -60,3 +60,16 @@ audio,canvas,img,video{vertical-align:middle}
 .demo .btn {
   width: 7.46666667rem;
 }
+body,
+html {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+}
+.fireworks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
