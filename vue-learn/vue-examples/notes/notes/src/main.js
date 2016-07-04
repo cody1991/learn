@@ -1,8 +1,22 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from 'vue';
+import App from './App';
 
-/* eslint-disable no-new */
-new Vue({
-  el: 'body',
-  components: { App }
+import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
+
+Vue.use(VueResource);
+Vue.use(VueRouter);
+
+const router = new VueRouter();
+
+router.map({
+    '/index': {
+        component: App
+    }
+});
+
+router.redirect({
+    '*': '/index'
 })
+
+router.start(App, '#app');

@@ -19,9 +19,9 @@ const initData = {
 
 export const initStore = ({
     dispatch
-} => {
+}) => {
     dispatch('INIT_STORE', initData);
-});
+};
 
 export const updateActiveNote = makeAction('SET_ACTIVE_NOTE');
 export const newNote = makeAction('NEW_NOTE');
