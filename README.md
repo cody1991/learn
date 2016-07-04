@@ -2,11 +2,11 @@
 
 #学习历程(2016/7/1 开始不删减更新)
 
-<del>【完成学习】学习了一个方便在手机上调试的工具 [vConsole](https://github.com/WechatFE/vConsole)</del>
+* <del>【完成学习】学习了一个方便在手机上调试的工具 [vConsole](https://github.com/WechatFE/vConsole) </del>
 
 <hr/>
 
-<del>【完成学习】学习了一个javascript动画引擎 [anime](https://github.com/juliangarnier/anime)</del>
+* <del>【完成学习】学习了一个javascript动画引擎 [anime](https://github.com/juliangarnier/anime) </del>
 
 <hr/>
 
