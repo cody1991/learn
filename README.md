@@ -2,6 +2,10 @@
 
 #学习历程(2016/7/1 开始不删减更新)
 
+* 学习一个vue的实例 [使用 Vue.js 构建单页应用](https://segmentfault.com/a/1190000005863691) ,考虑可以写一个 vue 的博客 ( [博客地址](http://cody1991.github.io/) )
+
+<hr/>
+
 * <del>【完成学习】学习了一个方便在手机上调试的工具 [vConsole](https://github.com/WechatFE/vConsole) </del>
 
 <hr/>
