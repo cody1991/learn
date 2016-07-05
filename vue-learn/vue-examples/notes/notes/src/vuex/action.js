@@ -4,18 +4,35 @@ function makeAction(type) {
     }, ...args) => dispatch(type, ...args);
 }
 
-const initNote = {
-    id: +new Date(),
-    title: '我的笔记',
-    content: '第一篇笔记内容',
-    favorite: false
-};
+let key = 'notes';
+let initNote;
+let initData;
 
-const initData = {
-    show: 'all',
-    notes: [initNote],
-    activeNote: initNote
-};
+if (!window.localStorage.getItem(key)) {
+    initNote = {
+        id: +new Date(),
+        title: '我的笔记',
+        content: '笔记内容',
+        favorite: false
+    };
+
+
+    initData = {
+        show: 'all',
+        notes: [initNote],
+        activeNote: initNote
+    };
+
+} else {
+    initNote = JSON.parse(window.localStorage.getItem(key));
+
+    initData = {
+        show: 'all',
+        notes: initNote.notes,
+        activeNote: initNote.notes[0]
+    }
+}
+
 
 export const initStore = ({
     dispatch
