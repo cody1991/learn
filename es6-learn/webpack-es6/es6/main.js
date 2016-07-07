@@ -1,3 +1,3 @@
-import Let from './let.js';
+import iteratorsAndTheForOfLoop from './iteratorsAndTheForOfLoop.js';
 
-console.log(Let());
+iteratorsAndTheForOfLoop();

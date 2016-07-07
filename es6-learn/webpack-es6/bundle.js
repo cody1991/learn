@@ -46,25 +46,33 @@
 
 	'use strict';
 	
-	var _let = __webpack_require__(1);
+	var _iteratorsAndTheForOfLoop = __webpack_require__(2);
 	
-	var _let2 = _interopRequireDefault(_let);
+	var _iteratorsAndTheForOfLoop2 = _interopRequireDefault(_iteratorsAndTheForOfLoop);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	console.log((0, _let2.default)());
+	(0, _iteratorsAndTheForOfLoop2.default)();
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ function(module, exports) {
 
 	"use strict";
 	
-	exports.default = function () {
-	    var a = 1;
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var iteratorsAndTheForOfLoop = function iteratorsAndTheForOfLoop() {
+	    var myArray = [1, 2, 3];
 	
-	    return a;
+	    for (var index = 0; index < myArray.length; index++) {
+	        console.log(myArray[index]);
+	    }
 	};
+	
+	exports.default = iteratorsAndTheForOfLoop;
 
 /***/ }
 /******/ ]);
