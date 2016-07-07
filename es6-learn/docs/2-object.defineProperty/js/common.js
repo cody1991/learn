@@ -67,4 +67,116 @@
 
     // configurable 特性表示对象的属性是否可以被删除，以及除 writable 特性外的其他特性是否可以被修改。
 
+    // var o = {};
+    // Object.defineProperty(o, "a", {
+    //     get: function() {
+    //         return 1;
+    //     },
+    //     configurable: false
+    // });
+
+    // // throws a TypeError
+    // Object.defineProperty(o, "a", {
+    //     configurable: true
+    // });
+    // // throws a TypeError
+    // Object.defineProperty(o, "a", {
+    //     enumerable: true
+    // });
+    // // throws a TypeError (set was undefined previously) 
+    // Object.defineProperty(o, "a", {
+    //     set: function() {}
+    // });
+    // // throws a TypeError (even though the new get does exactly the same thing) 
+    // Object.defineProperty(o, "a", {
+    //     get: function() {
+    //         return 1;
+    //     }
+    // });
+    // // throws a TypeError
+    // Object.defineProperty(o, "a", {
+    //     value: 12
+    // });
+
+    // console.log(o.a); // logs 1
+    // delete o.a; // Nothing happens
+    // console.log(o.a); // logs 1
+
+    // -------------------------
+
+    // var o = {};
+
+    // o.a = 1;
+    // // 等同于 :
+    // Object.defineProperty(o, "a", {
+    //     value: 1,
+    //     writable: true,
+    //     configurable: true,
+    //     enumerable: true
+    // });
+
+
+    // // 另一方面，
+    // Object.defineProperty(o, "a", {
+    //     value: 1
+    // });
+    // // 等同于 :
+    // Object.defineProperty(o, "a", {
+    //     value: 1,
+    //     writable: false,
+    //     configurable: false,
+    //     enumerable: false
+    // });
+
+    function Archiver() {
+        var temperature = null;
+        var archive = [];
+
+        Object.defineProperty(this, 'temperature', {
+            get: function() {
+                console.log('get!');
+                return temperature;
+            },
+            set: function(value) {
+                temperature = value;
+                archive.push({
+                    val: temperature
+                });
+            }
+        });
+
+        this.getArchive = function() {
+            console.log(archive);
+            return archive;
+        }
+    }
+
+    var arc = new Archiver();
+
+    arc.temperature;
+    arc.temperature = 11;
+    arc.temperature = 13;
+
+    arc.getArchive();
+
+    var pattern = {
+        get: function() {
+            return 'I alawy return this string,whatever you have assigned';
+        },
+        set: function() {
+            this.myname = 'this is my name string';
+        }
+    }
+
+    function TestDefineSetAndGet() {
+        Object.defineProperty(this, 'myproperty', pattern);
+    }
+
+    var instance = new TestDefineSetAndGet();
+
+    instance.myproperty = 'test';
+
+    console.log(instance.myproperty);
+    console.log(instance.myname);
+
 })();
