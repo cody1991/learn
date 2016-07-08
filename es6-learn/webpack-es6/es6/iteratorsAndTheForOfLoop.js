@@ -149,14 +149,14 @@ var iteratorsAndTheForOfLoop = function() {
 
     // 然后是一个使用以下方法和少许临时变量实现的与之前大致相当的示例，：
 
-    var $iterator = ITERABLE[Symbol.iterator]();
-    var $result = $iterator.next();
+    // var $iterator = ITERABLE[Symbol.iterator]();
+    // var $result = $iterator.next();
 
-    while (!$result.done) {
-        var result = $result.value;
-        console.log(result);
-        $result = $iterator.next();
-    }
+    // while (!$result.done) {
+    //     var result = $result.value;
+    //     console.log(result);
+    //     $result = $iterator.next();
+    // }
 
     // 这段代码没有展示.return()方法是如何处理的，我们可以添加这部分代码，但我认为这对于我们正在讲解的内容来说过于复杂了。for-of循环用起来很简单，但是其背后有着非常复杂的机制。
 }
