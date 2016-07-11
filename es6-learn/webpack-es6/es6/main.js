@@ -2,7 +2,11 @@
 import iteratorsAndTheForOfLoop from './iteratorsAndTheForOfLoop.js';
 import generators from './generators.js';
 import templateString from './template-string.js';
+import parameters from './parameters.js';
+import destructuring from './destructuring.js';
 
 iteratorsAndTheForOfLoop();
 generators();
 templateString();
+parameters();
+destructuring();
