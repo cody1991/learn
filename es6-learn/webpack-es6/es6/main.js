@@ -6,6 +6,9 @@ import parameters from './parameters.js';
 import destructuring from './destructuring.js';
 import arrowFunctions from './arrowFunctions.js';
 import symbols from './symbols.js';
+import example from './example.js';
+import collections from './collections.js';
+import generators2 from './generators-continued.js';
 
 iteratorsAndTheForOfLoop();
 generators();
@@ -14,3 +17,8 @@ parameters();
 destructuring();
 arrowFunctions();
 symbols();
+
+example();
+
+collections();
+generators2();
