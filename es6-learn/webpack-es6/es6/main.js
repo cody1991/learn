@@ -5,6 +5,7 @@ import templateString from './template-string.js';
 import parameters from './parameters.js';
 import destructuring from './destructuring.js';
 import arrowFunctions from './arrowFunctions.js';
+import symbols from './symbols.js';
 
 iteratorsAndTheForOfLoop();
 generators();
@@ -12,3 +13,4 @@ templateString();
 parameters();
 destructuring();
 arrowFunctions();
+symbols();
