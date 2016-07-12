@@ -9,6 +9,7 @@ import symbols from './symbols.js';
 import example from './example.js';
 import collections from './collections.js';
 import generators2 from './generators-continued.js';
+import proxiesAndReflect from './proxiesAndReflect.js';
 
 iteratorsAndTheForOfLoop();
 generators();
@@ -22,3 +23,4 @@ example();
 
 collections();
 generators2();
+proxiesAndReflect();
