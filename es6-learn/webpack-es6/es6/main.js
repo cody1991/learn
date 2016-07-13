@@ -11,6 +11,8 @@ import collections from './collections.js';
 import generators2 from './generators-continued.js';
 import proxiesAndReflect from './proxiesAndReflect.js';
 import classes from './classes.js';
+import subclassing from './subclassing.js';
+import modules from './modules.js';
 
 iteratorsAndTheForOfLoop();
 generators();
@@ -26,3 +28,5 @@ collections();
 generators2();
 proxiesAndReflect();
 classes();
+subclassing();
+modules();
