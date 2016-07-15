@@ -2,6 +2,10 @@
 
 #学习历程(2016/7/1 开始不删减更新)
 
+* 学习 [express](https://github.com/expressjs/express) or ko，纠结中
+
+<hr/>
+
 * 学习 ecmascript 6 [es6-in-depth](https://hacks.mozilla.org/category/es6-in-depth/)
 
 <hr/>
