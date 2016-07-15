@@ -1,11 +1,11 @@
 <template>
     <div>
-        <span v-if="!hasGame || win / total > 0" :style="{width: 100 * win / total + '%'}">
+        <span class="win-bar" v-if="!hasGame || win / total > 0" :style="{width: 100 * win / total + '%'}">
         </span>
         <span v-if="loss / total > 0" :style="{width:100*loss/total + '%'}" class="loss-bar">
             {{win === 0 ? '0%' : ''}}
         </span>
-        <p :class="hasGame?'' : 'no-game'" class="win-bar">{{hasGame ? (100 * win / total).toFixed(1) + '%' : '无场次'}}</p>
+        <p :class="hasGame?'' : 'no-game'" >{{hasGame ? (100 * win / total).toFixed(1) + '%' : '无场次'}}</p>
     </div>
 </template>
 

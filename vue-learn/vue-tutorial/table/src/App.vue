@@ -1,7 +1,10 @@
 <template>
     <div class="container">
         <p>Last modified at : {{msg}}</p>
-        <v-table :rows="rows"></v-table>
+        <v-table :rows="rows" v-if="!loading"></v-table>
+        <p v-show="loading" class='loading'>
+            {{loadText}}
+        </p>
     </div>
 </template>
 
@@ -17,6 +20,8 @@ export default {
     },
     data () {
         return {
+            loading:false,
+            loadText:'加载中...',
             msg:'',
             region:'CN',
             laddar:'3v3',
@@ -25,9 +30,13 @@ export default {
     },
     methods:{
         getLaddar (region,laddar){
+            this.loading = true
             arena.getLaddar(region,laddar,(err,val) => {
                 if(!err){
                     this.rows = val.rows
+                    this.loading = false
+                }else{
+                    this.loadText = '加载失败'
                 }
             })
         }
@@ -50,4 +59,7 @@ export default {
     }
     .clearfix:before,.clearfix:after{content:" ";display:table}
     .clearfix:after{clear:both}
+    .loading{
+        font-size: 2em;
+    }
 </style>

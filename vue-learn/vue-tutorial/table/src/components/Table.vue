@@ -5,15 +5,17 @@
         <option value="0">全部</option>
         <option v-for="(key,val) in classes" :value="key">{{val.name}}</option>
     </select>
+    <hr/>
+    <p>有下横线的可以点击排序</p>
     <table class="responsive-table">    
         <thead>
             <tr>
-                <th @click="sort = {key:'ranking',val:-sort.val}">排名</th>
-                <th @click="sort = {key:'rating',val:-sort.val}">分数</th>
+                <th class="canClick" @click="sort = {key:'ranking',val:-sort.val}">排名</th>
+                <th class="canClick" @click="sort = {key:'rating',val:-sort.val}">分数</th>
                 <th>资料</th>
                 <td>服务器</td>  
-                <td @click="sort={key:'weeklyRate',val:-sort.val}">本周战绩</td>
-                <td @click="sort={key:'seasonRate',val:-sort.val}">赛季战绩</td>          
+                <td class="canClick" @click="sort={key:'weeklyRate',val:-sort.val}">本周战绩</td>
+                <td class="canClick" @click="sort={key:'seasonRate',val:-sort.val}">赛季战绩</td>          
             </tr>
         </thead>
         <tbody>
@@ -217,6 +219,9 @@
     th:first-child, td:first-child {
         padding-left: 1.5rem;
       }
+    th:last-child, td:last-child {
+        padding-right: 1.5rem;
+      }
     .horde{
         background: rgba(255, 205, 210, .4);
     }
@@ -230,5 +235,9 @@
         float: left;
         margin-right: 2px;
         background-size: auto 104px;
+    }
+    .canClick{
+        text-decoration: underline;
+        cursor: pointer;
     }
 </style>
