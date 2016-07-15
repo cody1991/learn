@@ -1,12 +1,14 @@
 [collections](https://github.com/cody1991/collections) 可以看到自己收集的一些框架
 
+划了横线的代表已经学习完毕
+
 #学习历程(2016/7/1 开始不删减更新)
 
-* 学习 [express](https://github.com/expressjs/express) or ko，纠结中
+* 学习 [express](https://github.com/expressjs/express) or koa，纠结中
 
 <hr/>
 
-* 学习 ecmascript 6 [es6-in-depth](https://hacks.mozilla.org/category/es6-in-depth/)
+* <del>学习 [es6-in-depth](https://hacks.mozilla.org/category/es6-in-depth/)</del>
 
 <hr/>
 
