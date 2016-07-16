@@ -1,6 +1,6 @@
 [collections](https://github.com/cody1991/collections) 可以看到自己收集的一些框架
 
-划了横线的代表已经学习完毕
+画了横线的代表已经学习完毕
 
 #学习历程(2016/7/1 开始不删减更新)
 
