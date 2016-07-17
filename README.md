@@ -1,6 +1,6 @@
 [collections](https://github.com/cody1991/collections) 可以看到自己收集的一些框架
 
-画了横线的代表已经学习完毕
+画了横线的代表已经学习完毕。最近应该考虑express以及vue博客。
 
 #学习历程(2016/7/1 开始不删减更新)
 
