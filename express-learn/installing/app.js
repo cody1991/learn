@@ -117,3 +117,77 @@ var server = app.listen(3000, function() {
 // app.get('/example/a',function(req,res){
 //     res.send('Hello from A!');
 // });
+
+// 使用多个回调函数处理路由（记得指定 next 对象）：
+
+// app.get('/example/b', function(req, res, next) {
+//     console.log('response will be sent by the next..');
+//     next();
+// }, function(req, res) {
+//     res.send('Hello from B!');
+// });
+
+// 使用回调函数数组处理路由：
+
+// var cb0 = function(req, res, next) {
+//     console.log('CB0');
+//     next();
+// }
+
+// var cb1 = function(req, res, next) {
+//     console.log('CB1');
+//     next();
+// }
+
+// var cb2 = function(req, res) {
+//     res.send('Hello from c!');
+// }
+
+// app.get('/example/c', [cb0, cb1, cb2]);
+
+// 混合使用函数和函数数组处理路由：
+
+// var cb0 = function(req, res, next) {
+//     console.log('CB0');
+//     next();
+// }
+
+// var cb1 = function(req, res, next) {
+//     console.log('CB1');
+//     next();
+// }
+
+// app.get('/example/d', ['cb0', 'cb1'], function(req, res, next) {
+//     console.log('response will be sent by the next function...');
+// }, function(req, res) {
+//     res.send('Hello from D!');
+// });
+
+
+// 下表中响应对象（res）的方法向客户端返回响应，终结请求响应的循环。如果在路由句柄中一个方法也不调用，来自客户端的请求会一直挂起。
+
+// 方法  描述
+// res.download()  提示下载文件。
+// res.end()   终结响应处理流程。
+// res.json()  发送一个 JSON 格式的响应。
+// res.jsonp() 发送一个支持 JSONP 的 JSON 格式的响应。
+// res.redirect()  重定向请求。
+// res.render()    渲染视图模板。
+// res.send()  发送各种类型的响应。
+// res.sendFile    以八位字节流的形式发送文件。
+// res.sendStatus()    设置响应状态代码，并将其以字符串形式作为响应体的一部分发送。
+
+// 可使用 app.route() 创建路由路径的链式路由句柄。由于路径在一个地方指定，这样做有助于创建模块化的路由，而且减少了代码冗余和拼写错误。请参考 Router() 文档 了解更多有关路由的信息。
+
+// 下面这个示例程序使用 app.route() 定义了链式路由句柄。
+
+// app.route('/book')
+//     .get(function(req, res) {
+//         res.send('Get a random book');
+//     })
+//     .post(function(req, res)) {
+//         res.send('Add a book');
+//     }
+//     .put(function(req, res) {
+//         res.send('Update the book');
+//     });
