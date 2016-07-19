@@ -4,7 +4,9 @@
 
 #学习历程(2016/7/1 开始不删减更新)
 
-* 学习 [express](https://github.com/expressjs/express) or koa，纠结中
+* 学习 [express](https://github.com/expressjs/express) <del>or koa，纠结中</del> 。
+* 看完官网的教程
+* 看 [express-in-action](https://www.manning.com/books/express-in-action)
 
 <hr/>
 
