@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.4.2",
     "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "mustache": "^2.2.1",
     "url": "^0.11.0"
   }
