@@ -33,10 +33,10 @@ app.post('/new-entry', function(request, response) {
     if (!request.body.title || !request.body.body) {
         response.status(400).send('Entries must have a title and a body');
     }
+
     entries.push({
         title: request.body.title,
         content: request.body.body,
-        ,
         published: new Date()
     });
 
