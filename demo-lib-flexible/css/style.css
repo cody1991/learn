@@ -57,7 +57,8 @@ audio,canvas,img,video{vertical-align:middle}
 }
 .demo {
   text-align: center;
+  font-size: 0.32rem;
 }
 .demo .btn {
-  width: 7.46666667rem;
+  width: 5.33333333rem;
 }

@@ -1,4 +1,5 @@
 @import (inline) './normalize.css';
+@import (less) './base.less';
 .container {
     user-select: none;
     font-family: 'Microsoft YaHei', sans-serif;
@@ -9,12 +10,10 @@
     font-size: 0.32rem;
 }
 
-// 设计稿是 750px
-// 1rem = 75px
-@base: 75rem;
 .demo {
     text-align: center;
+    // .rem(24, font-size);
     .btn {
-        width: 560 / @base;
+        width:.rem(400);
     }
 }
