@@ -8,12 +8,14 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "body-parser": "^1.15.2",
     "ejs": "^2.4.2",
     "express": "^4.14.0",
+    "forecastio": "^1.0.2",
     "morgan": "^1.7.0",
     "mustache": "^2.2.1",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "zippity-do-dah": "^0.0.2"
   }
 }
