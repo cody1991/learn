@@ -7,12 +7,14 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('passport');
 
+var setUpPassport = require('./setuppassport.js');
 
 var routes = require('./routes.js');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/test')
+mongoose.connect('mongodb://localhost:27017/test');
+setUpPassport();
 
 // console.log(mongoose.connect('mongodb://localhost:27017/test'));
 
