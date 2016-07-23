@@ -6,7 +6,7 @@
 
 * 学习 [express](https://github.com/expressjs/express) <del>or koa，纠结中</del> 。
 * 看完官网的教程
-* 看 [express-in-action](https://www.manning.com/books/express-in-action)
+* 看 [express-in-action](https://www.manning.com/books/express-in-action)。现在进入实战阶段，认真学习书本实例。
 
 <hr/>
 
