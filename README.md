@@ -1,6 +1,6 @@
 [collections](https://github.com/cody1991/collections) 可以看到自己收集的一些框架
 
-# 画了横线的代表已经学习完毕。最近应该考虑express以及vue博客。待定。
+# 画了横线的代表已经学习完毕(除非有特殊的说明)。
 
 #学习历程(2016/7/1 开始不删减更新)
 
@@ -30,18 +30,22 @@
 
 * <del>【完成学习】[A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.](https://github.com/weui/weui)</del>
 * [Mobile web UI Components based on Vue and WeUI. Be Cool with Vue & WeUI. ](https://github.com/airyland/vux)
-* [Flux-inspired Application Architecture for Vue.js.](https://github.com/vuejs/vuex)
-* [A framework for building Mobile cross-platform UI](https://github.com/alibaba/weex)
+* <del>[Flux-inspired Application Architecture for Vue.js.](https://github.com/vuejs/vuex)</del>
+* <del> (先划掉，感觉学习这个native app的可能性不太大) [A framework for building Mobile cross-platform UI](https://github.com/alibaba/weex)</del>
 
 <hr/>
 
-学习php，看了一大半 [php和mysql web开发](https://book.douban.com/subject/6078710/) 一书，接下来学习
+* <del>废弃 php 的学习，感觉后台学习还是以 express 为主吧</del>
 
-* [codeigniter](http://codeigniter.org.cn/user_guide/index.html)
+* <del>学习php，看了一大半 [php和mysql web开发](https://book.douban.com/subject/6078710/) 一书，接下来学习</del>
+
+* <del>[codeigniter](http://codeigniter.org.cn/user_guide/index.html)</del>
 
 <hr/>
 
-学习 [lodash](https://github.com/lodash/lodash/) ，学习笔记在 [lodash学习](https://github.com/cody1991/learn/tree/gh-pages/lodash)
+* <del>废弃 lodash 的学习。考虑去研究 underscore 的源码学习</del>
+
+* <del>学习 [lodash](https://github.com/lodash/lodash/) ，学习笔记在 [lodash学习](https://github.com/cody1991/learn/tree/gh-pages/lodash)</del>
 
 
 
