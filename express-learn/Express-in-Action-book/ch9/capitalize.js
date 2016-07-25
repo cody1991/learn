@@ -1,4 +1,5 @@
 function capitalize(str) {
+    'use strict';
     // var firstLetter = str[0].toUpperCase();
     // console.log(str.charAt(0));
     var firstLetter = str.charAt(0).toUpperCase();
