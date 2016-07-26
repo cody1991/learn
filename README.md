@@ -4,6 +4,10 @@
 
 #学习历程(2016/7/1 开始不删减更新)
 
+* 完成 [Create an App in VueJS 2](https://auth0.com/blog/2016/07/14/create-an-app-in-vuejs-2/) 的学习，后面记录一下学习心得。
+
+<hr/>
+
 * <del>学习 [express](https://github.com/expressjs/express) <del>or koa，纠结中</del></del>。
 * <del>看完官网的教程</del>
 * <del>看 [express-in-action](https://www.manning.com/books/express-in-action)。现在进入实战阶段，认真学习书本实例。</del>
