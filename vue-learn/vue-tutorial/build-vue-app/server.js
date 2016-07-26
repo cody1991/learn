@@ -1,64 +1,79 @@
-const express = require('express'),
-    bodyParser = require('body-parser'),
-    session = require('express-session'),
-    MongoStore = require('connect-mongo')(session),
-    flash = require('flash'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local'),
-    uuid = require('node-uuid'),
-    appDate = require('./data.json');
+// Import needed modules
+const express = require('express');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const flash = require('flash');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const uuid = require('node-uuid');
+const appData = require('./data.json');
+const path = require('path');
 
-const userData = appDate.users;
-exclamationData = appDate.exclamations;
+// Create app data (mimics a DB)
+const userData = appData.users;
+const exclamationData = appData.exclamations;
 
 function getUser(username) {
     const user = userData.find(u => u.username === username);
     return Object.assign({}, user);
 }
 
+// Create default port
 const PORT = process.env.PORT || 3000;
+
+// Create a new server
 const server = express();
 
+// Configure server
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({
-    entended: false
-}));
-
+server.use(bodyParser.urlencoded({ extended: false }));
 server.use(session({
     secret: process.env.SESSION_SECRET || 'awesomecookiesecret',
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({
-        url: process.env.MONGO_URL || 'mongodb://localhost/vue2-auth'
-    })
+        url: process.env.MONGO_URL || 'mongodb://localhost/vue2-auth',
+    }),
 }));
-
 server.use(flash());
-
 server.use(express.static('public'));
 server.use(passport.initialize());
 server.use(passport.session());
-
 server.set('views', './views');
 server.set('view engine', 'pug');
 
-// 这是一段相当标准的 Passport 代码。我们会告诉 Passport 我们本地的策略，当它尝试验证，我们会从用户数据中找到该用户，如果该用户存在且密码正确，那么我们继续前进，否则我们会返回一条消息给用户。同时我们也会把用户的名称放到session中，当我们需要获取用户消息的时候，我们可以直接通过 session 中的用户名查找到用户。
-passport.use(new LocalStrategy(
-    username, password, done) => {
-    const user = getUser(username);
-    if (!user || user.password !== password) {
-        return done(null, false, {
-            message: 'Username and password combination is wrong'
-        })
-    }
-    delete user.password;
-    return done(null, user);
-});
+var publicPath = path.resolve(__dirname, 'public');
+server.use(express.static(publicPath));
 
+
+
+// 这是一段相当标准的 Passport 代码。我们会告诉 Passport 我们本地的策略，当它尝试验证，我们会从用户数据中找到该用户，如果该用户存在且密码正确，那么我们继续前进，否则我们会返回一条消息给用户。同时我们也会把用户的名称放到session中，当我们需要获取用户消息的时候，我们可以直接通过 session 中的用户名查找到用户。
+// Configure Passport
+passport.use(new LocalStrategy(
+    (username, password, done) => {
+        const user = getUser(username);
+
+        if (!user || user.password !== password) {
+            return done(null, false, { message: 'Username and password combination is wrong' });
+        }
+
+        delete user.password;
+
+        return done(null, user);
+    }
+));
+
+// Serialize user in session
+passport.serializeUser((user, done) => {
+    done(null, user.username);
+});
 
 passport.deserializeUser((username, done) => {
     const user = getUser(username);
+
     delete user.password;
+
     done(null, user);
 });
 // 让我们过一下这段代码。hasScope 方法检查请求中的用户是否有所需的特定权限，我们通过传入一个字符串去调用该方法，它会返回一个服务端使用的中间件。canDelete 方法是类似的，不过它同时检查用户是否拥有这个 exclamation 以及是否拥有删除权限，如果都没有的话用户就不能删除这条 exclamation。这些方法稍后会被用到一个简单的路由上。最后，我们实现了 isAuthenticated，它仅仅是检查这个请求中是否包含用户字段来判断用户是否登录。
