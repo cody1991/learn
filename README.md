@@ -4,6 +4,8 @@
 
 #学习历程(2016/7/1 开始不删减更新)
 
+<hr/>
+
 * 完成 [Create an App in VueJS 2](https://auth0.com/blog/2016/07/14/create-an-app-in-vuejs-2/) 的学习，后面记录一下学习心得。
 
 <hr/>
