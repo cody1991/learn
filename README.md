@@ -1,8 +1,14 @@
 [collections](https://github.com/cody1991/collections) 可以看到自己收集的一些框架
 
-# 画了横线的代表已经学习完毕(除非有特殊的说明)。
+# 学习历程(2016/7/1 开始不删减更新)
 
-#学习历程(2016/7/1 开始不删减更新)
+### 画了横线的代表已经学习完毕(除非有特殊的说明)。
+
+<hr/>
+
+* 完成 [Create an App in VueJS 2](https://auth0.com/blog/2016/07/14/create-an-app-in-vuejs-2/) 的学习，后面记录一下学习心得。
+
+<hr/>
 
 * <del>学习 [express](https://github.com/expressjs/express) <del>or koa，纠结中</del></del>。
 * <del>看完官网的教程</del>
