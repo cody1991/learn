@@ -12,7 +12,7 @@
 
 准备看看 [es6-cheatsheet-ch](http://qiutc.me/post/es6-cheatsheet.html) | [es6-cheatsheet-en](https://github.com/DrkSephy/es6-cheatsheet)
 
-# 以上是 2016/7/1 ~ 2016/7/31 一个月的学习成果。未完成的挪到 8月份的学习计划，不再删改。
+# 以下是 2016/7/1 ~ 2016/7/31 一个月的学习成果。未完成的挪到 8月份的学习计划，不再删改。
 
 <hr/>
 
