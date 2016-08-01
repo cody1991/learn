@@ -6,6 +6,23 @@
 
 <hr/>
 
+找找 mongodb 的学习资料
+
+<hr/>
+
+准备看看 [es6-cheatsheet-ch](http://qiutc.me/post/es6-cheatsheet.html) | [es6-cheatsheet-en](https://github.com/DrkSephy/es6-cheatsheet)
+
+<hr/>
+
+<del>完成新模板 [vue-template](https://github.com/bear-front-end/vue-template) 的编写</del>
+
+<hr/>
+
+完成新博客 [vue-tutorial](http://cody1991.github.io/vue/2016/07/31/vue-tutorial.html) 的编写以及配套代码的编写。
+
+
+<hr/>
+
 * 完成 [Create an App in VueJS 2](https://auth0.com/blog/2016/07/14/create-an-app-in-vuejs-2/) 的学习，后面记录一下学习心得。
 
 <hr/>
