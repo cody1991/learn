@@ -21,31 +21,27 @@
             <div class="list-group">
                 <a v-for="timeEntry in timeEntries" class="list-group-item">
                     <div class="row">
-                        <div class="col-sm-2 user-details">
-                            <img :src="timeEntry.user.image" class="avatar img-circle img-responsive">
+                        <div class="col-xs-2 user-details">
+                            <img :src="timeEntry.image" class="avatar img-circle img-responsive">
                             <p class="text-center">
                                 <strong>
-                                    {{timeEntry.user.name}}
+                                    {{timeEntry.name}}
                                 </strong>
                             </p>
                         </div>
-                        <div class="col-sm-3 text-center time-block">
+                        <div class="col-xs-3 text-center time-block">
                             <div class="list-group-item-text total-time">
-                                <i class="glyphicon glyphicon-time">
-                                    {{timeEntry.totalTime}}
-                                </i>
+                                {{timeEntry.totalTime}} h
                             </div>
                             <p class="label label-primary text-center">
-                                <i class="glyphicon glyphicon-calendar">
-                                    {{timeEntry.date}}
-                                </i>
+                                {{timeEntry.date}}
                             </p>
                         </div>
-                        <div class="col-sm-6 comment-section">
+                        <div class="col-xs-6 comment-section">
                             <p>{{timeEntry.comment}}</p>
                         </div>
-                        <div class="col-sm-1">
-                            <button class="btn btn-xs btn-danger delete-button" @click="deleteTimeEntry(timeEntry)">
+                        <div class="col-xs-1">
+                            <button v-if="$route.path !== '/time-entries/log-time'"  class="btn btn-xs btn-danger delete-button" @click="deleteTimeEntry(timeEntry)">
                                 X
                             </button>
                         </div>
@@ -77,7 +73,16 @@
         methods:{
             deleteTimeEntry(timeEntry){
                 let index = this.timeEntries.indexOf(timeEntry);
-                if(window.confirm('确定要删除吗?'));
+                let _id = this.timeEntries[index]._id;
+                if(window.confirm('确定要删除吗?')){
+                    this.$http.delete('http://localhost:8888/delete/'+_id)
+                    .then(function(ret){
+                        console.log(ret);
+                    })
+                    .then(function(err){
+                        console.log(err);
+                    })
+                }
                 this.timeEntries.splice(index,1);
                 // 派发到父组件上，执行父组件events里面的deleteTime方法
                 this.$dispatch('deleteTime',timeEntry);
@@ -88,6 +93,17 @@
             timeUpdate(timeEntry){
                 this.timeEntries.push(timeEntry);
                 return true;
+            }
+        },
+        route:{
+            data(){
+                this.$http.get('http://localhost:8888/time-entries')
+                    .then(function(ret){
+                        this.timeEntries = ret.data;
+                    })
+                    .then(function(err){
+                        console.log(err);
+                    })
             }
         }
     }
