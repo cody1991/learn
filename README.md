@@ -14,7 +14,7 @@
 
 <hr/>
 
-<del>完成新模板 [vue-template](https://github.com/bear-front-end/vue-template) 的编写</del>
+完成新模板 [vue-template](https://github.com/bear-front-end/vue-template) 的编写
 
 <hr/>
 
