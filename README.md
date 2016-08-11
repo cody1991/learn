@@ -6,6 +6,14 @@
 
 <hr/>
 
+新开了一个项目仓库 [vue.js 资料收集 && 学习记录](https://github.com/cody1991/awesome-vue)
+
+* 完成了 [vue-tutorials - 一个简单全面的vue.js入门教程 对应学习记录](https://github.com/cody1991/awesome-vue/tree/master/vue-tutorials)
+
+* 开始 翻译学习 [the-majesty-of-vuejs](https://leanpub.com/vuejs) 一书。 翻译和学习记录在 [the-majesty-of-vue.js-ch](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch)
+
+<hr/>
+
 找找 mongodb 的学习资料
 
 <hr/>
