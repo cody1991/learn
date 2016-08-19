@@ -6,6 +6,10 @@
 
 <hr/>
 
+开始学习 [每周一点canvas动画](https://github.com/supperjet/H5-Animation) 系列文章，对应的学习记录在[canvas-weekly](https://github.com/cody1991/learn/tree/gh-pages/canvas-weekly)
+
+<hr/>
+
 新开了一个项目仓库 [vue.js 资料收集 && 学习记录](https://github.com/cody1991/awesome-vue)
 
 * 完成了 [vue-tutorials - 一个简单全面的vue.js入门教程 对应学习记录](https://github.com/cody1991/awesome-vue/tree/master/vue-tutorials)
