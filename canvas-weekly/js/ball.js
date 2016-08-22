@@ -33,3 +33,12 @@ Ball.prototype.draw = function(context) {
     context.stroke();
     context.restore();
 }
+
+Ball.prototype.getBounds = function() {
+    return {
+        x: this.x - this.radius,
+        y: this.y - this.radius,
+        width: this.radius * 2,
+        height: this.radius * 2
+    }
+}
