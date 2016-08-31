@@ -1,4 +1,4 @@
-[collections](https://github.com/cody1991/collections) 可以看到自己收集的一些框架
+[collections](https://github.com/cody1991/collections) 可以看到自己收集的一些前端开发资料
 
 # 学习历程(2016/7/1 开始不删减更新)
 
