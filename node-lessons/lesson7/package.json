@@ -1,0 +1,15 @@
+{
+    "name": "lesson7",
+    "version": "1.0.0",
+    "description": "",
+    "main": "mocha.js",
+    "dependencies": {
+        "mocha-phantomjs": "^4.1.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "mocha-phantomjs index.html --ssl-protocol=any --ignore-ssl-errors=true"
+    },
+    "author": "",
+    "license": "ISC"
+}
