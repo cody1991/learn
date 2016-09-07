@@ -14,7 +14,9 @@
 
 ---
 
-学习node.js 学习node.js 学习node.js 学习node.js 学习node.js
+学习node.js 学习node.js 学习node.js
+
+学习javascript 学习javascript 学习javascript
 
 重要的事情多说两遍。
 
