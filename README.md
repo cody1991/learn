@@ -6,6 +6,10 @@
 
 ---
 
+完成 [node-lessons](https://github.com/alsotang/node-lessons) 学习
+
+---
+
 修改 [简历 aboutme](http://cody1991.github.io/aboutme/)
 
 ---
