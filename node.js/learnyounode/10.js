@@ -9,7 +9,9 @@ var server = http.createServer(function(req, res) {
         'content-type': 'text/plain'
     });
 
+    // 读入我们想要的文件流
     var rs = fs.createReadStream(process.argv[3]);
+    // 派送给res
     rs.pipe(res);
 });
 

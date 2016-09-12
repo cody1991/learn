@@ -8,6 +8,7 @@ var server = http.createServer(function(req, res) {
 
     console.log(req);
 
+    // 传入body
     req.pipe(map(function(chunk) {
         return chunk.toString().toUpperCase();
     })).pipe(res);
