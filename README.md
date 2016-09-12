@@ -6,6 +6,10 @@
 
 ---
 
+学习 [nodeschool](http://nodeschool.io/zh-cn/#workshopper-list) 里面的 [learnyounode](https://www.github.com/workshopper/learnyounode) 教程
+
+---
+
 完成 [node-lessons](https://github.com/alsotang/node-lessons) 学习
 
 ---
