@@ -6,7 +6,7 @@
 
 ---
 
-学习 [nodeschool](http://nodeschool.io/zh-cn/#workshopper-list) 里面的 [learnyounode](https://www.github.com/workshopper/learnyounode) 教程
+完成 [nodeschool](http://nodeschool.io/zh-cn/#workshopper-list) 里面的 [learnyounode](https://www.github.com/workshopper/learnyounode) | [javascripting](https://www.github.com/sethvincent/javascripting)
 
 ---
 
