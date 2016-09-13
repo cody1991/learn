@@ -13,6 +13,7 @@
     "request": "^2.74.0",
     "split": "^1.0.0",
     "through2": "^2.0.1",
+    "trumpet": "^1.7.2",
     "websocket-stream": "^3.3.0"
   }
 }
