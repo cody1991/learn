@@ -5,7 +5,8 @@ $(function() {
         $messages = $('#messages'),
         $room = $('#room'),
         $sendMessage = $('#send-message'),
-        $sendForm = $('#send-form');
+        $sendForm = $('#send-form'),
+        $roomList = $('#room-list');
 
     socket.on('nameResult', function(result) {
         var message;
@@ -29,6 +30,25 @@ $(function() {
     socket.on('message', function(message) {
         var newElement = $('<div></div>').text(message.text);
         $messages.append(newElement);
+    });
+
+    setInterval(function() {
+        socket.emit('rooms');
+    }, 1000);
+
+    socket.on('rooms', function(rooms) {
+        $roomList.empty();
+
+        for (var room in rooms) {
+            if (room.indexOf('/#') < 0) {
+                $roomList.append(divEscpaedContentElement(room));
+            }
+        }
+    });
+
+    $roomList.on('click', 'div', function() {
+        chatApp.processCommand('/join ' + $(this).text());
+        $sendMessage.focus();
     });
 
     $sendMessage.focus();

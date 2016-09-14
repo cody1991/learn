@@ -28,10 +28,14 @@ function listen(server) {
 
         handleRoomJoining(socket);
 
-        // socket.on('rooms', function() {
-        //     // 用户发出请求的时候，向其提供已经被占用的聊天室列表
-        //     socket.emit('rooms', io.sockets.rooms);
-        // });
+        socket.on('rooms', function() {
+            // 用户发出请求的时候，向其提供已经被占用的聊天室列表
+            // console.log(io.sockets.adapter.rooms)
+
+            var socketsRooms = io.sockets.adapter.rooms;
+
+            socket.emit('rooms', socketsRooms);
+        });
 
         // 用户断开以后清除逻辑
         // handleClitentDisconnection(socket, nickNames, namesUsed);
