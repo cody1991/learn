@@ -40,8 +40,10 @@ $(function() {
         $roomList.empty();
 
         for (var room in rooms) {
-            if (room.indexOf('/#') < 0) {
-                $roomList.append(divEscpaedContentElement(room));
+            if (rooms.hasOwnProperty(room)) {
+                if (room.indexOf('/#') < 0) {
+                    $roomList.append(divEscpaedContentElement(room));
+                }
             }
         }
     });

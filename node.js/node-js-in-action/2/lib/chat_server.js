@@ -33,12 +33,13 @@ function listen(server) {
             // console.log(io.sockets.adapter.rooms)
 
             var socketsRooms = io.sockets.adapter.rooms;
+            console.log(socketsRooms);
 
             socket.emit('rooms', socketsRooms);
         });
 
         // 用户断开以后清除逻辑
-        // handleClitentDisconnection(socket, nickNames, namesUsed);
+        handleClitentDisconnection(socket, nickNames, namesUsed);
     });
 
     function assignGuestName(socket, guestNumber, nickNames, namesUsed) {
@@ -158,5 +159,13 @@ function listen(server) {
             socket.leave(currentRoom[socket.id]);
             joinRoom(socket, room.newRoom);
         });
+    }
+
+    function handleClitentDisconnection(socket) {
+        socket.on('disconnect', function() {
+            var nameIndex = namesUsed.indexOf(nickNames[socket.id]);
+            namesUsed.splice(nameIndex, 1);
+            delete nickNames[socket.id];
+        })
     }
 }
