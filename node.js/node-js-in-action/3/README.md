@@ -3,3 +3,8 @@
 `module.exports` 返回单个变量，函数或者对象
 
 
+nimble
+
+request
+
+htmlparser
