@@ -32,6 +32,7 @@ function add(req, res) {
         body += chunk;
     });
     req.on('end', function() {
+        // qs.parse 解析
         var obj = qs.parse(body);
         console.log(body);
         console.log(obj);
