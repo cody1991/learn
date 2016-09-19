@@ -25,6 +25,8 @@ module.exports = function route(obj) {
 
             // [^\/]+  除了 / 以外的所有字符，一个或多个
 
+            // 如果没有带/1什么的,captures是素组 ['/users']
+
             var re = new RegExp('^' + path + '$');
             var captures = url.pathname.match(re);
             console.log(captures);
@@ -34,6 +36,7 @@ module.exports = function route(obj) {
                 var args = [req, res].concat(captures.slice(1));
                 console.log(captures.length, captures.slice(1));
                 fn.apply(null, args);
+                // 带上req,res,或者参数，然后调用函数
                 return;
             }
         }
