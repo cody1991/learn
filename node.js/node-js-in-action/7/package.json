@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "connect": "^3.5.0"
+    "connect": "^3.5.0",
+    "cookie-parser": "^1.4.3"
   }
 }
