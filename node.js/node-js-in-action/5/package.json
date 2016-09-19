@@ -1,7 +1,6 @@
 {
   "name": "5",
   "version": "1.0.0",
-  "description": "",
   "main": "1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mysql": "^2.11.1"
-  }
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.0"
+  },
+  "description": ""
 }
