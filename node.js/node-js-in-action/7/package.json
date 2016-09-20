@@ -9,7 +9,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.15.2",
     "connect": "^3.5.0",
-    "cookie-parser": "^1.4.3"
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "^1.4.3",
+    "method-override": "^2.3.6",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0",
+    "vhost": "^3.0.2"
   }
 }
