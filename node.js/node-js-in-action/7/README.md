@@ -1,3 +1,5 @@
+redis 看看
+
     var http = require('http');
     var connect = require('connect');
     var bodyParser = require('body-parser');
@@ -34,3 +36,4 @@
 - [serve-index](https://www.npmjs.com/package/serve-index) - previously `directory`
 - [serve-static](https://www.npmjs.com/package/serve-static) - previously `static`
 - [vhost](https://www.npmjs.com/package/vhost) - previously `vhost`
+
