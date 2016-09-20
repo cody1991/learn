@@ -9,7 +9,8 @@
   "license": "ISC",
   "devDependencies": {
     "mongodb": "^2.2.10",
-    "mongoose": "^4.6.0"
+    "mongoose": "^4.6.0",
+    "redis": "^2.6.2"
   },
   "description": ""
 }
