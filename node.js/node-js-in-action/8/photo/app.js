@@ -39,7 +39,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/photos', photos)
+// app.use('/photos', photos);
+
+app.get('/list', photos.list);
+app.get('/upload', photos.form);
+app.post('/upload', photos.submit(app.get('photos')));
+
+app.get('/photo/:id/download', photos.download(app.get('photos')));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
