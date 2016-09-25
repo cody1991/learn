@@ -6,6 +6,10 @@
 
 ---
 
+《Vue.js权威指南》的书到了，接下来系统学习Vue.js
+
+---
+
 完成 [nodeschool](http://nodeschool.io/zh-cn/#workshopper-list) 里面的 [learnyounode](https://www.github.com/workshopper/learnyounode) | [javascripting](https://www.github.com/sethvincent/javascripting)
 
 ---
