@@ -6,6 +6,18 @@
 
 ---
 
+最近在准备面试什么的，发现自己还是存在蛮多问题的。
+
+最近看看下面这个文章，巩固下 JavaScript的基础。
+
+[统一回复《怎么学JavaScript？》](http://www.w3cfuns.com/notes/17398/d3f6dd40e2d3ff15b209810dfa98be0b.html)
+
+然后自己还有Web安全方面的东西也一般般
+
+准备看看[Web前端黑客技术揭秘](https://book.douban.com/review/6710291/)，不知道是不是一本好书~
+
+---
+
 《Vue.js权威指南》的书到了，接下来系统学习Vue.js
 
 ---

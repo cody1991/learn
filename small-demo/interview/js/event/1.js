@@ -57,30 +57,30 @@ var DOMUtil = {
 var nav = document.getElementById('nav');
 
 EventUtil.on(nav, 'click', function(event) {
-    EventUtil.preventDefault(event);
+    // EventUtil.preventDefault(event);
 
     var event = EventUtil.getEvent(event),
         target = EventUtil.getTarget(event);
-    console.log(target.nodeName)
+    console.log(target.nodeName);
 
-    if (target && target.nodeName == 'LI') {
+    // if (target && target.nodeName == 'LI') {
 
-        var children = this.children;
+    var children = this.children;
 
-        var i, len;
-        var anchor;
-        var obj = {};
+    var i, len;
+    var anchor;
+    var obj = {};
 
-        for (i = 0, len = children.length; i < len; ++i) {
-            if (children[i] === target && target.tagName == 'LI') {
-                obj.index = i + 1;
-                anchor = target.getElementsByTagName('a')[0];
-                obj.name = DOMUtil.text(anchor);
-                obj.link = DOMUtil.prop(anchor, 'href');
-            }
+    for (i = 0, len = children.length; i < len; ++i) {
+        if (children[i] === target && target.tagName == 'LI') {
+            obj.index = i + 1;
+            anchor = target.getElementsByTagName('a')[0];
+            obj.name = DOMUtil.text(anchor);
+            obj.link = DOMUtil.prop(anchor, 'href');
         }
-
-        console.log('index: ' + obj.index + ' name: ' + obj.name + ' link: ' + obj.link);
     }
+
+    console.log('index: ' + obj.index + ' name: ' + obj.name + ' link: ' + obj.link);
+    // }
 
 });
