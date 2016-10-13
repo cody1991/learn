@@ -9,9 +9,7 @@ function add(a, b) {
     b = b.split('');
 
     while (a.length || b.length || c) {
-        console.log(c);
         c += ~~a.pop() + ~~b.pop();
-        console.log(c);
 
         res = c % 10 + res;
 
