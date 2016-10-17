@@ -6,6 +6,10 @@
 
 ---
 
+《Javascript高级编程 第三版》 学习
+
+---
+
 国庆这几天在看 《Vue.js权威指南》 | [vue-book - GitHub](https://github.com/DDFE/vue-book) | [学习记录](https://github.com/cody1991/awesome-vue/tree/master/vue-book)
 
 还有慕课网的一些视频教程（假期别太忙~）
