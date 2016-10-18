@@ -124,3 +124,89 @@ function setInnerText(element, text) {
         element.innerText = text;
     }
 }
+
+var buttonImg = document.querySelector('img.button');
+
+buttonImg.style.cssText = 'width:425px;height:425px;background-color:green';
+
+console.log(buttonImg.style.cssText);
+console.log(buttonImg.style);
+
+for (var i = 0, len = buttonImg.style.length; i < len; i++) {
+    var prop = buttonImg.style[i];
+    // buttonImg.style.item(i)
+    var value = buttonImg.style.getPropertyValue(prop);
+
+    console.log(prop + ' : ' + value);
+
+    // value = buttonImg.style.getPropertyCSSValue(prop);
+
+    // console.log(prop + ' : ' + value.cssText + " (" + value.cssValueType + ")");
+}
+
+buttonImg.style.removeProperty('background-color');
+
+var computedStyle = document.defaultView.getComputedStyle(buttonImg, null);
+
+console.log(computedStyle);
+console.log(computedStyle.width);
+console.log(computedStyle.height);
+console.log(computedStyle.border);
+console.log(computedStyle.backgroundColor);
+
+// function getComputedStyleIE() {
+//     var computedStyle = buttonImg.currentStyle;
+//     console.log(computedStyle);
+//     console.log(computedStyle.width);
+//     console.log(computedStyle.height);
+//     console.log(computedStyle.border);
+//     console.log(computedStyle.backgroundColor);
+// }
+
+// getComputedStyleIE();
+
+var sheet = null;
+for (var i = 0, len = document.styleSheets.length; i < len; i++) {
+    sheet = document.styleSheets[i];
+    console.log(sheet);
+
+    var rules = sheet.cssRules || sheet.rules;
+    console.log(rules);
+}
+
+function getStyleSheet(element) {
+    return element.sheet || element.styleSheet;
+}
+
+var link = document.getElementsByTagName('link')[0];
+var sheet = getStyleSheet(link);
+
+function getElementLeft(element) {
+    var actualLeft = element.offsetLeft;
+    var current = element.offsetParent;
+
+    while (current != null) {
+        actualLeft += current.offsetLeft;
+        current = current.offsetParent;
+    };
+
+    return actualLeft;
+}
+
+function getElementTop(element) {
+    var actualTop = element.offsetTop;
+    var current = element.offsetParent;
+
+    while (current != null) {
+        actualTop += current.offsetTop;
+        current = current.offsetParent;
+    }
+    return actualTop;
+}
+
+console.log(getElementTop(myDiv4));
+console.log(getElementLeft(myDiv4));
+
+var docHeight = Math.max(document.documentElement.scrollHeight, document.documentElement.clientHeight);
+
+var docWidth = Math.max(document.documentElement.scrollWidth, document.documentElement.clientWidth);
