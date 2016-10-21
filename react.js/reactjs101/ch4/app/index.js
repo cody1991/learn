@@ -41,7 +41,84 @@ class Timer extends React.Component {
         super(props);
         // 与 ES5 React.createClass({}) 不同的是 component 内自定义的方法需要自行绑定 this context，或是使用 arrow function 
         this.tick = this.tick.bind(this);
+        this.state = {
+            secondsElapsed: 0
+        }
+    }
+    tick() {
+        // 累加器方法，每一秒被呼叫後就會使用 setState() 更新內部 state，讓 Component 重新 render
+        this.setState({
+            secondsElapsed: this.state.secondsElapsed + 1
+        });
+    }
+    componentDidMount() {
+        // componentDidMount 為 component 生命週期中階段 component 已插入節點的階段，通常一些非同步操作都會放置在這個階段。這便是每1秒鐘會去呼叫 tick 方法
+        this.interval = setInterval(this.tick, 1000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+    render() {
+        return (
+            <div>Seconds Elapsed:{this.state.secondsElapsed}</div>
+        )
+    }
+
+}
+
+const TodoList = (props) => (
+    <ul>
+    	{
+    		props.items.map((item)=>(
+    			<li key={item.id}>{item.text}</li>
+    		))
+    	}
+	</ul>
+)
+
+class TodoApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onChange = this.onChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            items: [],
+            text: ''
+        }
+    }
+    onChange(e) {
+        this.setState({
+            text: e.target.value
+        })
+    }
+    handleSubmit(e) {
+        e.preventDefault();
+        const nextItems = this.state.items.concat([{
+            text: this.state.text,
+            id: Date.now()
+        }]);
+        const nextText = '';
+        this.setState({
+            items: nextItems,
+            text: nextText
+        });
+    }
+    render() {
+        return (
+            <div>
+        		<h3>TODO</h3>
+        		<TodoList items={this.state.items}/>
+        		<form onSubmit={this.handleSubmit}>
+        			<input onChange={this.onChange} value={this.state.text}/>
+
+        			<button>{'Add #' + (this.state.items.length + 1)}</button>
+        		</form>
+        	</div>
+        )
     }
 }
 
 ReactDOM.render(<HelloMessage name="cody"/>, document.getElementById('app'));
+
+ReactDOM.render(<Timer/>, document.getElementById('app2'));
+ReactDOM.render(<TodoApp/>, document.getElementById('app3'));
