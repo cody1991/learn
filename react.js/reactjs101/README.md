@@ -109,3 +109,136 @@ View 根据 Controller Views 的新资料重新绘制 UI
 对于简单小应用来说稍微复杂
 
 以上就是 Flux 的实战入门，我知道一开始接触 Flux 的读者一定会觉得很抽象，有些读者甚至会觉得这个架构到底有什么好处（明明感觉没比 MVC 高明到哪去或是一点都不简洁），但如同上述优点所说 Flux 设计模式的优势在于清楚的架构和分工对于复杂中大型应用程式易于维护和管理程式码。若还是不熟悉的读者可以跟着范例多动手，相信慢慢就可以体会 Flux 的特色。事实上，在开发社群中为了让 Flux 架构更加简洁，产生了许多 Flux-like 的架构和函式库，接下来将带读者们进入目前最热门的架构：Redux。
+
+---
+
+在开始实作 Redux App 之前我们先来了解一下 Redux 和 Flux 的一些差异：
+
+1 只使用一个 store 将整个应用程式的状态 (state) 用物件树 (object tree) 的方式储存起来：
+
+原生的 Flux 会有许多分散的 store 储存各个不同的状态，但在 redux 中，只会有唯一一个 store 将所有的资料用物件的方式包起来。
+
+	//原生 Flux 的 store
+	const userStore = {
+	    name: ''
+	}
+	const todoStore = {
+	    text: ''
+	}
+
+	// Redux 的单一 store
+	const state = {
+	    userState: {
+	        name: ''
+	    },
+	    todoState: {
+	        text: ''
+	    }
+	}
+
+2 唯一可以改变 state 的方法就是发送 action，这部份和 Flux 类似，但 Redux 并没有像 Flux 设计有 Dispatcher。Redux 的 action 和 Flux 的 action 都是一个包含 type 和 payload 的物件。
+
+3 Redux 拥有 Flux 所没有的 Reducer。Reducer 根据 action 的 type 去执行对应的 state 做变化的函式叫做 Reducer。你可以使用 switch 或是使用函式 mapping 的方式去对应处理的方式。
+
+4 Redux 拥有许多方便好用的辅助测试工具（例如：redux-devtools、react-transform-boilerplate），方便测试和使用 Hot Module Reload。
+
+---
+
+https://github.com/carlleton/reactjs101/blob/zh-CN/Ch07/images/redux-flowchart.png
+
+从上述的图中我们可以看到 Redux 资料流的模型大致上可以简化成： View -> Action -> (Middleware) -> Reducer。当使用者和 View 互动时会触发事件发出 Action，若有使用 Middleware 的话会在进入 Reducer 进行一些处理，当 Action 进到 Reducer 时，Reducer 会根据，action type 去 mapping 对应处理的动作，然后回传回新的 state。View 则因为侦测到 state 更新而重绘页面。在这个章节我们讨论的是 synchronous（同步）的情形，asynchronous（非同步）的状况会在接下来的章节进行讨论。以下就用官方网站上的简单范例来让大家感受一下 Redux 的整个使用流程：
+
+	import { createStore } from 'redux';
+
+	/** 
+	  下面是一个简单的 reducers ，主要功能是针对传进来的 action type 判断并回传新的 state
+	  reducer 规格：(state, action) => newState 
+	  一般而言 state 可以是 primitive、array 或 object 甚至是 ImmutableJS Data。但要留意的是不能修改到原来的 state ，
+	  回传的是新的 state。由于使用在 Redux 中使用 ImmutableJS 有许多好处，所以我们的范例 App 也会使用 ImmutableJS 
+	*/
+	function counter(state = 0, action) {
+	  switch (action.type) {
+	  case 'INCREMENT':
+	    return state + 1;
+	  case 'DECREMENT':
+	    return state - 1;
+	  default:
+	    return state;
+	  }
+	}
+
+	// 创建 Redux store 去存放 App 的所有 state
+	// store 的可用 API { subscribe, dispatch, getState } 
+	let store = createStore(counter);
+
+	// 可以使用 subscribe() 来订阅 state 是否更新。但实务通常会使用 react-redux 来串连 React 和 Redux
+	store.subscribe(() =>
+	  console.log(store.getState());
+	);
+
+	// 若想改变 state ，一律发 action
+	store.dispatch({ type: 'INCREMENT' });
+	// 1
+	store.dispatch({ type: 'INCREMENT' });
+	// 2
+	store.dispatch({ type: 'DECREMENT' });
+	// 1
+
+---
+
+Redux API 入门
+
+# createStore：createStore(reducer, [preloadedState], [enhancer])
+
+我们知道在 Redux 中只会有一个 store。在产生 store 时我们会使用 createStore 这个 API 来创建 store。第一个参数放入我们的 reducer 或是有多个 reducers combine（使用 combineReducers）在一起的 rootReducers。第二个参数我们会放入希望预先载入的 state 例如：user session 等。第三个参数通常会放入我们想要使用用来增强 Redux 功能的 middlewares，若有多个 middlewares 的话，通常会使用 applyMiddleware 来整合。
+
+# Store
+
+属于 Store 的四个方法：
+
+	getState()
+
+	dispatch(action)
+
+	subscribe(listener)
+
+	replaceReducer(nextReducer)
+
+关于 Store 重点是要知道 Redux 只有一个 Store 负责存放整个 App 的 State，而唯一能改变 State 的方法只有发送 action。
+
+# combineReducers：combineReducers(reducers)
+
+combineReducers 可以将多个 reducers 进行整合并回传一个 Function，让我们可以将 reducer 适度分割
+
+# applyMiddleware：applyMiddleware(...middlewares)
+
+官方针对 Middleware 进行说明
+
+	It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.
+
+若有 NodeJS 的经验的读者，对于 middleware 概念应该不陌生，让开发者可以在 req 和 res 之间进行一些操作。在 Redux 中 Middleware 则是扮演 action 到达 reducer 前的第三方扩充。而 applyMiddleware 可以将多个 middlewares 整合并回传一个 Function，便于使用。
+
+若是你要使用 asynchronous（非同步）的行为的话需要使用其中一种 middleware： redux-thunk、redux-promise 或 redux-promise-middleware ，这样可以让你在 actions 中 dispatch Promises 而非 function。asynchronous（非同步）运作方式就如同下图所示：
+
+https://github.com/carlleton/reactjs101/blob/zh-CN/Ch07/images/react-redux-diagram.png
+
+# bindActionCreators：bindActionCreators(actionCreators, dispatch)
+
+bindActionCreators 可以将 actionCreators 和 dispatch 绑定，并回传一个 Function 或 Object，让程式更简洁。但若是使用 react-redux 可以用 connect 让 dispatch 行为更容易管理
+
+# compose：compose(...functions)
+
+compose 可以将 function 由右到左合并并回传一个 Function，如官网范例所示：
+
+	import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+	import thunk from 'redux-thunk'
+	import DevTools from './containers/DevTools'
+	import reducer from '../reducers/index'
+
+	const store = createStore(
+	  reducer,
+	  compose(
+	    applyMiddleware(thunk),
+	    DevTools.instrument()
+	  )
+	)
