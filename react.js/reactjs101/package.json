@@ -20,8 +20,10 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
     "jquery": "^3.1.1",
     "react": "^15.3.2",
+    "react-addons-pure-render-mixin": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1",
     "remarkable": "^1.7.1"
