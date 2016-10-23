@@ -1,4 +1,13 @@
 (function(global, factory) {
+
+    if (((typeof define) === 'function') && define.amd) {
+        define(function() {
+            return factory(global);
+        });
+    } else {
+        factory(global);
+    }
+
     console.log(global);
     console.log(factory);
 })(this, function(window) {
@@ -85,6 +94,22 @@
 
             match = ~(zepto.qsa(parent, selector).indexOf(element));
 
+            temp && (tempParent.removeChild(element));
+
+            return match;
+
+        };
+
+        zepto.qsa = function(element, selector) {
+
         }
-    })
-})
+    });
+
+    window.Zepto = Zepto;
+
+    (window.$ === undefined) && (window.$ = Zepto);
+
+    return Zepto;
+});
+
+console.log($)
