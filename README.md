@@ -6,6 +6,30 @@
 
 ---
 
+在看 [HTTP权威指南](https://book.douban.com/subject/10746113/) 书籍
+
+---
+
+由于10月份在忙求职的事情，学习主要以查缺补漏等的面试准备。
+
+---
+
+学习吉他 [课程地址](http://e.youku.com/v/course/play?coid=4193&chid=55602&spm=a2h0v.8245817.2377199.8#3)
+
+---
+
+学习 Vue2 ，学习记录在 [awesome-vue](https://github.com/cody1991/awesome-vue/tree/master/vuefe)
+
+---
+
+在看 [Web全栈工程师的自我修养](https://www.baidu.com/link?url=stUEN7ugCLgsdHbd3jF-9CFDbrtlEi8ITo9jMpNZSxxMLSflORkx-2iWtAhH08gdgSMWusfQjlqVdn9hnGyO7q&wd=&eqid=bcd159df000e4f5500000006582877f3) 书籍
+
+---
+
+# 以下是 2016/10/1 ~ 2016/10/31 一个月的学习成果。未完成的挪到 11月份的学习计划，不再删改。
+
+---
+
 《Javascript高级编程 第三版》 学习
 
 ---
