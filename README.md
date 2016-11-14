@@ -22,7 +22,7 @@
 
 ---
 
-在看 [Web全栈工程师的自我修养](https://www.baidu.com/link?url=stUEN7ugCLgsdHbd3jF-9CFDbrtlEi8ITo9jMpNZSxxMLSflORkx-2iWtAhH08gdgSMWusfQjlqVdn9hnGyO7q&wd=&eqid=bcd159df000e4f5500000006582877f3) 书籍
+看完 [Web全栈工程师的自我修养](https://www.baidu.com/link?url=stUEN7ugCLgsdHbd3jF-9CFDbrtlEi8ITo9jMpNZSxxMLSflORkx-2iWtAhH08gdgSMWusfQjlqVdn9hnGyO7q&wd=&eqid=bcd159df000e4f5500000006582877f3) 书籍
 
 ---
 
