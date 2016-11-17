@@ -1,0 +1,26 @@
+// 16px
+@base: 16rem;
+.br {
+    height: 200px;
+    width: 200px;
+    background: #fb3;
+    border-radius: 100px;
+    margin: 10px auto;
+    &.br2 {
+        height: 150px;
+        border-radius: 100px / 75px;
+    }
+    &.br3 {
+        height: 150px;
+        border-radius: 50%;
+    }
+    &.br4 {
+        border-radius: 50% / 100% 100% 0 0;
+    }
+    &.br5 {
+        border-radius: 100% 0 0 100% / 50%;
+    }
+    &.br6 {
+        border-radius: 100% 0 0 0;
+    }
+}
