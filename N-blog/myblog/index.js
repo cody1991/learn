@@ -5,7 +5,9 @@ const path = require('path'),
     flash = require('connect-flash'),
     config = require('config-lite'),
     routes = require('./routes'),
-    pkg = require('./package');
+    pkg = require('./package'),
+    winston = require('winston'),
+    expressWinston = require('express-winston');
 
 const app = express();
 
@@ -51,9 +53,41 @@ app.use((req, res, next) => {
     next();
 });
 
+// routes(app);
+
+app.use(expressWinston.logger({
+    transports: [
+        new(winston.transports.Console)({
+            json: true,
+            colorize: true
+        }),
+        new winston.transports.File({
+            filename: 'logs/success.log'
+        })
+    ]
+}));
+
 routes(app);
 
+app.use(expressWinston.errorLogger({
+    transports: [
+        new winston.transports.Console({
+            json: true,
+            colorize: true
+        }),
+        new winston.transports.File({
+            filename: 'logs/error.log'
+        })
+    ]
+}));
+
 // 中间件的加载顺序很重要。如上面设置静态文件目录的中间件应该放到 routes(app) 之前加载，这样静态文件的请求就不会落到业务逻辑的路由里；flash 中间件应该放到 session 中间件之后加载，因为 flash 是基于 session 的。
+
+app.use((error, req, res, next) => {
+    res.render('error', {
+        error
+    });
+});
 
 app.listen(config.port, () => {
     console.log(`${pkg.name} listening on port ${config.port}`);

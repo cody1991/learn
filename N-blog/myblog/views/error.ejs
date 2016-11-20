@@ -1,0 +1,18 @@
+<%- include('header') %>
+
+<div class="ui grid">
+	<div class="four wide column">
+	</div>
+	<div class="eight wide column">
+		<h2><%= error %></h2>
+    <h2><%= error.message %></h2>
+    <p>
+        <%= error.stack %>
+    </p>
+	</div>
+
+</div>	
+
+<%- include('footer') %>
+
+
