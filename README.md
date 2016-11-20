@@ -6,15 +6,19 @@
 
 ---
 
+学习完 [一起学 Node.js](https://github.com/nswbmw/N-blog) ,自己使用Express和MongoDB搭建了博客 [myblog](https://github.com/cody1991/learn/tree/gh-pages/N-blog/myblog)
+
+---
+
+在看 [CSS揭秘](https://book.douban.com/subject/26745943/)
+
+---
+
+在看 [实战 ES2015](https://book.douban.com/subject/26899930/)
+
+---
+
 在看 [HTTP权威指南](https://book.douban.com/subject/10746113/) 书籍
-
----
-
-由于10月份在忙求职的事情，学习主要以查缺补漏等的面试准备。
-
----
-
-学习吉他 [课程地址](http://e.youku.com/v/course/play?coid=4193&chid=55602&spm=a2h0v.8245817.2377199.8#3)
 
 ---
 
@@ -22,7 +26,15 @@
 
 ---
 
+学习吉他(长期的) [课程地址](http://e.youku.com/v/course/play?coid=4193&chid=55602&spm=a2h0v.8245817.2377199.8#3)
+
+---
+
 看完 [Web全栈工程师的自我修养](https://www.baidu.com/link?url=stUEN7ugCLgsdHbd3jF-9CFDbrtlEi8ITo9jMpNZSxxMLSflORkx-2iWtAhH08gdgSMWusfQjlqVdn9hnGyO7q&wd=&eqid=bcd159df000e4f5500000006582877f3) 书籍
+
+---
+
+由于10月份在忙求职的事情，学习主要以查缺补漏等的面试准备。
 
 ---
 
