@@ -6,6 +6,10 @@
 
 ---
 
+完成一个微信小程序的联系 [weapp/cnode](https://github.com/cody1991/learn)
+
+---
+
 学习完 [一起学 Node.js](https://github.com/nswbmw/N-blog) ,自己使用Express和MongoDB搭建了博客 [myblog](https://github.com/cody1991/learn/tree/gh-pages/N-blog/myblog)
 
 ---
