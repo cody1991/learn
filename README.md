@@ -6,7 +6,7 @@
 
 ---
 
-完成一个微信小程序的联系 [weapp/cnode](https://github.com/cody1991/learn)
+完成一个微信小程序的练习 [weapp/cnode](https://github.com/cody1991/learn/tree/gh-pages/weapp)
 
 ---
 
