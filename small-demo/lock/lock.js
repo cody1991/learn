@@ -1,4 +1,6 @@
-(function() {
+// step == 2 是有密码了
+
+!(function() {
 	window.lock = function(obj) {
 		this.height = obj.height;
 		this.width = obj.width;
@@ -22,7 +24,155 @@
 			var po = self.getPosition(e);
 
 			console.log(po);
+			console.log(self.arr)
+			for (var i = 0; i < self.arr.length; i++) {
+				if (Math.abs(po.x - self.arr[i].x) < self.r && Math.abs(po.y - self.arr[i].y) < self.r) {
+					self.touchFlag = true;
+					self.drawPoint(self.arr[i].x, self.arr[i].y);
+					self.lastPoint.push(self.arr[i]);
+					self.restPoint.splice(i, 1);
+
+					console.log(self.arr[i]);
+					console.log(self.lastPoint);
+					console.log(self.restPoint);
+					break;
+				}
+			}
+		}, false);
+
+		this.canvas.addEventListener('touchmove', function(e) {
+			if (self.touchFlag) {
+				self.update(self.getPosition(e));
+			}
 		});
+
+		this.canvas.addEventListener('touchend', function(e) {
+			if (self.touchFlag) {
+				self.touchFlag = false;
+				self.storePass(self.lastPoint);
+				setTimeout(function() {
+					self.reset();
+				}, 300);
+			}
+		});
+
+		document.addEventListener('touchmove', function(e) {
+			e.preventDefault();
+		});
+
+		this.updatePasswordEle.addEventListener('click', function() {
+			self.updatePassword();
+		})
+	}
+
+	lock.prototype.updatePassword = function() {
+		window.localStorage.removeItem('passwordxx');
+		window.localStorage.removeItem('chooseType');
+
+		this.pswObj = {};
+		this.title.innerHTML = '绘制解锁图案';
+		this.reset();
+	}
+
+	lock.prototype.reset = function() {
+		this.makeState();
+		this.createCircle();
+	}
+
+	lock.prototype.checkPass = function(psw1, psw2) {
+		var p1 = '';
+		var p2 = '';
+
+		for (var i = 0; i < psw1.length; i++) {
+			p1 += psw1[i].index + psw1[i].index;
+		}
+		for (var i = 0; i < psw2.length; i++) {
+			p2 += psw2[i].index + psw2[i].index;
+		}
+
+		return p1 === p2;
+	}
+
+	lock.prototype.drawStatusPoint = function(type) {
+		for (var i = 0; i < this.lastPoint.length; i++) {
+			this.ctx.strokeStyle = type;
+			this.ctx.beginPath();
+			this.ctx.arc(this.lastPoint[i].x, this.lastPoint[i].y, this.r, 0, Math.PI * 2, true);
+			this.ctx.closePath();
+			this.ctx.stroke();
+		}
+	}
+
+	lock.prototype.storePass = function(psw) {
+		if (this.pswObj.step == 1) {
+			if (this.checkPass(this.pswObj.fpassword, psw)) {
+				this.pswObj.step = 2;
+				this.pswObj.spassword = psw;
+				this.title.innerHTML = '密码保存成功';
+				this.drawStatusPoint('#2cff26');
+				window.localStorage.setItem('passwordxx', JSON.stringify(this.pswObj.spassword));
+				window.localStorage.setItem('chooseType', this.chooseType);
+			} else {
+				self.title.innerHTML = '两次不一样，请重新输入';
+				this.drawStatusPoint('red');
+				delete this.pswObj.step;
+			}
+		} else if (this.pswObj.step == 2) {
+			if (this.checkPass(this.pswObj.spassword, psw)) {
+				this.title.innerHTML = '解锁成功';
+				this.drawStatusPoint('#2cff26');
+			} else {
+				this.title.innerHTML = '解锁失败';
+				this.drawStatusPoint('red');
+			}
+		} else {
+			this.pswObj.step = 1;
+			this.pswObj.fpassword = psw;
+			this.title.innerHTML = '再次输入';
+		}
+	}
+
+	lock.prototype.update = function(po) {
+		this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+
+		for (var i = 0; i < this.arr.length; i++) {
+			this.drawCle(this.arr[i].x, this.arr[i].y);
+		}
+
+		this.drawPoint(this.lastPoint);
+		this.drawLine(po, this.lastPoint);
+
+		for (var i = 0; i < this.restPoint.length; i++) {
+			if (Math.abs(po.x - this.restPoint[i].x) < this.r && Math.abs(po.y - this.restPoint[i].y) < this.r) {
+				this.drawPoint(this.restPoint[i].x, this.restPoint[i].y);
+				this.lastPoint.push(this.restPoint[i]);
+				this.restPoint.splice(i, 1);
+				break;
+			}
+		}
+	}
+
+	lock.prototype.drawLine = function(po, lastPoint) {
+		this.ctx.beginPath();
+		this.ctx.lineWidth = 3;
+		this.ctx.moveTo(this.lastPoint[0].x, this.lastPoint[0].y);
+
+		for (var i = 1; i < this.lastPoint.length; i++) {
+			this.ctx.lineTo(this.lastPoint[i].x, this.lastPoint[i].y);
+		}
+		this.ctx.lineTo(po.x, po.y);
+		this.ctx.stroke();
+		this.ctx.closePath();
+	}
+
+	lock.prototype.drawPoint = function() {
+		for (var i = 0; i < this.lastPoint.length; i++) {
+			this.ctx.fillStyle = '#cfe6ff';
+			this.ctx.beginPath();
+			this.ctx.arc(this.lastPoint[i].x, this.lastPoint[i].y, this.r / 2, 0, Math.PI * 2, true);
+			this.ctx.closePath();
+			this.ctx.fill();
+		}
 	}
 
 	lock.prototype.drawCle = function(x, y) {
@@ -42,10 +192,10 @@
 		// 2(1+2*n) = width;
 		this.lastPoint = [];
 		this.arr = [];
-		this.resetPoint = [];
+		this.restPoint = [];
 
 		var r = this.r;
-		console.log(r);
+		// console.log(r);
 
 		for (var i = 0; i < n; i++) {
 			for (var j = 0; j < n; j++) {
@@ -56,10 +206,10 @@
 					index: count
 				};
 				this.arr.push(obj);
-				this.resetPoint.push(obj);
+				this.restPoint.push(obj);
 			}
 		}
-		console.log(this.arr)
+		// console.log(this.arr)
 		this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 		for (var i = 0; i < this.arr.length; i++) {
 			this.drawCle(this.arr[i].x, this.arr[i].y);
@@ -67,23 +217,24 @@
 	}
 
 	lock.prototype.makeState = function() {
-		if (this.pwsObj.step == 2) {
-			this.updatePassword.style.display = 'block';
+		if (this.pswObj.step == 2) {
+			this.updatePasswordEle.style.display = 'block';
 			this.title.innerHTML = '请解锁';
-		} else if (this.pwsObj.step == 1) {
-			this.updatePassword.style.display = 'none';
+		} else if (this.pswObj.step == 1) {
+			this.updatePasswordEle.style.display = 'none';
 		} else {
-			this.updatePassword.style.display = 'none';
+			this.updatePasswordEle.style.display = 'none';
 		}
 	}
 
 	lock.prototype.init = function() {
 		this.initDom();
 
-		this.updatePassword = document.getElementById('updatePassword');
+		this.updatePasswordEle = document.getElementById('updatePassword');
 		this.title = document.getElementById('title');
 
-		this.pwsObj = window.localStorage.getItem('passwordxx') ? {
+		// 有密码的是2
+		this.pswObj = window.localStorage.getItem('passwordxx') ? {
 			step: 2,
 			spassword: JSON.parse(window.localStorage.getItem('passwordxx'))
 		} : {};
