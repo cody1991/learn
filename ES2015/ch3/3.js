@@ -31,8 +31,8 @@ for (const {
 // 用 for..of 来遍历
 const arr1 = ['a', 'b', 'c']
 
-for (const [val] of arr1.entries()) {
-    console.log(val);
+for (const [index, val] of arr1.entries()) {
+    console.log(index, val);
 }
 
 for (const [index, {
