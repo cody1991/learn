@@ -10,6 +10,10 @@ import Clock from './clock.js'
 import Handle from './handle.js'
 import LoginControl from './loginControl.js'
 import Warning from './warning.js'
+import Blog from './blog.js'
+import Form from './form.js'
+import Calculator from './Calculator.js'
+import Containment from './Containment.js'
 
 const comment = {
     date: new Date(),
@@ -22,12 +26,22 @@ const comment = {
 
 function Mailbox(props) {
     const unreadMessage = props.unreadMessage;
+
+    const messagesItem = unreadMessage.map((message, index) => (
+        <li key={index}>{message}</li>
+    ));
     return (
         <div>
             {unreadMessage.length > 0 &&
-                <h2>
-                    You have {unreadMessage.length} unread messages
-                </h2>
+                <div>
+                    <h2>
+                        You have {unreadMessage.length} unread messages
+                    </h2>
+                    <ul>
+                        {messagesItem}
+                    </ul>
+                </div>
+
             }
         </div>
     )
@@ -35,10 +49,21 @@ function Mailbox(props) {
 
 const messages = ['React', 'Vue', 'Angular'];
 
+const posts = [{
+    id: 1,
+    title: 'Hello World',
+    content: 'Welcome to learning React!'
+}, {
+    id: 2,
+    title: 'Installation',
+    content: 'You can install React from npm.'
+}];
+
 class App extends Component {
     render() {
         return (
             <div className="App">
+                <Containment/>
                 <Warning />
                 <Mailbox unreadMessage={messages}/>
                 <div className="App-header">
@@ -58,6 +83,11 @@ class App extends Component {
                 <Handle />
                 <hr/>
                 <LoginControl/>
+                <hr/>
+                <Blog posts={posts}/>
+                <Form/>
+                <hr/>
+                <Calculator/>
             </div>
         );
     }
