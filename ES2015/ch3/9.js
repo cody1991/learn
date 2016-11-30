@@ -82,3 +82,12 @@ console.log(Array.from(map.entries()));
 for (const [key, value] of map) {
 	console.log(`${key} : ${value}`)
 }
+console.log(map);
+
+const map2 = new Map();
+map2.set('foo', 1);
+map2.set('bar', 2);
+
+console.log(map2);
+const str = JSON.stringify(map2);
+console.log('str' + str);
