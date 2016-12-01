@@ -46,3 +46,22 @@ for (const a of genfn) {
 	if (a < 1 / 100) break;
 	console.log(a);
 }
+
+function isGeneratorFunction(fn) {
+	if (Symbol && Symbol.toStringTag) {
+		return fn[Symbol.toStringTag] === 'GeneratorFunction';
+	}
+
+	const genFn = (function*() {}).constructor;
+	return fn instanceof genFn;
+}
+
+function isGenerator(obj) {
+	// return obj.toString ? obj.toString() === '[object Generator]' : false;
+	if (Symbol && Symbol.toStringTag) {
+		return obj[Symbol.toStringTag] === 'Generator'
+	} else if (obj.toString) {
+		return obj.toString() === '[object Generator]';
+	}
+	return false;
+}
