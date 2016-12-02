@@ -1,0 +1,14 @@
+/*
+我们可以在 Webpack 里用 Node 的 ~ 前缀去引入 Node Modules
+
+这样就可以全面使用 NPM 来管理第三方样式库（版本及其他）而对我们而言就无需复制粘贴了。更进一步的是，Webpack 打包 CSS 比使用默认的 CSS 引入有着显而易见的优势，让客户端远离不必要的头部请求和缓慢的资源加载。
+
+值得注意的是实际上在使用 CSS Modules 引入 Node Modules 的时候可以去掉 ~ 符号（如 @import "normalize.css";）。但是，当 @import 你自己的 CSS 时可能会遇到错误。如果你得到了 “can’t find ___” 这样的错误，尝试添加一个 resolve 对象到 webpack.config.js 里，好让 Webpack 更好地理解你预期的模块顺序。
+*/
+
+@import '~normalize.css';
+@import './home.css';
+@import './base.less';
+body {
+    background-color: skyblue;
+}

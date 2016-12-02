@@ -1,0 +1,1 @@
+webpackJsonp([1],{111:function(o,e,t){"use strict";function n(o){return o&&o.__esModule?o:{default:o}}var s=t(0),r=n(s);console.log("footer!");var u=(0,r.default)().format("MMMM Do YYYY, h:mm:ss a");console.log(u)},117:function(o,e,t){o.exports=t(111)}},[117]);
