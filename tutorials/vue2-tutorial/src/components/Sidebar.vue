@@ -23,8 +23,7 @@
 		},
 		computed:{
 			time(){
-				return 1;
-				// return this.$store.state.totalTime;
+				return this.$store.state.totalTime;
 			}
 		}
 	}

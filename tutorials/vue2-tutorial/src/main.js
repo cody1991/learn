@@ -8,6 +8,8 @@ import App from './App.vue'
 import Home from './components/Home.vue'
 import TimeEntries from './components/TimeEntries.vue'
 
+import store from './store'
+
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
@@ -19,7 +21,12 @@ const routes = [{
 	component: Home
 }, {
 	path: '/time-entries',
-	component: TimeEntries
+	component: TimeEntries,
+	children: [{
+		path: 'log-time',
+		// 懒加载
+		component: resolve => require(['./components/LogTime.vue'], resolve)
+	}]
 }]
 
 const router = new VueRouter({
@@ -33,5 +40,6 @@ new Vue({
 	components: {
 		App
 	},
-	router
+	router,
+	store
 })
