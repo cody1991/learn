@@ -6,6 +6,14 @@
 
 ---
 
+学习完 [vue-tutorial](https://github.com/MeCKodo/vue-tutorial)
+
+---
+
+学习完 [getting-started-with-webpack2](https://llp0574.github.io/2016/11/29/getting-started-with-webpack2/)
+
+---
+
 开始12月份的学习～～～～～
 
 ---
