@@ -1,3 +1,17 @@
+# 简介
+
+React 的学习笔记
+
+# 结构说明
+
+example/ [首页案例](https://facebook.github.io/react/)
+
+quick-start/ [官网快速入门](https://facebook.github.io/react/docs/installation.html)
+
+tutorial/ [官网教程案例](https://facebook.github.io/react/tutorial/tutorial.html)
+
+# 安装说明
+
 安装 cli
 
 	sudo npm install -g create-react-app
