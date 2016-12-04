@@ -4,11 +4,19 @@ React 的学习笔记
 
 # 结构说明
 
-example/ [首页案例](https://facebook.github.io/react/)
+下面是自己找的一些练习，都放在 `tutorials／` 文件夹。
 
-quick-start/ [官网快速入门](https://facebook.github.io/react/docs/installation.html)
+[React Loading Spinner](http://www.jackpu.com/-shi-yong-react-zhi-zuo-ge-jian-dan-de-jia-zai-dong-hua-zu-jian/)
 
-tutorial/ [官网教程案例](https://facebook.github.io/react/tutorial/tutorial.html)
+---
+
+## 英文官网文档
+
+`example/ 文件夹` [首页案例](https://facebook.github.io/react/)
+
+`quick-start/ 文件夹` [官网快速入门](https://facebook.github.io/react/docs/installation.html)
+
+`tutorial/ 文件夹` [官网教程案例](https://facebook.github.io/react/tutorial/tutorial.html)
 
 # 安装说明
 
