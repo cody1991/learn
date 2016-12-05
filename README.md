@@ -1,4 +1,7 @@
-[collections](https://github.com/cody1991/collections) 可以看到自己收集的一些前端开发资料
+# Tutorials
+
+如果查看一些学习记录的时候，发现是在 `tutorials/` 文件夹下，可以点击 [tutorials](https://github.com/cody1991/learn/tree/gh-pages/tutorials) 查看 `README.md` 说明，可以方便的找到对应学习教程
+
 
 # 学习历程(2016/7/1 开始不删减更新)
 
@@ -10,11 +13,11 @@
 
 ---
 
-学习完 [vue-tutorial](https://github.com/MeCKodo/vue-tutorial)，对Vue2全家桶有了更全面的认识
+学习完 [vue-tutorial](https://github.com/cody1991/learn/tree/gh-pages/tutorials/vue2-tutorial)，对Vue2全家桶有了更全面的认识
 
 ---
 
-学习完 [getting-started-with-webpack2](https://llp0574.github.io/2016/11/29/getting-started-with-webpack2/)，对WebPack2有了一定的了解
+学习完 [getting-started-with-webpack2](https://github.com/cody1991/learn/tree/gh-pages/tutorials/getting-started-with-webpack2)，对WebPack2有了一定的了解
 
 ---
 
