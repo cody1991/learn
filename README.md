@@ -6,11 +6,15 @@
 
 ---
 
-学习完 [vue-tutorial](https://github.com/MeCKodo/vue-tutorial)
+学习完 [python-crawl](https://github.com/cody1991/learn/tree/gh-pages/tutorials/python-crawl)，一个使用python进行爬虫下载图片和Mongodb存储数据的教程
 
 ---
 
-学习完 [getting-started-with-webpack2](https://llp0574.github.io/2016/11/29/getting-started-with-webpack2/)
+学习完 [vue-tutorial](https://github.com/MeCKodo/vue-tutorial)，对Vue2全家桶有了更全面的认识
+
+---
+
+学习完 [getting-started-with-webpack2](https://llp0574.github.io/2016/11/29/getting-started-with-webpack2/)，对WebPack2有了一定的了解
 
 ---
 
