@@ -9,6 +9,12 @@
 
 ---
 
+新的 GitHub 项目 [jingyan](https://github.com/cody1991/jingyan)，它是使用 Express 和 MongoDB 构建的一个博客，托管在 Heroku 和 mLab 上
+
+以及配套博客的编写 [build-online-blog-with-express-heroku-mlab](http://cody1991.github.io/frontend/2016/12/05/build-online-blog-with-express-heroku-mlab.html)
+
+---
+
 学习完 [python-crawl](https://github.com/cody1991/learn/tree/gh-pages/tutorials/python-crawl)，一个使用python进行爬虫下载图片和Mongodb存储数据的教程
 
 ---
