@@ -9,7 +9,7 @@
 
 最近想要开启几个东西（写于 2016.12.08）：
 
-* 跑步，每天在 Keep 上进行记录，以及 腹肌撕裂者初级
+* 每天在 Keep 上进行记录： 腹肌撕裂者初级 以及骑自行车一个小时
 * 背诵英语单词 六级，使用 扇贝单词
 * 练习 尤克里里
 
@@ -19,7 +19,7 @@
 
 ---
 
-最近突然喜欢上爬虫～跟着教程写了一个 [拉勾网的前端开发](https://github.com/cody1991/learn/tree/gh-pages/tutorials/node-spider/lagou-spider) 爬虫和自己根据前面的使用 Python 爬虫的 [python-crawl](https://github.com/cody1991/learn/tree/gh-pages/tutorials/python-crawl) ，改写成了使用 Node.js 进行爬虫，[https://github.com/cody1991/learn/tree/gh-pages/tutorials/node-spider/meizi]。 拉勾网的最后被封号了，第二个也经常出 Bug ，不过以学习爬虫的目的都达到了
+最近突然喜欢上爬虫～跟着教程写了一个 [拉勾网的前端开发爬虫](https://github.com/cody1991/learn/tree/gh-pages/tutorials/node-spider/lagou-spider) 和自己根据前面的使用 Python 爬虫的 [python-crawl](https://github.com/cody1991/learn/tree/gh-pages/tutorials/python-crawl) 改写成了使用 [Node.js 进行爬虫](https://github.com/cody1991/learn/tree/gh-pages/tutorials/node-spider/meizi)。结果 拉勾网的最后被封号了，第二个也经常出 Bug ，不过以学习爬虫的目的都达到了
 
 ---
 
