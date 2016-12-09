@@ -15,6 +15,14 @@
 
 ---
 
+学习完 [postgres-express-react-node-tutorial](https://github.com/cody1991/learn/tree/gh-pages/tutorials/postgres-express-react-node-tutorial)，跟着教程学了下如果操作 PostgreSQL 数据库 ，使用 PostMan 模拟node写的Api接口，教程写的很好，运行全部通过
+
+---
+
+最近突然喜欢上爬虫～跟着教程写了一个 [拉勾网的前端开发](https://github.com/cody1991/learn/tree/gh-pages/tutorials/node-spider/lagou-spider) 爬虫和自己根据前面的使用 Python 爬虫的 [python-crawl](https://github.com/cody1991/learn/tree/gh-pages/tutorials/python-crawl) ，改写成了使用 Node.js 进行爬虫，[https://github.com/cody1991/learn/tree/gh-pages/tutorials/node-spider/meizi]。 拉勾网的最后被封号了，第二个也经常出 Bug ，不过以学习爬虫的目的都达到了
+
+---
+
 新的 GitHub 项目 [jingyan](https://github.com/cody1991/jingyan)，它是使用 Express 和 MongoDB 构建的一个博客，托管在 Heroku 和 mLab 上
 
 以及配套博客的编写 [build-online-blog-with-express-heroku-mlab](http://cody1991.github.io/frontend/2016/12/05/build-online-blog-with-express-heroku-mlab.html)
