@@ -15,7 +15,7 @@
 
 ---
 
-学习完 [postgres-express-react-node-tutorial](https://github.com/cody1991/learn/tree/gh-pages/tutorials/postgres-express-react-node-tutorial)，跟着教程学了下如果操作 PostgreSQL 数据库 ，使用 PostMan 模拟node写的Api接口，教程写的很好，运行全部通过
+学习完 [postgres-express-react-node-tutorial](https://github.com/cody1991/learn/tree/gh-pages/tutorials/postgres-express-react-node-tutorial)，跟着教程学了下如何操作 PostgreSQL 数据库 ，使用 PostMan 模拟node写的Api接口，教程写的很好，运行全部通过
 
 ---
 
