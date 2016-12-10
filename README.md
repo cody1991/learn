@@ -15,6 +15,10 @@
 
 ---
 
+学习完 [build-a-nodejs-website](https://github.com/cody1991/learn/tree/gh-pages/tutorials/build-a-nodejs-website)，学习使用 Express 搭建的简单网站，学习下，为自己的博客改版做准备
+
+---
+
 学习完 [postgres-express-react-node-tutorial](https://github.com/cody1991/learn/tree/gh-pages/tutorials/postgres-express-react-node-tutorial)，跟着教程学了下如何操作 PostgreSQL 数据库 ，使用 PostMan 模拟node写的Api接口，教程写的很好，运行全部通过
 
 ---
