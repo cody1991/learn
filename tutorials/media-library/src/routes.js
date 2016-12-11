@@ -6,6 +6,7 @@ import {
 
 import App from './containers/App'
 import HomePage from './components/HomePage'
+import MediaGalleryPage from './containers/MediaGalleryPage'
 
 // Map components to different routes.
 // The parent component wraps other components and thus serves as  the entrance to 
@@ -15,5 +16,6 @@ import HomePage from './components/HomePage'
 export default (
 	<Route path='/' component={App}>
 		<IndexRoute component={HomePage}/>
+		<Route path="library" component={MediaGalleryPage}/>
 	</Route>
 )
