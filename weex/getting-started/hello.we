@@ -1,0 +1,68 @@
+<template>
+	<div>
+		<image if="{{img.shown}}"style="width:{{img.size}};height:{{img.size}};" src="{{img.src}}"></image>
+		<text class="text" style="color:#ff0000">
+			weex
+		</text>
+		<text>The time is {{datetime}}</text>
+		<text>{{title}}</text>
+		<text>{{getTitle()}}</text>
+		<text>{{fullName}}</text>
+		<!-- <text static>{{fullName}}</text> -->
+		<text onclick="changeName">Change Name</text>
+		<text repeat="(k,v) in list">
+			{{k}} - {{v}}
+		</text>
+		<text onclick="update($event,1,3)">Click:{{result}}</text>
+	</div>
+</template>
+<script>
+	module.exports = {
+		data:{
+			list:['a','b','c'],
+			result:"<empty>",
+			img:{
+				shown:true,
+				size:200,
+				src:'https://gtms02.alicdn.com/tps/i2/TB1QHKjMXXXXXadXVXX20ySQVXX-512-512.png'
+			},
+			title:'Alibaba',
+			datetime:null,
+			firstName:'John',
+			lastName:'Smith'
+		},
+		methods:{
+			getTitle:function(){
+				return 'Weex Team'
+			},
+			changeName:function(){
+				this.fullName = 'Cody tang'
+			},
+			update:function(e,x,y){
+				this.result = e.type + (x+y)
+				console.log(e.target)
+				console.log(e.timestamp)
+			}
+		},
+		created:function(){
+			this.datetime = new Date().toLocaleString()
+		},
+		computed:{
+			fullName:{
+				get:function(){
+					return this.firstName + ' ' + this.lastName
+				},
+				set:function(v){
+					var s = v.split(' ')
+					this.firstName = s[0]
+					this.lastName = s[1]
+				}
+			}
+		}
+	}
+</script>
+<style>
+	.text{
+		font-size:50;
+	}
+</style>
