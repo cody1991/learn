@@ -15,6 +15,14 @@
 
 ---
 
+最近买了不少书，主要任务在看书，所以这边也更新不多
+
+---
+
+看完 [图解HTTP](https://book.douban.com/subject/25863515/)
+
+---
+
 学习完 [build-a-nodejs-website](https://github.com/cody1991/learn/tree/gh-pages/tutorials/build-a-nodejs-website)，学习使用 Express 搭建的简单网站，学习下，为自己的博客改版做准备
 
 ---
