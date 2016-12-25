@@ -5,6 +5,137 @@
 	<title>PHP</title>
 </head>
 <body>
+	<hr>
+	<?php  
+		$arr1 = array(2,3);
+		$arr2 = $arr1;
+		$arr2[] = 4;
+		// $arr2变了，$arr1不会变
+		$arr3 = &$arr1;
+		$arr3[]=4;
+		// $arr3和$arr1都会变
+	?>
+	<?php 
+		error_reporting(E_ALL);
+		ini_set('display_errors',true);
+		ini_set('html_errors',false);
+
+		$handle = opendir('./test');
+		while (false !== ($file = readdir($handle))) {
+		    $files[] = $file;
+		}
+		closedir($handle); 
+		print_r($files);
+		sort($files);
+		print_r($files);
+
+	 ?>
+	<hr>
+	<?php 
+		$colors = array('red', 'blue', 'green', 'yellow');
+		foreach($colors as $key=>$color){
+			$colors[$key] = strtoupper($color);
+		}
+		print_r($colors);
+	 ?>
+	<hr>
+	<?php 
+	
+
+		$array = array(1,2);
+		$count = count($array);
+		for($i = 0 ; $i < $count ; $i++){
+			echo "Checking $i :".'<br/>';
+			echo "Bad: " . $array['$i'] . '<br/>';
+			echo "Good: " . $array[$i] . '<br/>';
+			echo "Bad: {$array['$i']}" . '<br/>';
+			echo "Good: {$array[$i]}" . '<br/>';
+		}
+	?>
+	<hr>
+	<?php
+		$arr = array('fruit'=>'apple','veggie'=>'carrot');
+		print $arr['fruit'];
+		print $arr['veggie'];
+
+		print $arr[fruit];
+
+		define('fruit','veggie');
+		echo '<br/>';
+
+		print $arr['fruit'];
+		print $arr[fruit];
+
+		print "<br/>Hello $arr[fruit]";
+
+		print "<br/>Hello {$arr[fruit]}";
+		print "<br/>Hello {$arr['fruit']}";
+	?>
+	<hr>
+	<?php 
+		$array = array(1,2,3,4,5);
+		print_r($array);
+		echo "<br/>";
+		foreach($array as $i => $value){
+			unset($array[$i]);
+		}
+		print_r($array);
+		echo "<br/>";
+		$array[]=6;
+		print_r($array);
+		echo "<br/>";
+
+		// 重新索引
+		$array = array_values($array);
+		$array[]=7;
+		print_r($array);
+		echo "<br/>";
+	 ?>
+	<?php $array = ["foo"=>"bar","bar"=>"foo"] ?>
+	<?php  
+		var_dump($array);
+		echo '<br/>';
+		$array = [
+			"a",
+			"b",
+			6=>"c",
+			"d"
+		];
+		var_dump($array);
+		echo '<br/>';
+		$array = [
+			"foo"=>"bar",
+			42=>24,
+			"multi"=>[
+				"dimensional"=>[ "array" => "foo" ]
+			]
+		];
+		var_dump($array["foo"]);
+		var_dump($array[42]);
+		var_dump($array["multi"]["dimensional"]);
+
+		function getArray(){
+			return [1,2,3];
+		}
+
+		var_dump(getArray()[1]);
+		echo '<br/>';
+
+		$arr = array(5=>1,12=>2);
+		$arr[] = 56;
+		$arr['x'] = 42;
+		unset($arr[5]);
+
+		var_dump($arr);
+		echo '<br/>';
+
+		unset($arr);
+
+		var_dump($arr);
+		echo 'unset all <br/>';
+
+	?>
+	<hr>
 	<?php 
 		$str = 'This is a test';
 		$first = $str[0];
@@ -36,14 +167,14 @@
 		echo "${greatFun()}".'<br/>';
 
 		class beers{
-			const softdrink = 'rootbeer';
+			const SOFTDRINK = 'rootbeer';
 			public static $ale = 'ipa';
 		}
 
 		$rootbeer = 'A & W';
 		$ipa = 'Ale';
 
-		echo "I'd like an ${beers::softdrink}" . '<br/>';
+		echo "I'd like an ${beers::SOFTDRINK}" . '<br/>';
 		// Fatal error: Access to undeclared static property: beers::$softdrink in /Library/WebServer/Documents/PHP/index.php on line 33
 		// echo "I'd like an {${beers::$softdrink}}" . '<br/>';
 		echo "I'd like an ${beers::$ale}".'<br/>';
