@@ -15,6 +15,15 @@
 
 ---
 
+阅读 [JavaScript高级程序设计（第3版）](https://book.douban.com/subject/10546125/)
+
+进度：
+
+	第一章、JavaScript简介 第二章、在HTML中使用JavaScript 第三章、基本概念 (2016.12.26 18:00)
+	
+
+---
+
 最近买了不少书，主要任务在看书，所以这边也更新不多
 
 ---
