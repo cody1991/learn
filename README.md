@@ -18,7 +18,7 @@
 
 ## 2017年1月份
 
-#### 制定任务(2017.1.1)
+### 制定任务(2017.1.1)
 
 澳门的通行证快过期了，可以过去一趟
 
@@ -34,17 +34,17 @@
 
 ---
 
-#### 看了电影 [完美陌生人 2016](https://movie.douban.com/subject/26614893/)、[驴得水 2016](https://movie.douban.com/subject/25921812/)、[控方证人 Witness for the Prosecution 1957](https://movie.douban.com/subject/1296141/)
+### 看了电影 [完美陌生人 2016](https://movie.douban.com/subject/26614893/)、[驴得水 2016](https://movie.douban.com/subject/25921812/)、[控方证人 Witness for the Prosecution 1957](https://movie.douban.com/subject/1296141/)
 
 ---
 
-#### 正在学习(2017.1.1) [学习JavaScript数据结构与算法](https://book.douban.com/subject/26639401/)
+### 正在学习(2017.1.1) [学习JavaScript数据结构与算法](https://book.douban.com/subject/26639401/)
 
 补充一下算法和数据结构的知识，主要使用 JavaScript 来实现
 
 ---
 
-#### 正在学习(2017.1.1) [哈佛大学公开课：构建动态网站](http://open.163.com/special/opencourse/buildingdynamicwebsites.html) 
+### 正在学习(2017.1.1) [哈佛大学公开课：构建动态网站](http://open.163.com/special/opencourse/buildingdynamicwebsites.html) 
 
 从2016.12.31晚开始看，到2017.1.1日晚上已经看了一半了，真的是学着PHP跨年的。蛮喜欢这个课程的。
 
