@@ -2,19 +2,19 @@
 
 目录结构，会同步更新
 
-	./PHP PHP的学习 (正在学习中)
+* ./PHP PHP的学习 (正在学习中)
 
-	./algorithms 算法部分的学习 (正在学习中)
+* ./algorithms 算法部分的学习 (正在学习中)
 
-	./waiting 存放待学习的任务
+* ./waiting 存放待学习的任务
 
-	./tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
+*	./tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
 
-	./lib 存放资源
+*	./lib 存放资源
 
-	./pic 不定时上传一些我喜欢的图片，来自 [Irvue](https://itunes.apple.com/us/app/irvue-unsplash-wallpapers/id1039633667?mt=12) 提供给我的 Mac 壁纸
+*	./pic 不定时上传一些我喜欢的图片，来自 [Irvue](https://itunes.apple.com/us/app/irvue-unsplash-wallpapers/id1039633667?mt=12) 提供给我的 Mac 壁纸
 
-	./finish-2016 2016年完成的所有学习，原则上不再修改
+*	./finish-2016 2016年完成的所有学习，原则上不再修改
 
 ## 2017年1月份
 
@@ -46,7 +46,7 @@
 
 #### 正在学习(2017.1.1) [哈佛大学公开课：构建动态网站](http://open.163.com/special/opencourse/buildingdynamicwebsites.html) 
 
-从2016.12.31晚开始看，到2017.1.1日晚上已经看了一半了，真是学着PHP跨年的。蛮喜欢这个课程的，感觉讲述了很多我以前没有接触到或者模糊的网站知识。虽然是2010的教程了，但是感觉讲课老师的激情还有见识见解都非常棒。
+从2016.12.31晚开始看，到2017.1.1日晚上已经看了一半了，真的是学着PHP跨年的。蛮喜欢这个课程的。
 
 ---
 
