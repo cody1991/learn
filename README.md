@@ -1,7 +1,64 @@
+# Happy New Year! `</2016><2017>`
+
+目录结构，会同步更新
+
+	./PHP PHP的学习 (正在学习中)
+
+	./algorithms 算法部分的学习 (正在学习中)
+
+	./waiting 存放待学习的任务
+
+	./tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
+
+	./lib 存放资源
+
+	./pic 不定时上传一些我喜欢的图片，来自 [Irvue](https://itunes.apple.com/us/app/irvue-unsplash-wallpapers/id1039633667?mt=12) 提供给我的 Mac 壁纸
+
+	./finish-2016 2016年完成的所有学习，原则上不再修改
+
+## 2017年1月份
+
+#### 制定任务(2017.1.1)
+
+澳门的通行证快过期了，可以过去一趟
+
+[30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 这个的目标是：
+
+	30 Day Vanilla JS Coding Challenge
+
+	Build 30 things in 30 days with 30 tutorials
+
+	No Frameworks×No Compilers×No Libraries×No Boilerplate
+
+[undersercore源码分析](https://www.gitbook.com/book/yoyoyohamapi/undersercore-analysis/details)
+
+---
+
+#### 看了电影 [完美陌生人 2016](https://movie.douban.com/subject/26614893/)、[驴得水 2016](https://movie.douban.com/subject/25921812/)、[控方证人 Witness for the Prosecution 1957](https://movie.douban.com/subject/1296141/)
+
+---
+
+#### 正在学习(2017.1.1) [学习JavaScript数据结构与算法](https://book.douban.com/subject/26639401/)
+
+补充一下算法和数据结构的知识，主要使用 JavaScript 来实现
+
+---
+
+#### 正在学习(2017.1.1) [哈佛大学公开课：构建动态网站](http://open.163.com/special/opencourse/buildingdynamicwebsites.html) 
+
+从2016.12.31晚开始看，到2017.1.1日晚上已经看了一半了，真是学着PHP跨年的。蛮喜欢这个课程的，感觉讲述了很多我以前没有接触到或者模糊的网站知识。虽然是2010的教程了，但是感觉讲课老师的激情还有见识见解都非常棒。
+
+---
+
+---
+
+---
+
+# 2016年的学习记录封档，不再更新。
+
 # Tutorials
 
 如果查看一些学习记录的时候，发现是在 `tutorials/` 文件夹下，可以点击 [tutorials](https://github.com/cody1991/learn/tree/gh-pages/tutorials) 查看 `README.md` 说明，可以方便的找到对应学习教程
-
 
 # 学习历程(2016/7/1 开始不删减更新)
 

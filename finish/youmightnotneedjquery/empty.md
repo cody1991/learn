@@ -1,5 +1,0 @@
-	$(el).empty();
-
-----
-
-	el.innerHTML = '';

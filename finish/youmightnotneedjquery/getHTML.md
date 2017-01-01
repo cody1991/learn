@@ -1,5 +1,0 @@
-	$(el).html();
-
-------
-
-	el.innerHTML;

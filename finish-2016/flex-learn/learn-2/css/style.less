@@ -1,0 +1,255 @@
+@import (inline) './normalize.css';
+.container {
+    user-select: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    position: relative;
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 0.32rem;
+}
+
+body {
+    font-size: 0.32rem;
+}
+
+// 设计稿是 750px
+// 1rem = 75px
+@base: 75rem;
+.demo {
+    text-align: center;
+    .btn {
+        width: 560 / @base;
+    }
+}
+
+// 子元素的float、clear和vertical-align属性将失效。
+.flex-inline {
+    // 会自动补全 有box
+    display: inline-flex;
+}
+
+.flex {
+    // 要自己写
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: flex;
+}
+
+// container有以下几个属性
+// flex-direction
+// flex-wrap
+// flex-flow
+// justify-content
+// align-items
+// align-content
+// ----------------------------------------------
+// ----------------------------------------------
+// flex-direction 决定主轴的方向
+// row | row-reverse | column | column-reverse
+// ----------------------------------------------
+// ----------------------------------------------
+// flex-wrap 默认情况下项目排在一条线
+// nowrap wrap wrap-reverse
+// 不换行 换行，第一个在左上方  换行，第一个在左下方
+// ----------------------------------------------
+// ----------------------------------------------
+// flex-flow 是 flex-direction和 flex-wrap 的缩写 默认是 row nowrap
+// flex-flow <flex-directin> || <flex-wrap>
+// ----------------------------------------------
+// ----------------------------------------------
+// justify-content 定义了项目在主轴上的对齐方式
+// justify-content: flex-start  flex-end  center  space-between  space-around
+// 左对齐 右对齐 居中 ，两端对齐 项目之间的间隔一样，每个项目的两个间隔相等 项目之间的间隔比项目边框的间隔大一倍
+// ----------------------------------------------
+// ----------------------------------------------
+// align-items 在交叉轴上如果对齐
+// align-items: flex-start flex-end center baseline stretch
+// 交叉轴的起点位置    交叉轴的终点对齐  交叉轴的中点对齐   项目的第一行文字的基线对齐   如果项目没有设置高度或者设置为auto 占满整个容器高度
+// ----------------------------------------------
+// ----------------------------------------------
+// align-content 定义了多根轴线的对齐方式，如果项目只有一个轴线，不起作用
+// align-content:flex-start flex-end center space-between space-around  stretch(默认值)
+// 与交叉轴的起点对齐   与交叉轴的终点对齐    与交叉轴的中点对齐    与交叉轴两端对齐轴线之间的间隔平局分布   每根轴线两侧的间距相等    轴线占满整个交叉轴
+// ----------------------------------------------
+// ----------------------------------------------
+// ----------------------------------------------
+// ----------------------------------------------
+// ----------------------------------------------
+// ----------------------------------------------
+// ----------------------------------------------
+// ----------------------------------------------
+// 作用在项目上
+// order
+// flex-grow
+// flex-shrink
+// flex-basis
+// flex
+// align-self
+// ----------------------------------------------
+// ----------------------------------------------
+// order 定义项目的排列顺序 数值越小越靠前 默认是0
+// order:<integer>
+// ----------------------------------------------
+// ----------------------------------------------
+// flex-grow 属性定义了项目的放大bilibili 默认是0  即如果存在剩余空间也不放大
+// flex-grow:<number>
+// 如果项目所有的flex-grow 都是1 他们均等分割空间 如果一个项目flex-grow属性是2 其他项目都是1 则前者占据的剩余空间将比其他的多一倍
+// ----------------------------------------------
+// ----------------------------------------------
+// flex-shrink 定义了项目的缩小bilibili 默认是1 即空间不足，改项目会缩小
+// flex-shrink:<number>
+// 如果所有项目的flex-shrink属性都是1 空间不足的时候等比例缩小。如果一个鲜蘑菇的 flex-shrink 属性为0 ，其他项目都为1 ，空间不足的时候前者不缩小
+// ----------------------------------------------
+// ----------------------------------------------
+// flex-basis 定义了分配多余空间之前，项目占据的主轴空间。浏览器根据这个属性，计算主轴是否有多余空间。默认值是auto，即项目本来的大小。
+// flex-basis:<length> | auto
+// 可以设置和width或height一样的值，比如350px 即项目将占据固定空间
+// ----------------------------------------------
+// ----------------------------------------------
+// flex 属性是 flex-grow flex-shrink flex-basis 的缩写，默认是 0  1  auto ，后两个可选
+// flex:none | [<'flex-grow'><'flex-shrink'>? || <'flex-basis'>]
+// 两个快截止 auto(1 1 auto) 和 none (0,0,auto)
+// 建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
+// ----------------------------------------------
+// ----------------------------------------------
+// align-self 允许项目和其他项目不一样的对齐方式 可覆盖 align-items 属性。默认值  auto 表示集成父元素的 align-items 属性，如果没有父元素，等同于 stretch
+// align-self:auto | flex-start | flex-end | center | baseline | stretch;
+.face {
+    background-color: #e7e7e7;
+    height: 104px;
+    width: 104px;
+    box-shadow: inset 0 5px white, inset 0 -5px #bbb, inset 5px 0 #d7d7d7, inset -5px 0 #d7d7d7;
+    border-radius: 10%;
+    margin: 16px;
+    padding: 4px;
+    // 测试
+    // justify-content: center;
+    // justify-content: flex-end;
+    // align-items: center;
+    // align-items: flex-end;
+    &.face-1 {
+        justify-content: center;
+        align-items: center;
+    }
+    &.face-2 {
+        justify-content: space-between;
+        // flex-direction: column;
+        // align-items: center;
+        // align-items: flex-end;
+        // & >:nth-child(2) {
+        //     align-self: center;
+        //     align-self: flex-end;
+        // }
+        & >:nth-child(2) {
+            align-self: flex-end;
+        }
+    }
+    &.face-3 {
+        :nth-child(2) {
+            align-self: center;
+        }
+        :nth-child(3) {
+            align-self: flex-end;
+        }
+    }
+    &.face-4,
+    &.face-6 {
+        justify-content: space-between;
+        .column {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+    &.face-5 {
+        justify-content: space-between;
+        .column {
+            flex-direction: column;
+            justify-content: space-between;
+            &:nth-of-type(2) {
+                justify-content: center;
+            }
+        }
+    }
+    &.face-9 {
+        flex-wrap: wrap;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    // align-items 垂直居中
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: linear-gradient(top, #222, #333);
+}
+
+.pip {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin: 4px;
+    background-color: #333;
+    box-shadow: inset 0 3px #111, inset 0 -3px #555;
+}
+
+.grid-item {
+    flex: 1;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    &.item2 {
+        flex: 0 0 50%;
+    }
+    &.item3 {
+        flex: 0 0 33.33333%;
+    }
+    &.item4 {
+        flex: 0 0 25%;
+    }
+}
+
+.holy {
+    background-color: #fff;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    .header,
+    .footer {
+        flex: 1;
+        padding: 50px;
+        background-color: blue;
+    }
+    .main {
+        flex: 1;
+        background-color: skyblue;
+        padding: 100px;
+    }
+    .nav {
+        flex: 0 0 200px;
+        background-color: purple;
+        padding: 100px 0;
+    }
+    .left {
+        order: -1;
+    }
+    @media (max-width:768px) {
+        .main-body {
+            flex-direction: column;
+        }
+        .nav,
+        .main {
+            flex: auto;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "product": [{
+        "id": 1,
+        "name": "SuperWidget",
+        "colour": "Green",
+        "price": "19.99",
+        "inStock": true
+    }, {
+        "id": 2,
+        "name": "WonderWidget",
+        "colour": "White",
+        "price": "24.99",
+        "inStock": true
+    }, {
+        "id": 3,
+        "name": "MegaWidget",
+        "colour": "Purple",
+        "price": "29.99",
+        "inStock": false
+    }, {
+        "id": 4,
+        "name": "HyperWidget",
+        "colour": "Yellow",
+        "price": "49.99",
+        "inStock": true
+    }]
+}

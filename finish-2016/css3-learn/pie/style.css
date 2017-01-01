@@ -1,0 +1,56 @@
+.hold {
+  margin: 100px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.hold .outer {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  clip: rect(0px, 100px, 200px, 0px);
+  -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
+  border-radius: 200px;
+}
+.hold .pie {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  -webkit-transform: rotate(180);
+      -ms-transform: rotate(180);
+          transform: rotate(180);
+  clip: rect(0px, 100px, 200px, 0px);
+  border-radius: 100px;
+}
+.left {
+  margin: 100px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.left .outer {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
+  clip: rect(0px, 100px, 200px, 0px);
+  border-radius: 100px;
+  background-color: yellow;
+}
+.left .pie {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+  clip: rect(0px, 100px, 200px, 0px);
+  border-radius: 100px;
+  background-color: yellow;
+}

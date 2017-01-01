@@ -1,0 +1,60 @@
+// 16px
+@base: 16rem;
+body {
+    background: #ccc;
+}
+
+hr {
+    background: currentColor;
+}
+
+.button {
+    display: inline-block;
+    font-size: 20/@base;
+    line-height: 1.5;
+    padding: 6/@base 16/@base;
+    background: #58a linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: white;
+    text-shadow: 0 -(1/@base) (1/@base) rgba(0, 0, 0, 0.5);
+    box-shadow: 0 (1/@base) (5/@base) rgba(0, 0, 0, 0.5);
+    border-radius: 4/@base;
+    &.ok {
+        background-color: #6b0;
+    }
+    &.cancel {
+        background-color: #c00;
+    }
+}
+
+.callout {
+    display: inline-block;
+    font-size: 16/@base;
+    padding: 10/@base;
+    background-color: skyblue;
+    border: 1px solid #000;
+    color: white;
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        border: inherit;
+        background: inherit;
+        padding: 5/@base;
+        left: 5/@base;
+        top: -(6/@base);
+        transform: rotate(45deg);
+        border-right: 0;
+        border-bottom: 0;
+    }
+}
+
+.b1 {
+    background: url(1.png) no-repeat top right / 2em 2em, url(2.png) no-repeat bottom right / 2em 2em, url(3.png) no-repeat bottom left / 2em 2em;
+}
+
+.b2 {
+    background: url(1.png) top right, url(2.png) bottom right, url(3.png) bottom left;
+    background-repeat: no-repeat;
+    background-size: 2em 2em;
+}

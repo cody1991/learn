@@ -1,0 +1,7 @@
+.rem(@px, @name:width){
+    // 设计稿是 750px
+    // 1rem = 75px
+    @base:75px;
+    // @{name}: @px / @base * 1rem;
+    return @px / @base * 1rem;
+}

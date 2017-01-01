@@ -1,0 +1,14 @@
+{{#section 'head'}}
+    <meta name="robots" content="noindex">
+{{/section}}
+
+<h1>Test Page</h1>
+<p>We're testing some jquery stuff.</p>
+
+{{#section 'jquery'}}
+    <script>
+    $('document').ready(function(){
+        $('h1').html('Jquery works');
+    });
+    </script>
+{{/section}}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <script type="text/x-template" id="modal-template">
+            <div class="modal-mask" v-show="show" transition="modal">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <slot name="header">
+                                Default header
+                            </slot>
+                        </div>
+                        <div class="modal-body">
+                            <slot name="body">
+                                Default body
+                            </slot>
+                        </div>
+                        <div class="modal-footer">
+                            <slot name="footer">
+                                default footer
+                                <button class="modal-default-button" @click="show=false">OK</button>
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <div id="app">
+            <button id="show-modal" @click="showModal=true">Show Modal</button>
+            <modal :show.sync="showModal">
+                <h3 slot="header">Custom header</h3>
+            </modal>
+        </div>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

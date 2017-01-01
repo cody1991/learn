@@ -1,0 +1,30 @@
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Colour</th>
+        <th>Price</th>
+        <th>Buy</th>
+    </tr>
+    {{#product}}
+    <tr>
+        <td>
+            {{name}}
+        </td>
+        <td>
+            {{colour}}
+        </td>
+        <td>
+            ${{price}}
+        </td>
+        {{#inStock}}
+        <td>
+            <a href="#{{id}}">Buy now!</a>
+        </td>
+        {{/inStock}} {{^inStock}}
+        <td>
+            Out of Stock
+        </td>
+        {{/inStock}}
+    </tr>
+    {{/product}}
+</table>

@@ -1,0 +1,26 @@
+{
+  "name": "7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "basic-auth-connect": "^1.0.0",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "connect": "^3.5.0",
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.14.1",
+    "method-override": "^2.3.6",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0",
+    "serve-index": "^1.8.0",
+    "serve-static": "^1.11.1",
+    "vhost": "^3.0.2"
+  }
+}

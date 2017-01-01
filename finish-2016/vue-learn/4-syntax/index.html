@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <input type="text" v-model="msg">
+            <p>{{msg}}</p>
+            <p>{{*msg}}</p>
+            <hr/>
+            <p>{{raw_html}}</p>
+            <p>{{{raw_html}}}</p>
+            <p id="item-{{msg}}"></p>
+            <p>{{msg | capitalize}}</p>
+            <p v-if="greeting">greeting</p>
+            <a href="{{url}}">baidu</a>
+            <a v-bind:href="url">baidu</a>
+            <a :href="url">baidu</a>
+            <button v-bind:disabled="isDisabled">Button</button>
+            <button :disabled="isDisabled">Button</button>
+            <button v-on:click="doSomething">DO Something</button>
+            <button @click="doSomething">DO Something</button>
+        </div>
+    </div>
+    <script src="../lib/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

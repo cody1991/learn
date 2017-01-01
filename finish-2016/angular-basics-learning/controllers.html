@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="controllers">
+
+<head>
+    <title>controllers</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container" ng-controller="MessageController">
+        <p>{{message}}</p>
+        <p>There are {{count()}} months in a year</p>
+        <div>
+            <select ng-model="operand1" ng-options="x for x in options"></select>
+            +
+            <select ng-model="operand2" ng-options="x for x in options"></select>
+            ={{add()}}
+        </div>
+        <p ng-init="authorized = true">
+            The secret code is
+            <span ng-show="authorized">0123</span>
+            <span ng-hide="authorized">not for you to see</span>
+            <br/>
+            <input type="button" value="toggle" ng-click="toggle()" />
+        </p>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script>
+    var controllers = angular.module('controllers', []);
+    controllers.controller('MessageController', function($scope) {
+        $scope.message = "This is a model";
+        $scope.authorized = true;
+        $scope.count = function() {
+            return 12;
+        }
+        $scope.operand1 = 0;
+        $scope.operand2 = 0;
+        $scope.add = function() {
+            return $scope.operand1 + $scope.operand2;
+        }
+        $scope.options = [0, 1, 2, 3, 4];
+        $scope.toggle = function() {
+            $scope.authorized = !$scope.authorized
+        }
+    });
+    </script>
+</body>
+
+</html>

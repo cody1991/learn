@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="basics">
+
+<head>
+    <title>basics</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <p>The number {{ 3 + 4}}.</p>
+        <p>Are strings and numbers equal? {{'2' == 2}}</p>
+        <p>{{"Angular" + "js".toUpperCase()}}</p>
+        <p>{{Math.random()}}</p>
+        <p>{{a=1;a+a}}</p>
+        <p>{{a=2}} remains {{a}}</p>
+        <p>There {{count = 1; (count === 1 ? "is " : "are ") + count}} of them.</p>
+        <p>{{a=1;++a}}</p>
+        <p>The number <span ng-bind="3 + 4"></span>.</p>
+        <div ng-init="sum = 3+2">
+            <p>
+                {{sum + 1}} is more than
+                <span ng-bind="sum - 1"></span>
+            </p>
+        </div>
+        <div ng-init="dcount = 7 ; units= 'days' ; collection='week' ">
+            <p>There are {{dcount}} {{units}} in a {{collection}}.</p>
+        </div>
+        <!-- ng-init 是最初始化的，后面定义的会被覆盖，即使是后面才写的 -->
+        <div ng-init="months = ['Jan','Feb','Mar']">
+            <p>
+                {{months[2]}} follows {{months[1]}} in {{months}}
+            </p>
+        </div>
+        <p ng-non-bindable>
+            {{2 * 2}} is the same as <span ng-bind='2+2'>?</span>
+        </p>
+        <p ng-init="authorized = true">
+            The secret code is
+            <span ng-show="authorized">0123</span>
+            <span ng-hide="authorized">not for you to see</span>
+            <br/>
+            <input type="button" value="toggle" ng-click="authorized = !authorized" />
+        </p>
+        <div>
+            <input type="text" ng-model="title" ng-init=" title = 'angular' "> is bound to " <strong ng-bind="title"></strong> ". Type something in the box!
+        </div>
+        <div>
+            <input type="checkbox" ng-init='optIn = true' ng-model="optIn"> is bound to <strong ng-bind="optIn"></strong> .Change it!
+        </div>
+        <div>
+            <select ng-init='answer = "maybe"' ng-model="answer">
+                <option value="yes" selected>Yes</option>
+                <option value="no">No</option>
+                <option value="maybe">Maybe</option>
+            </select>
+            is bound to " <strong ng-bind="answer"></strong> " .Change it !
+        </div>
+        <div ng-init=' answer2 = "maybe" '>
+            <input type="radio" ng-model="answer2" value='yes'> Yes
+            <input type="radio" ng-model="answer2" value='no'> No
+            <input type="radio" ng-model="answer2" value='maybe'> Maybe is bound to "
+            <strong ng-bind="answer2"></strong>.Change it! "
+        </div>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script>
+    var basics = angular.module('basics', []);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div id="content">
+        <p class="author"></p>
+        <p class="blog">
+            <a href="#">Blog</a>
+        </p>
+    </div>
+    <script src="./app/lib/sea.js"></script>
+    <script src="./app/lib/seajs-css.js"></script>
+    <script>
+    seajs.config({
+        base:'./app/',
+        alias:{
+            'style':'../style/style.css'
+        },
+        charset: 'utf-8'
+    })
+    seajs.use('init');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <ul>
+                <li class="user" v-for="user in users" transition>
+                    <span>{{user.name}} - {{user.email}}</span>
+                    <button v-on:click="removeUser(user)">X</button>
+                </li>
+            </ul>
+            <form id="form" v-on:submit.prevent="addUser">
+                <input type="text" v-model="newUser.name">
+                <input type="text" v-model="newUser.email">
+                <input type="submit" value="Add user">
+            </form>
+            <ul class="errors">
+                <li v-show="!validation.name">Name cannot be empty.</li>
+                <li v-show="!validation.email">Please provide a valid email address.</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script src='../../lib/firebase.js'></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

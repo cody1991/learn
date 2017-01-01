@@ -1,0 +1,91 @@
+a,
+button,
+input {
+  outline: 0;
+}
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+select,
+textarea {
+  font-size: 625%;
+}
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  html,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 734.4%;
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 639px) {
+  html,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 808.6%;
+  }
+}
+@media screen and (min-width: 640px) {
+  html,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 1250%;
+  }
+}
+body {
+  font-size: 0.12rem;
+}
+.container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Microsoft YaHei', sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.item-wrapper .item {
+  float: left;
+  width: 50%;
+  height: 100px;
+  background-color: skyblue;
+  box-sizing: border-box;
+  border: 2px solid yellow;
+}
+.title {
+  font-size: 0.15rem;
+  margin-top: 0.05rem;
+  margin-bottom: 0.05rem;
+}

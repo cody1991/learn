@@ -1,0 +1,17 @@
+{
+    "name": "browserify",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "browserify main.js -d | exorcist bundle.js.map > bundle.js",
+        "watch": "watchify main.js -o bundle.js -d -v"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "exorcist": "^0.4.0",
+        "uniq": "^1.0.1",
+        "watchify": "^3.7.0"
+    }
+}

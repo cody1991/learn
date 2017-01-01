@@ -1,0 +1,26 @@
+{
+  "name": "animejs",
+  "version": "1.0.0",
+  "description": "Polyvalent JavaScript animation engine",
+  "main": "anime.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juliangarnier/anime.git"
+  },
+  "keywords": [
+    "anime",
+    "animation",
+    "javascript",
+    "CSS",
+    "transforms",
+    "SVG",
+    "canvas"
+  ],
+  "author": "Julian Garnier <hello@julian.gr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juliangarnier/anime/issues"
+  },
+  "homepage": "http://anime-js.com",
+  "files": ["anime.js", "anime.min.js"]
+}

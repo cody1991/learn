@@ -1,0 +1,55 @@
+.container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Microsoft YaHei', sans-serif;
+  position: relative;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 0.32rem;
+}
+.try {
+  padding: 10px 0;
+}
+.try .device {
+  background: #222;
+  padding: 20px 20px 40px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  overflow: hidden;
+}
+.try .device .device-screen-wrapper {
+  overflow: hidden;
+}
+.try .device .device-screen-wrapper .device-screen {
+  background: #bee2ea;
+  height: 350px;
+  position: relative;
+  border-radius: 2px;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+}
+.try .device .device-screen-wrapper .device-screen #hitarea {
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+.try .device .device-screen-wrapper .device-screen #hitarea.animate {
+  -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+}
+.start {
+  height: 500px;
+  background-color: skyblue;
+}

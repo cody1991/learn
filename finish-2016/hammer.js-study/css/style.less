@@ -1,0 +1,49 @@
+.container {
+    user-select: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    position: relative;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 0.32rem;
+}
+
+.try {
+    padding: 10px 0;
+    .device {
+        background: #222;
+        padding: 20px 20px 40px;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        user-select: none;
+        overflow: hidden;
+        .device-screen-wrapper {
+            overflow: hidden;
+            .device-screen {
+                background: #bee2ea;
+                height: 350px;
+                position: relative;
+                border-radius: 2px;
+                perspective: 500px;
+                #hitarea {
+                    background: #fff;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 150px;
+                    height: 150px;
+                    cursor: pointer;
+                    &.animate {
+                        transition: all 0.3s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.start {
+    height: 500px;
+    background-color: skyblue;
+}

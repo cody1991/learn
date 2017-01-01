@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <div id="game">
+        <div id="game-ui">
+            <div id="game-info">
+                <h1>Space bowling</h1>
+                <p><a id="game-play" class="button">Play</a></p>
+            </div>
+            <div id="game-state">
+                <p>Asteroids:<span id="game-remain"></span></p>
+                <p>Clicks:<span class="game-score"></span></p>
+                <p><a class="reset">Reset</a></p>
+            </div>
+            <div id="game-complete">
+                <p>You win!</p>
+                <p>You completed the game in <span class="game-score"></span> clicks</p>
+                <p><a class="reset button">Play again</a></p>
+            </div>
+        </div>
+        <canvas id="canvas1" width="350" height="600"></canvas>
+    </div>
+    <script type="text/javascript" src="common-1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body ng-app="app">
+    <div class="container">
+        <p><a href="#addStudent">Add Student</a></p>
+        <p><a href="#viewStudents">View Student</a></p>
+        <!-- 
+            ng-view 标记只是简单地创建一个占位符，是一个相应的视图(HTML或ng-template视图)，可以根据配置来放置。
+        -->
+        <div ng-view></div>
+        <!--  
+            ng-template 指令是用来创建使用script标签的HTML视图。它包含一个用于由$routeProvider映射控制器视图“id”属性。
+        -->
+
+        <script type="text/ng-template" id="addStudent.html">
+            <h2> Add Student </h2> {{message}}
+        </script>
+        <script type="text/ng-template" id="viewStudents.html">
+            <h2> View Students </h2> {{message}}
+        </script>
+    </div>
+    <script src="http://cdn.bootcss.com/angular.js/1.3.18/angular.js"></script>
+    <script src="./lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="./js/4-view.js"></script>
+</body>
+
+</html>

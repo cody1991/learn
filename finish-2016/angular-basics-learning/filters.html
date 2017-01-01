@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html ng-app="filters">
+
+<head>
+    <title>filters</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container" ng-controller="demoController">
+        <p>{{"AngularJS" | lowercase | uppercase}}</p>
+        <p>{{1000.12345 | number:4}}</p>
+        <p>{{1999.995 | currency}}</p>
+        <p>{{now | date}}</p>
+        <p>{{now | date:'medium'}}</p>
+        <p>{{now | date:'shortTime'}}</p>
+        <p>{{now | date:'yyyy-MM-dd HH:mm:ss Z'}}</p>
+        <ol>
+            <li ng-repeat="item in items | orderBy:'-position'">
+                {{item.name}} , {{item.position}}
+            </li>
+        </ol>
+        <table class="table table-condensed">
+            <tr ng-repeat="item in items | orderBy:'name'">
+                <td ng-bind="item.name"></td>
+                <td>
+                    <input type="text" ng-model="item.name">
+                </td>
+            </tr>
+        </table>
+        <ol>
+            <li ng-repeat="item in items | orderBy:'-price' | limitTo:2">
+                {{item.price | currency}}
+            </li>
+        </ol>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>color</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items | filter:'3'">
+                    <td ng-bind="item.name"></td>
+                    <td ng-bind="item.color"></td>
+                    <td ng-bind="item.price | currency"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>color</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items | filter:{price:2,color:'red'}">
+                    <td ng-bind="item.name"></td>
+                    <td ng-bind="item.color"></td>
+                    <td ng-bind="item.price | currency"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <input type="text" ng-model="search">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>color</th>
+                        <th>price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items | filter:search">
+                        <td ng-bind="item.name"></td>
+                        <td ng-bind="item.color"></td>
+                        <td ng-bind="item.price | currency"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>
+            {{redItemsCount}} red items
+        </p>
+        <div>
+            <strong ng-bind=" smileyText | smiley "></strong>
+        </div>
+        <p> The app says <strong ng-bind="'greeting' | localize"></strong></p>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script>
+    var app = angular.module('filters', []);
+
+    app.value('items', [{
+        name: 'Item 3',
+        position: 3,
+        color: 'red',
+        price: 2.75
+    }, {
+        name: 'Item 1',
+        position: 1,
+        color: 'red',
+        price: 0.92
+    }, {
+        name: 'Item 4',
+        position: 4,
+        color: 'blue',
+        price: 3.09
+    }, {
+        name: 'Item 2',
+        position: 2,
+        color: 'red',
+        price: 1.95
+    }]);
+
+    app.value('locales', {
+        'de': {
+            greeting: 'guten Tag'
+        },
+        'en-us': {
+            greeting: 'howdy'
+        },
+        'fr': {
+            greeting: 'bonjour'
+        }
+    })
+
+    // The provider for a filter will be named <filtername>Filter. For example, the date filter is injected with dateFilter, the currency filter with currencyFilter, and the filter filter with filterFilter. (I know, I know!)
+
+    app.filter('smiley', function() {
+        return function(text) {
+            return '\u263A ' + text + ' \u263A';
+        }
+    });
+
+    app.filter('localize', function(locales, $locale) {
+        return function(key) {
+            var locale = locales[$locale.id] || locales['en-us'];
+            return locale[key];
+        }
+    });
+
+    app.controller('demoController', function($scope, items, filterFilter) {
+        $scope.now = Date.now();
+        $scope.items = items;
+        $scope.redItemsCount = filterFilter(items, {
+            color: 'red'
+        }).length;
+        $scope.smileyText = 'smiley';
+    });
+    </script>
+</body>
+
+</html>

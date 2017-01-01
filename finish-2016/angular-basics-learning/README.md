@@ -1,0 +1,1 @@
+[学习资料地址 - angular-basics](http://www.angularjsbook.com/angular-basics/chapters/basics/)

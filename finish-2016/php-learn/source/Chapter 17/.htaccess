@@ -1,0 +1,6 @@
+ErrorDocument 401 /chapter17/rejection.html
+AuthUserFile /home/book/.htpass
+AuthGroupFile /dev/null
+AuthName "Realm-Name"
+AuthType Basic
+require valid-user

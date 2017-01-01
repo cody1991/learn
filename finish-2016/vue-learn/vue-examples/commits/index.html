@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <h1>Latest cody1991 learn commits</h1>
+            <template v-for="branch in branches">
+                <input type="radio" name="branch" :id="branch" :value="branch" v-model="currentBranch">
+                <label :for="branch">{{branch}}</label>
+            </template>
+            <p>cody1991/learn@{{currentBranch}}</p>
+            <ul>
+                <li v-for="record in commits">
+                    <a :href="record.html_url" target="_blank" class="commit">{{record.sha.slice(0,7)}}</a> - <span class="message">{{record.commit.message | truncate}}</span>
+                    <br/> by <span class="author">{{record.commit.author.name}}</span> at <span class="date">{{record.commit.author.date | formatDate}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

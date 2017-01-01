@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="routing">
+
+<head>
+    <title>routing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script src="./js/angular-route.js"></script>
+    <script>
+    // Angular provides an implementation of publish-subscribe messaging for application events. It is based on three functions: $emit, $broadcast, and $on. While $emit and $broadcast exist to enable the publication of custom events, we can use the last of these methods, $on, to register handlers for the events that are published by ngRoute. A successful route change, for example, will result in the publication of the following events:$routeChangeStart $locationChangeStart $locationChangeSuccess $routeChangeSuccess
+    var app = angular.module('routing', ['ngRoute']);
+
+    app.factory('Item', function(filterFilter) {
+        var items = [{
+            id: 1,
+            name: 'Item 1',
+            color: 'red'
+        }, {
+            id: 2,
+            name: 'Item 2',
+            color: 'blue'
+        }, {
+            id: 3,
+            name: 'Item 3',
+            color: 'red'
+        }, {
+            id: 4,
+            name: 'Item 4',
+            color: 'white'
+        }];
+
+        return {
+            query: function(params) {
+                console.log(params)
+                return filterFilter(items, params);
+            },
+            get: function(params) {
+                console.log(this.query(params))
+                return this.query(params)[0];
+            }
+        }
+    });
+
+    app.controller('LocationController', function($scope, $location) {
+        $scope.location = $location.absUrl();
+    });
+
+    app.controller('ItemsController', function($scope, $location, Item, $routeParams) {
+        // The module places the extracted path parameters into the $routeParams service, which we must inject into the ItemController along with our own Item service.
+        $scope.location = $location.absUrl();
+        $scope.item = Item.get({
+            id: $routeParams.id
+        });
+        $scope.items = Item.query();
+    });
+
+    app.config(function($routeProvider) {
+        $routeProvider.when('/', {
+            redirectTo: '/items'
+        }).when('/items', {
+            controller: 'ItemsController',
+            templateUrl: './views/items/linked-index.html'
+        }).when('/items/:id', {
+            controller: 'ItemsController',
+            templateUrl: './views/items/show.html'
+        })
+        // In our routing configuration, we can use the special prefix : to identify dynamic named parameters that should be extracted from the path. By convention, the identifier parameter for a resource is typically named :id, so our path string is /items/:id.
+    })
+    </script>
+</body>
+
+</html>

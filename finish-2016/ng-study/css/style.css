@@ -1,0 +1,146 @@
+.container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Microsoft YaHei', sans-serif;
+  position: relative;
+  min-width: 320px;
+  margin: 0 auto;
+  font-size: 0.16rem;
+}
+input {
+  max-width: 100%;
+}
+.phoneImg {
+  width: 1.0rem;
+  display: inline-block;
+}
+.phone-thumbs {
+  clear: both;
+  border: 1px solid skyblue;
+}
+.phone-thumbs li {
+  display: inline-block;
+}
+.phone-thumbs img {
+  height: 100px;
+  width: 100px;
+  margin-right: 0.1rem;
+  margin-left: 0.1rem;
+}
+.specs li {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+.phone-detail-pic {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+}
+.focus {
+  font-size: 0.4rem;
+  color: skyblue;
+}
+.phone-listing.ng-enter,
+.phone-listing.ng-leave,
+.phone-listing.ng-move {
+  -webkit-transition: 0.2s linear all;
+          transition: 0.2s linear all;
+}
+.phone-listing.ng-enter,
+.phone-listing.ng-move {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.phone-listing.ng-move.ng-move-active,
+.phone-listing.ng-enter.ng-enter-active {
+  opacity: 1;
+  height: 120px;
+}
+.phone-listing.ng-leave {
+  opacity: 1;
+  overflow: hidden;
+}
+.phone-listing.ng-leave.ng-leave-active {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.view-container {
+  position: relative;
+}
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.view-frame.ng-enter {
+  -webkit-animation: 0.5s fade-in;
+          animation: 0.5s fade-in;
+  z-index: 100;
+}
+.view-frame.ng-leave {
+  -webkit-animation: 0.5s fade-out;
+          animation: 0.5s fade-out;
+  z-index: 99;
+}
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.phone-images {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+.phone-images .phone {
+  float: left;
+  margin-right: 3em;
+  margin-bottom: 2em;
+  background-color: white;
+  padding: 2em;
+  height: 400px;
+  width: 400px;
+  display: none;
+}
+.phone-images .phone:first-child {
+  display: block;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="directives">
+
+<head>
+    <title>directives</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container" ng-controller="demoController">
+        <div class="alert alert-info" role="alert">
+            {{notice}}
+        </div>
+        <div class="form-group">
+            <label>{{question.content}}</label>
+            <textarea class="form-control" ng-model="answer" required>
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-default btn-sm" ng-click="submit()">
+            Submit
+        </button>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script>
+    var app = angular.module('directives', []);
+    app.value('url', 'http://www.scriptybooks.com/api/v1');
+
+    // app.controller('demoController', function($scope, $http, url) {
+    //     $http.get(url + '/surveys/1/questions/1')
+    //         .success(function(data) {
+    //             $scope.question = data;
+    //         })
+    // });
+
+    app.controller('demoController', function($scope, question, answer) {
+        question(1).then(function(question) {
+            $scope.question = question
+        }, function(notice) {
+            $scope.notice = notice;
+        });
+
+        $scope.submit = function() {
+            answer($scope.question, $scope.answer)
+                .then(function(data) {
+                    $scope.notice = 'Success.You answer was saved with id: ' + data.id;
+                    $scope.answer = '';
+                }, function(notice) {
+                    $scope.notice = notice;
+                });
+        }
+    });
+
+    app.factory('question', function($q, $http, url) {
+        return function(id) {
+            return $http.get(url + '/surveys/1/questions/' + id)
+                .then(function(response) {
+                    return response.data;
+                }, function(response) {
+                    return $q.reject(response.status + " " + response.data.error)
+                })
+        }
+    });
+
+    app.factory('answer', function($q, $http, url) {
+        return function(question, answer) {
+            var data = {
+                answer: {
+                    question_id: question.id,
+                    content: answer
+                }
+            };
+            return $http.post(url + '/answers', data)
+                .then(function(response) {
+                    return response.data;
+                }, function(response) {
+                    return $q.reject(response.status + " " + response.data.error);
+                })
+        }
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/flexible/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <input type="text" v-model="message" placeholder="edit me">
+            <p>
+                {{message}}
+            </p>
+            <hr/>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{checked}}</label>
+            <hr/>
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br/>
+            <span>Checked names:{{checkedNames}}</span>
+            <hr/>
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <br>
+            <input type="radio" id="two" value="Two" v-model="picked">
+            <label for="two">Two</label>
+            <br>
+            <span>Picked: {{ picked }}</span>
+            <hr/>
+            <select v-model="selected">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected:{{selected}}</span>
+            <hr/>
+            <select v-model="selected2" multiple>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected:{{selected2}}</span>
+            <hr/>
+            <select v-model="selected3">
+                <option v-for="option in options" :value="option.value">
+                    {{option.text}}
+                </option>
+            </select>
+            <span>Selected:{{selected3}}</span>
+            <hr/>
+            <input v-model.lazy="message" />
+            <!-- If you want user input to be automatically typecast as a number, you can add the number modifier to your v-model managed inputs: -->
+            <input v-model.number="age" type="number">
+        </div>
+        <!-- <script src="https://npmcdn.com/vue@next/dist/vue.js"></script> -->
+        <script src="../lib/vue.js"></script>
+        <script src="./js/common.js"></script>
+</body>
+
+</html>

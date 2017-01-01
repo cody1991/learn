@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="routing">
+
+<head>
+    <title>routing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div ng-view>
+        </div>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script src="./js/angular-route.js"></script>
+    <script>
+    // Angular provides an implementation of publish-subscribe messaging for application events. It is based on three functions: $emit, $broadcast, and $on. While $emit and $broadcast exist to enable the publication of custom events, we can use the last of these methods, $on, to register handlers for the events that are published by ngRoute. A successful route change, for example, will result in the publication of the following events:$routeChangeStart $locationChangeStart $locationChangeSuccess $routeChangeSuccess
+    var app = angular.module('routing', ['ngRoute']);
+
+    app.value('eventsLog', []);
+    app.factory('logEvent', function(eventsLog) {
+        return function(event) {
+            eventsLog.push(event.name);
+        }
+    });
+
+    app.controller('homeController', function($scope, $location, $rootScope, eventsLog, logEvent) {
+        $scope.location = $location.absUrl();
+        $scope.link = {
+            path: '#/events',
+            title: 'Events'
+        };
+        eventsLog.push('homeController: ' + $location.path());
+
+        $rootScope.$on('$routeChangeStart', logEvent);
+        $rootScope.$on('$locationChangeStart', logEvent);
+        $rootScope.$on('$locationChangeSuccess', logEvent);
+        $rootScope.$on('$routeChangeSuccess', logEvent);
+
+        $scope.eventsLog = eventsLog;
+    });
+
+    app.controller('eventsController', function($scope, eventsLog, $location) {
+        $scope.location = $location.absUrl();
+        $scope.link = {
+            path: '#/',
+            title: 'Home'
+        };
+        eventsLog.push('eventsController: ' + $location.path());
+        $scope.eventsLog = eventsLog;
+    });
+
+    app.config(function($routeProvider) {
+        $routeProvider.when('/', {
+            controller: 'homeController',
+            templateUrl: './views/index-2.html'
+        }).when('/events', {
+            controller: 'eventsController',
+            templateUrl: './views/index-2.html'
+        });
+    });
+    </script>
+</body>
+
+</html>

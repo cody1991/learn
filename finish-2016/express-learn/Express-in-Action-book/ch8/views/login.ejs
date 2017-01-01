@@ -1,0 +1,11 @@
+<% include header %>
+
+<h1>Log in</h1>
+
+<form action="/login" method="post">
+    <input type="text" name="username" class="form-control" placeholder="username" required autofocus>
+    <input type="password" name="password" class="form-control" placeholder="password" required>
+    <input type="submit" value="log in" class="btn btn-primary btn-block">
+</form>
+
+<% include footer %>

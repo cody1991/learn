@@ -1,0 +1,156 @@
+.container {
+    user-select: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    position: relative;
+    min-width: 320px;
+    margin: 0 auto;
+    font-size: 0.16rem;
+}
+
+input {
+    max-width: 100%;
+}
+
+.phoneImg {
+    width: 1.0rem;
+    display: inline-block;
+}
+
+.phone-thumbs {
+    clear: both;
+    border: 1px solid skyblue;
+    li {
+        display: inline-block;
+    }
+    img {
+        height: 100px;
+        width: 100px;
+        margin-right: 0.1rem;
+        margin-left: 0.1rem;
+    }
+}
+
+.specs {
+    li {
+        display: inline-block;
+        width: 200px;
+        vertical-align: top;
+    }
+}
+
+.phone-detail-pic {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+}
+
+.focus {
+    font-size: 0.4rem;
+    color: skyblue;
+}
+
+// ng-enter类被赋予一个新加入并渲染展示在页面中的手机元素
+// ng-move类赋予在列表中移动的手机元素
+// ng-leave类赋予从列表中去除的元素
+// 手机列表根据ng-repeat属性添加或者删除元素。例如如果转换器输出数据改变，导致在列表中动态的添加或者放置元素。
+// 这点尤为需要注意，在动画工作时，有两套CSS类可被加入元素：
+// 一套是"starting"类，这代表了动画的开始形式
+// 一套"active"类，代表了动画结束的形式
+// 这个命名为starting的类会触发一些有ng-前缀的行为(例如enter,move或者leave)，像enter就会触发ng-enter。
+// 而active的类像starting类一样也会触发一些行为，只是这些行为是有-active后缀。这两套CSS类的名称可以在开发中指定动画的实现，是开始还是结束。
+// 在我们的例子中，在列表中添加或者移动时，元素会从高度0扩展到高度120像素，在去除时逐渐消隐掉（缩小），同时还有一个淡入淡出效果。所有这些操作都是通过CSS过渡声明在前面的例子代码中。
+.phone-listing.ng-enter,
+.phone-listing.ng-leave,
+.phone-listing.ng-move {
+    transition: 0.2s linear all;
+}
+
+.phone-listing.ng-enter,
+.phone-listing.ng-move {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.phone-listing.ng-move.ng-move-active,
+.phone-listing.ng-enter.ng-enter-active {
+    opacity: 1;
+    height: 120px;
+}
+
+.phone-listing.ng-leave {
+    opacity: 1;
+    overflow: hidden;
+}
+
+.phone-listing.ng-leave.ng-leave-active {
+    opacity: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.view-container {
+    position: relative;
+}
+
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+// 在页面渲染时，一旦离开动画完成（动画对应元素在显示中被移除），或者一旦进入动画完成(被赋予了ng-enter 和 ng-enter-active CSS 类的元素)，都会移除附加的预订CSS类（即动画相关的CSS类，例如ng-enter 、ng-enter-active和ng-leve等）。这显得十分自然流畅,页面处理流程没有任何跳来跳去。
+// 这些CSS类利用ng-repeat赋予所有需要的元素（开始和结束类）。每次页面加载ng-view都会创建一个它的副本，下载模板并且添加内容。这将确保所有的内容在一个单页HTML的元素中来允许简单的动画控制。
+.view-frame.ng-enter {
+    animation: 0.5s fade-in;
+    z-index: 100;
+}
+
+.view-frame.ng-leave {
+    animation: 0.5s fade-out;
+    z-index: 99;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.phone-images {
+    background-color: white;
+    width: 450px;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    .phone {
+        float: left;
+        margin-right: 3em;
+        margin-bottom: 2em;
+        background-color: white;
+        padding: 2em;
+        height: 400px;
+        width: 400px;
+        display: none;
+        &:first-child{
+            display: block;
+        }
+    }
+}

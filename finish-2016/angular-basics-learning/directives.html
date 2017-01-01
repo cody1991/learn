@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html ng-app="directives">
+
+<head>
+    <title>directives</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="container" ng-controller="demoController">
+        <div>
+            <strong> The message is <span message></span></strong>
+        </div>
+        <div>
+            <p>
+                <strong> The message is <em welcome-message=" {{'bon' + 'jour'}} "></em></strong>
+            </p>
+            <p>
+                <strong ng-init="greeting2='bonjour'"> The message is <em welcome-message=" I say {{greeting2}} , you say hello "></em></strong>
+            </p>
+        </div>
+        <div>
+            <p welcome-message2="'bon' + 'jour'"></p>
+        </div>
+        <div>
+            <p welcome-message3="{message:'bonjour',emoticon:'\u263a'}"></p>
+        </div>
+        <table ng-init="price = 100">
+            <tr>
+                <td>Full price:</td>
+                <td ng-bind="price | currency"></td>
+            </tr>
+            <tr>
+                <td>Sale price:</td>
+                <td discount="price"></td>
+            </tr>
+        </table>
+        <div>
+            The message is <span strong-message="a strong hello!"></span>
+        </div>
+        <ul word-list="we love templates">
+        </ul>
+        <ul word-list-ul="we love templates ul">
+        </ul>
+        <models-table models="items" columns="name,color,price"> </models-table>
+    </div>
+    <script src="./js/angular-1.4.2.js"></script>
+    <script>
+    var app = angular.module('directives', []);
+
+    app.directive('strongMessage', function() {
+        return function(scope, element, attrs) {
+            element.html('<strong>' + attrs.strongMessage + '</strong>');
+        }
+    });
+
+
+    // To add a template to our directive, we need to switch from returning only the link function to returning a configuration object that contains both the link function and a template. This is a big change, so let me repeat it: Our recipe wrapper will now return an object rather than a function. The function that we used to return will be nested as the link property on this object.
+
+    // Angular will handle invoking the template with the proper scope object and appending the output to the directive's element. This particular directive's output should be appended to a list element, so let's invoke the directive on a ul element.
+
+    // app.directive('wordList', function() {
+    //     return {
+    //         link: function(scope, element, attrs) {
+    //             scope.words = attrs.wordList.split(" ");
+    //             console.log(scope.words)
+    //         },
+    //         template: "<li ng-repeat='word in words'>{{word}}</li>"
+    //     }
+    // });
+    app.directive('wordList', function() {
+        return {
+            link: function(scope, element, attrs) {
+                scope.words = attrs.wordList.split(" ");
+                console.log(scope.words)
+            },
+            templateUrl: "./views/word-list.html"
+        }
+    });
+
+    app.directive('wordListUl', function() {
+        return {
+            link: function(scope, element, attrs) {
+                scope.words = attrs.wordListUl.split(" ");
+            },
+            templateUrl: './views/word-list-ul.html',
+            replace: true
+        }
+    });
+
+    // app.directive('message', function() {
+    //     return function(scope, element) {
+    //         element.text(scope.message);
+    //     }
+    // });
+    app.directive('message', function() {
+        return {
+            template: "<strong>{{message}}</strong>",
+            controller: function($scope) {
+                $scope.message = 'Hello ,from the internal controller';
+            }
+        }
+    })
+
+    app.directive('welcomeMessage', function() {
+        return function(scope, element, attrs) {
+            element.text(attrs.welcomeMessage);
+        }
+    });
+
+    app.directive('welcomeMessage2', function() {
+        return function(scope, element, attrs) {
+            var result = scope.$eval(attrs.welcomeMessage2)
+            element.text(result);
+        }
+    });
+
+    app.directive('welcomeMessage3', function() {
+        return function(scope, element, attrs) {
+            var options = scope.$eval(attrs.welcomeMessage3);
+            var result = options.emoticon + ' ' + options.message + ' ' + options.emoticon;
+            element.text(result);
+        }
+    });
+
+    app.value('discountRate', 0.8);
+
+    app.factory('calculateDiscount', function(discountRate) {
+        return function(amount) {
+            return amount * discountRate;
+        }
+    });
+
+    app.directive('discount', function(calculateDiscount, currencyFilter) {
+        return function(scope, element, attrs) {
+            var price = scope.$eval(attrs.discount);
+            var discountPrice = calculateDiscount(price);
+            element.html(currencyFilter(discountPrice));
+        }
+    });
+
+    app.directive('modelsTable', function() {
+        return {
+            restrict: 'E',
+            templateUrl: './views/models-table.html',
+            link: function(scope, element, attrs) {
+                scope.models = scope.$eval(attrs.models);
+                // 这里获取到了我们需要的数据
+                // Although Angular does not treat the argument to a directive attribute as an expression to be evaluated, we can easily do it ourselves with the scope's $eval method. This approach will not update the view if the model changes, but it works for basic use cases.
+                console.log(scope.$eval(attrs.models));
+                scope.columns = attrs.columns.split(',');
+            },
+            replace: true
+        }
+    })
+
+    // In order to evaluate expressions that are passed as ordinary strings to your directive, you will need to use $eval.
+
+    app.controller('demoController', function($scope) {
+        $scope.message = 'helloTemplate';
+        $scope.items = [{
+            name: 'Item 1',
+            color: 'green',
+            price: 5.0
+        }, {
+            name: 'Item 2',
+            color: 'blue',
+            price: 4.93
+        }];
+    });
+    </script>
+</body>
+
+</html>

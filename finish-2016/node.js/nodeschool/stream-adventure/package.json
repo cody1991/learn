@@ -1,0 +1,19 @@
+{
+  "name": "stream-adventure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concat-stream": "^1.5.2",
+    "request": "^2.74.0",
+    "split": "^1.0.0",
+    "through2": "^2.0.1",
+    "trumpet": "^1.7.2",
+    "websocket-stream": "^3.3.0"
+  }
+}

@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Book-O-Rama - New Book Entry</title>
+</head>
+
+<body>
+  <h1>Book-O-Rama - New Book Entry</h1>
+
+  <form action="insert_book.php" method="post">
+    <table border="0">
+      <tr>
+        <td>ISBN</td>
+         <td><input type="text" name="isbn" maxlength="13" size="13"></td>
+      </tr>
+      <tr>
+        <td>Author</td>
+        <td> <input type="text" name="author" maxlength="30" size="30"></td>
+      </tr>
+      <tr>
+        <td>Title</td>
+        <td> <input type="text" name="title" maxlength="60" size="30"></td>
+      </tr>
+      <tr>
+        <td>Price $</td>
+        <td><input type="text" name="price" maxlength="7" size="7"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="Register"></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

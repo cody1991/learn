@@ -1,0 +1,12 @@
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th ng-bind="column" ng-repeat="column in columns"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="model in models">
+            <td ng-bind="model[column]" ng-repeat="column in columns"></td>
+        </tr>
+    </tbody>
+</table>

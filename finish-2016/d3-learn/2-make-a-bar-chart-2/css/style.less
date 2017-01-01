@@ -1,0 +1,31 @@
+@import (inline) './normalize.css';
+.container {
+    user-select: none;
+    font-family: 'Microsoft YaHei', sans-serif;
+    position: relative;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 0.32rem;
+}
+
+// 设计稿是 750px
+// 1rem = 75px
+@base: 75rem;
+.demo {
+    text-align: center;
+    .btn {
+        width: 560 / @base;
+    }
+}
+
+.chart {
+    rect {
+        fill: steelblue;
+    }
+    text {
+        fill: white;
+        font: 10px sans-serif;
+        text-anchor: end;
+    }
+}
