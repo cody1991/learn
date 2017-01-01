@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:nyt="http://www.nytimes.com/namespaces/rss/2.0" version="2.0">
+  <channel>
+    <title>NYT &gt; Internet</title>
+    <link>http://www.nytimes.com/pages/technology/internet/index.html?partner=rss&amp;emc=rss</link>
+    <atom:link rel="self" type="application/rss+xml" href="http://www.nytimes.com/services/xml/rss/nyt/internet.xml"/>
+    <description/>
+    <language>en-us</language>
+    <copyright>Copyright 2015  The New York Times Company</copyright>
+    <lastBuildDate>Tue, 29 Sep 2015 14:52:04 GMT </lastBuildDate>
+    <image>
+      <title>NYT &gt; Internet</title>
+      <url>http://graphics8.nytimes.com/images/misc/NYT_logo_rss_250x40.png</url>
+      <link>http://www.nytimes.com/pages/technology/internet/index.html?partner=rss&amp;emc=rss</link>
+    </image>
+    <item>
+      <title>Facebook and Google, Two Giants in Digital Ads, Seek More</title>
+      <link>http://www.nytimes.com/2015/09/29/business/media/facebook-and-google-two-giants-in-digital-ads-seek-more.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">http://www.nytimes.com/2015/09/29/business/media/facebook-and-google-two-giants-in-digital-ads-seek-more.html</guid>
+      <atom:link rel="standout" href="http://www.nytimes.com/2015/09/29/business/media/facebook-and-google-two-giants-in-digital-ads-seek-more.html?partner=rss&amp;emc=rss"/>
+      <media:content url="http://graphics8.nytimes.com/images/2015/09/29/business/29adweek-web1/29adweek-web1-moth.jpg" medium="image" height="151" width="151"/>
+      <media:description>Facebook is projected to have $7.7 billion in total digital ad revenue in 2015.</media:description>
+      <media:credit>D Dipasupil/Getty Images for Awxii</media:credit>
+      <description>At an advertising industry convention, the digital ad powerhouses Facebook and Google introduced services meant to attract even more digital ad revenue.</description>
+      <dc:creator>SYDNEY EMBER</dc:creator>
+      <pubDate>Tue, 29 Sep 2015 00:39:35 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Google Inc|GOOGL|NASDAQ</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Facebook Inc|FB|NASDAQ</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Online Advertising</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Advertising and Marketing</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Manhattan (NYC)</category>
+    </item>
+    <item>
+      <title>Chinese Cafe Owner Given 8-Year Sentence Over Online Messages</title>
+      <link>http://www.nytimes.com/2012/11/02/world/asia/chinese-cafe-owner-given-8-year-sentence-over-online-messages.html?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">http://www.nytimes.com/2012/11/02/world/asia/chinese-cafe-owner-given-8-year-sentence-over-online-messages.html</guid>
+      <atom:link rel="standout" href="http://www.nytimes.com/2012/11/02/world/asia/chinese-cafe-owner-given-8-year-sentence-over-online-messages.html?partner=rss&amp;emc=rss"/>
+      <description>The punishment for the man, Cao Haibo, 27, comes after he criticized the ruling Communist Party in online messages and for sought to establish an opposition party.</description>
+      <dc:creator>ANDREW JACOBS</dc:creator>
+      <pubDate>Thu, 01 Nov 2012 15:09:11 GMT</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Cao Haibo</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Kunming (China)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Sentences (Criminal)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Computers and the Internet</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Communist Party of China</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org_all">Chinese Human Rights Defenders</category>
+    </item>
+    <item>
+      <title>Where Are the Women in Wikipedia?</title>
+      <link>http://www.nytimes.com/roomfordebate/2011/02/02/where-are-the-women-in-wikipedia?partner=rss&amp;emc=rss</link>
+      <guid isPermaLink="true">http://www.nytimes.com/roomfordebate/2011/02/02/where-are-the-women-in-wikipedia</guid>
+      <atom:link rel="standout" href="http://www.nytimes.com/roomfordebate/2011/02/02/where-are-the-women-in-wikipedia?partner=rss&amp;emc=rss"/>
+      <media:content url="http://graphics8.nytimes.com/images/2011/02/02/opinion/02rfd-image/02rfd-image-custom1.gif" medium="image" height="75" width="75"/>
+      <media:description/>
+      <media:credit/>
+      <description>Why are there so many more men than women contributing to a "free encyclopedia that anyone can edit"?</description>
+      <dc:creator/>
+      <pubDate>Fri, 04 Feb 2011 19:12:23 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

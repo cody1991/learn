@@ -6,7 +6,16 @@
     <dorm></dorm>
     <major>Computer Scient &amp; Music</major>
     <description>
-      <![CDATA[ <h1>Jim Bob!</h1> ]]>
+      <![CDATA[ <h1>cody!</h1> ]]>
+    </description>
+  </student>
+  <student id="0002">
+    <name>tang</name>
+    <status>graduate</status>
+    <dorm></dorm>
+    <major>Computer Scient &amp; Music</major>
+    <description>
+      <![CDATA[ <h1>tang!</h1> ]]>
     </description>
   </student>
 </students>
