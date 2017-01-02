@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+  <item id="mush">
+    <name>mush pizza</name>
+  </item>
+  <item id="chee">
+    <name>chee pizza</name>
+  </item>
+  <item id="pepper">
+    <name>pepper pizza</name>
+  </item>
+</menu>
+
