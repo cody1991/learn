@@ -23,6 +23,12 @@
 		<li>
 			<a href="sign2.php">index2.php</a>
 		</li>
+		<li>
+			<a href="sign3.php">index3.php</a>
+		</li>
+		<li>
+			<a href="sign4.php">index4.php</a>
+		</li>
 	</ul>
 </body>
 </html>

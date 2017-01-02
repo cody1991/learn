@@ -1,3 +1,23 @@
+	INSERT INTO users2 VALUES("cody1991",AES_ENCRYPT("cody1991","cody1991"))
+
+---
+
+	UPDATE `users2` 
+		SET `user` = 'cody199' 
+	WHERE `users2`.`user` = 'cody1991';
+
+---
+
+	AES_ENCRYPT(key,key_str)
+
+	NOW()
+
+	DATA_FORMAT(date,format)
+
+	TIME_FORMAT(time,format)
+
+---
+
 	SELECT
 
 	INSERT

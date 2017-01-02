@@ -1,6 +1,9 @@
 <?php 
+
 	include 'include.php';
 	session_start();
+
+	// echo PASSWORD('cody1991')
 
 	if(isset($_POST['user'])&&isset($_POST['pass'])){
 
@@ -14,8 +17,9 @@
 
 		// sprintf 创建字符串的函数
 		// mysql_real_escape_string 删除可能有攻击性SQL的，转义
-		$sql = sprintf("SELECT 1 FROM users WHERE user='%s' AND pass='%s'",
+		$sql = sprintf("SELECT 1 FROM users2 WHERE user='%s' AND pass=AES_ENCRYPT('%s','%s')",
 											mysql_real_escape_string($_POST['user']),
+											mysql_real_escape_string($_POST['pass']),
 											mysql_real_escape_string($_POST['pass']));
 
 		$result = mysql_query($sql);
