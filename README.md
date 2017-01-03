@@ -46,6 +46,8 @@
 
 ### 正在学习(2017.1.1) [哈佛大学公开课：构建动态网站](http://open.163.com/special/opencourse/buildingdynamicwebsites.html) 
 
+(2017.1.3 23:10) 完成 ajax 视频学习
+
 (2017.1.3 15:41) 完成第五讲，后面关于 JavsScript，ajax、安全和大规模应用等等
 
 (2017.1.3 00:20) 第五讲 SQL续集，看了一半，明天继续
