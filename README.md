@@ -2,9 +2,11 @@
 
 目录结构，会同步更新
 
-* /PHP PHP的学习 (正在学习中)
+* /JavaScript30 一系列的原生JavaScript学习
 
-* /algorithms 算法部分的学习 (正在学习中)
+* /PHP PHP的学习
+
+* /algorithms 算法部分的学习
 
 * /waiting 存放待学习的任务
 
