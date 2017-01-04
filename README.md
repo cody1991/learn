@@ -2,19 +2,17 @@
 
 目录结构，会同步更新
 
-* ./PHP PHP的学习 (正在学习中)
+* /PHP PHP的学习 (正在学习中)
 
-* ./algorithms 算法部分的学习 (正在学习中)
+* /algorithms 算法部分的学习 (正在学习中)
 
-* ./waiting 存放待学习的任务
+* /waiting 存放待学习的任务
 
-*	./tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
+*	/tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
 
-*	./lib 存放资源
+*	/lib 存放资源
 
-*	./pic 不定时上传一些我喜欢的图片，来自 [Irvue](https://itunes.apple.com/us/app/irvue-unsplash-wallpapers/id1039633667?mt=12) 提供给我的 Mac 壁纸
-
-*	./finish-2016 2016年完成的所有学习，原则上不再修改
+*	/finish-2016 2016年完成的所有学习，原则上不再修改
 
 ## 2017年1月份
 
