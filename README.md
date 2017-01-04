@@ -16,6 +16,10 @@
 
 ## 2017年1月份
 
+### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 
+
+开启这个的学习，应该是不错的一个学习历程
+
 ### 制定任务(2017.1.1)
 
 澳门的通行证快过期了，可以过去一趟
@@ -32,7 +36,7 @@
 
 ---
 
-### 看了电影 [完美陌生人 2016](https://movie.douban.com/subject/26614893/)、[驴得水 2016](https://movie.douban.com/subject/25921812/)、[控方证人 Witness for the Prosecution 1957](https://movie.douban.com/subject/1296141/)
+### 看了电影(2017.1.1) [完美陌生人 2016](https://movie.douban.com/subject/26614893/)、[驴得水 2016](https://movie.douban.com/subject/25921812/)、[控方证人 Witness for the Prosecution 1957](https://movie.douban.com/subject/1296141/)
 
 ---
 
@@ -40,9 +44,11 @@
 
 补充一下算法和数据结构的知识，主要使用 JavaScript 来实现
 
+(2017.1.4) 这个应该暂缓学习
+
 ---
 
-### 正在学习(2017.1.1) [哈佛大学公开课：构建动态网站](http://open.163.com/special/opencourse/buildingdynamicwebsites.html) 
+### 完成学习(2017.1.4) 正在学习(2017.1.1) [哈佛大学公开课：构建动态网站](http://open.163.com/special/opencourse/buildingdynamicwebsites.html) 
 
 (2017.1.4 17:29) 完成这个系列课程的学习。一开始打算学习PHP的，但是这个课程教给我更多的东西，收获满满，也激起了我去学习PHP的欲望。也算是一个PHP的入门视频教程了，后面会继续深入PHP的学习。
 
