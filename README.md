@@ -20,6 +20,8 @@
 
 ### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 
 
+(2017.1.5 14:49) [完成第七个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/7)
+
 (2017.1.6 22:42) [完成第六个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/6)，里面的正则表达式纠结了我好久。。
 
 (2017.1.5 14:49) [完成第五个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/5)
