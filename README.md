@@ -20,6 +20,8 @@
 
 ### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 
 
+(2017.1.5 14:49) [完成第五个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/5)
+
 (2017.1.5 14:49) [完成第四个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/4)
 
 (2017.1.5 12:39) [完成第三个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/3)
