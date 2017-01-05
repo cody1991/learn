@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+  background: rgba(136, 179, 191, 0.78);
+  font-size: 20px;
+}
+.search-form {
+  max-width: 700px;
+  margin: 50px auto;
+}
+.search-form input {
+  position: relative;
+  top: -10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 40px;
+  width: 100%;
+  padding: 20px;
+  outline: 0;
+  text-align: center;
+  border: 10px solid #f7f7f7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+.search-form .suggestions {
+  position: relative;
+}
+.search-form .suggestions li {
+  background-color: white;
+  list-style: none;
+  border-bottom: 1px solid #d8d8d8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  padding: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-transform: capitalize;
+  -webkit-transition: background 0.2s;
+          transition: background 0.2s;
+}
+.search-form .suggestions li:nth-child(even) {
+  -webkit-transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+          transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #efefef 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
+}
+.search-form .suggestions li:nth-child(odd) {
+  -webkit-transform: perspective(100px) rotateX(-3deg) translateY(3px);
+          transform: perspective(100px) rotateX(-3deg) translateY(3px);
+  background: -webkit-linear-gradient(bottom, #ffffff 0%, #efefef 100%);
+  background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
+}
+.search-form .suggestions li .population {
+  font-size: 15px;
+}
+.search-form .suggestions li .hl {
+  background: rgba(129, 182, 197, 0.65);
+}
+/*# sourceMappingURL=style.css.map */

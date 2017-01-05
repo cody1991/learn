@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  background: hsla(193, 30%, 64%, 0.78);
+  font-size: 20px;
+}
+
+.search-form {
+  max-width: 700px;
+  margin: 50px auto;
+  input {
+    position: relative;
+    top: -10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 40px;
+    width: 100%;
+    padding: 20px;
+    outline: 0;
+    text-align: center;
+    border: 10px solid #f7f7f7;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  }
+  .suggestions {
+    position: relative;
+    li {
+      background-color: white;
+      list-style: none;
+      border-bottom: 1px solid #d8d8d8;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      text-transform: capitalize;
+      transition: background 0.2s;
+      &:nth-child(even) {
+        transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+        background: linear-gradient(to bottom, #fff 0%, #efefef 100%)
+      }
+      &:nth-child(odd) {
+        transform: perspective(100px) rotateX(-3deg) translateY(3px);
+        background: linear-gradient(to top, #ffffff 0%, #EFEFEF 100%);
+      }
+      .population {
+        font-size: 15px;
+      }
+      .hl {
+        background: hsla(193, 37%, 64%, 0.65);
+      }
+    }
+  }
+}
