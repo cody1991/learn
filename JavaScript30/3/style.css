@@ -1,0 +1,24 @@
+:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
+}
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  -webkit-filter: blur(var(--blur));
+          filter: blur(var(--blur));
+}
+body {
+  text-align: center;
+  background: #193549;
+  color: white;
+  font-size: 20px;
+}
+.controls {
+  margin-bottom: 50px;
+}
+input {
+  width: 100px;
+}
+/*# sourceMappingURL=style.css.map */
