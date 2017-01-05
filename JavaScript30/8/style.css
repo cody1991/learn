@@ -1,0 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body,
+html {
+  overflow: hidden;
+}
+canvas {
+  box-sizing: border-box;
+}
+/*# sourceMappingURL=style.css.map */
