@@ -18,6 +18,10 @@
 
 ## 2017年1月份
 
+### 继续补充学习 (2017.1.6) JavaScript数据结构与算法
+
+(2017.1.6 13:34) 完成第八章二叉树部分  
+
 ### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 
 
 (2017.1.5 14:49) [完成第八个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/8)
