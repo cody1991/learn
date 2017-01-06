@@ -191,7 +191,7 @@ function ArrayList() {
 
 }
 
-let size = 10
+let size = 1000000
 
 let array = new ArrayList(),
 	tempArray = []
