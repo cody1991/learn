@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.face {
+  height: 400px;
+  width: 600px;
+  margin: 10px auto;
+  position: relative;
+  background-color: pink;
+  #playground {
+    height: 400px;
+    width: 450px;
+    float: left;
+    position: relative;
+    #snake {
+      height: 20px;
+      width: 20px;
+      background-color: red;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 10
+    }
+    #food {
+      height: 20px;
+      width: 20px;
+      background-color: blue;
+      position: absolute;
+    }
+    .body {
+      height: 20px;
+      width: 20px;
+      background-color: green;
+      position: absolute;
+      left: 0;
+      top: 0
+    }
+  }
+  .menu {
+    height: 400px;
+    width: 150px;
+    float: left;
+    background-color: skyblue;
+    #score {
+      font-size: 30px;
+      font-weight: bold;
+      color: red
+    }
+    div {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
