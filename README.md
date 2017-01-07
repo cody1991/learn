@@ -2,6 +2,8 @@
 
 目录结构，会同步更新
 
+* /Vue2 vue2的学习
+
 * /Underscore.js 源码分析
 
 * /JavaScript30 一系列的原生JavaScript学习
@@ -21,6 +23,10 @@
 ---
 
 ## 2017年1月份
+
+### 学习(2017.1.7) [vue2.0一起在懵逼的海洋里越陷越深](http://leenty.com/tags/vuejs/)
+
+巩固了 vue2 vue-router vuex 的使用
 
 ### 开始学习(2017.1.6) underscore.js 源码剖析
 
