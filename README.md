@@ -24,6 +24,26 @@
 
 ## 2017年1月份
 
+---
+
+### 制定任务(2017.1.8 00:02)
+
+又是新的一天。最近有些东西完成学习，又要开始新的学习计划制定了
+
+[Clean JavaScript:写出整洁的JavaScript代码](https://zhuanlan.zhihu.com/p/24761475) 好像挺有意思的一篇文章
+
+[SVG奇思妙想](http://sbco.cc/demo/svg/html/index.html) 有很多不错的SVG例子，可以学习下
+
+制定下记下来的PHP学习（选择看书）
+
+另外还在进行的任务有
+
+	JavaScript30 这个是个长期的
+
+	underscore.js 源码剖析
+
+---
+
 ### 学习(2017.1.7) [vue2.0一起在懵逼的海洋里越陷越深](http://leenty.com/tags/vuejs/)
 
 巩固了 vue2 vue-router vuex 的使用
