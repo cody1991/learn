@@ -3,7 +3,7 @@
 // (c) 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 // Underscore may be freely distributed under the MIT license.
 
-(function() {
+(function () {
 	// 基础定义
 
 	// 由于underscore即支持浏览器端运行,又支持服务端运行,所以,需要判定根节点是'window'对象还是'global'对象
@@ -34,10 +34,10 @@
 		nativeCreate = Object.create
 
 	// Ctor: 亦即constructor的缩写，这个空的构造函数将在之后广泛用于对象创建
-	var Ctor = function() {}
+	var Ctor = function () {}
 
 	// 创建一个underscore的对象引用, 保证不重复创建
-	var _ = function(obj) {
+	var _ = function (obj) {
 		// 本来就是_直接返回
 		if (obj instanceof _) return obj
 
@@ -81,7 +81,7 @@
 	 * @returns {*}
 	 */
 
-	var optimizeCb = function(func, context, argCount) {
+	var optimizeCb = function (func, context, argCount) {
 		// void 0 返回纯正的undefined，避免undefined已经被污染
 		// 一定要保证回调的执行上下文存在
 
@@ -92,27 +92,27 @@
 
 		switch (argCount == null ? 3 : argCount) {
 			// 回调参数1个的时候，迭代过程中我们只需要值
-			case 1:
-				return function(value) {
-					return func.call(context, value)
-				}
+		case 1:
+			return function (value) {
+				return func.call(context, value)
+			}
 
-				// 两个的情况基本不存在
-				// 三个（值，索引，被迭代集合对象）
-			case 3:
-				return function(value, index, collection) {
-					return func.call(context, value, index, collection)
-				}
+			// 两个的情况基本不存在
+			// 三个（值，索引，被迭代集合对象）
+		case 3:
+			return function (value, index, collection) {
+				return func.call(context, value, index, collection)
+			}
 
-				// 四个参数（比如reducer需要），值，索引，被迭代的集合对象
+			// 四个参数（比如reducer需要），值，索引，被迭代的集合对象
 
-			case 4:
-				return function(accumulator, value, index, collection) {
-					return func.call(context, accumulator, value, index, collection)
-				}
+		case 4:
+			return function (accumulator, value, index, collection) {
+				return func.call(context, accumulator, value, index, collection)
+			}
 		}
 
-		return function() {
+		return function () {
 			return func.apply(context, arguments)
 		}
 	}
@@ -148,7 +148,7 @@
 	// 	}
 	// }
 
-	var cb = function(value, context, argCount) {
+	var cb = function (value, context, argCount) {
 		// 是否用默认的迭代器
 		if (_.iteratee !== builtinIteratee) {
 			return _.iteratee(value, context)
@@ -181,7 +181,7 @@
 	// @param value
 	// @param context
 
-	_.iteratee = builtinIteratee = function(value, context) {
+	_.iteratee = builtinIteratee = function (value, context) {
 		return cb(value, context, Infinity)
 	}
 
@@ -190,7 +190,7 @@
 	// @param startIndex 从哪里开始标志rest参数，如果不传递，默认最后一个参数为rest
 	// @returns {Function} 返回一个具有rest参数的函数
 
-	var restArgs = function(func, startIndex) {
+	var restArgs = function (func, startIndex) {
 		// rest参数从哪里开始，如果没有，默认函数最后一个参数为rest参数
 		// 注意，函数对象的length属性，节食了函数的参数个数
 		// ex:
@@ -199,27 +199,111 @@
 
 		startIndex = startIndex == null ? func.length - 1 : +startIndex
 
+		// 返回一个支持rest参数的函数
+		return function () {
+			// 矫正参数，以免出现负值的情况
+			var length = Math.max(arguments.length - startIndex, 0)
 
+			var rest = Array(length)
+
+			// 假设参数从2开始，func(a,b,*rest)
+			// 调用: func(1,2,3,4,5)
+			// 实际调用的是 func.call(this,1,2,[3,4,5])
+
+			for (var index = 0; index < length; index++) {
+				rest[index] = arguments[index + startIndex]
+			}
+
+			switch (startIndex) {
+			case 0:
+				// call的参数一个个传
+				return func.call(this, rest)
+			case 1:
+				return func.call(this, arguments[0], rest)
+			case 2:
+				return func.call(this, arguments[0], arguments[1], rest)
+			}
+
+			// 如果上面三个都不是
+			var args = Array(startIndex + 1)
+
+			// 先拿到前面的参数 
+			for (index = 0; index < startIndex; index++) {
+				args[index] = arguments[index]
+			}
+
+			// 拼接剩余的参数
+			args[startIndex] = rest
+			return func.apply(this, args)
+		}
 	}
 
+	// 加法运算，最少两个参数
+	// var add = restArgs(function (a, b, c) {
+	// 	// console.log(a, b, c)
+	// 	return a + b + c.reduce(function (result, cur) {
+	// 		return result + cur
+	// 	}, 0)
+	// }, 2)
+
+	// console.log(add(1, 2, 3, 4, 5, 6, 7))
+
+	// 创建一个对象，该对象继承自prototype
+	// 保证该对象的原型上挂载属性不会影响所继承的prototype
+	// @param {object} prototype
+
+	var baseCreate = function (prototype) {
+		if (!_.isObject(prototype)) {
+			return {}
+		}
+		// 存在原生的方法， Object.create，用原生的创建
+		if (nativeCreate) {
+			return nativeCreate(prototype)
+		}
+
+		// 利用Ctor这个空函数，临时设置对象原型
+		Ctor.prototype = prototype
+
+		var result = new Ctor
+
+		Ctor.prototype = null
+
+		return result
+	}
+
+	// property('name')(Tiger) 获取对象属性
+	// 体现了函数式编程的灵活
+	// var nameProperty = property('name')
+
+	var property = function (key) {
+		return function (obj) {
+			return obj == null ? void 0 : obj[key]
+		}
+	}
+
+	var test = {
+			name: 'cody'
+		}
+		// var getName = property('name')
+		// console.log(getName(test))
+
+	// 最大的数组长度，扁面ios 8出现的bug
+	var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1
+
+	// console.log(MAX_ARRAY_INDEX)
+
+	// 对象有长度吗0.0
+	// 设置一个常用方法，获取对象长度
+	// 如果在oo开发中，获取对象长度属性obj.length
+	// 而在FP中，对象只是数据的一个表现方式，只是倍函数所加工:getLength(obj)
+
+	var getLength = property('length')
+
+	// console.log(getLength(test))
+
+	// 判断集合是否近似数组，方便集合迭代过程中的循环判断
 	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-}())
+
+})()
 
 console.dir(_)
