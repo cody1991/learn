@@ -12,6 +12,8 @@
 
 * /algorithms 算法部分的学习
 
+* /keep 锻炼身体的记录
+
 * /waiting 存放待学习的任务
 
 *	/tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
@@ -23,6 +25,10 @@
 ---
 
 ## 2017年1月份
+
+---
+
+需要锻炼身体了，新加了 [keep](https://github.com/cody1991/learn/tree/gh-pages/keep) 文件夹进行锻炼的记录
 
 ---
 
