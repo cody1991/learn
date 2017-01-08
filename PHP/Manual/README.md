@@ -181,3 +181,49 @@ Cookies 是一种在远端浏览器端存储数据并能追踪或识别再次访
 	__TRAIT__	Trait 的名字（PHP 5.4.0 新加）。自 PHP 5.4 起此常量返回 trait 被定义时的名字（区分大小写）。Trait 名包括其被声明的作用区域（例如 Foo\Bar）。
 	__METHOD__	类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）。
 	__NAMESPACE__	当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增）。
+
+---
+
+如果用 set_error_handler() 设定了自定义的错误处理函数，仍然会被调用，但是此错误处理函数可以（并且也应该）调用 error_reporting()，而该函数在出错语句前有 @ 时将返回 0。
+
+---
+
+	class Cart{
+	  const PRICE_BUTTER = 1.00;
+	  const PRICE_MILK = 3.00;
+	  const PRICE_EGGS = 6.95;
+
+	  protected $products = array();
+
+	  public function add($product,$quantity){
+	    $this->products[$product] = $quantity;
+	  }
+
+	  public function getQuantity($product){
+	    return isset($this->products[$product]) ? $this->products[$product] : FALSE;
+	  }
+
+	  public function getTotal($tax){
+	    $total = 0.00;
+
+	    // value,key
+	    $callback = function($quantity,$product) use ($tax,&$total){
+	      $pricePerItem = constant((__CLASS__ . "::PRICE_" . strtoupper($product)));
+
+	      echo $pricePerItem;
+
+	      $total += ($pricePerItem * $quantity) * ($tax+1.0);
+	    };
+
+	    array_walk($this->products,$callback);
+
+	    return round($total,2);
+	  }
+	}
+
+	$my_cart = new Cart();
+
+	$my_cart->add('butter', 1);
+	$my_cart->add('milk', 3);
+	$my_cart->add('eggs', 6);
+	print $my_cart->getTotal(0.05);
