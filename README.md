@@ -30,7 +30,7 @@
 
 又是新的一天。最近有些东西完成学习，又要开始新的学习计划制定了
 
-[Clean JavaScript:写出整洁的JavaScript代码](https://zhuanlan.zhihu.com/p/24761475) 好像挺有意思的一篇文章
+[Clean JavaScript:写出整洁的JavaScript代码](https://zhuanlan.zhihu.com/p/24761475) 好像挺有意思的一篇文章(2017.1.8读完 [demo](https://github.com/cody1991/learn/tree/gh-pages/tutorials/pure-JavaScript/clean-javascrpt/))
 
 [SVG奇思妙想](http://sbco.cc/demo/svg/html/index.html) 有很多不错的SVG例子，可以学习下
 
