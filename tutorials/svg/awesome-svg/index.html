@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>awesome svg</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="items">
+    <div class="item">
+      <hgroup class="circle"></hgroup>
+    </div>
+    <div class="item">
+      <p class="intro">多边形，hover、active可变换效果</p>
+      <hgroup class="polygon"></hgroup>
+    </div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <hgroup class="polygon-animate">
+      </hgroup>
+    </div>
+    <div class="item">
+      <hgroup class="arrow"></hgroup>
+    </div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <hgroup class="close"></hgroup>
+    </div>
+    <div class="item">
+      <hgroup class="star"></hgroup>
+    </div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <hgroup class="triangle2rect">
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+      </hgroup>
+    </div>
+    <div class="item">
+      <p class="intro">SVG 矩形</p>
+      <hgroup>
+        <svg width="100px" height="100px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 10 H 90 V 90 H 10 Z" fill="transparent" stroke="black"></path>
+        </svg>
+      </hgroup>
+    </div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <p class="intro">SVG 二次塞尔曲线</p>
+      <svg width="100px" height="100px" viewbox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 100 Q 7 14,200 200" fill="transparent" stroke="black"></path>
+        <polyline points="20 100 ,7 14,200 200" fill="transparent" stroke="red"></polyline>
+      </svg>
+    </div>
+    <div class="item">
+      <svg width="100px" height="100px" viewbox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 100 C 97 50,98 155,176 99" fill="transparent" stroke="black"></path>
+        <polyline points="20 100 , 97 50,98 155,176 99" fill="transparent" stroke="red"></polyline>
+      </svg>
+    </div>
+  </div>
+  <div class="items">
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <div class="items">
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+</body>
+
+</html>
+

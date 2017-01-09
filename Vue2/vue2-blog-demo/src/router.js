@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const title = 'cody blog'
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   // linkActiveClass: 'link-active'
   routes
 })
