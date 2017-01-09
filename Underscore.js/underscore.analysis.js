@@ -301,9 +301,315 @@
 
 	// console.log(getLength(test))
 
+	// var test = [1, 2, 3]
+	// console.log(getLength(test))
+
 	// 判断集合是否近似数组，方便集合迭代过程中的循环判断
+
+	var isArrayLike = function (collection) {
+		var length = getLength(collection)
+
+		return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX
+	}
+
+	// 为对象(Object)定义函数
+	// keys in ie<9 won't be iterated by `for key in ..` and thus missed
+	// 怕断是否ie9以下存在的属性不可枚举的bug
+	var hasEnumBug = !{
+		toString: null
+	}.propertyIsEnumerable('toString')
+
+	// 该bug下不可被 for .. in 枚举的属性
+	var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString', 'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString']
+
+	// 手机对象obj中所有不可被枚举的key
+	// @param {Object} obj
+	// @param {Array} keys
+	var collectNonEnumProps = function (obj, keys) {
+		var nonEnumIdx = nonEnumerableProps.length
+
+		// 通过对象构造函数获得对象的原型
+		var constructor = obj.constructor
+
+		// 如果构造函数合法，且具有prototype属性，那么prototype指向的原型就是obj的原型
+		// 默认obj的原型为 Object.prototype
+		var proto = _.isFunction(constructor) && constructor.prototype || ObjProto
+
+		// 如果对象有constructors 属性，且当前的属性集合不存在构造函数这个属性
+
+		var prop = 'constructor'
+
+		// 需要constructor属性添加到属性集合中
+		if (_.has(obj, prop) && !_.contains(keys, prop)) {
+			keys.push(prop)
+		}
+
+		// 将不可枚举的属性也添加到属性集合中
+		while (nonEnumIdx--) {
+			prop = nonEnumerableProps[nonEnumIdx]
+				// 注意，添加的属性只能是自由属性 (obj[prop] !== proto[prop])
+			if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop))
+				keys.push(prop)
+		}
+	}
+
+	// Colletion Functions
+	// 集合部分的函数
+
+	// The cornerstone, an `each` implementation, aka `forEach`.
+	// Handles raw objects in addition to array-likes. Treats all
+	// sparse array-likes as if they were dense.
+	// each方法把es5的forEach换为函数式表达
+	// @param obj 待迭代的集合
+	// @param iteratt 迭代过程中每个被迭代元素的回调函数
+	// @param context 上下文
+	// example
+	// 数组迭代
+	// _.each([1,2,3],alert)
+	// 对象迭代
+	// _.each({one:1,two:2,three:3},alert)
+
+	_.each = _.forEach = function (obj, iteratee, context) {
+		// 首先优化回调过程
+		iteratee = optimizeCb(iteratee, context)
+			// 区分数组和对象的迭代过程
+		var i, length
+
+		if (isArrayLike(obj)) {
+			for (i = 0, length = obj.length; i < length; i++) {
+				// 数组的迭代回调传入三个参数（迭代值，迭代索引，迭代对象）
+				iteratee(obj[i], i, obj)
+			}
+		} else {
+			var keys = _.keys(obj)
+			for (i = 0, length = keys.length; i < length; i++) {
+				// 对象迭代回调传入三个参数（迭代值，迭代的key，迭代对象
+				iteratee(obj[keys[i]], keys[i], obj)
+			}
+		}
+		// 返回对象自身，以便进行链式构造
+		return obj
+	}
+
+
+	// 判断obj是否是对象，函数也属于对象
+	// @param {*} obj
+	// @example
+	// _.isObject(function(){}) // true
+	_.isObject = function (obj) {
+		var type = typeof obj
+		return type === 'function' || type === 'object' && !!obj
+	}
+
+	// 判断是否具有自有属性
+	// @param {object} obj
+	// @param {string} key
+	_.has = function (obj, key) {
+		return obj != null && hasOwnPrototype.call(obj, key)
+	}
+
+	// 检测一个数组活着对象是否包含一个指定的元素
+	// @param obj 待检测的对象
+	// @param item 制定元素
+	// @param fromIndex 从哪个地方开始查找
+	// @param guard ?
+	// @alias _.includes
+	// @alias _.include
+	// @example
+	// _.contains([1,2,3],3)
+	// true
+
+	_.contains = _.includes = _.include = function (obj, item, fromIndex, guard) {
+		// 如果不是数组，根据值查找
+		if (!isArrayLike(obj)) {
+			obj = _.values(obj)
+		}
+		if (typeof fromIndex != 'number' || guard) {
+			fromIndex = 0
+		}
+
+		return _.indexOf(obj, item, fromIndex) >= 0
+
+	}
+
+	// 位置预测函数的生成器
+	// 用来生成findIndex和fndLastIndex等位置的查询函数
+	// @param dir 方向
+	// @returns {Function}
+	var createPredicateIndexFinder = function (dir) {
+		// 返回位置查询函数
+		// @param array 待搜索数组
+		// @param predicate 真值检测函数
+		// @param context 执行上下文
+		return function (array, predicate, context) {
+			// 保证真值函数有效
+			// 因为位置的判断可能通过直接量
+			// ._findIndex([4,6,8,12],12)
+			// 也可能通过条件判断
+			// _.findIndex([4,6,8,12],function(){
+			// return value%12===0; 
+			// })
+			predicate = cb(predicate, context)
+
+			// var property = function (key) {
+			// 	return function (obj) {
+			// 		return obj == null ? void 0 : obj[key]
+			// 	}
+			// }
+			// 如果只是一个数字，比如12
+			// function(obj){
+			//    return obj == null ? void 0 : obj[key]
+			// }
+
+			var length = getLength(array)
+			var index = dir > 0 ? 0 : length - 1
+
+			for (; index >= 0 && index < length; index += dir) {
+				if (predicate(array[index], index, array)) {
+					return index
+				}
+			}
+			return -1
+		}
+	}
+
+	// 从左边开始查找，找到第一个满足条件的位置
+	// example
+	// _.findIndex([4,6,8,12],function(value){return value%12===0})
+	// =>3
+	// @type {Function}
+	_.findIndex = createPredicateIndexFinder(1)
+
+	// 创建一个查询某位置元素的finder
+	// @param dir 查询方向 1 从左往右 -1 从右往左
+	// @param predicateFind
+	// @param sortedIndex
+	// @returns {Function}
+	var createIndexFinder = function (dir, predicateFind, sortedIndex) {
+		return function (array, item, idx) {
+			var i = 0,
+				length = getLength(array)
+
+			// 如果设定了查询起点
+			if (typeof idx == 'number') {
+				// 矫正查询起点
+				if (dir > 0) {
+					i = idx >= 0 ? idx : Math.max(idx + length, i)
+				} else {
+					length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1
+				}
+			} else if (sortedIndex && idx && length) {
+				// 如果传递sortedIndex函数
+				// 假设array为排序好的，获得 item在array中的位置
+				idx = sortedIndex(array, item)
+					// 验证这个假设是否正确
+				return array[idx] === item ? idx : -1
+			}
+		}
+	}
+
+	// Return the position of the first occurrence of an item in an array,
+	// or -1 if the item is not included in the array.
+	// If the array is large and already in sort order, pass `true`
+	// for **isSorted** to use binary search.
+	_.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex)
+
+
+	// 获取一个对象的所有value
+	// @param obj 对象
+	// @return {Array} 值排序
+	// example
+	// _.values({one:1,two:2,three:3})
+	// =>[1,2,3]
+	_.values = function (obj) {
+		// 很简单，便利key集合，取得对应的value
+		var keys = _.keys(obj)
+		var length = keys.length
+			// 定长初始化，提前分配内存空间
+		var values = Array(length)
+		for (var i = 0; i < length; i++) {
+			values[i] = obj[keys[i]]
+		}
+		return values
+	}
+
+	// 获取对象的所有自有属性，类似于ES5的 Object.keys()
+	// @params {Object} obj
+	// examole
+	// .keys({one:1,two:2,three:3})
+	// ['one','two','three']
+	_.keys = function (obj) {
+		if (!_.isObject(obj)) {
+			return []
+		}
+		// 如果原生的Object.keys方法存在的话，直接调用
+		if (nativeKeys) return nativeKeys(obj)
+
+		var keys = []
+
+		// 通过 _.has 剔除非自由属性
+
+		for (var key in obj) {
+			if (_.has(obj, key)) {
+				keys.push(key)
+			}
+		}
+
+		// IE<9
+		// 存在枚举的bug,需要矫正最后的属性集合
+
+		if (hasEnumBug) {
+			collectNonEnumProps(obj, keys)
+		}
+
+		return keys
+	}
+
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
+	// 
 	// 
 
 })()
 
 console.dir(_)
+
+_.each([1, 2, 3], function (value, index, array) {
+	console.log(value, index, array)
+})
+
+_.each({
+	a: 1,
+	b: 2
+}, function (value, key, obj) {
+	console.log(value, key, obj)
+})
