@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <!-- http://sbco.cc/demo/svg/html/index.html -->
   <div class="items">
     <div class="item">
       <hgroup class="circle"></hgroup>
@@ -68,11 +69,48 @@
     </div>
   </div>
   <div class="items">
+    <div class="item">
+      <svg width="400px" height="200px" viewbox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="textCircle" d="M 20 100 A 80 80 0 0 0 180 100 A 80 80 0 0 0 20 100" stoke="#333"></path>
+          <path id="textCircle2" d="M220 100 C 353 9,245 190,389 86" stroke="block"></path>
+        </defs>
+        <text fill="yellowgreen">
+          <textPath xlink:href="#textCircle">这是一段随着path路径绘制的文字</textPath>
+        </text>
+        <text fill="deeppink">
+          <textPath xlink:href="#textCircle2">这是一段随着path路径绘制的文字</textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <svg width="400px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="filter-pattern" width="1" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+            <rect x="0" y="0" width="1" height=".8" fill="#333"></rect>
+          </pattern>
+          <text id="filter-text" x="50%" y="50%" dy=".3em" text-anchor="middle">SVG filter & mask</text>
+          <mask id="filter-mask">
+            <rect x="0" y="0" width="100%" height="100%" fill="#fff"></rect>
+            <use x="-6" y="-6" stroke="#666" stroke-width="5" xlink:href="#filter-text" opacity="1" fill="#000"></use>
+          </mask>
+        </defs>
+        <use x="6" y="6" xlink:href="#filter-text" opacity="1" fill="url(#filter-pattern)" mask="url(#filter-mask)"></use>
+        <use x="0" y="0" xlink:href="#filter-text" fill="#000"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="items">
     <div class="item"></div>
     <div class="item"></div>
   </div>
   <div class="items">
-    <div class="item"></div>
+    <div class="item">
+      <svg width="100px" height="100px" viewbox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      </svg>
+    </div>
     <div class="item"></div>
   </div>
 </body>
