@@ -10,11 +10,20 @@
         "distance": Number,
         "time": Number,
         "photo": String,
-        "dinner": Boolean,
         "AB-RIPPER": Boolean,
-        "deep-squat": Boolean
+        "deep-squat": Boolean,
+        "word": String
       }
     }]
+
+    date: 锻炼的日期
+    weight: 当前体重
+    distance: 跑步距离
+    time: 跑步用时
+    photo: 当日自拍
+    AB-RIPPER: 是否做了腹肌撕裂者
+    deep-squat: 是否做了深蹲
+    word: 一些想法
 
 锻炼记录是一个 `json` 文件，里面的数据是一个对象数组，里面包含了每次锻炼的数据。
 
@@ -58,15 +67,6 @@
 
 这么做，首先想试试加密库，然后是锻炼记录暂时不想公开，最后规划成 `json` 格式也是方便以后的读取。
 
-# 参数
-
-	date: 锻炼的日期
-	weight: 当前体重
-	distance: 跑步距离
-	time: 跑步用时
-	photo: 当日自拍
-	dinner: 是否吃了晚饭
-	AB-RIPPER: 是否做了腹肌撕裂者
-	deep-squat: 是否做了深蹲
+	
 	
     
