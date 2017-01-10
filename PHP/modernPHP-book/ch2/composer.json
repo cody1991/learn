@@ -1,6 +1,6 @@
 {
-    "require": {
-        "symfony/finder": "^3.2",
-        "symfony/http-foundation": "^3.2"
-    }
+  "require": {
+    "symfony/http-foundation": "^3.2",
+    "willdurand/geocoder": "^3.3"
+  }
 }

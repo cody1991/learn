@@ -28,6 +28,16 @@
 
 ---
 
+### (2017.1.10) PHP 学习
+
+开始学习 [Modern PHP](https://book.douban.com/subject/26635862/) 一书，看到豆瓣的评分还是不错的，也有人推荐
+
+[学习记录](https://github.com/cody1991/learn/tree/gh-pages/PHP/modernPHP-book)
+
+[博客地址](https://cody1991.github.io/category.html#php)
+
+---
+
 需要锻炼身体了，新加了 [keep](https://github.com/cody1991/learn/tree/gh-pages/keep) 文件夹进行锻炼的记录
 
 ---
