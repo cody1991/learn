@@ -92,6 +92,6 @@ $documentStore->addDocument($cmdDoc);
 
 echo '<pre>';
 print_r($documentStore->getDocuments());
-echo '<pre>';
+echo '</pre>';
 
 ?>
