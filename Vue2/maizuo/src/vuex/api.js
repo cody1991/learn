@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-
 let url = process.env.NODE_ENV !== 'production' ? '/api/' : 'http://m.maizuo.com/v4/api/'
 
 export default {
