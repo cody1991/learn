@@ -1,0 +1,78 @@
+#cinema {
+  .item {
+    &>.title {
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid #fff;
+      color: #636363;
+      font-size: 14px;
+      padding-left: 15px;
+    }
+    &:last-child {
+      .title {
+        border-bottom: none;
+      }
+    }
+    .list {
+      .shop {
+        background-color: #fff;
+        border-bottom: 1px solid #e1e1e1;
+        font-size: 14px;
+        padding: 15px;
+        line-height: 180%;
+        .desc {
+          width: 300px;
+          .title {
+            font-size: 16px;
+            span {
+              font-size: 10px;
+              display: inline-block;
+              vertical-align: middle;
+              border-radius: 50%;
+              width: 18px;
+              height: 18px;
+              text-align: center;
+              line-height: 18px;
+              color: #fd9c77;
+              border: 1px solid #fd9c77;
+              margin-left: 5px;
+              &:last-child {
+                color: #a5c1d5;
+                border: 1px solid #a5c1d5;
+              }
+            }
+          }
+          .tip {
+            padding: 5px 0;
+            span {
+              display: inline-block;
+              color: #fff;
+              font-size: 11px;
+              padding: 0 4px;
+              border-radius: 4px;
+              background: #51add0;
+              margin-right: 8px;
+              &.discount {
+                background-color: #ff9658;
+              }
+            }
+          }
+          .area {
+            color: #ccc;
+            font-size: 13px;
+          }
+          .extra {
+            color: #ccc;
+            font-size: 13px;
+          }
+        }
+        .price {
+          font-size: 16px;
+          color: #fc8637;
+        }
+      }
+    }
+  }
+}

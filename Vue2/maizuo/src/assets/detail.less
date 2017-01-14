@@ -1,0 +1,49 @@
+#detail {
+  .cover {
+    img {
+      width: 100%;
+    }
+  }
+  .desc {
+    font-size: 13px;
+    line-height: 230%;
+    padding: 15px;
+    .title {
+      border-left: 16px solid #e4c89c;
+      font-size: 16px;
+      padding-left: 5px;
+      margin-bottom: 20px;
+      margin-left: -15px;
+    }
+    .info {
+      p {
+        span {
+          display: inline-block;
+          margin-right: 1px;
+          &:after {
+            content: '|'
+          }
+          &:last-child:after {
+            content: ''
+          }
+        }
+      }
+      .synopsis {
+        line-height: 150%;
+        margin-top: 5px;
+      }
+    }
+  }
+  .go-pay {
+    width: 160px;
+    height: 35px;
+    background: #e38700;
+    border-radius: 35px;
+    line-height: 35px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px auto;
+    display: block;
+  }
+}
