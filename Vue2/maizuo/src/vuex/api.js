@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let url = process.env.NODE_ENV !== 'production' ? '/api/' : 'http://m.maizuo.com/v4/api'
+let url = process.env.NODE_ENV !== 'production' ? '/api/' : 'http://m.maizuo.com/v4/api/'
 
 export default {
   getBannerList: function (cb) {
