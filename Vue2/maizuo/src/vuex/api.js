@@ -2,27 +2,17 @@ import axios from 'axios'
 
 let url = process.env.NODE_ENV !== 'production' ? '/api/' : 'http://m.maizuo.com/v4/api/'
 
-let options = {
-  withCredentials: true
-}
-
 export default {
   getBannerList: function (cb) {
-    axios.get(url + 'billboard/home?t=' + new Date() * 1 + '&callback=?', {
-      options
-    })
+    axios.get(url + 'billboard/home?t=' + new Date() * 1 + '&callback=?')
       .then(function (res) {
         if (res.status >= 200 && res.status < 300) {
           cb(res.data)
         }
-      }).catch((error) => {
-        return Promise.reject(error)
       })
   },
   getNowPlaying: function (cb) {
-    axios.get(url + 'film/now-playing?_t=' + new Date() * 1 + '&page=1&count=5', {
-      options
-    })
+    axios.get(url + 'film/now-playing?_t=' + new Date() * 1 + '&page=1&count=5')
       .then(function (res) {
         if (res.status >= 200 && res.status < 300) {
           cb(res.data)
