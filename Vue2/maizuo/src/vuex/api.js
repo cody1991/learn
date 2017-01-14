@@ -9,6 +9,8 @@ export default {
         if (res.status >= 200 && res.status < 300) {
           cb(res.data)
         }
+      }).catch((error) => {
+        return Promise.reject(error)
       })
   },
   getNowPlaying: function (cb) {
