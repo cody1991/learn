@@ -28,6 +28,22 @@
 
 ---
 
+### (2017.1.15) 整理
+
+接下来还是围绕 [Modern PHP](https://book.douban.com/subject/26635862/) 的学习为主
+
+[30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30)
+
+underscore.js 源码剖析
+
+看 [众成翻译](http://www.zcfy.cc/) 上面的文章
+
+---
+
+### (2017.1.15) 完成一个 [Vue2 卖座网](https://github.com/cody1991/learn/tree/gh-pages/Vue2/maizuo) 的练习，可以下载查看。
+
+---
+
 ### (2017.1.10) PHP
 
 开始学习 [Modern PHP](https://book.douban.com/subject/26635862/) 一书，看到豆瓣的评分还是不错的，也有人推荐
@@ -48,7 +64,7 @@
 
 [Clean JavaScript:写出整洁的JavaScript代码](https://zhuanlan.zhihu.com/p/24761475) 好像挺有意思的一篇文章 (2017.1.8 读完 [demo](https://github.com/cody1991/learn/tree/gh-pages/tutorials/pure-JavaScript/clean-javascript))
 
-[SVG奇思妙想](http://sbco.cc/demo/svg/html/index.html) 有很多不错的SVG例子，可以学习下
+(2017.1.15 不看了)[SVG奇思妙想](http://sbco.cc/demo/svg/html/index.html) 有很多不错的SVG例子，可以学习下
 
 制定下记下来的PHP学习（选择看书）
 
