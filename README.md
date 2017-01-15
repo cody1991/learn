@@ -38,6 +38,8 @@ underscore.js 源码剖析
 
 看 [众成翻译](http://www.zcfy.cc/) 上面的文章
 
+要！学！好！英！语！
+
 ---
 
 ### (2017.1.15) 完成一个 [Vue2 卖座网](https://github.com/cody1991/learn/tree/gh-pages/Vue2/maizuo) 的练习，可以下载查看。
