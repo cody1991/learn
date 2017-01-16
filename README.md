@@ -16,11 +16,11 @@
 
 * /waiting 存放待学习的任务
 
-*	/tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
+* /tutorials [点击查看介绍](https://github.com/cody1991/learn#tutorials)
 
-*	/lib 存放资源
+* /lib 存放资源
 
-*	/finish-2016 2016年完成的所有学习，原则上不再修改
+* /finish-2016 2016年完成的所有学习，原则上不再修改
 
 ---
 
@@ -116,6 +116,8 @@ underscore.js 源码剖析
 ---
 
 ### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 
+
+(2017.1.16 13:58) [完成第十一个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/11)
 
 (2017.1.6 21:39) [完成第十个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/10)
 
