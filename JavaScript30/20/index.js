@@ -14,6 +14,8 @@
   words.appendChild(p)
 
   sr.addEventListener('result', e => {
+
+    console.log('录音有结果')
     const transcript = Array.from(e.results)
       .map(result => result[0])
       .map(result => result.transcript)
@@ -22,7 +24,7 @@
     const poopScript = transcript.replace(/poop|poo|shit|dump/gi,'💩')
     p.textContent = poopScript
 
-    if (e.result[0].isFinal) {
+    if (e.results[0].isFinal) {
       p = document.createElement('p')
       words.appendChild(p)
     } 
@@ -30,5 +32,6 @@
 
   sr.addEventListener('end',sr.start)
   sr.start()
+  console.log('录音开始')
   
 })();
