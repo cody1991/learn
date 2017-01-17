@@ -17,7 +17,7 @@
 
     console.log('录音有结果')
     const transcript = Array.from(e.results)
-      .map(result => result[0])
+      .map(result => {console.log(result);result[0]})
       .map(result => result.transcript)
       .join('')
 
