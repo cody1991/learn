@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: url("http://oe7qygyya.bkt.clouddn.com/image/pic1dyD8_5BRwI.jpg") center center no-repeat;
+  background-size: cover;
+}
+#bands {
+  list-style: inside square;
+  font-size: 20px;
+  background: white;
+  width: 500px;
+  margin: 40px auto;
+  box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+}
+#bands li {
+  border-bottom: 1px solid #efefef;
+  padding: 20px;
+}
+#bands li:last-child {
+  border-bottom: 0;
+}
+/*# sourceMappingURL=style.css.map */
