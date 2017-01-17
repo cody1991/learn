@@ -117,6 +117,8 @@ underscore.js 源码剖析
 
 ### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30)
 
+(2017.1.17 18:36) [完成第二十个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/20) 没想到都有声音辨别的 `Api` 了，但是经常没反应，应该还有待加强 
+
 (2017.1.17 17:53) [完成第十九个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/19) 这个的摄像头和 `canvas` 图像处理挺好玩的
 
 (2017.1.17 16:31) [完成第十八个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/18)
