@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+  background: #ffc600;
+}
+
+.photobooth {
+  .controls {
+    padding: 1rem;
+    background: #ffc600;
+    button {
+      outline: none;
+      padding: 2rem;
+      border: none;
+      width: 20rem;
+      display: block;
+      margin: 1rem auto;
+      -webkit-appearance: none;
+      background: #000;
+      color: #fff;
+    }
+  }
+  position: relative;
+  background: white;
+  max-width: 150rem;
+  margin: 2rem auto;
+  border-radius: 2px;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .photo {
+    width: 100%;
+    float: left;
+  }
+  .player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width:200px;
+  }
+  .strip {
+    padding: 2rem;
+    img {
+      width: 100px;
+      overflow: scroll;
+      padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      background: white;
+    }
+    a { &:nth-child(5n+1){img {rotate: 10deg;}}}
+    a { &:nth-child(5n+2){img {rotate: -2deg;}}}
+    a { &:nth-child(5n+3){img {rotate: 8deg;}}}
+    a { &:nth-child(5n+4){img {rotate: -11deg;}}}
+    a { &:nth-child(5n+5){img {rotate: 12deg;}}}
+  }
+}
+
+

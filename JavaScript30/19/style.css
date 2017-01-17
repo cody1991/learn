@@ -1,0 +1,71 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 10px;
+  background: #ffc600;
+}
+.photobooth {
+  position: relative;
+  background: white;
+  max-width: 150rem;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+.photobooth .controls {
+  padding: 1rem;
+  background: #ffc600;
+}
+.photobooth .controls button {
+  outline: none;
+  padding: 2rem;
+  border: none;
+  width: 20rem;
+  display: block;
+  margin: 1rem auto;
+  -webkit-appearance: none;
+  background: #000;
+  color: #fff;
+}
+.photobooth:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.photobooth .photo {
+  width: 100%;
+  float: left;
+}
+.photobooth .player {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+}
+.photobooth .strip {
+  padding: 2rem;
+}
+.photobooth .strip img {
+  width: 100px;
+  overflow: scroll;
+  padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+.photobooth .strip a:nth-child(5n+1) img {
+  rotate: 10deg;
+}
+.photobooth .strip a:nth-child(5n+2) img {
+  rotate: -2deg;
+}
+.photobooth .strip a:nth-child(5n+3) img {
+  rotate: 8deg;
+}
+.photobooth .strip a:nth-child(5n+4) img {
+  rotate: -11deg;
+}
+.photobooth .strip a:nth-child(5n+5) img {
+  rotate: 12deg;
+}
+/*# sourceMappingURL=style.css.map */
