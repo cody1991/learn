@@ -117,6 +117,8 @@ underscore.js 源码剖析
 
 ### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30)
 
+(2017.1.18 15:11) [完成第二十四个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/24)
+
 (2017.1.18 00:25) [完成第二十三个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/23)
 
 (2017.1.17 23:28) [完成第二十二个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/22)
