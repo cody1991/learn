@@ -28,6 +28,12 @@
 
 ---
 
+### (2017.1.18 19:13) 完成 [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 的学习
+
+[学习成果](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30)
+
+---
+
 ### (2017.1.15) 整理
 
 接下来还是围绕 [Modern PHP](https://book.douban.com/subject/26635862/) 的学习为主
@@ -116,6 +122,8 @@ underscore.js 源码剖析
 ---
 
 ### 开始学习(2017.1.4) [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30)
+
+(2017.1.18 19:12) [完成第三十个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/30)
 
 (2017.1.18 18:37) [完成第二十九个练习](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30/29)
 
