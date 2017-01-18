@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  background: url('http://oe7qygyya.bkt.clouddn.com/image/picFdRMYSm7_8E.jpg') center center;
+  background-size: cover;
+}
+.wrapper {
+  width: 850px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+video {
+  box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.speed {
+  background: #efefef;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 10px;
+  border-radius: 50px;
+  box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.speed .speed-bar {
+  width: 100%;
+  background: -webkit-linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+  background: linear-gradient(-170deg, #2376ae 0%, #c16ecf 100%);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2px;
+  color: white;
+  height: 16.3%;
+}
+/*# sourceMappingURL=style.css.map */
