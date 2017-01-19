@@ -28,6 +28,10 @@
 
 ---
 
+### (2017.1.19 23:48) 增加一个 Vue2 + koa1 的练习
+
+---
+
 ### (2017.1.18 19:13) 完成 [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 的学习
 
 [学习成果](https://github.com/cody1991/learn/tree/gh-pages/JavaScript30)
