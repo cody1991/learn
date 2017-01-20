@@ -1,10 +1,8 @@
-<?php 
-  require 'vendor/autoload.php';
+<?php
+require 'vendor/autoload.php';
 
-  use Symfony\Component\HttpFoundation\Response as Response;
-  use Symfony\Component\HttpFoundation\Request;
-  use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\Response as Response;
 
-  $response = new Response('Oops', 400);
-  $response->send();
+$response = new Response('Oops', 400);
+$response->send();
 ?>
