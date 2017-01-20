@@ -5,6 +5,7 @@ import App from './App'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import VueRouter from 'vue-router'
+import axios from 'axios'
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
@@ -19,12 +20,29 @@ const router = new VueRouter({
     path: '/',
     component: Login
   }, {
-    path: '/todoList',
+    path: '/todolist',
     component: TodoList
   }, {
     path: '*',
     redirect: '/'
   }]
+})
+
+router.beforeEach((to, from, next) => {
+  const token = window.sessionStorage.getItem('demo-token')
+  if (to.path === '/') {
+    if (token !== 'null' && token !== null) {
+      next('/todolist')
+    }
+    next()
+  } else {
+    if (token !== 'null' && token !== null) {
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+      next()
+    } else {
+      next('/')
+    }
+  }
 })
 
 /* eslint-disable no-new */

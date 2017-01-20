@@ -22,6 +22,8 @@
 </template>
 
 <script>
+  import md5 from 'md5'
+  import axios from 'axios'
   export default {
     data () {
       return {
@@ -31,8 +33,42 @@
     },
     methods: {
       login () {
+        console.log('登录')
         // push 改变路由
-        this.$router.push('/todolist')
+        // this.$router.push('/todolist')
+        let obj = {
+          name: this.account,
+          password: md5(this.password)
+        }
+        let sessionStorage = window.sessionStorage
+        // 信息发送给后端
+        axios.post('/auth/user', obj)
+          .then((res) => {
+            console.log(res)
+            if (res.data.success) {
+              sessionStorage.setItem('demo-token', res.data.token)
+              this.$message({
+                type: 'success',
+                message: '登录成功'
+              })
+              this.$router.push('/todolist')
+            } else {
+              console.log(res.data)
+              this.$message({
+                type: 'error',
+                message: res.data.info
+              })
+              sessionStorage.setItem('demo-token', null)
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+            this.$message({
+              type: 'error',
+              message: '请求失败'
+            })
+            sessionStorage.setItem('demo-token', null)
+          })
       }
     }
   }

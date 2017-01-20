@@ -11,12 +11,12 @@
           <el-col :xs="24">
             <template v-if="!Done">
               <template v-for="(item, index) in list">
-                <div class="todo-list" v-if="item.status === false">
+                <div class="todo-list" v-if="item.status == 0">
                   <span class="item">
                     {{ index + 1 }} . {{ item.content }}
                   </span>
                   <span class="pull-right">
-                    <el-button @click="finished(index)" size="small" type="primary">完成</el-button>
+                    <el-button @click="update(index)" size="small" type="primary">完成</el-button>
                     <el-button @click="remove(index)" size="small" :plain="true" type="danger">删除</el-button>
                   </span>
                 </div>
@@ -30,12 +30,12 @@
         <el-tab-pane label="已完成事项" name="second">
           <template v-if="count > 0">
             <template v-for="(item, index) in list">
-              <div class="todo-list" v-if="item.status === true">
+              <div class="todo-list" v-if="item.status == 1">
                 <span class="item finished">
                   {{ index + 1 }}. {{ item.content }}
                 </span>
                 <span class="pull-right">
-                  <el-button size="small" type="primary" @click="restore(index)">还原</el-button>
+                  <el-button size="small" type="primary" @click="update(index)">还原</el-button>
                 </span>
               </div>
             </template>
@@ -46,19 +46,41 @@
         </el-tab-pane>
       </el-tabs>
     </el-col>
+    <!--<el-col>
+      {{Done}}
+      <br/>
+      {{count}}
+      <br/>
+      {{list}}
+    </el-col>-->
   </el-row>
 </template>
 
 <script>
+import axios from 'axios'
+// 安装 koa-jwt 会自动下载这个依赖
+import jwt from 'jsonwebtoken'
 export default {
   data () {
     return {
-      name: 'Cody',
+      name: '',
       todo: '',
       list: [],
       activeName: 'first',
-      count: 0
+      count: 0,
+      id: ''
     }
+  },
+  created () {
+    const userInfo = this.getUserInfo()
+    if (userInfo !== null) {
+      this.id = userInfo.id
+      this.name = userInfo.name
+    } else {
+      this.id = ''
+      this.name = ''
+    }
+    this.getTodolist()
   },
   methods: {
     addTodo () {
@@ -67,32 +89,130 @@ export default {
       }
       let obj = {
         status: false,
-        content: this.todo
+        content: this.todo,
+        id: this.id
       }
-      this.list.push(obj)
+      // this.list.push(obj)
+      axios.post('/api/todolist', obj)
+        .then((res) => {
+          if (res.status === 200) {
+            this.$message({
+              type: 'success',
+              message: '创建成功!'
+            })
+            this.getTodolist()
+          } else {
+            this.$message({
+              type: 'error',
+              message: '创建失败!'
+            })
+          }
+        })
+        .catch((error) => {
+          this.$message({
+            type: 'error',
+            message: '创建失败!'
+          })
+          console.log(error)
+        })
       this.todo = ''
     },
     finished (index) {
-      this.$set(this.list[index], 'status', true)
+      this.$set(this.list[index], 'status', 1)
       this.$message({
         type: 'success',
         message: `${this.list[index].content} 任务完成`
       })
     },
     remove (index) {
-      let removeTodo = this.list.splice(index, 1)
+      // let removeTodo = this.list.splice(index, 1)
       // console.log(removeTodo)
-      this.$message({
-        type: 'info',
-        message: `${removeTodo[0].content} 任务删除`
-      })
+      // this.$message({
+      //  type: 'info',
+      //  message: `${removeTodo[0].content} 任务删除`
+      // })
+      axios.delete('/api/todolist/' + this.id + '/' + this.list[index].id)
+        .then((res) => {
+          if (res.status === 200) {
+            this.$message({
+              type: 'success',
+              message: '任务删除成功'
+            })
+            this.getTodolist()
+          } else {
+            this.$message({
+              type: 'error',
+              message: '任务删除失败'
+            })
+          }
+        })
+        .catch((error) => {
+          this.$message({
+            type: 'error',
+            message: '任务状态更新失败'
+          })
+          console.log(error)
+        })
     },
     restore (index) {
-      this.$set(this.list[index], 'status', false)
+      this.$set(this.list[index], 'status', 1)
       this.$message({
         type: 'info',
         message: `${this.list[index].content} 任务还原`
       })
+    },
+    update (index) {
+      axios.put('/api/todolist/' + this.id + '/' + this.list[index].id + '/' + this.list[index].status)
+        .then((res) => {
+          if (res.status === 200) {
+            this.$message({
+              type: 'success',
+              message: '任务状态更新成功'
+            })
+            this.getTodolist()
+          } else {
+            this.$message({
+              type: 'error',
+              message: '任务状态更新失败'
+            })
+          }
+        })
+        .catch((error) => {
+          this.$message({
+            type: 'error',
+            message: '任务状态更新失败'
+          })
+          console.log(error)
+        })
+    },
+    getUserInfo () {
+      const token = window.sessionStorage.getItem('demo-token')
+      if (token !== null && token !== 'null') {
+        let decode = jwt.verify(token, 'vue-koa-demo')
+        return decode
+      } else {
+        return null
+      }
+    },
+    getTodolist () {
+      axios.get('/api/todolist/' + this.id)
+        .then((res) => {
+          if (res.status === 200) {
+            this.list = res.data
+          } else {
+            this.$message({
+              type: 'error',
+              message: '获取列表失败!'
+            })
+          }
+        })
+        .catch((error) => {
+          this.$message({
+            type: 'error',
+            message: '获取列表失败!'
+          })
+          console.log(error)
+        })
     }
   },
   computed: {
@@ -100,7 +220,7 @@ export default {
       let count = 0
       let length = this.list.length
       for (let i in this.list) {
-        this.list[i].status === true ? count += 1 : ''
+        this.list[i].status === 1 ? count += 1 : ''
       }
       this.count = count
       if (count === length || length === 0) {

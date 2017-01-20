@@ -183,3 +183,80 @@ app.listen(8889, () => {
 
 module.exports = app
 ```
+
+之后可以用 `Postman` 代发请求，查询成功
+
+我们接下来使用 `json-web-token`。基于 cookie 或者 session 的登录验证很多了，这个真正实现无状态请求，不是基于 session 和 cookie 的。
+
+简单来说 json-web-token 的登录系统是这样的：
+
+```
+用户在登录页输入账号密码，将账号密码（密码进行md5加密）发送请求给后端
+
+后端验证一下用户的账号和密码的信息，如果符合，就下发一个TOKEN返回给客户端。如果不符合就不发送TOKEN回去，返回验证错误信息。
+
+如果登录成功，客户端将TOKEN用某种方式存下来（SessionStorage、LocalStorage）,之后要请求其他资源的时候，在请求头（Header）里带上这个TOKEN进行请求。
+
+后端收到请求信息，先验证一下TOKEN是否有效，有效则下发请求的资源，无效则返回验证错误。
+```
+
+我们在 `models/users.js` 增加一个方法，通过用户名查找用户
+
+```
+const getUserByName = function* (name) {
+  const userInfo = yield Users.findOne({
+    where: {
+      username: name
+    }
+  })
+  return userInfo
+}
+
+module.exports = {
+  getUserById,
+  getUserByName
+}
+```
+
+然后再 `controllers/users.js` 也增加一个方法
+
+```
+const postUserAuth = function* () {
+  // post 过来的数据存在了 request.body
+  const data = this.request.body
+  const userInfo = yield users.getUserByName(data.name)
+
+  if (userInfo !== null) {
+    if (userInfo.password !== data.password) {
+      this.body = {
+        success: false,
+        info: '密码错误'
+      }
+    } else {
+      const userToken = {
+        name: userInfo.username,
+        id: userInfo.id
+      }
+      // 指定密钥，判断 token 合法性
+      const secret = 'vue-koa-demo'
+      const token = jwt.sign(userToken, secret)
+      this.body = {
+        suceess: true,
+        token: token
+      }
+    }
+  } else {
+    this.body = {
+      success: false,
+      info: '用户不存在!'
+    }
+  }
+}
+
+module.exports = {
+  auth: (router) => {
+    router.get('/user/:id', getUserInfo);
+    router.post('/user', postUserAuth)
+  }
+}
+```

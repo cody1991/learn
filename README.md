@@ -28,8 +28,11 @@
 
 ---
 
-### (2017.1.19 23:48) 增加一个 Vue2 + koa1 的练习
+### (2017.1.20 16:29) 增加一个 Vue2 + koa1 的练习
 
+感觉看了好多东西，要好好消化一下
+
+教程地址:[https://molunerfinn.com/Vue+Koa/](https://molunerfinn.com/Vue+Koa/)
 ---
 
 ### (2017.1.18 19:13) 完成 [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 的学习

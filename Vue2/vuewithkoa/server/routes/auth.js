@@ -1,8 +1,8 @@
-const users = require('../controllers/users.js')
+const user = require('../controllers/user.js')
 const router = require('koa-router')()
 
-console.log(users)
+console.log(user)
 // 使用 users 的 auth 方法 引入 router
-users.auth(router)
+user.auth(router)
 
 module.exports = router
