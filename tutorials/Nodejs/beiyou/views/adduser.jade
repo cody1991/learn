@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  form(name="adduser", method="post", action="adduser")
+    input(type="text", placeholder="username", name="username")
+    input(type="text", placeholder="userage", name="userage")
+    input(type="text", placeholder="usersex", name="usersex")
+    button(type="submit") submit

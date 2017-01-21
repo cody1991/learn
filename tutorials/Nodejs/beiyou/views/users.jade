@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1.
+    User List
+  ul
+    each user, i in users
+      li
+        span= user.name
+        span= user.age
+        span= user.sex
