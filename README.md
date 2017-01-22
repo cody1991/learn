@@ -28,11 +28,22 @@
 
 ---
 
+### (2017.1.22) 整理
+
+underscore.js 源码剖析
+
+看 [众成翻译](http://www.zcfy.cc/) 上面的文章
+
+[ Laravel 入门教程](https://laravel-china.org/laravel-tutorial/5.1/about)
+
+要！学！好！英！语！
+
 ### (2017.1.20 16:29) 增加一个 Vue2 + koa1 的练习
 
 感觉看了好多东西，要好好消化一下
 
 教程地址:[https://molunerfinn.com/Vue+Koa/](https://molunerfinn.com/Vue+Koa/)
+
 ---
 
 ### (2017.1.18 19:13) 完成 [30 Day Vanilla JS Challenge](https://github.com/wesbos/JavaScript30) 的学习
