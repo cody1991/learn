@@ -28,13 +28,15 @@
 
 ---
 
+看犀牛书巩固下基础
+
+---
+
 ### (2017.1.22) 整理
 
 underscore.js 源码剖析
 
 看 [众成翻译](http://www.zcfy.cc/) 上面的文章
-
-[Laravel 入门教程](https://laravel-china.org/laravel-tutorial/5.1/about)
 
 要！学！好！英！语！
 
