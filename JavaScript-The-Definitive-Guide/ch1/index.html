@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ch1</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>Enter load data</th>
+      <th></th>
+      <th>Load Balance, Cumulative Equity, and Interest Payments</th>
+    </tr>
+    <tr>
+      <td>Amount of the loan ($)</td>
+      <td>
+        <input type="text" id="amount">
+      </td>
+      <td rowspan="8">
+        <canvas id="graph" width="400" height="250"></canvas>
+      </td>
+    </tr>
+    <tr>
+      <td>Annual iterest (%)</td>
+      <td>
+        <input type="text" id="apr">
+      </td>
+    </tr>
+    <tr>
+      <td>Repayment perios (years)</td>
+      <td>
+        <input type="text" id="years">
+      </td>
+    </tr>
+    <tr>
+      <td>Zipcode (to find lenders)</td>
+      <td>
+        <input type="text" id="zipcode">
+      </td>
+    </tr>
+    <tr>
+      <td>Approximate payments</td>
+      <td>
+        <button id="calculate">calculate</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Monthly payment</td>
+      <td>$ <span id="payment" class="output"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Total payment</td>
+      <td>$ <span id="total" class="output"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Total interest</td>
+      <td>$ <span id="totalinterest" class="output"></span>
+      </td>
+    </tr>
+    <tr>
+      <th>Sponsors:</th>
+      <td colspan="2">
+        Apply for your loan with one of these fine lenders
+        <div id="lenders"></div>
+      </td>
+    </tr>
+  </table>
+  <script src="./common.js"></script>
+</body>
+
+</html>
+

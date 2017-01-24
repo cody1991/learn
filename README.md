@@ -28,13 +28,16 @@
 
 ---
 
-看犀牛书巩固下基础
+### (2017.1.24)巩固原生 JavaScript 基础
 
+看 [JavaScript权威指南(第6版)](https://book.douban.com/subject/10549733/) 巩固下原生 JavaScript 基础
+
+[学习记录](https://github.com/cody1991/learn/tree/gh-pages/JavaScript-The-Definitive-Guide)
 ---
 
 ### (2017.1.22) 整理
 
-underscore.js 源码剖析
+（2017.1.24 暂缓）underscore.js 源码剖析
 
 看 [众成翻译](http://www.zcfy.cc/) 上面的文章
 
