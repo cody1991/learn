@@ -2,9 +2,9 @@
 
 目录结构，会同步更新
 
-* /Vue2 vue2的学习
+* /vue2 vue2的学习
 
-* /Underscore.js 源码分析
+* /underscore.js 源码分析
 
 * /JavaScript30 一系列的原生JavaScript学习
 
