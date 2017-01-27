@@ -8,7 +8,7 @@
 
 * /JavaScript30 一系列的原生JavaScript学习
 
-* /PHP PHP的学习
+* /PHP PHP学习
 
 * /algorithms 算法部分的学习
 
