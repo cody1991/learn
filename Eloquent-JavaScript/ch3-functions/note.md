@@ -64,3 +64,26 @@ In the example, multiplier returns a frozen chunk of code that gets stored in th
 But this implementation has one important problem: in typical JavaScript implementations, it’s about 10 times slower than the looping version. Running through a simple loop is a lot cheaper than calling a function multiple times.
 
 The basic rule, which has been repeated by many programmers and with which I wholeheartedly agree, is to not worry about efficiency until you know for sure that the program is too slow. If it is, find out which parts are taking up the most time, and start exchanging elegance for efficiency in those parts.
+
+---
+
+```
+function findSoulution(target) {
+  function find(start, history) {
+    console.log(history)
+    if (start === target) {
+      return history
+    } else if (start > target) {
+      return null
+    } else {
+      return find(start + 5, "(" + history + " + 5)") ||
+        find(start * 3, "(" + history + " * 3)")
+    }
+  }
+  return find(1, '1')
+}
+
+console.log(findSoulution(24))
+```
+
+The indentation suggests the depth of the call stack. The first time find is called it calls itself twice to explore the solutions that start with (1 + 5) and (1 * 3). The first call tries to find a solution that starts with (1 + 5) and, using recursion, explores every solution that yields a number less than or equal to the target number. Since it doesn’t find a solution that hits the target, it returns null back to the first call. There the || operator causes the call that explores (1 * 3) to happen. This search has more luck because its first recursive call, through yet another recursive call, hits upon the target number, 13. This innermost recursive call returns a string, and each of the || operators in the intermediate calls pass that string along, ultimately returning our solution.
