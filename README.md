@@ -28,7 +28,19 @@
 
 ---
 
+今天是一月份的最后一天了，搭建了一个新的博客 [Cody Diary](https://cody1991.github.io/diary/)。 
+
+其实自己已经有一个 [个人博客](cody1991.github.io)，这个新创建的站点主要想督促自己保持天天写点东西的习惯，即便是很零散的东西，形式上比较随意，不会像博客那么正式
+
+而自己本身这个 `learn` 仓库也只是做个简单的记录学习而已，性质上也是不同
+
+---
+
 ### (2017.1.24)巩固原生 JavaScript 基础
+
+(2017.1.29 更新) 现在转向了 [eloquentjavascript](http://eloquentjavascript.net/) 这本书的学习，一边学习英语，一边学习 JavaScript 吧
+
+[学习记录](https://github.com/cody1991/learn/tree/gh-pages/Eloquent-JavaScript)
 
 看 [JavaScript权威指南(第6版)](https://book.douban.com/subject/10549733/) 巩固下原生 JavaScript 基础
 
