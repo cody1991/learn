@@ -77,15 +77,26 @@ console.log(phi([76, 9, 4, 1]))
 
 function gatherCorrelations(journal) {
   let phis = {}
-  for (let i = 0; i < journal.length; i++) {
-    let events = journal[i].events
-    for (let j = 0; j < events.length; j++) {
-      let event = events[j]
+
+  // for (let i = 0; i < journal.length; i++) {
+  //   let events = journal[i].events
+  //   for (let j = 0; j < events.length; j++) {
+  //     let event = events[j]
+  //     if (!(event in phis)) {
+  //       phis[event] = phi(tableFor(event, journal))
+  //     }
+  //   }
+  // }
+
+  // 使用 forEach 来处理
+
+  journal.forEach(function (entry) {
+    entry.events.forEach(function (event) {
       if (!(event in phis)) {
         phis[event] = phi(tableFor(event, journal))
       }
-    }
-  }
+    })
+  })
   return phis
 }
 
