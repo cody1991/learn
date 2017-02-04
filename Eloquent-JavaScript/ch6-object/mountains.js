@@ -3,9 +3,9 @@ var MOUNTAINS = [{
   height: 5895,
   country: "Tanzania"
 }, {
-  name: "Everest",
+  name: "Everest2",
   height: 8848,
-  country: "Nepal"
+  country: "Nepal\n2"
 }, {
   name: "Mount Fuji",
   height: 3776,
