@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wine {
+  background-color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+}
+
+.winebottle {
+  height: 600px;
+  margin-left: 15px;
+}
+
+.button-row {
+  margin: 0 0 20px;
+}
+
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 10px 0 5px 5px;
+}
+
+button {
+  background: white;
+  border: 2px solid black;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px 12px;
+  border-radius: 1000px;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 5px 5px 5px 0;
+  transition: 0.2s all ease-in;
+  outline: none;
+  &:hover {
+    background-color: #eee;
+    transition: 0.2s all ease-out;
+  }
+}
+
+main {
+  float: left;
+  padding: 20px;
+  background-color: #e8e5e5;
+  display: flex;
+  align-items: center;
+}
+
+aside {
+  background-color: #aba8a8;
+  float: left;
+  padding: 20px;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid black;
+  padding: 5px 12px;
+  border-radius: 5px;
+  width: 90%;
+  margin: 10px 5px;
+  font-size: 13px;
+  outline: none;
+  color: #aaa;
+}
+
+input[type="color"] {
+  width: 15%;
+  padding: 1px 3px;
+}
+
+.wine-text {
+  text-align: center;
+}
+
+.flourish {
+  transform: translateY(2px)
+}
+
+.label {
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/phone.png')
+}
+
+.black {
+  .label {
+    fill: black;
+  }
+  .bottle, .wine-text {
+    fill: white;
+  }
+  .flor {
+    fill: #ccc
+  }
+  .bkimg {
+    filter: url(#inverse)
+  }
+}
+
+.white {
+  .label {
+    fill: white;
+  }
+  .bottle, .wine-text {
+    fill: black;
+  }
+  .flor {
+    fill: #444
+  }
+}
+
+@media only screen and (max-width:800px) {
+  .wine {
+    display: block;
+  }
+  main {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+  aside {
+    width: 100% !important;
+    border-top: 2px solid black
+  }
+}
+
+.v-range-slider {
+  display: flex;
+  align-items: center;
+  padding: 2px 11px;
+  input {
+    -webkit-appearance: none;
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    margin: 5px 0 10px -5px;
+    padding: 8px 1px 8px;
+    outline: none;
+    background: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    &::-webkit-slider-runnable-track {
+      position: relative;
+      height: 2px;
+      background: #ddd;
+      border: none;
+      border-radius: 3px;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      position: relative;
+      margin-top: -7px;
+      cursor: pointer;
+      width: 15px;
+      height: 15px;
+      border: 0;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+      &:before {
+        position: absolute;
+        display: inline-block;
+        content: '';
+        top: 7px;
+        left: -2001px;
+        width: 2000px;
+        height: 2px;
+      }
+    }
+  }
+}
