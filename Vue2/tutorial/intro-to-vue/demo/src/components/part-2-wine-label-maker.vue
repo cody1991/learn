@@ -91,8 +91,7 @@
 </template>
 
 <script>
-  import './part-2-wine/fonts.css'
-  import './part-2-wine/wine.less'
+  
   import appBlack from './part-2-wine/black'
   import appWhite from './part-2-wine/white'
   import appFlor1 from './part-2-wine/flor1.vue'
@@ -120,3 +119,8 @@
     }
   }
 </script>
+
+<style scoped>
+  @import './part-2-wine/fonts.css';
+  @import './part-2-wine/wine.less';
+</style>
