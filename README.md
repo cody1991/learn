@@ -24,9 +24,31 @@
 
 ---
 
-## 2017年1月份
+## 2月份
 
 ---
+
+### (2.13) [JavaScript设计模式](https://book.douban.com/subject/26589719/) 学习
+
+《JavaScript设计模式》共分六篇四十章，首先讨论了几种函数的编写方式，体会JavaScript在编程中的灵活性；然后讲解了面向对象编程的知识，其中讨论了类的创建、数据的封装以及类之间的继承；最后探讨了各种模式的技术，如简单工厂模式，包括工厂方法模式、抽象工厂模式、建造者模式、原型模式、单例模式，以及外观模式，包括适配器模式。本书还讲解了几种适配器、代理模式、装饰者模式和MVC模式，讨论了如何实现对数据、视图、控制器的分离。在讲解MVP模式时，讨论了如何解决数据与视图之间的耦合，并实现了一个模板生成器；讲解MVVM模式时，讨论了双向绑定对MVC的模式演化。本书几乎包含了关于JavaScript设计模式的全部知识，是进行JavaScript高效编程必备的学习手册。
+
+《JavaScript设计模式》适合JavaScript初学者、前端设计者、JavaScript程序员学习，也可以作为大专院校相关专业师生的学习用书，以及培训学校的教材。
+
+### 总结(2.13)
+
+好久没来这边纪录了，最近的学习有点杂，然后学习笔记一般也放在了 [Cody Diary](https://cody1991.github.io/diary/) 里面
+
+在看 [eloquentjavascript](http://eloquentjavascript.net/) 这本书，巩固下基础。这个是大头，花了不少时间
+
+也有看看 [Python 3 文档](http://docspy3zh.readthedocs.io/en/latest/) 学学 `Python`
+
+也做了一些 `Vue2` 的练习，还有零零散散的一些技术文章
+
+今天朋友推荐 [JavaScript设计模式](https://book.douban.com/subject/26589719/)，择日不如撞日，就今天开始学习吧。
+
+---
+
+## 2017年1月份
 
 今天是一月份的最后一天了，搭建了一个新的博客 [Cody Diary](https://cody1991.github.io/diary/)。 
 
