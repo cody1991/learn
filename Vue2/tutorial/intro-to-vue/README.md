@@ -5,11 +5,6 @@
 完成
 [Vue Wine Label Maker- with keep-alive](http://codepen.io/sdras/pen/db71c231f760ee3a53e9d4e65f8745b8)
 
-待学习
+完成
 [Chart made with Vue, Transitioning State](http://codepen.io/sdras/pen/OWZRZL)
 
-待学习
-[Vue Weather Notifier](http://codepen.io/sdras/pen/YNpaoJ)
-
-待学习
-[Vue Book Content Typer](http://codepen.io/sdras/pen/MJedjd)

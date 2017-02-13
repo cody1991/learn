@@ -7,6 +7,8 @@
       <router-link to="/part-3">part-3</router-link>
       <router-link to="/part-4">part-4</router-link>
       <router-link to="/part-5">part-5</router-link>
+      <!-- <router-link to="/book">book</router-link> -->
+      <router-link to="/chart">chart</router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -36,9 +38,11 @@ export default {
     margin:10px 5px;
     transition: all 0.2s;
     border-radius: 4px;
+    border:1px solid #000;
     &.router-link-active, &:hover{
       color: #000;
       background-color: white;
+      border:1px solid #000;
     }
   }
 }

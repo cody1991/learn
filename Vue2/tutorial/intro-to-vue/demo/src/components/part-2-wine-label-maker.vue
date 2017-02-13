@@ -120,7 +120,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="less">
   @import './part-2-wine/fonts.css';
   @import './part-2-wine/wine.less';
 </style>

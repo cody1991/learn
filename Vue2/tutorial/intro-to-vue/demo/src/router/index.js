@@ -6,6 +6,8 @@ import Part3 from '../components/part-3'
 import Part4 from '../components/part-4'
 import Part5 from '../components/part-5'
 import wine from '../components/part-2-wine-label-maker.vue'
+import book from '../components/book.vue'
+import chart from '../components/chart.vue'
 
 Vue.use(Router)
 
@@ -37,5 +39,13 @@ export default new Router({
     path: '/wine',
     name: 'wine',
     component: wine
+  }, {
+    path: '/book',
+    name: 'book',
+    component: book
+  }, {
+    path: '/chart',
+    name: 'chart',
+    component: chart
   }]
 })
