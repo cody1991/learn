@@ -368,3 +368,359 @@
 // console.log(instance2.id)
 
 // instance1.showBooks()
+
+// -----------------
+
+// 组合继承
+
+// function SuperClass(name) {
+//   // 值属性共有属性
+//   this.name = name
+
+//   // 引用属性共有属性
+//   this.books = ['html', 'css', 'JavaScript']
+// }
+
+// // 父类原型共有方法
+// SuperClass.prototype.getName = function () {
+//   console.log(this.name)
+// }
+
+// // 声明子类
+// function SubClass(name, time) {
+//   // 构造函数式继承父类 name 属性
+//   SuperClass.call(this, name)
+
+//   // 子类中新增共有属性
+//   this.time = time
+// }
+
+// SubClass.prototype = new SuperClass()
+// SubClass.prototype.getTime = function () {
+//   console.log(this.time)
+// }
+
+// let instance1 = new SubClass('js book', 2014)
+// instance1.books.push('设计模式')
+// console.log(instance1.books)
+// instance1.getName()
+// instance1.getTime()
+
+// let instance2 = new SubClass('css book', 2013)
+// console.log(instance2.books)
+// instance2.getName()
+// instance2.getTime()
+
+// -------------------------
+
+// 上面我们在使用构造函数继承时，执行了一遍父类的构造函数，而在实现子类原型的类式继承时又调用了一遍父类构造函数，因此父类构造函数调用了两次
+// 可以进行优化
+
+// 借助原型 prototype 可以根据已有对象创建一个新的对象，同时不必创建新的自定义对象类型。
+
+// // 原型是继承
+// function inheritObject(o) {
+//   // 生命一个过度函数对象
+//   function F() {}
+
+//   // 过度对象的原型继承父对象
+//   F.prototype = o
+
+//   // 返回过度对象的一个实例，该对象的原型继承了父对象
+//   return new F()
+// }
+
+// 和类式继承有点像，对类似继承的一个封装，其中的过度对象相当于类似继承中的子类，不过在原型式中作为一个过滤对象出现了，目的是为了创建要返回的新的实例化对象
+
+// 类式继承中的问题也会出现，就是共用了父类上引用类型的属性
+// 不过这种方式由于 F 过度类的构造函数中无内容，开销小，使用起来也比较方便
+
+// let book = {
+//   name: 'jsbook',
+//   alikeBook: ['css book', 'html book']
+// }
+
+// let newBook = inheritObject(book)
+// newBook.name = 'ajax book'
+// newBook.alikeBook.push('xml book')
+
+// let otherBook = inheritObject(book)
+// otherBook.name = 'flash book'
+// otherBook.alikeBook.push('as book')
+
+// console.log(newBook.name)
+// console.log(newBook.alikeBook)
+// console.log(otherBook.name)
+// console.log(otherBook.alikeBook)
+// console.log(book.name)
+// console.log(book.alikeBook)
+
+// ajax book
+// [ 'css book', 'html book', 'xml book', 'as book' ]
+// flash book
+// [ 'css book', 'html book', 'xml book', 'as book' ]
+// jsbook
+// [ 'css book', 'html book', 'xml book', 'as book' ]
+
+// ------------------
+// 寄生式继承
+
+// 声明基类
+
+// let book = {
+//   name: 'js book',
+//   alikeBook: ['css book', 'html book']
+// }
+
+// function createObject(obj) {
+//   let o = new inheritObject(obj)
+//   o.getName = function () {
+//     console.log(this.name)
+//   }
+//   return o
+// }
+
+// let newBook = createObject(book)
+// console.log(newBook.name)
+// console.log(newBook.alikeBook)
+// newBook.alikeBook.push('xml book')
+// console.log(newBook.alikeBook)
+// console.log(book.alikeBook)
+// newBook.getName()
+
+// undefined
+// book.getName()
+
+// 对原型继承的第二次封装，并且在第二次封装过程中对对象进行了扩展。这样创建的对象不仅仅有父类中的属性和方法，而且添加了新的属性和方法
+
+// 最终模式 寄生组合式继承
+// 组合式继承，我们类式继承同构造函数继承组合使用，有一个问题就是子类不是父类的实例，子类的原型是父类的实例，才有寄生组合式继承
+
+// 寄生式继承 继承原型
+// 传递参数 subClass 子类
+// 传递参数 superClass 父类
+function inheritPrototype(subClass, superClass) {
+  // 复制一份父类的原型副本保存在变量中
+  let p = inheritObject(superClass.prototype)
+
+  // 修改因为重写子类导致子类的 constructor 属性被修改
+  p.constructor = SubClass
+
+  // 设置子类的原型
+  subClass.prototype = p
+}
+
+// 组合式继承中，通过构造函数继承的属性和方法是没有问题的，我们这里主要探究通过寄生式继承重新继承父类的原型。我们需要继承的仅仅是父类的原型，不再需要调用父类的构造函数。换句话说，构造函数继承中我们已经调用了父类的构造函数，因此我们需要的就是父类的原型对象的一个副本，这个副本我们通过原型继承便可得到，但是这样直接赋值给子类有问题，因为父类原型对象复制得到的复制对象 p 的 constructor 指向的不是 subClass 子类，因此寄生式继承着你要对复制对象 p 做一次增强，修复其 constructor 属性指向不正确的问题，最后将得到的复制对象 p 复制给子类的原型，这样子类的原型就继承了父类的原型并且没有执行父类的构造函数
+
+// 原型是继承
+function inheritObject(o) {
+  // 声明一个过度函数对象
+  function F() {}
+
+  // 过度对象的原型继承父对象
+  F.prototype = o
+
+  // 返回过度对象的一个实例，该对象的原型继承了父对象
+  return new F()
+}
+
+// function SuperClass(name) {
+//   this.name = name
+//   this.colors = ['red', 'blue', 'green']
+// }
+
+// SuperClass.prototype.getName = function () {
+//   console.log(this.name)
+// }
+
+// function SubClass(name, time) {
+//   SuperClass.call(this, name)
+//   this.time = time
+// }
+
+// // 寄生式继承父类原型
+// inheritPrototype(SubClass, SuperClass)
+
+// SubClass.prototype.getTime = function () {
+//   console.log(this.time)
+// }
+
+// let instance1 = new SubClass('js book', 2014)
+// let instance2 = new SubClass('css book', 2013)
+
+// instance1.colors.push('black')
+
+// console.log(instance1.colors)
+// console.log(instance2.colors)
+// instance2.getName()
+// instance2.getTime()
+
+// 这个时候子类添加方法要一个个添加，否则直接覆盖了。
+
+// 总结下现在就是
+// subClass 构造函数的 prototype 原型对象 指向 subClass prototype
+// subClass prototype 的 __proto__ 指向了 superClass 的 superClass prototype，它是 superClass的一个实例，和 superClass prototype形成原型链，还有 constructor 属性，指向了 subClass 构造函数
+// instance1 实例的 __proto__ 指向了 subClass prototype
+
+// 接下来就是 superClass 构造函数，它的 prototype 属性指向了 superClass prototype
+// 而 superClass prototype 的 contructor 指向回 superClass 构造函数
+
+// function inheritPrototype(subClass, superClass) {
+//   let p = inheritObject(superClass.prototype)
+//   p.constructor = SubClass
+//   subClass.prototype = p
+// }
+
+// function inheritObject(o) {
+//   function F() {}
+//   F.prototype = o
+//   return new F()
+// }
+
+// 先调用 inheritPrototype 这个函数，传入了 subClass 和 superClass 两个类
+// let p = inheritObject(superClass.prototype)
+// 我们这里是要获取 superClass.prototype 父类原型对象的一个副本
+// inheritObject 进入这个函数
+// 我们创建一个空的函数，然后把这个函数的原型对象指向父元素的superClass.prototype
+// 之后返回了这个实例，这个实例其实就是 superClass prototype 了
+// 这个时候 superCLass.prototype 的 constructor 指向 superClass ,所以我们回到 inheritPrototype 需要把他改为指向 subClass
+// 最后就是把这个 p 对象复制给 subClass 的原型对象，就完成了
+
+// ----------------------------
+
+// 多继承
+
+// 先说说 继承单对象属性的 extend 方法
+
+// 浅复制
+// let extend = function (target, source) {
+//   for (let property in source) {
+//     target[property] = source[property]
+//   }
+//   return target
+// }
+
+// let book = {
+//   name: 'JavaScript 设计模式',
+//   alike: ['css', 'html', 'JavaScript']
+// }
+
+// let anotherBook = {
+//   color: 'blue'
+// }
+
+// extend(anotherBook, book)
+
+// // JavaScript 设计模式
+// // [ 'css', 'html', 'JavaScript' ]
+// console.log(anotherBook.name)
+// console.log(anotherBook.alike)
+
+// anotherBook.alike.push('ajax')
+// anotherBook.name = '设计模式'
+
+// // 设计模式
+// // [ 'css', 'html', 'JavaScript', 'ajax' ]
+// console.log(anotherBook.name)
+// console.log(anotherBook.alike)
+
+// // 设计模式
+// // [ 'css', 'html', 'JavaScript', 'ajax' ]
+// console.log(book.name)
+// console.log(book.alike)
+
+// // 多继承，属性复制
+
+// let mix = function () {
+//   let i = 1,
+//     len = arguments.length,
+//     target = arguments[0],
+//     arg
+
+//   for (; i < len; i++) {
+//     arg = arguments[i]
+//     for (let property in arg) {
+//       target[property] = arg[property]
+//     }
+//   }
+
+//   return target
+// }
+
+// // mix 就是将传入的多个对象的属性复制到源对象中，这样即可实现多个对象的属性的继承
+// // 我们也可以绑定到原生 Object 上，所有对象都有这个方法了
+
+// Object.prototype.mix = function () {
+//   let i = 1,
+//     len = arguments.length,
+//     target = arguments[0],
+//     arg
+
+//   for (; i < len; i++) {
+//     arg = arguments[i]
+//     for (let property in arg) {
+//       this[property] = arg[property]
+//     }
+//   }
+// }
+
+// // 我们就可以
+// // otherBook.mix(book1, book2)
+
+// --------------------
+
+// 多态
+
+function add() {
+  let arg = arguments,
+    len = arg.length
+
+  switch (len) {
+  case 0:
+    return 10
+  case 1:
+    return 10 + arg[0]
+  case 2:
+    return arg[0] + arg[1]
+  }
+
+}
+
+console.log(add())
+console.log(add(5))
+console.log(add(6, 7))
+
+// 修改成更加易懂的类形式
+
+function Add() {
+  function zero() {
+    return 10
+  }
+
+  function one(num) {
+    return 10 + num
+  }
+
+  function two(num1, num2) {
+    return num1 + num2
+  }
+
+  this.add = function () {
+    let arg = arguments,
+      len = arg.length
+
+    switch (len) {
+    case 0:
+      return zero()
+    case 1:
+      return one(arg[0])
+    case 2:
+      return two(arg[0], arg[1])
+    }
+  }
+}
+
+let A = new Add()
+console.log(A.add())
+console.log(A.add(5))
+console.log(A.add(6, 7))
