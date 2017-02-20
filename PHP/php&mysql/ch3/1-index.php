@@ -6,6 +6,175 @@
 </head>
 <body>
 <?php
+
+$array2 = array(4, 5, 1, 2, 3, 1, 2, 1);
+
+$ac = array_count_values($array2);
+
+print_r($ac);
+
+echo "<hr/>";
+
+$array3 = array('key1' => 'value1', 'key2' => 'value2');
+// 通过一个数组创建一系列的标量变量
+// 这些变量的名称必须是数组中关键字的名称，变量时数组中的值
+
+// 它第二个参数可以看 p74
+extract($array3);
+echo "$key1 $key2";
+
+// 第三个参数时添加前缀
+extract($array3, EXTR_PREFIX_ALL, 'my_prefix');
+echo "$my_prefix_key1 $my_prefix_key2";
+
+echo "<hr/>";
+
+function my_print($value) {
+	echo "$value<br/>";
+}
+
+$array1 = array(1, 2, 3, 4);
+
+array_walk($array1, 'my_print');
+
+$value = end($array1);
+
+while ($value) {
+	echo $value . '<br/>';
+	$value = prev($array1);
+}
+
+function my_multiply(&$value, $key, $factor) {
+	$value *= $factor;
+}
+
+array_walk($array1, 'my_multiply', 3);
+
+print_r($array1);
+
+// file ()  返回的是数组
+$orders = file('./orders.txt');
+$number_of_orders = count($orders);
+
+if ($number_of_orders == 0) {
+	echo '<p>No orders';
+}
+
+for ($i = 0; $i < $number_of_orders; $i++) {
+	echo $orders[$i] . '<br/>';
+}
+
+echo "<table border=\"1\">\n";
+// explode(delimiter, string)
+for ($i = 0; $i < $number_of_orders; $i++) {
+	$line = explode("\t", $orders[$i]);
+	// print_r($line);
+	$line[1] = intval($line[1]);
+	$line[2] = intval($line[2]);
+	$line[3] = intval($line[3]);
+
+	echo "<tr>
+		<td> $line[1] </td>
+		<td> $line[2] </td>
+		<td> $line[3] </td>
+		<td> $line[4] </td>
+		<td> $line[5] </td>
+	</tr>";
+}
+echo "</table>";
+
+// array_reverse() 返回副本
+// array_push()
+// range(1,10,-1)
+
+$rev = array_reverse(range(1, 10));
+
+print_r($rev);
+
+echo "<br/>";
+
+$numbers = array();
+for ($i = 10; $i > 0; $i--) {
+	array_push($numbers, $i);
+}
+
+// array_pop() 弹出最后一个
+
+print_r($rev);
+
+echo "<hr/>";
+
+$sort1 = array('tire', 'oil', 'spark');
+
+sort($sort1);
+
+print_r($sort1);
+
+echo '<hr/>';
+
+$sort2 = array(100, 10, 1);
+
+sort($sort2);
+
+print_r($sort2);
+
+// sort 第二个参数可选，可以传递 SORT_REGULAR SORT_NUMERIC SORT_STRING
+// 当要比较可能包含数字2 和 12 的字符串的时候，数字方面看，2 小于 12，字符串方面看 '12' 小于 '2'
+
+// asort() 值排序 ksort() 健排序
+// rsort() arsort() krsort() 反向排序
+
+// usort() 第二个参数传入函数表示自定义的排序规则
+// uasort() uksort()
+
+// shuffle() 把数组随机排序 array_reverse() 给出一个原来数组相反的排序
+
+echo '<hr/>';
+
+$sort3 = array('tire' => 100, 'oil' => 10, 'spark' => 4);
+asort($sort3);
+
+print_r($sort3);
+
+ksort($sort3);
+
+echo '<hr/>';
+
+print_r($sort3);
+
+echo '<hr/>';
+
+$sort4 = array(
+	array('tir', 'tires', 100),
+	array('oil', 'oil', 10),
+	array('spk', 'spark', 4),
+);
+
+function compare($x, $y) {
+	if ($x[1] == $y[1]) {
+		return 0;
+	} else if ($x[1] < $y[1]) {
+		return -1;
+	} else {
+		return 1;
+	}
+}
+
+// 传入函数字符串
+usort($sort4, 'compare');
+
+print_r($sort4);
+
+echo '<hr/>';
+
+$pics = array('1.png', '2.png', '3.jpg', '4.jpg');
+
+shuffle($pics);
+
+print_r($pics);
+
+echo '<hr/>';
+
 $tireqty = $_POST['tireqty'];
 $oilqty = $_POST['oilqty'];
 $sparkqty = $_POST['sparkqty'];
@@ -95,7 +264,7 @@ $products4 = array(
 	),
 );
 
-for ($layer = 0; $layer < 3; $layer++) {
+for ($layer = 0; $layer < 2; $layer++) {
 	echo 'Layer $layer <br/>';
 
 	for ($row = 0; $row < 3; $row++) {
