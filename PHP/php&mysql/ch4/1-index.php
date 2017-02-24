@@ -19,10 +19,18 @@ $username = trim($_POST['username']);
 $email = trim($_POST['email']);
 $feedback = trim($_POST['feedback']);
 
+echo "<hr/>";
+
+$token = strtok($feedback, " ");
+echo $token;
+echo $feedback;
+
+echo "<hr/>";
+
 $subject = 'Feedback from web site';
 $mailContent = "Customer name: $username \n" .
 	"Customer email: $email \n" .
-	"Customer comments: \n\n$feedback. \n\n\n\n";
+	"Customer comments: \n\n$feedback. \n\n";
 
 // echo "<pre>";
 // print_r($mailContent);
@@ -31,10 +39,10 @@ $mailContent = "Customer name: $username \n" .
 // nl2br
 
 echo nl2br($mailContent);
-echo nl2br(strtoupper($mailContent));
-echo nl2br(strtolower($mailContent));
-echo nl2br(ucfirst($mailContent)); // 第一个字母就转成大写
-echo nl2br(ucwords($mailContent)); // 每个单词的第一个字符转为大写
+// echo nl2br(strtoupper($mailContent));
+// echo nl2br(strtolower($mailContent));
+// echo nl2br(ucfirst($mailContent)); // 第一个字母就转成大写
+// echo nl2br(ucwords($mailContent)); // 每个单词的第一个字符转为大写
 
 echo 'get_magic_quotes_gpc' . get_magic_quotes_gpc() . '<hr/>';
 
@@ -57,6 +65,9 @@ $message = \Swift_Message::newInstance()
 
 // $result = $mailer->send($message);
 
+// explode(分隔符，字符串），分割字符串
+
+// implode() join() 实现反向效果
 ?>
 </body>
 </html>
