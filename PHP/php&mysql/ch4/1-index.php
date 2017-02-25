@@ -19,13 +19,31 @@ $username = trim($_POST['username']);
 $email = trim($_POST['email']);
 $feedback = trim($_POST['feedback']);
 
+if (!preg_match('/^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/', $email)) {
+	echo 'Not valid email';
+} else {
+	echo 'Valid email';
+}
+
+echo "<hr/>";
+
+$arr = preg_split('/\.|@/', $email);
+
+while (list($key, $value) = each($arr)) {
+	echo "<br/>" . $value;
+}
+
 echo "<hr/>";
 
 $token = strtok($feedback, " ");
-echo $token;
-echo $feedback;
+echo $token . "<hr/>";
 
-echo "<hr/>";
+while ($token != "") {
+	// $token 相当于一个指针
+	// 这里不需要写入 $feedback 了，不然一直是第一个空格前的字符，因为重置了指针
+	$token = strtok(" ");
+	echo $token . "<hr/>";
+}
 
 $subject = 'Feedback from web site';
 $mailContent = "Customer name: $username \n" .
