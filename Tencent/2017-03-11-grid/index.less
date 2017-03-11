@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  height: 500px;
+  // grid-template-columns: ~"[first] 100px [line2] 100px [line3] auto [col4-start] 100px [five] 100px [end]";
+  grid-template-rows: ~"[row1-start] 25% [row1-end] 100px [third-line] auto [last-line]";
+  // 重复三次 100px [col-start]
+  // grid-template-columns: ~"repeat(3, 100px [col-start]) auto";
+  // 三等分
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  .item {
+    // border: 5px solid #000;
+  }
+}

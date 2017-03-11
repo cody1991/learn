@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: grid;
+  height: 500px;
+  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=index.css.map */
