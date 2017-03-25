@@ -5,7 +5,16 @@
     </div>
     <router-link to="/essentials" exact>essentials</router-link>
     <ul>
-      <router-link to="/essentials/introduction" exact>introduction</router-link>
+      <router-link to="/essentials/introduction" tag="li">introduction</router-link>
+      <router-link to="/essentials/instance" tag="li">instance</router-link>
+      <router-link to="/essentials/syntax" tag="li">syntax</router-link>
+      <router-link to="/essentials/computed" tag="li">computed</router-link>
     </ul>
   </div>
 </template>
+
+<style scoped>
+li {
+	cursor: pointer;
+}
+</style>
