@@ -9,6 +9,7 @@
       <router-link to="/essentials/instance" tag="li">instance</router-link>
       <router-link to="/essentials/syntax" tag="li">syntax</router-link>
       <router-link to="/essentials/computed" tag="li">computed</router-link>
+      <router-link to="/essentials/list" tag="li">list</router-link>
     </ul>
   </div>
 </template>
