@@ -1,5 +1,6 @@
 <template>
   <button class="ui-btn" @click="btnClickEvent">
+    <slot name="icon"></slot>
     <span>{{msg}}</span>
   </button>
 </template>
