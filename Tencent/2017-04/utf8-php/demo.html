@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script id="editor" type="text/plain"></script>
+  <script src="ueditor.config.js"></script>
+  <script src="ueditor.all.js"></script>
+  <script>
+  let ue = UE.getEditor('editor', {
+    autoHeightEnabled: true,
+    autoFloatEnabled: true,
+    toolbars: [
+      ['fullscreen', 'source', 'undo', 'redo'],
+      ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc']
+    ]
+  })
+
+  ue.ready(() => {
+    ue.setContent('hello')
+
+    let html = ue.getContent()
+    let txt = ue.getContentTxt()
+
+    console.log(html, txt)
+  })
+
+  </script>
+</body>
+
+</html>
+
