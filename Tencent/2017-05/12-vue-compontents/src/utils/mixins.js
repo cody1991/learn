@@ -17,7 +17,7 @@ const button = {
     type: {
       type: String,
       validator(value) {
-        return ['primary', 'warning', 'dashed'].indexOf(value)
+        return ['primary', 'warning', 'dashed'].indexOf(value) > -1
       }
     },
     htmlType: {
