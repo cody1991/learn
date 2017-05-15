@@ -15,6 +15,7 @@
       @focus="focusHandler"
       @blur="blurHandler"
       @keydown="keydownHandler"
+      @keyup="keyupHandler"
       @change="changeHandler"
       @input="inputHandler"
     />

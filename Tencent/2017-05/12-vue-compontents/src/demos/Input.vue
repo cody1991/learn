@@ -8,7 +8,7 @@
     <x-body slot="body">
       <div class="input-demo demos">
         <div class="fieldset">
-          <x-input/>
+          <x-input :value="account" placeholder="请输入账号" @on-change="accountChangeHandler"/>
         </div>
       </div>
     </x-body>
@@ -41,6 +41,9 @@ export default {
   methods: {
     btnClick(e) {
       console.log(e)
+    },
+    accountChangeHandler(value){
+      this.account = value
     }
   }
 }
