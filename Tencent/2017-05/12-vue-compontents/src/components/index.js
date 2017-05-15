@@ -5,11 +5,13 @@ import Layout from './layout'
 import XBody from './body'
 import XLink from './link'
 import XButton from './button'
+import XInput from './input'
 
 export {
   XHeader,
   Layout,
   XBody,
   XLink,
-  XButton
+  XButton,
+  XInput
 }
