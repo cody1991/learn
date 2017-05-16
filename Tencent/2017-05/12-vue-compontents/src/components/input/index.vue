@@ -93,7 +93,7 @@ export default {
         height:100%;
         box-sizing:border-box;
         outline: none;
-        text-align: inherit;
+        text-align: left;
         font-size: inherit;
         padding-left: 0.8rem;
         vertical-align: middle;
@@ -127,7 +127,7 @@ export default {
         display: block;
       }
       input{
-        padding-left:40px;
+        padding-right:40px;
       }
   }
 }

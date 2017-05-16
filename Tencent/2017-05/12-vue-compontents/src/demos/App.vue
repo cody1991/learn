@@ -7,9 +7,9 @@
     </x-header>
     <x-body class="demos" slot="body" style="background:#fff">
       <div class="demos-actions">
-        <x-link href="/button">XButton</x-link>
-        <x-link href="/input">XInput</x-link>
-        <x-link href="/input">Password</x-link>
+        <x-link href="/button">XButton (完成)</x-link>
+        <x-link href="/input">XInput (完成)</x-link>
+        <x-link href="/input">Password (完成)</x-link>
         <x-link href="/textarea">XTextarea</x-link>
         <x-link href="/select">XSelect</x-link>
         <x-link href="/switch">XSwitch</x-link>

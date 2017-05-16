@@ -9,6 +9,10 @@
       <div class="input-demo demos">
         <div class="fieldset">
           <x-input :value="account" placeholder="请输入账号" @on-change="accountChangeHandler"/>
+          <password placeholder="请输入密码" :value="password" @on-change="passwordChangeHandler"/>
+        </div>
+        <div style="padding:0 15px;margin-top: 20px;">
+          <x-button class="btn-login" type="primary">立即登陆</x-button>
         </div>
       </div>
     </x-body>
@@ -20,7 +24,8 @@ import {
   Layout,
   XBody,
   XButton,
-  XInput
+  XInput,
+  Password
 } from '@/components'
 
 import 'normalize.css'
@@ -30,7 +35,8 @@ export default {
     Layout,
     XBody,
     XButton,
-    XInput
+    XInput,
+    Password
   },
   data() {
     return {
@@ -44,6 +50,9 @@ export default {
     },
     accountChangeHandler(value){
       this.account = value
+    },
+    passwordChangeHandler(value){
+      this.password = value
     }
   }
 }

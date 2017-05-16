@@ -6,6 +6,7 @@ import XBody from './body'
 import XLink from './link'
 import XButton from './button'
 import XInput from './input'
+import Password from './password'
 
 export {
   XHeader,
@@ -13,5 +14,6 @@ export {
   XBody,
   XLink,
   XButton,
-  XInput
+  XInput,
+  Password
 }

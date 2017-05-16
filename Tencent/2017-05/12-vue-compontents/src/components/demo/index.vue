@@ -1,7 +1,6 @@
 <template>
   <div :class="_clas" :style="styl">
-    <div :class="[cssPrefix + 'layout-flexbox']">
-    </div>
+
   </div>
 </template>
 <script>
