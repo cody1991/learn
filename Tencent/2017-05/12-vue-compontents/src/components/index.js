@@ -7,6 +7,7 @@ import XLink from './link'
 import XButton from './button'
 import XInput from './input'
 import Password from './password'
+import XTextarea from './textarea/'
 
 export {
   XHeader,
@@ -15,5 +16,6 @@ export {
   XLink,
   XButton,
   XInput,
-  Password
+  Password,
+  XTextarea
 }

@@ -1,7 +1,8 @@
 import {
   App,
   Button,
-  Input
+  Input,
+  Textarea
 } from '@/demos'
 
 export default [{
@@ -16,4 +17,8 @@ export default [{
   path: '/input',
   name: 'Input',
   component: Input
+}, {
+  path: '/textarea',
+  name: 'Textarea',
+  component: Textarea
 }]

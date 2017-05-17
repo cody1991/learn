@@ -10,7 +10,7 @@
         <x-link href="/button">XButton (完成)</x-link>
         <x-link href="/input">XInput (完成)</x-link>
         <x-link href="/input">Password (完成)</x-link>
-        <x-link href="/textarea">XTextarea</x-link>
+        <x-link href="/textarea">XTextarea (完成)</x-link>
         <x-link href="/select">XSelect</x-link>
         <x-link href="/switch">XSwitch</x-link>
         <x-link href="/radio">Radio</x-link>
@@ -75,5 +75,15 @@ export default {
   }
 }
 
+.input-demo {
+  padding-top: 20px;
+}
+
+body{
+  padding:0;
+  margin:0;
+  background:#f7f7f7;
+  overflow:hidden;
+}
 </style>
 
