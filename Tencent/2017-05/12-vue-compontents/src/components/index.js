@@ -7,7 +7,8 @@ import XLink from './link'
 import XButton from './button'
 import XInput from './input'
 import Password from './password'
-import XTextarea from './textarea/'
+import XTextarea from './textarea'
+import Group from './group'
 
 export {
   XHeader,
@@ -17,5 +18,6 @@ export {
   XButton,
   XInput,
   Password,
-  XTextarea
+  XTextarea,
+  Group
 }

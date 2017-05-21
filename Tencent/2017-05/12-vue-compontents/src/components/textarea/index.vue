@@ -115,7 +115,7 @@ export default {
     left:0;
     top:0;
     min-height:2.6rem;
-    word-break:break-all;
+    // word-break:break-all;
     opacity: 0;
     z-index:-1;
   }

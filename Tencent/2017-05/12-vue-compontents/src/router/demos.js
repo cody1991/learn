@@ -2,7 +2,8 @@ import {
   App,
   Button,
   Input,
-  Textarea
+  Textarea,
+  Select
 } from '@/demos'
 
 export default [{
@@ -21,4 +22,8 @@ export default [{
   path: '/textarea',
   name: 'Textarea',
   component: Textarea
+}, {
+  path: '/select',
+  name: 'Select',
+  component: Select
 }]
