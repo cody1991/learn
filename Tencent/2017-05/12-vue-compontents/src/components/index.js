@@ -9,6 +9,9 @@ import XInput from './input'
 import Password from './password'
 import XTextarea from './textarea'
 import Group from './group'
+import Cell from './cell'
+import XSelect from './select'
+import Overlay from './overlay'
 
 export {
   XHeader,
@@ -19,5 +22,8 @@ export {
   XInput,
   Password,
   XTextarea,
-  Group
+  Group,
+  Cell,
+  XSelect,
+  Overlay
 }
