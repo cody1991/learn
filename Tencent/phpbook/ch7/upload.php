@@ -62,7 +62,11 @@ $contents = strip_tags($contents);
 
 echo $_FILES['userfile']['name'];
 
-file_put_contents($_FILES['userfile']['name'], $contents);
+// file_put_contents($_FILES['userfile']['name'], $contents);
+file_put_contents($upfile, $contents);
+
+echo basename($upfile);
+echo dirname($upfile);
 
 echo '<p>Preview of uploaded file contents:<br/><hr/></p>';
 echo nl2br($contents);
