@@ -1,0 +1,65 @@
+{% extends 'first/base.html' %}
+
+{% block title %} 首页 {% endblock %}
+
+{% block content %} 
+首页 {{string}}
+
+<ul>
+{% for i in TutorialList %}
+<li>
+{{i}}	
+</li>
+{% endfor %}
+</ul>
+
+{{info_dict.site}} {{info_dict.content}}
+
+{{info_dict.items}}
+
+{% for key,value in info_dict.items %}
+	{{key}}:{{value}}
+{%endfor %}
+
+{% for item in List%}
+	{{item}} {% if not forloop.last %},{%endif %}
+{% endfor %}
+
+{% url 'add2' 3 4 as the_url%}
+
+<a href="{{the_url}}">{{the_url}}</a>
+
+<hr>
+
+{% if var >= 90 %}
+bigger 90%
+{% elif var >= 80%}
+bigger 80%
+{%else%}
+smaller 80%
+{% endif%}
+
+{% if var <= 100 and var >= 0 %}
+	在范围
+{% else %}
+	不在范围
+{% endif %}
+
+{% if '7' in List %}
+7在List
+{%else%}
+7不在List
+{%endif%}
+
+<br>
+
+{{request.user.is_authenticated}}
+<br>
+{{request.user.username}}
+<br>
+{{request.path}}
+<br>
+{{request.GET.urlencode}}
+
+<a href="{{request.path}}?{{request.GET.urlencode}}&delete=1">delete</a>
+{% endblock %}
