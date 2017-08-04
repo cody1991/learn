@@ -12,147 +12,52 @@
         </div>
     </header>
     <div class="entry-content clearfix">
-        {{post.body}}
+        {{post.body | safe}}
     </div>
 </article>
 <section class="comment-area" id="comment-area">
     <hr>
     <h3>发表评论</h3>
-    <form action="#" method="post" class="comment-form">
+    <form action="{% url 'comments:post_comment' post.pk %}" method="POST" class="comment-form">
+        {% csrf_token %}
         <div class="row">
             <div class="col-md-4">
-                <label for="id_name">名字：</label>
-                <input type="text" id="id_name" name="name" required>
+                <label for="{{form.name.id_for_label}}">名字：</label>
+                {{ form.name }} {{ form.name.errors }}
             </div>
             <div class="col-md-4">
-                <label for="id_email">邮箱：</label>
-                <input type="email" id="id_email" name="email" required>
+                <label for="{{form.email.id_for_label}}">邮箱：</label>
+                {{ form.email }} {{ form.email.errors }}
             </div>
             <div class="col-md-4">
-                <label for="id_url">网址：</label>
-                <input type="text" id="id_url" name="url">
+                <label for="{{form.url.id_for_label}}">网址：</label>
+                {{ form.url }} {{ form.url.errors }}
             </div>
             <div class="col-md-12">
-                <label for="id_comment">评论：</label>
-                <textarea name="comment" id="id_comment" required></textarea>
-                <button type="submit" class="comment-btn">发表</button>
+                <label for="{{form.text.id_for_label}}">评论：</label>
+                {{ form.text }} {{ form.text.errors }}
+                <button type="submit" class="comment-btn">发表评论</button>
             </div>
+            <!-- {{ form.name }}、{{ form.email }}、{{ form.url }} 等将自动渲染成表单控件，例如 <input> 控件。 -->
+            <!-- {{ form.name.errors }}、{{ form.email.errors }} 等将渲染表单对应字段的错误（如果有的话），例如用户 email 格式填错了，那么 Django 会检查用户提交的 email 的格式，然后将格式错误信息保存到 errors 中，模板便将错误信息渲染显示。 -->
         </div>
         <!-- row -->
     </form>
     <div class="comment-list-panel">
-        <h3>评论列表，共 <span>4</span> 条评论</h3>
+        <h3>评论列表，共 <span>{{comment_list | length}}</span> 条评论</h3>
         <ul class="comment-list list-unstyled">
+            {% for comment in comment_list %}                
             <li class="comment-item">
-                <span class="nickname">追梦人物</span>
-                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">2017年3月12日 14:56</time>
+                <span class="nickname">{{comment.name}}</span>
+                <time class="submit-date" datetime="{{comment.created_time}}">2017年3月12日 14:56</time>
                 <div class="text">
-                    文章观点又有道理又符合人性，这才是真正为了表达观点而写，不是为了迎合某某知名人士粉丝而写。我觉得如果琼瑶是前妻，生了三孩子后被一不知名的女人挖了墙角，我不信谁会说那个女人是追求真爱，说同情琼瑶骂小三的女人都是弱者。
+                    {{comment.text}}
                 </div>
             </li>
-            <li class="comment-item">
-                <span class="nickname">zmrenwu</span>
-                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">2017年3月11日 23:56</time>
-                <div class="text">
-                    本能有可能会冲破格局，但格局有时候也会拘住本能。
-                </div>
-            </li>
-            <li class="comment-item">
-                <span class="nickname">蝙蝠侠</span>
-                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">2017年3月9日 8:56</time>
-                <div class="text">
-                    其实真理一般是属于沉默的大多数的。那些偏激的观点只能吸引那些同样偏激的人。前几年琼瑶告于妈抄袭，大家都表示大快人心，说明吃瓜观众都只是就事论事，并不是对琼瑶有偏见。
-                </div>
-            </li>
-            <li class="comment-item">
-                <span class="nickname">长江七号</span>
-                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">2017年2月12日 12:56</time>
-                <div class="text">
-                    观点我很喜欢！就是哎嘛本来一清二楚的，来个小三小四乱七八糟一团乱麻夹缠不清，简直麻烦要死
-                </div>
-            </li>
+            {% empty %}
+            暂无评论
+            {% endfor %}
         </ul>
     </div>
 </section>
-{% endblock main%} {% block toc %}
-<div class="widget widget-recent-posts">
-    <h3 class="widget-title">最新文章</h3>
-    <ul>
-        <li>
-            <a href="#">Django 博客开发入门教程：前言</a>
-        </li>
-        <li>
-            <a href="#">Django 博客使用 Markdown 自动生成文章目录</a>
-        </li>
-        <li>
-            <a href="#">部署 Django 博客</a>
-        </li>
-    </ul>
-</div>
-<div class="widget widget-archives">
-    <h3 class="widget-title">归档</h3>
-    <ul>
-        <li>
-            <a href="#">2017 年 5 月</a>
-        </li>
-        <li>
-            <a href="#">2017 年 4 月</a>
-        </li>
-        <li>
-            <a href="#">2017 年 3 月</a>
-        </li>
-    </ul>
-</div>
-<div class="widget widget-category">
-    <h3 class="widget-title">分类</h3>
-    <ul>
-        <li>
-            <a href="#">Django 博客教程 <span class="post-count">(13)</span></a>
-        </li>
-        <li>
-            <a href="#">Python 教程 <span class="post-count">(11)</span></a>
-        </li>
-        <li>
-            <a href="#">Django 用户认证 <span class="post-count">(8)</span></a>
-        </li>
-    </ul>
-</div>
-<div class="widget widget-tag-cloud">
-    <h3 class="widget-title">标签云</h3>
-    <ul>
-        <li>
-            <a href="#">Django</a>
-        </li>
-        <li>
-            <a href="#">Python</a>
-        </li>
-        <li>
-            <a href="#">Java</a>
-        </li>
-        <li>
-            <a href="#">笔记</a>
-        </li>
-        <li>
-            <a href="#">文档</a>
-        </li>
-        <li>
-            <a href="#">AngularJS</a>
-        </li>
-        <li>
-            <a href="#">CSS</a>
-        </li>
-        <li>
-            <a href="#">JavaScript</a>
-        </li>
-        <li>
-            <a href="#">Snippet</a>
-        </li>
-        <li>
-            <a href="#">jQuery</a>
-        </li>
-    </ul>
-</div>
-<div class="rss">
-    <a href=""><span class="ion-social-rss-outline"></span> RSS 订阅</a>
-</div>
-{% endblock toc %}
+{% endblock main%}
